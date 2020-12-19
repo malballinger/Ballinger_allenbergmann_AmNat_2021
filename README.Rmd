@@ -1,0 +1,26 @@
+---
+title: "Environmental and genetic contributions to eco-geographic rules in house mice"
+author: "Mallory A. Ballinger"
+date: "12/19/2020"
+output:
+  github_document:
+    html_preview: false
+---
+
+Using metadata from museums, colony data from the Nachman lab, and morphological data generated from a common garden experiment, we examine the environmental and genetic contributions of Bergmann's Rule and Allen's Rule in temperate and tropical populations of house mice.
+
+```{r libraries, message=FALSE, echo=FALSE}
+library(tidyverse)
+library(rmarkdown)
+```
+
+### Dependencies:  
+* `r R.version.string`  
+  * `tidyverse` (v. `r packageVersion("tidyverse")`)  
+  * `rmarkdown` (v. `r packageVersion("rmarkdown")`)
+
+
+### My computer
+```{r sessionInfo, echo=FALSE}
+sessionInfo()
+```

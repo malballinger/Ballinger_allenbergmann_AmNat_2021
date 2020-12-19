@@ -8,8 +8,8 @@ Using metadata from museums, colony data from the Nachman lab, and morphological
 ### Dependencies:
 
 -   R version 4.0.3 (2020-10-10)
--   `tidyverse` (v. 1.3.0)
--   `rmarkdown` (v. 2.5)
+    -   `tidyverse` (v. 1.3.0)
+    -   `rmarkdown` (v. 2.5)
 
 ### My computer
 

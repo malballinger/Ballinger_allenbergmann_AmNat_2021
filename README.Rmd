@@ -16,8 +16,8 @@ library(rmarkdown)
 
 ### Dependencies:  
 * `r R.version.string`  
-  * `tidyverse` (v. `r packageVersion("tidyverse")`)  
-  * `rmarkdown` (v. `r packageVersion("rmarkdown")`)
+    * `tidyverse` (v. `r packageVersion("tidyverse")`)  
+    * `rmarkdown` (v. `r packageVersion("rmarkdown")`)
 
 
 ### My computer

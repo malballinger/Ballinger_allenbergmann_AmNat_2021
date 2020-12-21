@@ -12,12 +12,14 @@ Using metadata from museums, colony data from the Nachman lab, and morphological
 ```{r libraries, message=FALSE, echo=FALSE}
 library(tidyverse)
 library(rmarkdown)
+library(here)
 ```
 
 ### Dependencies:  
 * `r R.version.string`  
     * `tidyverse` (v. `r packageVersion("tidyverse")`)  
-    * `rmarkdown` (v. `r packageVersion("rmarkdown")`)
+    * `rmarkdown` (v. `r packageVersion("rmarkdown")`)  
+    * `here` (v. `r packageVersion("here")`)
 
 
 ### My computer

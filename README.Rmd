@@ -6,8 +6,28 @@ output:
   github_document:
     html_preview: false
 ---
-
+[Abstract goes here]
 Using metadata from museums, colony data from the Nachman lab, and morphological data generated from a common garden experiment, we examine the environmental and genetic contributions of Bergmann's Rule and Allen's Rule in temperate and tropical populations of house mice.
+
+
+Overview
+```{r overview, message=FALSE, echo=FALSE}
+Ballinger_allengbergmann_XXXX_2021
+	|
+  |- README          # the top level description of content (this doc)
+	|
+  |- submission/     # manuscript(s), whether generated or not
+  |
+  |- data            # raw and primary data, are not changed once created
+  |  |- raw/         # raw data, will not be altered
+  |  +- process/     # cleaned data, will not be altered once created;
+  |                  # will be committed to repo
+  |
+  |- code/           # any programmatic code
+  |- results         # all output from workflows and analyses
+  |  |- tables/      # text version of tables to be rendered with kable in R
+  |  |- figures/     # graphs, likely designated for manuscript figures
+```
 
 ```{r libraries, message=FALSE, echo=FALSE}
 library(tidyverse)

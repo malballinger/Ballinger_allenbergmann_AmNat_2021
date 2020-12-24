@@ -82,18 +82,104 @@ TailLength <-
         #legend.key = element_rect(fill = "transparent"),
         plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
   labs(x = "Age (weeks)", y = "Tail Length (mm)")
-
+TailLength
 plot_grid(BodyWeight, TailLength, labels = c('A', 'B'), ncol = 2, nrow = 2)
 
 
 #### Load PostDissection datasheet ####
 # Read in data
-PDMetaData <- read_csv(here("data/raw/PostDissection.csv")) %>%
-  select(Population, Generation, Line, Mouse_ID, Sex, Environment, BodyWeight_g, WeaningBodyWeight_g, WeaningTailLength_mm, StartExpBodyWeight_g, StartExpTailLength_mm, FinalTailLength_mm) %>%
-  filter(Population == "BRAZIL" | Population == "NEW_YORK") %>%
-  mutate(Sex = fct_recode(Sex, "Females" = "F", "Males" = "M")) %>% # spells out males and females
-  mutate(Environment = fct_relevel(Environment,
-                                   "RT", "COLD" )) # puts RT before COLD
+Development <- WeeklyMetaData %>%
+  filter(Age_category == "weaning" | Age_category == "endexp") %>%
+  mutate(PopEnv = paste(Population, Environment)) %>%
+  mutate(PopEnv = fct_relevel(PopEnv, "BRAZIL RT", "BRAZIL COLD", "NEW_YORK RT", "NEW_YORK COLD")) %>%
+  mutate(Age_category = fct_relevel(Age_category, "weaning", "endexp" )) # puts weaning before adult
 
-# Clean data of any weird spaces, etc.
-PDMetaData[] <- lapply(PDMetaData, function(x) if(is.factor(x)) factor(x) else x)
+WeaningBW <-
+  ggplot(data=Development, aes(x = Age_category, y = BodyWeight_g, fill = Population)) +
+  geom_boxplot(position = position_dodge(width=0.05), alpha=0.65, outlier.shape = NA) +
+  geom_dotplot(binaxis='y', stackdir = 'center', position = position_dodge(0.1)) +
+  #geom_jitter(position = position_dodge(0.8), alpha=2, size=3, shape=21) +
+  stat_summary(
+    fun = median,
+    geom = 'line',
+    aes(group = PopEnv, colour = Population, linetype=Environment),
+    position = "identity", size=1.5, alpha=0.8) +
+  scale_color_manual(values=c("goldenrod1","dodgerblue4")) +
+  scale_fill_manual(values=c("goldenrod1","dodgerblue4")) +
+  facet_wrap(.~Sex) +
+  theme_bw() + 
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
+        axis.text.x = element_text(size = 15, face = "bold", color = "black"),
+        axis.text.y = element_text(size = 12, face = "bold", color = "black")) +
+  theme(strip.text = element_text(size = 10, face = "bold", color = "black")) +
+  scale_x_discrete(labels=c("Weaning", "Adult")) +
+  theme(legend.title = element_blank(),
+        legend.position="bottom", legend.box = "horizontal",
+        legend.key.size = unit(1, "cm"),
+        legend.text = element_text(size=5),
+        legend.key = element_rect(fill = "transparent")) +
+  theme(plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
+  labs(x = "Age", y = "Body Weight (g)")
+WeaningBW
+
+WeaningTL <-
+  ggplot(data=Development, aes(x = Age_category, y = TailLength_mm, fill = PopEnv)) +
+  geom_boxplot(position = position_dodge(width=0.05), alpha=0.65, outlier.shape = NA) +
+  geom_dotplot(binaxis='y', stackdir = 'center', position = position_dodge(0.1)) +
+  #geom_jitter(position = position_dodge(0.8), alpha=2, size=3, shape=21) +
+  stat_summary(
+    fun = median,
+    geom = 'line',
+    aes(group = PopEnv, colour = PopEnv, linetype=Environment),
+    position = "identity", size=1.5, alpha=0.8) +
+  scale_color_manual(values=c("goldenrod4","goldenrod1", "dodgerblue4", "dodgerblue1")) +
+  scale_fill_manual(values=c("goldenrod4","goldenrod1", "dodgerblue4", "dodgerblue1")) +
+  facet_wrap(.~Sex) +
+  theme_bw() + 
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
+        axis.text.x = element_text(size = 15, face = "bold", color = "black"),
+        axis.text.y = element_text(size = 12, face = "bold", color = "black")) +
+  theme(strip.text = element_text(size = 10, face = "bold", color = "black")) +
+  scale_x_discrete(labels=c("Weaning", "Adult")) +
+  theme(legend.title = element_blank(),
+        legend.position="bottom", legend.box = "horizontal",
+        legend.key.size = unit(1, "cm"),
+        legend.text = element_text(size=5),
+        legend.key = element_rect(fill = "transparent")) +
+  theme(plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
+  labs(x = "Age", y = "Tail Length (mm)")
+WeaningTL
+
+WeaningTL2 <-
+  ggplot(data=Development, aes(x = Age_category, y = TailLength_mm, fill = Population)) +
+  geom_boxplot(position = position_dodge(width=0.05), alpha=0.65, outlier.shape = NA) +
+  geom_dotplot(binaxis='y', stackdir = 'center', position = position_dodge(0.1)) +
+  #geom_jitter(position = position_dodge(0.8), alpha=2, size=3, shape=21) +
+  stat_summary(
+    fun = median,
+    geom = 'line',
+    aes(group = PopEnv, colour = Population, linetype=Environment),
+    position = "identity", size=1.5, alpha=0.8) +
+  scale_color_manual(values=c("goldenrod4","goldenrod1", "dodgerblue4", "dodgerblue1")) +
+  scale_fill_manual(values=c("goldenrod4","goldenrod1", "dodgerblue4", "dodgerblue1")) +
+  facet_wrap(.~Sex) +
+  theme_bw() + 
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
+        axis.text.x = element_text(size = 15, face = "bold", color = "black"),
+        axis.text.y = element_text(size = 12, face = "bold", color = "black")) +
+  theme(strip.text = element_text(size = 10, face = "bold", color = "black")) +
+  scale_x_discrete(labels=c("Weaning", "Adult")) +
+  theme(legend.title = element_blank(),
+        legend.position="bottom", legend.box = "horizontal",
+        legend.key.size = unit(1, "cm"),
+        legend.text = element_text(size=5),
+        legend.key = element_rect(fill = "transparent")) +
+  theme(plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
+  labs(x = "Age", y = "Tail Length (mm)")
+WeaningTL2

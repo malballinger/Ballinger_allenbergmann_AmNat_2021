@@ -1,0 +1,45 @@
+---
+title: "VertNet metadata"
+author: "Mallory A. Ballinger"
+date: "01/05/2021"
+output:
+  github_document:
+    html_preview: false
+editor_options:
+  chunk_output_type: console
+---
+```{r libraries_and_data, message=FALSE}
+rm(list = ls())
+library(tidyverse)
+library(here)
+library(cowplot)
+
+# Read in data
+VertNetMetaData <- read_csv(here("data/processed/VertNet_Mus_processed.csv"), 
+                            col_types = cols(.default = col_character())) %>%
+  select(references, dynamicproperties, totallength_mm, taillength_mm, hindfootlength_mm, 
+         earlength_mm, bodyweight_g, sex, lifestage, reproductivecondition, continent, country, 
+         stateprovince, decimallatitude, decimallongitude) %>%
+  filter(continent == "North America" | continent == "South America") %>%
+  filter(is.na(lifestage) | lifestage != "subadult") %>%
+  filter(is.na(reproductivecondition) | reproductivecondition != "preg") %>%
+  filter(sex == "female" | sex == "male")
+  #mutate(Sex = fct_recode(Sex, "Females" = "F", "Males" = "M")) %>% # spells out males and females
+  #mutate(Line = fct_recode(Line, "MANA" = "193x255", "SARA" = "19x13","MANB" = "222x254", "SARB" = "82x81")) %>%
+  #mutate(Line = fct_relevel(Line, "MANA", "MANB", "SARA", "SARB")) %>%
+  #mutate(Environment = fct_relevel(Environment,"RT", "COLD" )) %>% # puts RT before COLD
+  #mutate(Sex = fct_relevel(Sex, "Males", "Females")) # puts males before females
+  
+# Clean data of any weird spaces, etc.
+VertNetMetaData[] <- lapply(VertNetMetaData, function(x) if(is.factor(x)) factor(x) else x)
+
+
+
+```
+
+
+```{r BergmannsRule, message=FALSE, echo=FALSE}
+
+
+
+```

@@ -1,0 +1,104 @@
+---
+title: "Line-specific weekly phenotypes"
+author: "Mallory A. Ballinger"
+date: "12/29/2020"
+output: 
+  github_document:
+    html_preview: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r libraries_and_data, message=FALSE}
+rm(list = ls())
+library(tidyverse)
+library(here)
+library(cowplot)
+
+
+# Read in data
+WeeklyMetaData <- read_csv(here("data/raw/WeeklyMetaData.csv")) %>%
+  select(-DOB, -DateMeasured) %>%
+  filter(Population == "BRAZIL" | Population == "NEW_YORK") %>%
+  #filter(Age_weeks > 3) %>%  #NY lines sometimes were weaned & measured slightly before 3 weeks
+  filter(Age_weeks < 12) %>%
+  mutate(Sex = fct_recode(Sex, "Females" = "F", "Males" = "M")) %>% # spells out males and females
+  mutate(Line = fct_recode(Line, "MANA" = "193x255", "SARA" = "19x13",
+                           "MANB" = "222x254", "SARB" = "82x81")) %>%
+  mutate(Line = fct_relevel(Line, "MANA", "MANB", "SARA", "SARB")) %>%
+  mutate(Environment = fct_relevel(Environment,
+                                   "RT", "COLD" )) %>% # puts RT before COLD
+  mutate(Sex = fct_relevel(Sex, "Males", "Females")) # puts males before females
+  
+# Clean data of any weird spaces, etc.
+WeeklyMetaData[] <- lapply(WeeklyMetaData, function(x) if(is.factor(x)) factor(x) else x)
+
+```
+
+All things body weight and body size: evolved differences (RT)
+```{r evolved_bodysize, message=FALSE, echo=FALSE}
+RTWeeklyData <- WeeklyMetaData %>%
+  filter(Environment == "RT")
+
+BodyWeight <-
+  ggplot(data=RTWeeklyData, aes(x=Age_weeks, y=BodyWeight_g, color=Line)) +
+  geom_smooth(aes(color=Line), size=1, method="loess", show.legend = F) + #std error
+  geom_point(position = position_dodge(0.1), size=1.5, alpha=0.5) +
+  #scale_color_manual(values=c("goldenrod1","dodgerblue4")) +
+  #coord_cartesian(xlim = c(3,12), ylim = c(3,25)) +
+  scale_x_continuous() +
+  facet_wrap(facets = "Sex",
+             #strip.position = "top",
+             scales = "fixed") +
+             #labeller=labeller(Sex = sex_labels)) +
+  theme_half_open(12) +
+  panel_border() +
+  theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
+        axis.text.x = element_text(size = 12, face = "bold", color = "black"),
+        axis.text.y = element_text(size = 12, face = "bold", color = "black"),
+        legend.title = element_blank(),
+        legend.position = "none",
+        #legend.key.size = unit(1.5, "cm"),
+        #legend.text = element_text(size=15),
+        #legend.key = element_rect(fill = "transparent"),
+        plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
+  labs(x = "Age (weeks)", y = "Body Weight (g)")
+BodyWeight
+
+
+TailLength <-
+  ggplot(data=RTWeeklyData, aes(x=Age_weeks, y=TailLength_mm, color=Line)) +
+  geom_smooth(aes(linetype=Environment, color=Line), size=1, method="loess", show.legend = F) + #std error
+  geom_point(position = position_dodge(0.1), size=1.5, alpha=0.5) +
+  #scale_color_manual(values=c("goldenrod1","dodgerblue4")) +
+  coord_cartesian(xlim = c(3,12), ylim = c(35,90)) +
+  facet_wrap(facets = "Sex",
+             #strip.position = "top",
+             scales = "fixed") +
+             #labeller=labeller(Sex = sex_labels)) +
+  theme_half_open(12) +
+  panel_border() +
+  theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        axis.title.x = element_text(margin = margin(t = 10), size = 15, face = "bold"),
+        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
+        axis.text.x = element_text(size = 12, face = "bold", color = "black"),
+        axis.text.y = element_text(size = 12, face = "bold", color = "black"),
+        legend.title = element_blank(),
+        legend.key = element_rect(),
+        legend.position = "bottom",
+        legend.key.size = unit(1, "cm"),
+        legend.text = element_text(size=12),
+        #legend.key = element_rect(fill = NA, color = NA),
+        plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
+  labs(x = "Age (weeks)", y = "Tail Length (mm)", fill = "Line")
+TailLength
+
+plot_grid(BodyWeight, TailLength, labels = c('A', 'B'), ncol = 1, nrow = 2)
+```
+Plot reaction norms of BW and TL at weaning/3.5 weeks and end of experiment/11 weeks
+ - These plots will be combined with the weekly plots - data from PD sheet
+
+
+Plot all lines by sex

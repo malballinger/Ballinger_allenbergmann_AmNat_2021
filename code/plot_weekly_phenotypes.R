@@ -24,20 +24,15 @@ WeeklyMetaData <- read_csv(here("data/raw/WeeklyMetaData.csv")) %>%
   filter(Age_weeks < 12) %>%
   mutate(Sex = fct_recode(Sex, "Females" = "F", "Males" = "M")) %>% # spells out males and females
   mutate(Environment = fct_relevel(Environment,
-                                   "RT", "COLD" )) # puts RT before COLD
-
+                                   "RT", "COLD" )) %>% # puts RT before COLD
+  mutate(Sex = fct_relevel(Sex, "Males", "Females")) # puts males before females
+  
 # Clean data of any weird spaces, etc.
 WeeklyMetaData[] <- lapply(WeeklyMetaData, function(x) if(is.factor(x)) factor(x) else x)
 
 
-#### Plot reaction norms of BW and TL at weaning/3.5 weeks and end of experiment/11 weeks ####
-# These plots will be combined with the weekly plots - data from PD sheet
-
-
-#### Plot all lines by sex ####
-# Males only
-# MaleData <- WeeklyMetaData %>%
-#   filter(Sex =="M")
+#sex_labels <- c("Females", "Males")
+#names(sex_labels) <- c("F", "M")
 
 BodyWeight <-
   ggplot(data=WeeklyMetaData, aes(x=Age_weeks, y= BodyWeight_g, color=Population)) +
@@ -45,7 +40,10 @@ BodyWeight <-
   geom_point(position = position_dodge(0.1), size=1.5, alpha=0.5) +
   scale_color_manual(values=c("goldenrod1","dodgerblue4")) +
   coord_cartesian(xlim = c(3,12), ylim = c(3,25)) +
-  facet_grid(. ~ Sex) +
+  facet_wrap(facets = "Sex",
+             #strip.position = "top",
+             scales = "fixed") +
+             #labeller=labeller(Sex = sex_labels)) +
   theme_half_open(12) +
   panel_border() +
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
@@ -60,6 +58,7 @@ BodyWeight <-
         #legend.key = element_rect(fill = "transparent"),
         plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
   labs(x = "Age (weeks)", y = "Body Weight (g)")
+BodyWeight
 
 TailLength <-
   ggplot(data=WeeklyMetaData, aes(x=Age_weeks, y=TailLength_mm, color=Population)) +

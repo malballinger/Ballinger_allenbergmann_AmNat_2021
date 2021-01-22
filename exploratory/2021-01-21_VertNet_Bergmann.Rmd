@@ -279,3 +279,5 @@ stargazer(BergM4, BergM5, BergM7, BergM8,
           model.numbers = FALSE,
           header = FALSE)
 ```
+
+And here are the tables to see?: Table 1 `r "tab1"`, Table 2 `r "tab2"`, and Table 3 `r "tab3"`.

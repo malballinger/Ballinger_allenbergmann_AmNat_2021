@@ -387,3 +387,5 @@ stargazer(BergM4, BergM5, BergM7, BergM8,
     ## \textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
     ## \end{tabular} 
     ## \end{table}
+
+And here are the tables to see?: Table 1 tab1, Table 2 tab2, and Table 3 tab3.

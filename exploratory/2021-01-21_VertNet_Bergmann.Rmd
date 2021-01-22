@@ -261,7 +261,8 @@ stargazer(BergM1, BergM2,
           table.placement = "H",
           column.labels = c("M1", "M2"),
           model.numbers = FALSE,
-          header = FALSE)
+          header = FALSE,
+          type = "html")
 
 stargazer(BergM3, BergM6,
           title = "Body weight regression table - all data vs. adult-only data, with sex",

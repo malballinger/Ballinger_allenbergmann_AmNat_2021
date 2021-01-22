@@ -269,38 +269,29 @@ stargazer(BergM1, BergM2,
           table.placement = "H",
           column.labels = c("M1", "M2"),
           model.numbers = FALSE,
-          header = FALSE)
+          header = FALSE,
+          type = "html")
 ```
 
     ## 
-    ## \begin{table}[H] \centering 
-    ##   \caption{Body weight regression table - all data vs. adult-only data} 
-    ##   \label{tab1} 
-    ## \begin{tabular}{@{\extracolsep{5pt}}lcc} 
-    ## \\[-1.8ex]\hline 
-    ## \hline \\[-1.8ex] 
-    ##  & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
-    ## \cline{2-3} 
-    ## \\[-1.8ex] & \multicolumn{2}{c}{bodyweight\_g} \\ 
-    ##  & M1 & M2 \\ 
-    ## \hline \\[-1.8ex] 
-    ##  abslat & 0.031$^{***}$ & 0.080$^{***}$ \\ 
-    ##   & (0.009) & (0.010) \\ 
-    ##   & & \\ 
-    ##  Constant & 14.617$^{***}$ & 13.409$^{***}$ \\ 
-    ##   & (0.330) & (0.355) \\ 
-    ##   & & \\ 
-    ## \hline \\[-1.8ex] 
-    ## Observations & 1,943 & 754 \\ 
-    ## R$^{2}$ & 0.006 & 0.078 \\ 
-    ## Adjusted R$^{2}$ & 0.006 & 0.076 \\ 
-    ## Residual Std. Error & 4.330 (df = 1941) & 3.439 (df = 752) \\ 
-    ## F Statistic & 12.055$^{***}$ (df = 1; 1941) & 63.302$^{***}$ (df = 1; 752) \\ 
-    ## \hline 
-    ## \hline \\[-1.8ex] 
-    ## \textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-    ## \end{tabular} 
-    ## \end{table}
+    ## <table style="text-align:center"><caption><strong>Body weight regression table - all data vs. adult-only data</strong></caption>
+    ## <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+    ## <tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+    ## <tr><td style="text-align:left"></td><td colspan="2">bodyweight_g</td></tr>
+    ## <tr><td style="text-align:left"></td><td>M1</td><td>M2</td></tr>
+    ## <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">abslat</td><td>0.031<sup>***</sup></td><td>0.080<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.009)</td><td>(0.010)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td><td></td></tr>
+    ## <tr><td style="text-align:left">Constant</td><td>14.617<sup>***</sup></td><td>13.409<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.330)</td><td>(0.355)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td><td></td></tr>
+    ## <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,943</td><td>754</td></tr>
+    ## <tr><td style="text-align:left">R<sup>2</sup></td><td>0.006</td><td>0.078</td></tr>
+    ## <tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.006</td><td>0.076</td></tr>
+    ## <tr><td style="text-align:left">Residual Std. Error</td><td>4.330 (df = 1941)</td><td>3.439 (df = 752)</td></tr>
+    ## <tr><td style="text-align:left">F Statistic</td><td>12.055<sup>***</sup> (df = 1; 1941)</td><td>63.302<sup>***</sup> (df = 1; 752)</td></tr>
+    ## <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+    ## </table>
 
 ``` r
 stargazer(BergM3, BergM6,

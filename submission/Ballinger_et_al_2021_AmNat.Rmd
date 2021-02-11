@@ -1,0 +1,151 @@
+---
+output:
+  word_document: default
+  pdf_document:
+    keep_tex: true
+geometry: margin=1.0in
+font-size: 11pt
+header-includes:
+  - \usepackage{palatino}
+  - \usepackage{setspace}
+  - \doublespacing
+  - \usepackage[left]{lineno}
+  - \linenumbers
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(knitr)
+library(here)
+library(tinytex)
+
+opts_chunk$set(echo = FALSE)
+```
+# Environmental and genetic contributions to ecogeographic rules in a wide-ranging endotherm
+
+\vspace{20mm}
+
+Mallory A. Ballinger, Tifany Chu, and Michael W. Nachman${^\dagger}$
+
+\vspace{40mm}
+
+Department of Integrative Biology
+
+Museum of Vertebrate Zoology
+
+University of California, Berkeley
+
+Berkeley, CA 94702-3160
+
+\vspace{10mm}
+
+${\dagger}$ To whom corresponsdence should be addressed:
+
+\href{mailto:mnachman@berkeley.edu}{mnachman@berkeley.edu}
+
+\vspace{40mm}
+
+**Running title:** Allen's Rule and Bergmann's Rule in house mice
+
+\newpage
+
+## Abstract (200 words)
+
+\newpage
+
+## Introduction
+
+The mechanisms driving phenotypic diversity across and within species.
+
+##### **Clines in body size (Bergmann's Rule) and extremity length (Allen's Rule) have historically been used as evidence for natural selection, but accurately dissentangling genetics from plasticity is not possible using data from wild-caught specimens.**
+Two of the most well described phenotypic clines are Bergmann's rule and Allen's rule, with various support across both endotherms and ectotherms. Strong clines in phenotypes (Huxley) have historically been suggested to represent natural selection/local adaptation to environments (Endler). Two very well described phenotypic clines are Bergmann's rule and Allen's rule. These rules traditionally have been used to describe phenotypes in endotherms, though there is evidence for these rules in ectotherms.
+**Meta-analyses/syntheses focus on "yes" or "no" if Bergmann's rule is present, using various metrics (e.g. latitude, mean daily temp, etc); thus, the literautre is clouded and we still do not know what mechanisms underly these rules.** Although meta-analyses caputre a large number and variety of organisms, they also capture a lot of noise. The positives about individual studies is that researchers are likely to collect data in the same, careful way across gradients.
+
+##### **Only a handful of studies have dissected the genetic and phenotypically plastic nature of Bergmann's rule and Allen's rule, showing plasticity plays a large role underlying these classic phenotypic clines. However, these studies only investigated clines across a narrow geographic range.** (reference table 1)
+
+##### **House mice inhabit a very broad range of latitudes across the Americas, and previous research has shown evidence for Bergmann's rule. Moreover, there has been much research done on the inheritent plastic nature of extremity length (like tails and ears), but these studies only investigated single populations that show no variation in starting phenotypes. Overall, little has been done regarding genetics and/or plasticity of Bergmann'r rule and  Allen's rule.**
+Previous evidence for Bergmann's rule in American house mice (e.g. Phifer-Rixey et al, 2018; Suzuki et al, 2020) was likely found because (1) the overall small sample sizes that were collected, and (2) the same research group collected the data in roughly the same manner.
+House mice are great since they have very broad geographic/latitudinal distribution across the Americas.
+
+##### **In order to dissect the genetic and plastic underpinnings of these ecogeographic rules, first have variation in starting populations where populations are different (and presumably locally adapted to their environments), and perform common garden experiments to dissentangle genetics from plasticity. Here, we use house mice collected from ends of a latitiudinal cline and ask about the genetic and plastic underpinnings to these broad eco-geographic rules.**
+
+\newpage
+
+## Materials and Methods
+
+##### Metadata corresponding to Bergmann's rule and Allen's rule in wild-caught American house mice
+
+
+
+\newpage
+
+## Results
+
+##### **1. Weak evidence for Bergmann's rule and Allen's rule in wild-caught American house mice.**
+[Weak patterns of Bergmann's rule (Figure 1A) and Allen's rule (Figure 1B; Figure S1) in North American and South American house mice.][]
+These data illustrate the inherent noisy nature of Bergmann's rule using museum-collected data (e.g. unknown specimen ages, variation in collectors and measurements taken, temporal varation of metadata, etc.). It is difficult to confidently say anything about the "presence" (or "absence") of Bergmann's rule/Allen's rule using museum metadata, let alone the underlying mechanisms "controlling/forming/driving/of" these clines (e.g. temperature, precipitation, etc.). In order to reveal morphological differences and dissentangle genetics and plasticity, a common garden experiment needs to be performed, using mice from the ends of the American latitudinal transect.
+
+
+##### **2. Bergmann's rule and Allen's rule have a genetic basis in American house mice.**
+[Population differences in body weight(Bergmann's Rule) (Figure 2A) and tail length(Allen's Rule) (Figure 2B) persist in a common environment across multiple generations, indicating a genetic basis.][]
+House mice collected from ends of latitudinal range are significanlty different in body size and extremity length/tail length. These differences persist across generations in a common environment, thus indicating a genetic basis underlying these traits. Across generations, there is a slight decrease in tail length in both populations (with Brazil continuously having longer tails than New York), perhaps suggesting an inherent plastic nature to this trait. However, these data are also noisy (though not as noisy as VertNet), so it is difficult to confidently ascertain the role of phenotypic plasticity in this observation. In order to precisley measure the impacts of plasticity on these ecogeographic traits, we must do a *controlled*, common garden experiemnt.
+
+
+##### **3. Developmental plasticity plays a signficant role in "forming" Allen's rule in American house mice.**
+[Unlike body weight, differences in tail length occur later in development (Figure 3B) and are highly influenced by temperature, with tails growing shorter in cold environments.][]
+Evolved differences in body size are evident at weaning and persist throughout development, with New York mice being larger than Brazil mice across both sexes (Figure 3A). Cold temperature has very little influence on the development of body size. In contrast, tails start at *roughly* similar lengths at weaning and diverge into population-levels differences later in development (Figure 3B). This variation in developmental plasticity gives rise to populaiton-level differences in tail length, with Brazil having longer tails than New York. Moreover, unlike body size, tail length is highly plastic in response to cold temperature, with mice in cold envrionments growing shorter tails, regardless of population. The degree of this plasticity is more pronouned in Brazil mice, with cold-reared Brazil mice growing much shorter tails than warm-reared Brazil mice. In fact, the tail lenght of cold-reared Brazil mice "reaches" the length of the evolved tail length of New York mice.
+
+
+##### **4.The genetic and plastic bases of Bergmann's rule and Allen's rule in American house mice.**
+[Extremity length (tail length) is more plastic in response to cold temperatures than is body size in American house mice.][]
+Differences in body size are mostly genetic, as body size shows little plasticity across both populations and sexes (Figure 4A). This inherent lack-of-plasticity in body size is not merely a result of increased adiposity or differences in adiposity but instead is also seen at the skeletal level (Fig Sx (correlation plots of skeletal trait vs body length)). Tail length shows both a genetic basis and a plastic basis (Figure 4B) in response to cold temperatures. Specifically, Brazil mice have longer tails than New York mice, but when placed in a cold environment, the tail length of Brazil mice is roughly the same tail length of New York mice (Figure 4B). This plastic response seems to be an exmaple of adaptive phentoypic plasticity. New York mice show very little plasticity in both body size and tail length, presumably because these traits are adatpive in a cold, temperate environment and/or tail length in New York mice is canalized for the given temperature.
+
+
+
+To explore the different genetic and plastic bases of tail length in New York mice and Brazil mice, the number and length of caudal vertebrae were measured.
+
+##### **5. Evolved and plastic differences in the number and length of caudal vertebrae underlie genetic and plastic bases of tail length (Allen's rule) in American house mice.**
+[Brazil mice have more caudal vertebrae compared to New York mice (Figure 5A), and there is population-level differences in plasticity of these traits (Figure 5B).][]
+----- Need to anlayze this data before elaborating on any further -----
+
+
+
+\newpage
+
+## Discussion
+
+
+
+
+
+
+
+Genetics of tail length differences (specifically vertebrae differences) brought upon by selection for climbing ability? (More smaller vertebrae is more flexible for climbing than just larger, fewer vertebrae)
+Future research direction or question would be to assess if biomechanical constraint also limits how much inherent plasticity can act on those traits
+
+\newpage
+
+## Acknowledgements
+
+\newpage
+
+## Figures & Tables
+
+**Table 1. Studies dissecting the genetic and plastic bases of ecogeographic rules in endotherms.**
+
+\newpage
+
+**Figure 1. Weak evidence for Bergmann's rule and Allen's rule in wild-caught house mice across North and South America.** 
+
+\newpage
+
+**Figure 2. Genetic basis of Bergmann's rule and Allen's rule in American house mice.**
+N0 vs N1 vs N2 vs N3-N5??
+
+!!!! ALLEN'S RULE AND LIMB-LENGTH !!!!
+
+\newpage
+
+## References

@@ -1,0 +1,242 @@
+---
+output:
+  word_document: default
+  pdf_document:
+    keep_tex: true
+geometry: margin=1.0in
+font-size: 11pt
+header-includes:
+  - \usepackage{palatino}
+  - \usepackage{setspace}
+  - \doublespacing
+  - \usepackage[left]{lineno}
+  - \linenumbers
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(knitr)
+library(here)
+
+opts_chunk$set(echo = FALSE)
+
+```
+# Environmental and genetic contributions to ecogeographic rules in a wide-ranging endotherm
+
+
+\vspace{20mm}
+
+Mallory A. Ballinger, Tifany Chu, and Michael W. Nachman${^\dagger}$
+
+\vspace{40mm}
+
+${\dagger}$ To whom corresponsdence should be addressed:
+
+
+\href{mailto:mnachman@berkeley.edu}{mnachman@berkeley.edu}
+
+Department of Integrative Biology
+
+Museum of Vertebrate Zoology
+
+University of California, Berkeley
+
+Berkeley, CA 94702-3160
+
+\vspace{20mm}
+
+**Running title:** Allen's Rule and Bergmann's Rule in house mice
+
+\newpage
+write out a sentence summary of each paragraph [of the introduction/of each section] before fully drafting. *highly* recommend this approach. what is the single point/takeaway of this paragraph?
+
+
+## Abstract (200 words)
+
+
+investigation of the complex combinations of factors that determine biogeographic patterns of endotherm size
+extremity length has been shown to be a response to the environment and not the exclusive result of genetic adaptation or selection for an optimum body type (e.g. Serrat et al 2008)
+- developmental plasticity can help one to undertand the geographic range of mammals
+
+
+\newpage
+
+## Introduction
+
+* All things clines (Endler, 1977)
+      - Clines in phenotypic traits have assumed to be genetically determined and locally adapted (Endler 1977)
+      - However, very few studies have dissentatngled genetics and plasticiity from clines (Stillwell, 2010)
+Default explanatation of the mechanism maintaing geographic cline in morphology: "assumed to be natural selection for polygenic traits that represent adaptation to local conditions" (quoted from James 1983; citation from Endler 1977)
+
+differences in primary productivity probs not playing as strong of role in house mice since they are commensal with humans
+
+* Allen's rule and Bergmann's rule are two of the best described eco-greogrpahic rules ("clines") in endotherms (definitions for both).
+  - Allen:
+  - Bergmann:
+
+These "classic" clines were originally (and continue to be?) viewed as a result of natural selection. However, there is strong evidence for the highly inate plastic nature of Allen's rule. Specifically, Allen's rule might be a result of developmental plasticity, even with or without a thermoregulation advantage.
+
+(Are ecothermic examples of Bergmann's rule (Drosophila - rapid evolution of body size differences))
+
+* Numerous meta-analyses studies have found support (or lack of support) for Bergmann's Rule and Allen's Rule across latitude (and across various abiotic measurments)
+
+* The contributions of both plastiicty and genetics to phenotypic clines??
+  - however, very few have dissected the genetic and plastic causes for these biogeographic rules. (Very few have invenstigated the extent to which clinal variation is environmentally induced (but see James, 1983 (Science)))
+    - of the studies that have, they only used one population (exposed to diff treatments) and not (at least) two populations (that are locally adapted and show Allen/Bergmann) and show responses to diff treatments
+    - we know that many of these traits (Allen's Rule) are highly influenced by developmental temperature; thus we investigated developmental plasticity
+Allen's rule has been shown to have a plastic component (Serrat et al 2008); however, this study was done in lab mice, where no variation in tail length was present.
+
+common garden studies rearing individuals with distinct phenotypes in different environmental conditions
+
+* Here, we use house mice to ask about the contributions of genetics and plasticity to ecogeographic rules.
+  - House mice are an ideal system to ask this question as they have very broad latitudinal distributions, ranging from the tip of SA up to Alaska. There is clear evidence for Bergmann's Rule in American house mice, with mice along the east coast (Lynch, 1992; Phifer-Rixey et al. 2018) showing Bergmann's Rule and mice across a broader range of North America and South America (Suzuki et al. 2020). These trends for Bergmann's Rule is much stronger when only looking at a few hundred samples (Lynch, Phifer-Rixey, Suzuki). However, the nature of wild data is messy.
+  - Previous research has shown Bergmann's Rule along east coast of NA (Lynch, 1992; Phifer-Rixey et al., 2018) and throughout NA and SA (Suzuki et al. 2020). These studies show that body size differences have a genetic basis. **However, this is just a snapshot of the total range of house mice (especially in regards to sample size). And what about Allen's Rule??**
+  - Barnett and Serrat have also shown plasticity in various ecogeographic traits. **However, both studies started from one population. Doesn't tell you about relative roles plasticity plays in populations that are locally adapted and (at the start) differ in traits**
+
+(Is my study the first to dissect genetics and plasticity *across* populations that are (locally) adapted to their environments? (where Allen's rule and Bergmann's rule are present))
+
+My study dissects the genetics and plasticity *across* populations that are (locally) adapted to their environments, where Allen's rule and Bergmann's rule are present.
+
+	- Temperature (along with other environmental features) scales with latitude
+* What are the most common ways people "look" for these rules? Is it mostly characterized in wild animals? What are the general traits measured for evidence of both rules?
+* When there is evidence, is the mechanism genetic? When there is less evidence, is the mechanism plasticity?
+
+* Characterizing these rules in wild animals does not dissentangle what is genetically controlled and what is plastic.
+
+* What are the mechanisms underlying these two rules?
+* What are the relative contributions of genetics and/or plasticity underlying these broad, eco-geographic rules?
+* Are certain morphological features determined more by genetics or plasticity than other morpholgical features? (Especially if temperature plays a large role in these rules...)
+
+* We address these questions using the house mouse as a model system.
+	- House mice have broad, geographic range
+	- There is regional evidence for Bergmann's rule (Lynch 1992)
+	- There is evidence for effects of temperature on morphology (morphological traits that are used for these eco-geographic patterns) - Barnett studies in wild, Australian house mice
+
+Many studies also measure skeletons of museum specimens to ask about Bergmann's Rule
+	- These skeletal measurements are done on wild-caught specimens, in which phenotypic plasticity could've 'shaped' them. But sampling across populations (and even species) gives stronger support for these rules. But still don't quite understand the mechanisms.
+
+, as body weight could be due to increased adiposity in more northern, seasonal, cold populations.
+	- We also measured skeletal features and Bergmann's Rule is still prominenet across various skeletal features
+
+Or when the mechanism is attempted to be eluded to, only one population is investigated, which doesn't capture the full effect of these eco-geographic rules that characterize phenotpyic varation across latitude.
+	- Serrat only looked at one population (or actually, a common lab mouse strain) and did find that temperature impacts Allen's Rule.
+	- Because Serrat only used one population, body size and tail length were the same at the start; my experiment has different starting points (i.e. different populations that are locally adapted to their environment)
+	- However, it is unknown if plasticity and/or genetics plays a larger role in one population versus another.
+
+
+\newpage
+
+## Results
+#####(format with subheadings corresponding to each of the major results and then a few sentences or a paragraph for each referencing the appropriate figures and/or tables)
+
+### (1) The relationship between absolute latitude, body mass, and extremity length in wild house mice collected across the Americas.
+    - Evidence for both Bergmann's rule (strong/sign) and Allen's rule (less strong/non-sign) across broad, introduced range of house mice across Americas (wild animals) *is inherently messy with uncontrolled sources of variation*
+**These data show evidence for both rules, but we still don't know relative contributions of plasticity and genetics to both. Must do common garden experiment**
+
+#### Population-level differences in body mass persist in a common environment. Population-level differences in extremity length are revealed in the lab and persist in a common environment ("Contributions of genetics to Bergmann's rule and Allen's rule")
+* Four-panel figure of sex-specific differences in body mass and tail length (or ear length?) across generations in the lab
+**Degree of change (though diet-induced but could be temperature-induced) between wild and N2 generation "depict/correspond" to "amount" of inherent plasticity associated with a trait? (e.g. Baier and Hoekstra fig)**
+	  - Populations from the 'ends' of the latitudinal range were brought back to the lab and bred for multiple generations
+	  - There is a genetic basis for both Bergmann's Rule (body weight)(strong) and Allen's rule (tail and ear length)(less strong), as these traits persist across generations
+	          - This genetic basis of Allen's Rule is "revealed" in the lab, as wild specimens don't show Allen's Rule (which gives "stronger" argument that we're makign)
+		- Allen's rule may be less strong as differences don't 'come about' until 'adult stage', while body size differences occur at conception/weaning (next results). Thus, temperature still has the opportunity to play a larger role in something like tail length, whereas genetics plays a much larger role in body size. Is there stronger selection in temperate environments to be larger earlier, while less selection or more buffer (plasticity) regarding extremities? (recent deer mouse paper shows HA pups grow faster?)
+**Next, what about plasticity? We use temperature since it strongly covaries with latitude and is different between populations**
+
+* Contributions of phenotypic plastiicty (in response to temperature) to Allen's and Bergmann's rules - common garden experiment
+	- We are interested in population level differences; thus, we 'grouped' lines by population. But phenotypes of individual lines are shown in supplemental figures -- **valid??**
+
+
+
+**Tail length is highly plastic. Motivated by Serrat studies, we aimed to determine what aspects of tail length are plastic and genetic (differenet number of caudual vertebrae and/or length of vertebrae).**
+
+
+\newpage
+
+## Discussion
+
+
+House mice could also be larger at higher latitudes because of it being a more seasonal environment, thus being larger will help with unpredictability of seasonal environemtns (and topor??)
+
+Sand et al. (2005) showed that moose in colder areas had higher growth rates and matured 2 years later than moose in warmer areas. Selection may be acting on life-history characteristics that may be correlated with body size.
+
+exposure to hot temperature may induce more plasticity in body size than what was seen for cold. And likely also elongation of limbs
+
+
+
+Both plasticity and selection generate patterns associated with Bergmann's Rule and Allen's Rule.
+It is important to dissentangle the two instead of just resorting to selection or no selection if evidence of broad agreement to these rules in wild animals.
+Evidence for both is indicated by body size differences and genetic & plastic differences in extremity length.
+
+
+Tail length may also be playing a role in climbing in Brazil mice. Future directions should determine the consequences of plasticity (or lack of plasticity) in traits that have a biophysical/locomotion pressure associated with them.
+
+\newpage
+
+
+## Materials and Methods
+
+#### (1) The relationship between latitude, body mass, and extremity length in wild house mice collected across the Americas
+
+   	- VertNet data of all Mus musculus in introduced range
+  	- Analyzed basic museum morphological traits/metadata in association with absolute latitude
+
+"To minimize inclusion of records of non-adult specimens, we identified the smallest mass associated with an identified adult life stage category for each species and removed all records with mass values below this minimum adult size" (Riemer et al. 2018 - eLife)
+
+
+animals were weight matched at the start to help minimize other potential sources of growth variation to maximize detection of a temperature effect. We also controlled for litter size effects
+
+
+
+
+Why temperature? Because Climate PC1 in Suzuki et al (2020) contains temperature-related variables (e.g., mean temperature of coldest quarter, minimum temperature of coldest month and annual mean temperature), which explains almost 50% of the variation between SA and NA house mouse transects. And winter min temp (Phifer-Rixey et al. 2018) is different across latitude.
+
+
+\newpage
+
+
+## References
+
+
+\newpage
+
+## Figures
+
+##### Figure 1. The relationship between body mass, extremity length and [absolute latitude][degrees latitude from the equator] in American house mice.
+(Three-panel figure (vertical), showing all data/adult data of body mass, tail length, and ear length. Supplmenetal figure will show sex-specific differences OR table will show sex-specific results)
+
+
+
+##### Figure 2. Developmental plasticity and evolution in body size and tail length.
+(sex-specific weekly-graph plots of body weight and absolute tail length, with rxn plots of start & end-of-exp values of body mass and absolute tail length to show how body mass is diff from start while tail length is not)
+(supplemental file will show sex-specific, line-specific)
+(use smallest "adult" body mass to remove outliers? Like in Riemer et al. 2018)
+
+
+##### Figure 3. Reaction norms and plasticity in body size in American house mice.
+(sex-specific rxn plots of body size and skeletons (skeleton supp? - just to show evolved and sex differences and no plasticity))
+Very little plasticity in body size - mostly just evolved differences and sexual dimorphism
+
+
+##### Figure 4. Reaction norms and plasticity in extremity length in American house mice.
+(sex-specific rxn plots of extremity length and skeletons)
+(supplemental file will show body length adn tail length (Hoekstra) rxn plot to show "reason" behind residuals of body length)
+
+
+##### Figure 5. Evovled and plastic differences in caudal vertebrae number.
+
+----overlap between adaptation and plasticity?------
+
+## Supplemental Figures
+
+##### Supplemental Figure 1. ?Sex-specific clines in VertNet metadata?
+
+##### Supplemental Figure 2. Bergmann's Rule and Allen's Rule both have genetic basis, since animals reared in common lab-environment across generations differ in associated traits.
+- we know that these phenotypic clines/differences are not driven purley by developmental plasticity but also genetics (don't have data past the experimental mice generation (so like N11-14?))
+
+N0 generation mice will have tail lengths that were already determined by their natural environemnt. Body mass, in contrast, can still be determined by lab-envirionemtn since buffet of rodent chow.
+
+
+##### Supplemental Figure 3. Boxplot rxns of all skeletal traits (minus tail)
+

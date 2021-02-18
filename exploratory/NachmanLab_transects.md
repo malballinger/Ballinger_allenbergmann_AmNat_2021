@@ -117,53 +117,6 @@ There is strong and clear evidence for Bergmann’s rule in wild-caught
 
 ### Allen’s rule (using tail length)
 
-``` r
-#### check data to ensure they are normally distributed
-#hist(NachmanTransectsMetadata$TAIL_LENGTH, breaks = 25)
-# lmTL <- lm(TAIL_LENGTH~ABS_LAT, data=NachmanTransectsMetadata)
-# summary(lmTL)
-# plot(lmTL$residuals) # residuals will tell you if your data are normally distributed or not
-# hist(lmTL$residuals, breaks = 25) # looks normally distributed!
-
-# any tail less than 40mm is an outlier (looks like there's one tail length that's < 20mm)
-# 
-# #### check for outliers ####
-# plot(NachmanTransectsMetadata$TAIL_LENGTH~NachmanTransectsMetadata$ABS_LAT)
-# abline(40,0, col="red")
-# abline(120,0, col="red")
-# 
-# tempTL<-as.data.frame(lmTL$residuals)
-# tempTL<-tempTL[order(tempTL$`lmTL$residuals`),] # puts residuals in order from small->large
-# plot(tempTL)
-# 
-# 
-# # tails shorter than 40mm are *clear* outliers
-# 
-# # Outlier test on full data
-# out_tail_full<-boxplot.stats(NachmanTransectsMetadata$TAIL_LENGTH)$out
-# out_tail_full
-# plot(NachmanTransectsMetadata$taillength_mm)
-# abline(25,0, col="red") #sample points are in order (index)
-# abline(120,0, col="red")
-```
-
-``` r
-### Get BW-corrected residuals of tail length
-Nachman_TailData <- NachmanTransectsMetadata %>%
-  filter(TAIL_LENGTH > 20)
-
-plot(Nachman_TailData$TAIL_LENGTH~Nachman_TailData$ABS_LAT)
-```
-
-``` r
-plot(Nachman_TailData$TAIL_LENGTH~Nachman_TailData$WEIGHT) # larger mice, generally, have longer tails
-```
-
-``` r
-lmTLBW <- lm(TAIL_LENGTH~WEIGHT, data=Nachman_TailData)
-summary(lmTLBW)
-```
-
     ## 
     ## Call:
     ## lm(formula = TAIL_LENGTH ~ WEIGHT, data = Nachman_TailData)
@@ -182,48 +135,6 @@ summary(lmTLBW)
     ## Residual standard error: 6.684 on 210 degrees of freedom
     ## Multiple R-squared:  0.2768, Adjusted R-squared:  0.2733 
     ## F-statistic: 80.36 on 1 and 210 DF,  p-value: < 2.2e-16
-
-``` r
-plot(lmTLBW$residuals)
-```
-
-``` r
-hist(lmTLBW$residuals, breaks = 25)
-```
-
-``` r
-resTLBW <- resid(lmTLBW) # save residuals so can plot them later
-plot(cooks.distance(lmTLBW), pch = 16, col = "blue") # see if any weird outliers
-```
-
-``` r
-cooksTLBW <- cooks.distance(lmTLBW)
-# Plot the Cook's Distance using the traditional 4/n criterion
-sample_size <- nrow(Nachman_TailData)
-plot(cooksTLBW, pch="*", cex=2, main="Influential Obs by Cooks distance")  # plot cook's distance
-abline(h = 4/sample_size, col="red")  # add cutoff line
-text(x=1:length(cooksTLBW)+1, y=cooksTLBW, labels=ifelse(cooksTLBW>4/sample_size, names(cooksTLBW),""), col="red")  # add labels
-```
-
-``` r
-Nachman_TailData$Resids_TLBW <- resid(lmTLBW) # saves residuals to Nachman_TailData dataset (the dataset used to create lm and residuals)
-
-tempTLBW<-as.data.frame(lmTLBW$residuals)
-tempTLBW<-tempTLBW[order(tempTLBW$`lmTLBW$residuals`),] # puts residuals in order from small->large
-plot(tempTLBW) # in order
-```
-
-``` r
-#plot(resTLBW) # not in order
-
-
-plot(Nachman_TailData$ABS_LAT, resTLBW)
-```
-
-``` r
-# or
-plot(Resids_TLBW~ABS_LAT, data = Nachman_TailData)
-```
 
 ##### Plot Allen’s rule: Tail length residuals X absolute latitude
 
@@ -352,5 +263,3 @@ summary(lm_resTLBW)
     ##   (1 observation deleted due to missingness)
     ## Multiple R-squared:  1.263e-05,  Adjusted R-squared:  -0.004772 
     ## F-statistic: 0.00264 on 1 and 209 DF,  p-value: 0.9591
-
-##### How correlated are Body Weight and Body Length?

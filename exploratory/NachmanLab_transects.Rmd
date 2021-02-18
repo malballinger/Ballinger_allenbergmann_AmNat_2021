@@ -109,7 +109,7 @@ There is strong and clear evidence for Bergmann's rule in wild-caught "Nachman L
 
 
 ### Allen's rule (using tail length)
-```{r Allen_TL_RawData, message=FALSE, fig.show='hide'}
+```{r Allen_TL_RawData, message=FALSE, echo=FALSE, fig.show='hide'}
 #### check data to ensure they are normally distributed
 #hist(NachmanTransectsMetadata$TAIL_LENGTH, breaks = 25)
 # lmTL <- lm(TAIL_LENGTH~ABS_LAT, data=NachmanTransectsMetadata)
@@ -140,7 +140,7 @@ There is strong and clear evidence for Bergmann's rule in wild-caught "Nachman L
 
 ```
 
-```{r TailResiduals, message = FALSE, fig.show='hide'}
+```{r TailResiduals, message = FALSE, echo=FALSE, fig.show='hide'}
 ### Get BW-corrected residuals of tail length
 Nachman_TailData <- NachmanTransectsMetadata %>%
   filter(TAIL_LENGTH > 20)
@@ -271,7 +271,8 @@ summary(lm_resTLBW)
 # body lengths below 63 are beyond the -20 residuals (perhaps remove them? There are 3 samples....Seems like for sure remove the body length of 60mm)
 ```
 
-##### How correlated are Body Weight and Body Length?
+
 ```{r BW~bodylength, message=FALSE, echo = FALSE, fig.show='hide'}
+# How correlated are Body Weight and Body Length?
 plot(NachmanTransectsMetadata$WEIGHT~NachmanTransectsMetadata$BODY_LENGTH) # seems like some longer body lengths have smaller body weights, "skewing" the correlation
 ```

@@ -3,6 +3,17 @@ Bergmann’s Rule and Allen’s Rule in Nachman Lab latitudinal transects
 Mallory A. Ballinger
 2/15/2021
 
+### Overview
+
+Determine if house mice show Bergmann’s rule and Allen’s rule using
+specimens collected by the Nachman Lab. House mice have been collected
+across a broad latitudinal distribution in the Americas, as part of a
+large lab project - [“Environmental adaptation in introduced populations
+of house mice, Mus musculus, across the
+Americas”](http://arctos.database.museum/project/10001341).
+
+### Bergmann’s rule (using body weight)
+
     ## 
     ## Call:
     ## lm(formula = WEIGHT ~ ABS_LAT, data = NachmanTransectsMetadata)
@@ -38,7 +49,7 @@ Mallory A. Ballinger
     ##       rho 
     ## 0.3404738
 
-## Plot Bergmann’s rule: body mass by absolute latitude
+##### Plot Bergmann’s rule: body weight X absolute latitude
 
 ``` r
 Berg<-
@@ -101,7 +112,10 @@ Berg_Sex
 
 ![](NachmanLab_transects_files/figure-gfm/Bergmann_sex-1.png)<!-- -->
 
-#### Strong and clear evidence for Bergmann’s rule in wild-caught “Nachman Lab” house mice across the Americas
+There is strong and clear evidence for Bergmann’s rule in wild-caught
+“Nachman Lab” house mice across the Americas
+
+### Allen’s rule (using tail length)
 
 ``` r
 #### check data to ensure they are normally distributed
@@ -211,7 +225,7 @@ plot(Nachman_TailData$ABS_LAT, resTLBW)
 plot(Resids_TLBW~ABS_LAT, data = Nachman_TailData)
 ```
 
-## Plot Allen’s rule: Tail length residuals by absolute latitude
+##### Plot Allen’s rule: Tail length residuals X absolute latitude
 
 ``` r
 Tail_Allen <-
@@ -241,9 +255,11 @@ Tail_Allen
 
 ![](NachmanLab_transects_files/figure-gfm/Allen_plot-1.png)<!-- -->
 
-#### Unlike Bergmann’s rule, there is no clear evidence for Allen’s rule (i.e. tail length) in wild-caught “Nachman Lab” house mice across the Americas
+Unlike Bergmann’s rule, there is no clear evidence for Allen’s rule
+(i.e. tail length) in wild-caught “Nachman Lab” house mice across the
+Americas
 
-## Some stats
+### Some stats
 
 ``` r
 ## Bergmann
@@ -337,85 +353,4 @@ summary(lm_resTLBW)
     ## Multiple R-squared:  1.263e-05,  Adjusted R-squared:  -0.004772 
     ## F-statistic: 0.00264 on 1 and 209 DF,  p-value: 0.9591
 
-    ## Warning: Removed 3 rows containing non-finite values (stat_smooth).
-
-    ## Warning: Removed 3 rows containing missing values (geom_point).
-
-``` r
-#### check data to ensure they are normally distributed ####
-hist(NachmanTransectsMetadata$BODY_LENGTH, breaks = 25)
-```
-
-``` r
-lmBL <- lm(BODY_LENGTH~ABS_LAT, data=NachmanTransectsMetadata)
-summary(lmBL)
-```
-
-    ## 
-    ## Call:
-    ## lm(formula = BODY_LENGTH ~ ABS_LAT, data = NachmanTransectsMetadata)
-    ## 
-    ## Residuals:
-    ##     Min      1Q  Median      3Q     Max 
-    ## -24.950  -5.532   0.383   5.458  19.177 
-    ## 
-    ## Coefficients:
-    ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept) 86.92724    1.40901  61.694   <2e-16 ***
-    ## ABS_LAT     -0.03704    0.03849  -0.962    0.337    
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ## 
-    ## Residual standard error: 8.446 on 210 degrees of freedom
-    ##   (3 observations deleted due to missingness)
-    ## Multiple R-squared:  0.004391,   Adjusted R-squared:  -0.0003503 
-    ## F-statistic: 0.9261 on 1 and 210 DF,  p-value: 0.337
-
-``` r
-plot(lmBL$residuals)
-```
-
-``` r
-hist(lmBL$residuals, breaks = 25) # looks normally distributed!
-```
-
-``` r
-#### check for outliers ####
-plot(NachmanTransectsMetadata$BODY_LENGTH~NachmanTransectsMetadata$ABS_LAT)
-abline(40,0, col="red")
-abline(120,0, col="red")
-```
-
-``` r
-tempBL<-as.data.frame(lmBL$residuals)
-tempBL<-tempBL[order(tempBL$`lmBL$residuals`),] # puts residuals in order from small->large
-plot(tempBL)
-```
-
-``` r
-# body lengths below 63 seem like outliers
-
-# Outlier test on full data
-out_BL_full<-boxplot.stats(NachmanTransectsMetadata$BODY_LENGTH)$out
-out_BL_full
-```
-
-    ## [1] 60 62 62
-
-``` r
-plot(NachmanTransectsMetadata$BODY_LENGTH)
-abline(60,0, col="red") #sample points are in order (index)
-abline(120,0, col="red")
-```
-
-``` r
-# body lengths below 63 are beyond the -20 residuals (perhaps remove them? There are 3 samples....Seems like for sure remove the body length of 60mm)
-```
-
 ##### How correlated are Body Weight and Body Length?
-
-``` r
-plot(NachmanTransectsMetadata$WEIGHT~NachmanTransectsMetadata$BODY_LENGTH) # seems like some longer body lengths have smaller body weights, "skewing" the correlation
-```
-
-![](NachmanLab_transects_files/figure-gfm/BW~bodylength-1.png)<!-- -->

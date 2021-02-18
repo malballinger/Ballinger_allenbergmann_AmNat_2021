@@ -28,6 +28,12 @@ NachmanTransectsMetadata <- read_csv(here("data/raw/NachmanLab_MusTransects_Meta
 
 ```
 
+### Overview
+
+Determine if house mice show Bergmann's rule and Allen's rule using specimens collected by the Nachman Lab. House mice have been collected across a broad latitudinal distribution in the Americas, as part of a large lab project - ["Environmental adaptation in introduced populations of house mice, Mus musculus, across the Americas"](http://arctos.database.museum/project/10001341).
+
+
+### Bergmann's rule (using body weight)
 ```{r Bergmann_BW_RawData, message=FALSE, echo=FALSE, fig.show='hide'}
 ## Ensure data are normally distributed
 hist(NachmanTransectsMetadata$WEIGHT, breaks = 25)
@@ -47,7 +53,7 @@ corrBW
 
 ```
 
-## Plot Bergmann's rule: body mass by absolute latitude
+##### Plot Bergmann's rule: body weight X absolute latitude
 
 ```{r Bergmann_plot, message=FALSE}
 Berg<-
@@ -99,10 +105,10 @@ Berg_Sex
 
 ```
 
-#### Strong and clear evidence for Bergmann's rule in wild-caught "Nachman Lab" house mice across the Americas
+There is strong and clear evidence for Bergmann's rule in wild-caught "Nachman Lab" house mice across the Americas
 
 
-
+### Allen's rule (using tail length)
 ```{r Allen_TL_RawData, message=FALSE, fig.show='hide'}
 #### check data to ensure they are normally distributed
 #hist(NachmanTransectsMetadata$TAIL_LENGTH, breaks = 25)
@@ -167,7 +173,7 @@ plot(Nachman_TailData$ABS_LAT, resTLBW)
 plot(Resids_TLBW~ABS_LAT, data = Nachman_TailData)
 ```
 
-## Plot Allen's rule: Tail length residuals by absolute latitude
+##### Plot Allen's rule: Tail length residuals X absolute latitude
 
 ```{r Allen_plot, message=FALSE}
 Tail_Allen <-
@@ -191,10 +197,10 @@ Tail_Allen <-
 Tail_Allen
 ```
 
-####  Unlike Bergmann's rule, there is no clear evidence for Allen's rule (i.e. tail length) in wild-caught "Nachman Lab" house mice across the Americas
+Unlike Bergmann's rule, there is no clear evidence for Allen's rule (i.e. tail length) in wild-caught "Nachman Lab" house mice across the Americas
 
-## Some stats
 
+### Some stats
 ```{r stats, message=FALSE}
 ## Bergmann
 corrBW <- cor.test(x = NachmanTransectsMetadata$ABS_LAT, y = NachmanTransectsMetadata$WEIGHT, method = 'spearman') # correlation
@@ -214,58 +220,58 @@ summary(lm_resTLBW)
 
 
 ```{r absoluteTL_absoluteLAT, message=FALSE, echo=FALSE, fig.show='hide'}
-Tail<-
-  ggplot(data=NachmanTransectsMetadata, aes(x = ABS_LAT, y = TAIL_LENGTH)) +
-  geom_jitter(size = 2, height = 0, width = 0.2, alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, alpha = 0.2) + # se default (TRUE) shows 95% CI
-  theme_bw() + 
-  theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank(), #axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 25), size = 18, face = "bold", family = "Palatino"),
-        axis.title.y = element_text(margin = margin(r = 25), size = 18, face = "bold", family = "Palatino"),
-        axis.text.x = element_text(size = 15, face = "bold", color = "black", family = "Palatino"),
-        axis.text.y = element_text(size = 15, face = "bold", color = "black", family = "Palatino")) +
-  theme(legend.title = element_blank(),
-        legend.position = c(0.1, 0.95), legend.box = "horizontal",
-        legend.key.size = unit(0.5, "cm"),
-        legend.text = element_text(size=10, family = "Palatino"),
-        legend.key = element_rect(fill = "transparent")) +
-  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, family = "Palatino")) +
-  labs(x = "Absolute Latitude", y = "Tail Length (mm)")
-Tail
+# Tail<-
+#   ggplot(data=NachmanTransectsMetadata, aes(x = ABS_LAT, y = TAIL_LENGTH)) +
+#   geom_jitter(size = 2, height = 0, width = 0.2, alpha = 0.5) +
+#   geom_smooth(method = "lm", se = TRUE, alpha = 0.2) + # se default (TRUE) shows 95% CI
+#   theme_bw() + 
+#   theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
+#         panel.grid.major = element_blank(), panel.grid.minor = element_blank(), #axis.line = element_line(colour = "black"),
+#         axis.title.x = element_text(margin = margin(t = 25), size = 18, face = "bold", family = "Palatino"),
+#         axis.title.y = element_text(margin = margin(r = 25), size = 18, face = "bold", family = "Palatino"),
+#         axis.text.x = element_text(size = 15, face = "bold", color = "black", family = "Palatino"),
+#         axis.text.y = element_text(size = 15, face = "bold", color = "black", family = "Palatino")) +
+#   theme(legend.title = element_blank(),
+#         legend.position = c(0.1, 0.95), legend.box = "horizontal",
+#         legend.key.size = unit(0.5, "cm"),
+#         legend.text = element_text(size=10, family = "Palatino"),
+#         legend.key = element_rect(fill = "transparent")) +
+#   theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, family = "Palatino")) +
+#   labs(x = "Absolute Latitude", y = "Tail Length (mm)")
+# Tail
 ```
 
-```{r all_data_bodylength, message=FALSE, fig.show='hide'}
+```{r all_data_bodylength, message=FALSE, echo=FALSE, fig.show='hide'}
 #### check data to ensure they are normally distributed ####
-hist(NachmanTransectsMetadata$BODY_LENGTH, breaks = 25)
-lmBL <- lm(BODY_LENGTH~ABS_LAT, data=NachmanTransectsMetadata)
-summary(lmBL)
-plot(lmBL$residuals)
-hist(lmBL$residuals, breaks = 25) # looks normally distributed!
-
-#### check for outliers ####
-plot(NachmanTransectsMetadata$BODY_LENGTH~NachmanTransectsMetadata$ABS_LAT)
-abline(40,0, col="red")
-abline(120,0, col="red")
-
-tempBL<-as.data.frame(lmBL$residuals)
-tempBL<-tempBL[order(tempBL$`lmBL$residuals`),] # puts residuals in order from small->large
-plot(tempBL)
-
-
-# body lengths below 63 seem like outliers
-
-# Outlier test on full data
-out_BL_full<-boxplot.stats(NachmanTransectsMetadata$BODY_LENGTH)$out
-out_BL_full
-plot(NachmanTransectsMetadata$BODY_LENGTH)
-abline(60,0, col="red") #sample points are in order (index)
-abline(120,0, col="red")
+# hist(NachmanTransectsMetadata$BODY_LENGTH, breaks = 25)
+# lmBL <- lm(BODY_LENGTH~ABS_LAT, data=NachmanTransectsMetadata)
+# summary(lmBL)
+# plot(lmBL$residuals)
+# hist(lmBL$residuals, breaks = 25) # looks normally distributed!
+# 
+# #### check for outliers ####
+# plot(NachmanTransectsMetadata$BODY_LENGTH~NachmanTransectsMetadata$ABS_LAT)
+# abline(40,0, col="red")
+# abline(120,0, col="red")
+# 
+# tempBL<-as.data.frame(lmBL$residuals)
+# tempBL<-tempBL[order(tempBL$`lmBL$residuals`),] # puts residuals in order from small->large
+# plot(tempBL)
+# 
+# 
+# # body lengths below 63 seem like outliers
+# 
+# # Outlier test on full data
+# out_BL_full<-boxplot.stats(NachmanTransectsMetadata$BODY_LENGTH)$out
+# out_BL_full
+# plot(NachmanTransectsMetadata$BODY_LENGTH)
+# abline(60,0, col="red") #sample points are in order (index)
+# abline(120,0, col="red")
 
 # body lengths below 63 are beyond the -20 residuals (perhaps remove them? There are 3 samples....Seems like for sure remove the body length of 60mm)
 ```
 
 ##### How correlated are Body Weight and Body Length?
-```{r BW~bodylength, message=FALSE}
+```{r BW~bodylength, message=FALSE, echo = FALSE, fig.show='hide'}
 plot(NachmanTransectsMetadata$WEIGHT~NachmanTransectsMetadata$BODY_LENGTH) # seems like some longer body lengths have smaller body weights, "skewing" the correlation
 ```

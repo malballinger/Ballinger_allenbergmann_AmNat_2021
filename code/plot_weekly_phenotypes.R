@@ -1,184 +1,193 @@
 #!/usr/bin/env Rscript --vanilla
 
-# name: weekly_phenotypes_graphed.R
-#
-# Plot evolved and plastic differences in weekly body weights and tail lengths
-#
-# input:
-#       - data/raw/WeeklyMetaData
-# output:
-#       - results/figures/WeeklyPhenotypes
+##############################################################
+# Author: Mallory A. Ballinger
+# Script first created: 12-Feb-2021
+# Script last updated:  25-Feb-2021
 
-# Clear R environment and load libraries
-rm(list = ls())
+
+# This script plots weekly body weight and tail lengths of New York and Brazil mice across environments,
+# and generates Fig. XXXX in Ballinger_et_al_2021_AmNat
+
+
+##############################################################
+# Required packages
+##############################################################
+
+rm(list = ls()) # clears R's environment
 library(tidyverse)
 library(here)
 library(cowplot)
+library(car)
+
+##############################################################
+# Import data
+##############################################################
+
+WeeklyMetaData <- read_csv(here("data/raw/weekly_metadata_RAW_2021-02-11.csv")) %>%
+  filter(Population == "BRAZIL" | Population == "NEW_YORK") %>% # only keep parental populations (remove F1 hybrids)
+  filter(Generation == "N11" | Generation == "N12") %>%
+  mutate(Sex = fct_recode(Sex, "Female" = "F", "Male" = "M")) %>% # spells out males and females
+  mutate(Environment = fct_recode(Environment, "Cold" = "COLD", "Warm" = "RT")) %>%
+  mutate(Line = fct_recode(Line, "MANA" = "193x255", "SARA" = "19x13",
+                           "MANB" = "222x254", "SARB" = "82x81")) %>% # gives each line the "published"/JAX name
+  mutate(Population = fct_recode(Population, "Brazil" = "BRAZIL", "NewYork" = "NEW_YORK")) %>% # modifies names of populations
+  mutate(Line = fct_relevel(Line, "MANA", "MANB", "SARA", "SARB")) %>% # puts Brazil lines before New York lines
+  mutate(Environment = fct_relevel(Environment, "Warm", "Cold" )) %>% # puts Warm before Cold
+  mutate(PopEnv = paste(Population, Environment, sep = "_")) %>%
+  mutate(PopEnv = fct_recode(PopEnv, "Brazil - Warm" = "Brazil_Warm", "Brazil - Cold" = "Brazil_Cold",
+                             "New York - Warm" = "NewYork_Warm", "New York - Cold" = "NewYork_Cold")) %>%
+  mutate(PopEnv = fct_relevel(PopEnv, "New York - Warm", "New York - Cold", "Brazil - Warm", "Brazil - Cold"))
 
 
-# Read in data
-WeeklyMetaData <- read_csv(here("data/raw/WeeklyMetaData.csv")) %>%
-  select(-DOB, -DateMeasured) %>%
-  filter(Population == "BRAZIL" | Population == "NEW_YORK") %>%
-  #filter(Age_weeks > 3) %>%  #NY lines sometimes were weaned & measured slightly before 3 weeks
-  filter(Age_weeks < 12) %>%
-  mutate(Sex = fct_recode(Sex, "Females" = "F", "Males" = "M")) %>% # spells out males and females
-  mutate(Environment = fct_relevel(Environment,
-                                   "RT", "COLD" )) %>% # puts RT before COLD
-  mutate(Sex = fct_relevel(Sex, "Males", "Females")) # puts males before females
-  
-# Clean data of any weird spaces, etc.
-WeeklyMetaData[] <- lapply(WeeklyMetaData, function(x) if(is.factor(x)) factor(x) else x)
+# Make sex-specific datasets
+MaleData <- WeeklyMetaData %>%
+  filter(Sex == "Male")
+
+FemaleData <- WeeklyMetaData %>%
+  filter(Sex == "Female")
 
 
-#sex_labels <- c("Females", "Males")
-#names(sex_labels) <- c("F", "M")
+##############################################################
+# Plot weekly phenotypes (body weight & tail length)
+##############################################################
 
-BodyWeight <-
-  ggplot(data=WeeklyMetaData, aes(x=Age_weeks, y= BodyWeight_g, color=Population)) +
-  geom_smooth(aes(linetype=Environment, color=Population), size=1, method="loess") + #std error
-  geom_point(position = position_dodge(0.1), size=1.5, alpha=0.5) +
-  scale_color_manual(values=c("goldenrod1","dodgerblue4")) +
-  coord_cartesian(xlim = c(3,12), ylim = c(3,25)) +
-  facet_wrap(facets = "Sex",
-             #strip.position = "top",
-             scales = "fixed") +
-             #labeller=labeller(Sex = sex_labels)) +
-  theme_half_open(12) +
-  panel_border() +
+
+MaleBW <-
+  ggplot(data=MaleData, aes(x=Age_weeks, y=BodyWeight_g, fill = PopEnv, linetype = PopEnv, color = PopEnv)) +
+  geom_point(position = position_dodge(0.1), size=1.1, alpha = 0.5, show.legend = FALSE) +
+  geom_smooth(aes(group = PopEnv), size=1.7, alpha = 0.15, method = "loess", se = TRUE) + #std error
+  scale_color_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3", "goldenrod1"))) +
+  scale_fill_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3","goldenrod1"))) +
+  scale_linetype_manual(values=rep(c("solid","dashed", "solid", "dashed"))) +
+  guides(color=guide_legend(override.aes=list(fill=NA)),
+         linetype=guide_legend(override.aes = list(size=0.5)),
+         linetype=guide_legend(override.aes = list(fill=NA))) +# removes gray shading from legend
+  scale_x_continuous(breaks = seq(from=3, to=12, by=2), labels = seq(from=3, to=12, by=2), limits = c(3,11.3)) +
+  scale_y_continuous(breaks = seq(from=5, to=25, by=5), labels = seq(from=5, to=25, by=5), limits = c(5,25)) +
+  theme_half_open(20) +
+  panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 20), size = 15, face = "bold"),
-        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
-        axis.text.x = element_text(size = 12, face = "bold", color = "black"),
-        axis.text.y = element_text(size = 12, face = "bold", color = "black"),
-        #legend.title = element_blank(),
-        legend.position = "none",
-       # legend.key.size = unit(1.5, "cm"),
-       # legend.text = element_text(size=15),
-        #legend.key = element_rect(fill = "transparent"),
-        plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
-  labs(x = "Age (weeks)", y = "Body Weight (g)")
-BodyWeight
+        axis.title.x = element_text(margin = margin(t = 10), size = 11, face = "bold", family = "Palatino", hjust = 1.25),
+        axis.title.y = element_text(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 10, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 10, color = "black", family = "Palatino"),
+        legend.position = c(0.03, 0.91),
+        legend.background = element_blank(),
+        legend.box.background = element_blank(),
+        legend.key = element_blank(),
+        legend.key.height = unit(0.3, "cm"),
+        legend.key.width = unit(1.25, "cm"),
+        legend.text = element_text(size=7, family = "Palatino"),
+        legend.title = element_blank(),
+        plot.tag = element_text(family = "Palatino", size = 10, face = "italic"),
+        plot.tag.position = c(0.18,1.025),
+        plot.title = element_text(family = "Palatino", face = "plain"),
+        plot.margin = unit(c(0.5, -0.5, 0.1, 0.5), "cm")) +
+  labs(x = "",
+       y = "Body Mass (g)",
+       tag = "Males")
 
-TailLength <-
-  ggplot(data=WeeklyMetaData, aes(x=Age_weeks, y=TailLength_mm, color=Population)) +
-  geom_smooth(aes(linetype=Environment, color=Population), size=1, method="loess") + #std error
-  geom_point(position = position_dodge(0.1), size=1.5, alpha=0.5) +
-  scale_color_manual(values=c("goldenrod1","dodgerblue4")) +
-  coord_cartesian(xlim = c(3,12), ylim = c(45,85)) +
-  facet_grid(. ~ Sex) +
-  theme_half_open(12) +
-  panel_border() +
+FemaleBW <-
+  ggplot(data=FemaleData, aes(x=Age_weeks, y=BodyWeight_g, fill = PopEnv, linetype = PopEnv, color = PopEnv)) +
+  geom_point(position = position_dodge(0.1), size=1.1, alpha=0.5, show.legend = FALSE) +
+  geom_smooth(aes(group = PopEnv), size=1.7, method = "loess", alpha = 0.15, se = TRUE) + #std error
+  scale_color_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3", "goldenrod1"))) +
+  scale_fill_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3","goldenrod1"))) +
+  scale_linetype_manual(values=rep(c("solid","dashed", "solid", "dashed"))) +
+  scale_x_continuous(breaks = seq(from=3, to=12, by=2), labels = seq(from=3, to=12, by=2), limits = c(3,11.3)) +
+  scale_y_continuous(breaks = seq(from=5, to=25, by=5), labels = seq(from=5, to=25, by=5), limits = c(5,25)) +
+  theme_half_open(20) +
+  panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 20), size = 15, face = "bold"),
-        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
-        axis.text.x = element_text(size = 12, face = "bold", color = "black"),
-        axis.text.y = element_text(size = 12, face = "bold", color = "black"),
-        #legend.title = element_blank(),
+        axis.title.x = element_text(margin = margin(t = 10), size = 11, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 10, color = "black", family = "Palatino"),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.line.y = element_blank(),
         legend.position = "none",
-        # legend.key.size = unit(1.5, "cm"),
-        # legend.text = element_text(size=15),
-        #legend.key = element_rect(fill = "transparent"),
-        plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
-  labs(x = "Age (weeks)", y = "Tail Length (mm)")
-TailLength
-plot_grid(BodyWeight, TailLength, labels = c('A', 'B'), ncol = 2, nrow = 2)
+        legend.background = element_blank(),
+        legend.box.background = element_blank(),
+        legend.key = element_blank(),
+        legend.key.height = unit(0.3, "cm"),
+        legend.key.width = unit(1.5, "cm"),
+        legend.text = element_text(size=8, family = "Palatino"),
+        legend.title = element_blank(),
+        plot.tag = element_text(family = "Palatino", size = 10, face = "italic"),
+        plot.tag.position = c(0.13,1.025),
+        plot.title = element_text(family = "Palatino", face = "plain"),
+        plot.margin = unit(c(0.5, 0.5, 0.1, -0.5), "cm")) + # top, right, bottom, left (0.5, 0.5, 0.1, -0.5)
+  labs(x = "",
+       y = "",
+       tag ="Females")
+
+MaleTL <-
+  ggplot(data=MaleData, aes(x=Age_weeks, y=TailLength_mm, color = PopEnv, fill = PopEnv, linetype = PopEnv)) +
+  geom_point(position = position_dodge(0.1), size=1.1, alpha=0.5, show.legend = FALSE) +
+  geom_smooth(aes(group = PopEnv), size=1.7, method = "loess", alpha = 0.15, se = TRUE) + #std error
+  scale_color_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3", "goldenrod1"))) +
+  scale_fill_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3","goldenrod1"))) +
+  scale_linetype_manual(values=rep(c("solid","dashed", "solid", "dashed"))) +
+  guides(color=guide_legend(override.aes=list(fill=NA)),
+         linetype=guide_legend(override.aes = list(size=0.5)),
+         linetype=guide_legend(override.aes = list(fill=NA))) +# removes gray shading from legend
+  scale_x_continuous(breaks = seq(from=3, to=12, by=2), labels = seq(from=3, to=12, by=2), limits = c(3,11.3)) +
+  scale_y_continuous(breaks = seq(from=45, to=90, by=10), labels = seq(from=45, to=90, by=10), limits = c(45,85)) +
+  theme_half_open(20) +
+  panel_border() + # puts border around facets
+  theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        axis.title.x = element_text(margin = margin(t = 10), size = 11, face = "bold", family = "Palatino", hjust = 1.25),
+        axis.title.y = element_text(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 10, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 10, color = "black", family = "Palatino"),
+        legend.position = "none",
+        plot.tag = element_text(family = "Palatino", size = 10, face = "italic"),
+        plot.tag.position = c(0.18,1.025),
+        plot.title = element_text(family = "Palatino", face = "plain"),
+        plot.margin = unit(c(0.1, -0.5, 0.1, 0.5), "cm")) +
+  labs(x = "Age (weeks)",
+       y = "Tail Length (mm)",
+       tag = "Males")
+
+FemaleTL <-
+  ggplot(data=FemaleData, aes(x=Age_weeks, y=TailLength_mm, fill = PopEnv, linetype = PopEnv, color = PopEnv)) +
+  geom_point(position = position_dodge(0.1), size=1.1, alpha=0.5, show.legend = FALSE) +
+  geom_smooth(aes(group = PopEnv), size=1.7, method = "loess", alpha = 0.15, se = TRUE) + #std error
+  scale_color_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3", "goldenrod1"))) +
+  scale_fill_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3","goldenrod1"))) +
+  scale_linetype_manual(values=rep(c("solid","dashed", "solid", "dashed"))) +
+  scale_x_continuous(breaks = seq(from=3, to=12, by=2), labels = seq(from=3, to=12, by=2), limits = c(3,11.3)) +
+  scale_y_continuous(breaks = seq(from=45, to=90, by=10), labels = seq(from=45, to=90, by=10), limits = c(45,85)) +
+  theme_half_open(20) +
+  panel_border() + # puts border around facets
+  theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        axis.title.x = element_text(margin = margin(t = 10), size = 11, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 10, color = "black", family = "Palatino"),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.line.y = element_blank(),
+        legend.position = "none",
+        legend.background = element_blank(),
+        legend.box.background = element_blank(),
+        legend.key = element_blank(),
+        legend.key.height = unit(0.3, "cm"),
+        legend.key.width = unit(1.5, "cm"),
+        legend.text = element_text(size=7, family = "Palatino"),
+        legend.title = element_blank(),
+        plot.tag = element_text(family = "Palatino", size = 10, face = "italic"),
+        plot.tag.position = c(0.13,1.025),
+        plot.title = element_text(family = "Palatino", face = "plain"),
+        plot.margin = unit(c(0.1, 0.5, 0.1, -0.5), "cm")) + # top, right, bottom, left (0.5, 0.5, 0.1, -0.5)
+  labs(x = "",
+       y = "",
+       tag ="Females")
+
+cowplot::plot_grid(MaleBW, FemaleBW, MaleTL, FemaleTL, labels = c('A', '', 'B', ''), ncol = 2, nrow = 2, label_fontfamily = "Palatino")
 
 
-#### Load PostDissection datasheet ####
-# Read in data
-Development <- WeeklyMetaData %>%
-  filter(Age_category == "weaning" | Age_category == "endexp") %>%
-  mutate(PopEnv = paste(Population, Environment)) %>%
-  mutate(PopEnv = fct_relevel(PopEnv, "BRAZIL RT", "BRAZIL COLD", "NEW_YORK RT", "NEW_YORK COLD")) %>%
-  mutate(Age_category = fct_relevel(Age_category, "weaning", "endexp" )) # puts weaning before adult
+ggsave("figures/weekly_phenotypes.tiff", height = 6, width = 6.5, compression = "lzw")
+ggsave("figures/weekly_phenotypes.pdf", height = 6, width = 6.5)
 
-WeaningBW <-
-  ggplot(data=Development, aes(x = Age_category, y = BodyWeight_g, fill = Population)) +
-  geom_boxplot(position = position_dodge(width=0.05), alpha=0.65, outlier.shape = NA) +
-  geom_dotplot(binaxis='y', stackdir = 'center', position = position_dodge(0.1)) +
-  #geom_jitter(position = position_dodge(0.8), alpha=2, size=3, shape=21) +
-  stat_summary(
-    fun = median,
-    geom = 'line',
-    aes(group = PopEnv, colour = Population, linetype=Environment),
-    position = "identity", size=1.5, alpha=0.8) +
-  scale_color_manual(values=c("goldenrod1","dodgerblue4")) +
-  scale_fill_manual(values=c("goldenrod1","dodgerblue4")) +
-  facet_wrap(.~Sex) +
-  theme_bw() + 
-  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
-        axis.text.x = element_text(size = 15, face = "bold", color = "black"),
-        axis.text.y = element_text(size = 12, face = "bold", color = "black")) +
-  theme(strip.text = element_text(size = 10, face = "bold", color = "black")) +
-  scale_x_discrete(labels=c("Weaning", "Adult")) +
-  theme(legend.title = element_blank(),
-        legend.position="bottom", legend.box = "horizontal",
-        legend.key.size = unit(1, "cm"),
-        legend.text = element_text(size=5),
-        legend.key = element_rect(fill = "transparent")) +
-  theme(plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
-  labs(x = "Age", y = "Body Weight (g)")
-WeaningBW
-
-WeaningTL <-
-  ggplot(data=Development, aes(x = Age_category, y = TailLength_mm, fill = PopEnv)) +
-  geom_boxplot(position = position_dodge(width=0.05), alpha=0.65, outlier.shape = NA) +
-  geom_dotplot(binaxis='y', stackdir = 'center', position = position_dodge(0.1)) +
-  #geom_jitter(position = position_dodge(0.8), alpha=2, size=3, shape=21) +
-  stat_summary(
-    fun = median,
-    geom = 'line',
-    aes(group = PopEnv, colour = PopEnv, linetype=Environment),
-    position = "identity", size=1.5, alpha=0.8) +
-  scale_color_manual(values=c("goldenrod4","goldenrod1", "dodgerblue4", "dodgerblue1")) +
-  scale_fill_manual(values=c("goldenrod4","goldenrod1", "dodgerblue4", "dodgerblue1")) +
-  facet_wrap(.~Sex) +
-  theme_bw() + 
-  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
-        axis.text.x = element_text(size = 15, face = "bold", color = "black"),
-        axis.text.y = element_text(size = 12, face = "bold", color = "black")) +
-  theme(strip.text = element_text(size = 10, face = "bold", color = "black")) +
-  scale_x_discrete(labels=c("Weaning", "Adult")) +
-  theme(legend.title = element_blank(),
-        legend.position="bottom", legend.box = "horizontal",
-        legend.key.size = unit(1, "cm"),
-        legend.text = element_text(size=5),
-        legend.key = element_rect(fill = "transparent")) +
-  theme(plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
-  labs(x = "Age", y = "Tail Length (mm)")
-WeaningTL
-
-WeaningTL2 <-
-  ggplot(data=Development, aes(x = Age_category, y = TailLength_mm, fill = Population)) +
-  geom_boxplot(position = position_dodge(width=0.05), alpha=0.65, outlier.shape = NA) +
-  geom_dotplot(binaxis='y', stackdir = 'center', position = position_dodge(0.1)) +
-  #geom_jitter(position = position_dodge(0.8), alpha=2, size=3, shape=21) +
-  stat_summary(
-    fun = median,
-    geom = 'line',
-    aes(group = PopEnv, colour = Population, linetype=Environment),
-    position = "identity", size=1.5, alpha=0.8) +
-  scale_color_manual(values=c("goldenrod4","goldenrod1", "dodgerblue4", "dodgerblue1")) +
-  scale_fill_manual(values=c("goldenrod4","goldenrod1", "dodgerblue4", "dodgerblue1")) +
-  facet_wrap(.~Sex) +
-  theme_bw() + 
-  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.y = element_text(margin = margin(r = 20), size = 15, face = "bold"),
-        axis.text.x = element_text(size = 15, face = "bold", color = "black"),
-        axis.text.y = element_text(size = 12, face = "bold", color = "black")) +
-  theme(strip.text = element_text(size = 10, face = "bold", color = "black")) +
-  scale_x_discrete(labels=c("Weaning", "Adult")) +
-  theme(legend.title = element_blank(),
-        legend.position="bottom", legend.box = "horizontal",
-        legend.key.size = unit(1, "cm"),
-        legend.text = element_text(size=5),
-        legend.key = element_rect(fill = "transparent")) +
-  theme(plot.title = element_text(size = 20, face = "bold", hjust = 0.5)) +
-  labs(x = "Age", y = "Tail Length (mm)")
-WeaningTL2
+dev.off()

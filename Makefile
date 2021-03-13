@@ -50,7 +50,9 @@ submission/Ballinger_et_al_2021_AmNat.pdf submission/Ballinger_et_al_2021_AmNat.
 				figures/generation_phenotypes.pdf\
 				figures/weekly_phenotypes.pdf\
 				figures/RXNs.pdf\
-				figures/VertNet_metadata.pdf
+				figures/VertNet_metadata.pdf\
+				submission/AmNat.csl\
+				submission/references.bib
 	R -e 'library(rmarkdown); render("submission/Ballinger_et_al_2021_AmNat.Rmd", output_format="all")'
 
 submission/manuscript_working.pdf submission/manuscript_working.docx: submission/manuscript_working.Rmd\

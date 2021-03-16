@@ -5,6 +5,10 @@
 README.md : README.Rmd
 	R -e "library(rmarkdown); render('README.Rmd')"
 
+data/processed/EnvAdapProj_Nachman_Arctos_transects_2021_03_15.csv: clean_NachmanTransects.R\
+				data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
+			./code/clean_NachmanTransects.R
+
 .PHONY:
 exploratory : \
 				exploratory/NachmanLab_transects.md\
@@ -12,7 +16,7 @@ exploratory : \
 				exploratory/WeeklyPhenotypes.md\
 
 figures/Nachman_transects.pdf: code/plot_NachmanTransects.R\
-				data/raw/NachmanLab_MusTransects_Metadata_2021-02-15.csv
+				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
 			./code/plot_NachmanTransects.R
 
 figures/generation_phenotypes.pdf: code/plot_generation_phenotypes.R\

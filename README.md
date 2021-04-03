@@ -35,6 +35,11 @@ of house mice.
       - `tidyverse` (v. 1.3.0)  
       - `rmarkdown` (v. 2.7)  
       - `here` (v. 1.0.1)
+      - `readxl` (v. 1.3.1)
+      - `cowplot` (v. 1.1.1)
+      - `performance` (v. 0.7.0)
+      - `see` (v. 0.6.2)
+      - `car` (v. 3.0.10)
       - `tinytex` (v. 0.29)
 
 ### My computer

@@ -41,6 +41,11 @@ library(here)
     * `tidyverse` (v. `r packageVersion("tidyverse")`)  
     * `rmarkdown` (v. `r packageVersion("rmarkdown")`)  
     * `here` (v. `r packageVersion("here")`)
+    * `readxl` (v. `r packageVersion("readxl")`)
+    * `cowplot` (v. `r packageVersion("cowplot")`)
+    * `performance` (v. `r packageVersion("performance")`)
+    * `see` (v. `r packageVersion("see")`)
+    * `car` (v. `r packageVersion("car")`)
     * `tinytex` (v. `r packageVersion("tinytex")`)
 
 

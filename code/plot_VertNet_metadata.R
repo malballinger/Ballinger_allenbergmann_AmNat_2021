@@ -3,12 +3,12 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 26-Feb-2021
-# Script last updated:  26-Feb-2021
+# Script last updated:  29-Mar-2021
 
 
-# This script plots body weight and tail length from all dowloaded entries
+# This script plots body weight and extremity length from all dowloaded entries
 # of North and South American house mice from VertNet.
-# This script generates Figure S1 in Ballinger_et_al_2021_AmNat
+# This script generates half of Figure 1 in Ballinger_et_al_2021_AmNat
 
 
 ##############################################################
@@ -20,125 +20,84 @@ library(tidyverse)
 library(here)
 library(cowplot)
 library(ggtext)
+library(glue)
 
 ##############################################################
 # Import data
 ##############################################################
 
-VertNetMetaData <- read_csv(here("data/processed/VertNet_Mus_processed.csv"),
-                            col_types = cols(.default = col_character(),
-                                             totallength_mm = col_double(),
-                                             taillength_mm = col_double(),
-                                             hindfootlength_mm = col_double(),
-                                             earlength_mm = col_double(),
-                                             bodyweight_g = col_double(),
-                                             bodylength_mm = col_double(),
-                                             year = col_double(),
-                                             decimallatitude = col_double(),
-                                             decimallongitude = col_double(),
-                                             lengthinmm = col_double(),
-                                             lengthunitsinferred = col_double(),
-                                             massing = col_double(),
-                                             massunitsinferred = col_double())) %>% # I first used guess_max = Inf to figure out what the column specifications are
-  select(references, dynamicproperties, totallength_mm, taillength_mm, hindfootlength_mm, 
-         earlength_mm, bodyweight_g, bodylength_mm, sex, lifestage, reproductivecondition,
-         continent, country, stateprovince, decimallatitude, decimallongitude) %>%
-  filter(continent == "North America" | continent == "South America") %>%
-  filter(is.na(lifestage) | lifestage != "subadult") %>% # everything but subadult (including NAs)
-  filter(is.na(lifestage) | lifestage != "undetermined") %>% # everything but undetermined (including NAs)
-  filter(is.na(reproductivecondition) | reproductivecondition != "preg") %>% # everything but pregnant mice (including NAs)
-  filter(sex == "female" | sex == "male") %>% # only males and females
-  mutate(abslat = abs(decimallatitude),sex = as.factor(sex), lifestage = as.factor(lifestage)) %>%
-  mutate_if(is.factor, fct_explicit_na, na_level = 'NA') %>% # let's you relevel NAs (I think)
-  mutate(lifestage = fct_relevel(lifestage, "NA", "adult"))
+VertNetMetadata <- read_csv(here("data/processed/VertNetMetadata_Mus_2021-03-18.csv")) %>%
+  mutate(Ear_Length_mm = as.numeric(Ear_Length_mm),
+         Hindfoot_Length_mm = as.numeric(Hindfoot_Length_mm),
+         Tail_Length_mm = as.numeric(Tail_Length_mm),
+         Body_Length_mm = as.numeric(Body_Length_mm),
+         Body_Weight_g = as.numeric(Body_Weight_g)) %>%
+  mutate(Sex = as.factor(Sex)) %>%
+  mutate(Sex = fct_relevel(Sex, "male", "female")) # puts males before females
 
-
-##############################################################
-# Data and Model testing
-##############################################################
-# is body weight normally distributed?
-#hist(VertNetMetaData$taillength_mm, breaks = 50)
-lmBW <- lm(bodyweight_g~abslat, data=VertNetMetaData)
-# summary(lmBW)
-# hist(resid(lmBW), breaks = 25)
-# qqnorm(resid(lmBW))
-# qqline(resid(lmBW))
-# shapiro.test(resid(lmBW)) # not normally distributed - will have to use Spearman correlation
-
-# is tail length normally distributed?
-lmTLBW <- lm(taillength_mm~bodyweight_g, data=VertNetMetaData,
-             na.action = na.exclude)
-# #summary(lmTL)
-# #plot(lmTL$residuals)
-# hist(lmTLBW$residuals, breaks = 25)
-# qqnorm(resid(lmTLBW))
-# qqline(resid(lmTLBW))
-# shapiro.test(resid(lmTLBW))
-
-# Based on outlier tests (see 202101_VerNet_metadata.Rmd), any tail length less than 40 and greater than 120 are clear outliers
-VertNetTail <- VertNetMetaData %>%
-  filter(taillength_mm > 40, taillength_mm < 120)
-
-lmTLBW.2 <- lm(taillength_mm~bodyweight_g, data = VertNetTail,
-               na.action = na.exclude)
-# hist(lmTLBW.2$residuals, breaks = 25)
-# qqnorm(resid(lmTLBW.2))
-# qqline(resid(lmTLBW.2))
-# shapiro.test(resid(lmTLBW.2)) # still not normally distributed, but will use Spearman correlation
-
-VertNetTail$Resids_TLBW <- resid(lmTLBW.2)
-
-VertNetMetaData$Resids_TLBW <- resid(lmTLBW)
-
-
-
-##############################################################
-# Test for correlation between body weight and tail length
-##############################################################
-# # Bergmann's rule
-# 
-# # Pearson correlation since data are normally distributed
-# corrBW <- cor.test(x = VertNetMetaData$abslat, y = VertNetMetaData$bodyweight_g, method = 'spearman')
-# corrBW
-# # rho = 0.031
-# # p-value = 0.1786
-# 
-# 
-# # R-squared value from linear model
-# lmBW <- lm(bodyweight_g~abslat, data=VertNetMetaData)
-# summary(lmBW)
-# # adj R-squared = 0.0055
-# 
-# 
-# # Allen's rule
-# 
-# #Spearman's correlation
-# corrTL <- cor.test(x = VertNetMetaData$abslat, y = VertNetMetaData$Resids_TLBW, method = 'spearman') # not normally distributed, so need to use spearman
-# corrTL
-# # rho = -0.23
-# # p < 2.2 x 10(-16)
-# 
-# # R-squared value from linear model
-# lmTAIL <- lm(taillength_mm~bodyweight_g + abslat,
-#              data = VertNetMetaData)
-# summary(lmTAIL)
-# # adj R-squared = 0.207
-# # p < 2.2e-16
-
+# get sample size of each column
+colSums(!is.na(VertNetMetadata))
 
 
 
 
 
 ##############################################################
-# Plot body weight and tail length vs. abs lat
+# Apply filtering and calculate residuals
 ##############################################################
-# Bergmann's rule
 
-Berg <-
-  ggplot(data=VertNetMetaData, aes(x = abslat, y = bodyweight_g)) +
-  geom_smooth(color = "gray", fill = "gray", linetype = "solid", method = "lm", se = FALSE) +
-  geom_jitter(size = 2.2, height = 0, width = 0.2, alpha = 0.2) +
+# filtering and model testing were completed in 'code/model_VertNetMetadata.R'.
+# We are applying the same filtering, models, and statistical outputs here for
+# plotting purposes. Please see 'modeling' script for details.
+
+
+# Based on outlier tests (see 'code/model_VertNetMetadata.R'), any tail length
+# less than 20 and greater than 120 are extreme outliers
+VertNet_filtered <- VertNetMetadata %>%
+  mutate(Tail_Length_mm = ifelse(Tail_Length_mm < 20, NA, Tail_Length_mm),
+         Tail_Length_mm = ifelse(Tail_Length_mm > 120, NA, Tail_Length_mm))
+
+# save TL x BW residuals
+residsTLBW <- lm(Tail_Length_mm ~ Body_Weight_g, data = VertNet_filtered,
+                 na.action = na.exclude)
+VertNet_filtered$Resids_TLBW <- resid(residsTLBW)
+
+
+# Based on outlier tests (see 'code/model_VertNetMetadata.R'), any ear length
+# greater than 30 is extreme outliers
+VertNet_filtered_2 <- VertNetMetadata %>%
+  mutate(Ear_Length_mm = ifelse(Ear_Length_mm > 30, NA, Ear_Length_mm))
+
+# save EL x BW residuals
+residsELBW <- lm(Ear_Length_mm ~ Body_Weight_g, data = VertNet_filtered_2,
+                 na.action = na.exclude)
+VertNet_filtered_2$Resids_ELBW <- resid(residsELBW)
+
+
+
+
+
+##############################################################
+# Plot body weight and exremity length vs. abs lat
+##############################################################
+
+Berg_deets <- c("males (rho = 0.055, *p* = 0.075)",
+                "females (rho = 0.0084, *p* = 0.80)")
+
+Tail_deets <- c("males (rho = -0.23, *p* < 0.0001)",
+                "females (rho = -0.23, *p* < 0.0001)")
+
+Ear_deets <- c("males (rho = -0.13, *p* < 0.001)",
+                "females (rho = -0.068, *p* = 0.076)")
+
+Berg_Sex <-
+  ggplot(data = VertNetMetadata, aes(x = Absolute_Latitude, y = Body_Weight_g)) +
+  geom_smooth(method = "lm", se = FALSE, size = 1.3, aes(linetype = Sex, color = Sex)) +
+  geom_jitter(aes(fill = Sex), size = 2, stroke = 0.25, height = 0, width = 0.2, shape = 21, alpha = 0.9, color = "black") +
+  scale_color_manual(labels=Berg_deets, values=c("black", "darkgray")) +
+  scale_fill_manual(labels=Berg_deets, values=c("black", "white")) +
+  scale_linetype_manual(labels=Berg_deets, values = c("solid", "solid")) +
+  guides(linetype=guide_legend(override.aes = list(size=1))) +
   scale_x_continuous(breaks = seq(from=0, to=65, by=10), labels = seq(from=0, to=65, by=10), limits = c(0,65)) +
   scale_y_continuous(breaks = seq(from=0, to=40, by=10), labels = seq(from=0, to=40, by=10), limits = c(0,40)) +
   theme_bw() + 
@@ -148,43 +107,93 @@ Berg <-
         axis.title.y = element_text(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
         axis.text.x = element_text(size = 9, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 9, color = "black", family = "Palatino"),
-        legend.position = "none",
-        plot.tag = element_markdown(family = "Palatino", size = 9, color = "black", hjust = 0), # need to use element_markdown since using ggtext
-        plot.tag.position = c(0.2,0.93),
-        plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")) +
+        legend.title = element_blank(),
+        legend.position = c(0.22, 0.95),
+        legend.background = element_blank(),
+        legend.box.background = element_blank(),
+        legend.key.size = unit(0.25, "cm"),
+        legend.text = element_markdown(size=7, family = "Palatino"),
+        legend.key = element_rect(fill = "transparent"),
+        #plot.tag = element_markdown(family = "Palatino", size = 9, color = "black", hjust = 0), # need to use element_markdown since using ggtext
+        #plot.tag.position = c(0.2,0.9),
+        plot.margin = unit(c(0.5, 0.5, 0, 0.5), "cm")) + #top, right, bottom, left
+  #guides(color = guide_legend(nrow = 1)) +
   theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, family = "Palatino")) +
-  labs(x = "Degrees from the equator",
-       y = "Body Mass (g)",
-       tag = "R = 0.031  
-       *p* = 0.18")
+  labs(x = "",
+       y = "Body Mass (g)")
+       #tag = "(R = 0.031, *p* = 0.18)<br /><br />(R = X, *p* = x)",#dobule line break
+       #subtitle = "A")
 
 
-Allen <-
-  ggplot(data=VertNetMetaData, aes(x = abslat, y = Resids_TLBW)) +
-  geom_smooth(color = "gray", fill = "gray", linetype = "solid", method = "lm", se = FALSE) +
-  geom_jitter(size = 2.2, height = 0, width = 0.2, alpha = 0.2) +
+
+Tail_Sex <-
+  ggplot(data = VertNet_filtered, aes(x = Absolute_Latitude, y = Resids_TLBW)) +
+  geom_smooth(method = "lm", se = FALSE, size = 1.3, aes(linetype = Sex, color = Sex)) +
+  geom_jitter(aes(fill = Sex), size = 2, stroke = 0.25, height = 0, width = 0.2, shape = 21, alpha = 0.9, color = "black") +
+  scale_color_manual(labels=Tail_deets, values=c("black", "darkgray")) +
+  scale_fill_manual(labels=Tail_deets, values=c("black", "white")) +
+  scale_linetype_manual(labels=Tail_deets, values = c("solid", "solid")) +
+  guides(linetype=guide_legend(override.aes = list(size=1))) +
   scale_x_continuous(breaks = seq(from=0, to=65, by=10), labels = seq(from=0, to=65, by=10), limits = c(0,65)) +
-  scale_y_continuous(breaks = seq(from=-60, to=60, by=10), labels = seq(from=-60, to=60, by=10), limits = c(-60,60)) +
-  theme_bw() + 
+  scale_y_continuous(breaks = seq(from=-50, to=30, by=10), labels = seq(from=-50, to=30, by=10), limits = c(-50,30)) +
+  theme_bw() +
+  theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_text(margin = margin(t = 10), size = 11, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 9, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 9, color = "black", family = "Palatino"),
+        legend.title = element_blank(),
+        legend.position = c(0.24, 0.95),
+        legend.background = element_blank(),
+        legend.box.background = element_blank(),
+        legend.key.size = unit(0.25, "cm"),
+        legend.text = element_markdown(size=7, family = "Palatino"),
+        legend.key = element_rect(fill = "transparent"),
+        plot.margin = unit(c(0, 0.5, 0, 0.5), "cm")) +
+  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, family = "Palatino")) +
+  labs(x = "",
+       y = "Tail Length (mm)")
+
+
+
+Ear_Sex <-
+  ggplot(data = VertNet_filtered_2, aes(x = Absolute_Latitude, y = Resids_ELBW)) +
+  geom_smooth(method = "lm", se = FALSE, size = 1.3, aes(linetype = Sex, color = Sex)) +
+  geom_jitter(aes(fill = Sex), size = 2, stroke = 0.25, height = 0, width = 0.2, shape = 21, alpha = 0.9, color = "black") +
+  scale_color_manual(labels=Ear_deets, values=c("black", "darkgray")) +
+  scale_fill_manual(labels=Ear_deets, values=c("black", "white")) +
+  scale_linetype_manual(labels=Ear_deets, values = c("solid", "solid")) +
+  guides(linetype=guide_legend(override.aes = list(size=1))) +
+  scale_x_continuous(breaks = seq(from=0, to=65, by=10), labels = seq(from=0, to=65, by=10), limits = c(0,65)) +
+  scale_y_continuous(breaks = seq(from=-10, to=10, by=5), labels = seq(from=-10, to=10, by=5), limits = c(-10,10)) +
+  theme_bw() +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.title.x = element_text(margin = margin(t = 10), size = 11, face = "bold", family = "Palatino"),
-        axis.title.y = element_text(margin = margin(r = 8), size = 11, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
         axis.text.x = element_text(size = 9, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 9, color = "black", family = "Palatino"),
-        legend.position = "none",
-        plot.tag = element_markdown(family = "Palatino", size = 9, color = "black", hjust = 0), # need to use element_markdown since using ggtext
-        plot.tag.position = c(0.2,0.93),
-        plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")) +
-  labs(x = "Degrees from the equator",
-       y = "Tail Length Residuals",
-       tag = "R = -0.23  
-       *p* < 2.2e<sup>-16</sup>")
+        legend.title = element_blank(),
+        legend.position = c(0.24, 0.95),
+        legend.background = element_blank(),
+        legend.box.background = element_blank(),
+        legend.key.size = unit(0.25, "cm"),
+        legend.text = element_markdown(size=7, family = "Palatino"),
+        legend.key = element_rect(fill = "transparent"),
+        #plot.tag = element_markdown(family = "Palatino", size = 9, color = "black", hjust = 0), # need to use element_markdown since using ggtext
+        #plot.tag.position = c(0.2,0.9),
+        plot.margin = unit(c(0, 0.5, 0.5, 0.5), "cm")) +
+  #guides(color = guide_legend(nrow = 1)) +
+  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, family = "Palatino")) +
+  labs(x = "Degrees from the Equator",
+       y = "Ear Length (mm)")
 
 
-cowplot::plot_grid(Berg, Allen, labels = c('A', 'B'), ncol = 2, nrow = 1, label_fontfamily = "Palatino")
+cowplot::plot_grid(Berg_Sex, Tail_Sex, Ear_Sex, labels = c('A', 'B', 'C'), ncol = 1, nrow = 3, label_fontfamily = "Palatino")
 
-ggsave("figures/VertNet_metadata.tiff", height = 4, width = 9, compression = "lzw")
-ggsave("figures/VertNet_metadata.pdf", height = 4, width = 9)
+ggsave("results/figures/VertNet_metadata.tiff", height = 9, width = 4.5, compression = "lzw")
+ggsave("results/figures/VertNet_metadata.pdf", height = 9, width = 4.5)
 
 dev.off()

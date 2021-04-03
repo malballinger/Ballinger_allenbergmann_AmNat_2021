@@ -7,8 +7,8 @@
 
 
 # This script cleans the metadata file:
-# "EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv"
-# The cleaned dataset will be used for downstream analyses.
+# "data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv"
+# The generated, cleaned dataset is used for downstream analyses.
 
 
 ##############################################################

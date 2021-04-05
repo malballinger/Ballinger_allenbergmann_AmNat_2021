@@ -14,10 +14,22 @@ data/processed/EnvAdapProj_Nachman_Arctos_transects_2021_03_15.csv: code/clean_N
 				data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
 			./code/clean_NachmanTransects.R
 
+data/processed/GenerationColonyData.csv: code/clean_Generations.R\
+				data/raw/colony_metadata_RAW.xlsx
+			./code/clean_Generations.R
+
 results/tables/VertNetMetadata_Mus.csv: code/clean_VertNetMetadata.R\
 				data/raw/VertNet_Mus_specimen_20201013.tsv\
 				data/processed/VertNet_Mus_processed.xlsx
 			./code/clean_VertNetMetadata.R
+
+results/tables/EnvAdapProj_Nachman_Arctos.csv: code/clean_NachmanTransects.R\
+				data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
+			./code/clean_NachmanTransects.R
+
+results/tables/GenerationColonyData.csv: code/clean_Generations.R\
+				data/raw/colony_metadata_RAW.xlsx
+			./code/clean_Generations.R			
 
 results/figures/VertNet_metadata.pdf: code/plot_VertNet_metadata.R\
 				data/processed/VertNetMetadata_Mus_2021-03-18.csv
@@ -31,6 +43,14 @@ results/figures/VertNet_Arctos.pdf: code/plot_ArctosVertNet.R\
 				data/processed/VertNetMetadata_Mus_2021-03-18.csv\
 				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
 			./code/plot_ArctosVertNet.R
+
+results/figures/Generations_colony.pdf: code/plot_Generations.R\
+				data/processed/GenerationColonyData.csv
+			./code/plot_Generations.R
+
+results/figures/GenerationsModel.pdf: code/model_Generations.R\
+				data/processed/GenerationColonyData.csv
+			./code/model_Generations.R
 
 results/figures/generation_phenotypes.pdf: code/plot_generation_phenotypes.R\
 				data/processed/AllBZNYmice_wild&colony.csv
@@ -59,12 +79,13 @@ submission/figure_3.tiff : figures/weekly_phenotypes.tiff
 
 submission/Ballinger_et_al_2021_AmNat.pdf submission/Ballinger_et_al_2021_AmNat.docx: submission/Ballinger_et_al_2021_AmNat.Rmd\
 				data/processed/VertNetMetadata_Mus_2021-03-18.csv\
-				data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv\
-				data/processed/AllBZNYmice_wild&colony.csv\
+				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv\
+				data/processed/GenerationColonyData.csv\
 				data/raw/weekly_metadata_RAW_2021-02-11.csv\
 				data/raw/post_dissection_metadata_RAW_2021-02-18.csv\
 				results/figures/VertNet_Arctos.pdf\
-				results/figures/generation_phenotypes.pdf\
+				results/figures/Generations_colony.pdf\
+				results/figures/GenerationsModel.pdf\
 				results/figures/weekly_phenotypes.pdf\
 				results/figures/RXNs.pdf\
 				submission/AmNat.csl\

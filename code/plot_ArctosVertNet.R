@@ -433,7 +433,7 @@ Tail_VertNet <-
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(margin = margin(t = 0), size = 10, face = "bold", family = "Palatino"),
-        axis.title.y = element_text(margin = margin(r = 0), size = 10, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 3), size = 10, face = "bold", family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.title = element_blank(),
@@ -445,7 +445,7 @@ Tail_VertNet <-
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0.25, 0.5, 0.25, 0.5), "cm")) +
   labs(x = "",
-       y = "Tail Length (mm)")
+       y = "Tail Length (resids)")
 
 
 Tail_Arctos <-
@@ -469,7 +469,7 @@ Tail_Arctos <-
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(margin = margin(t = 0), size = 10, face = "bold", family = "Palatino"),
-        axis.title.y = element_text(margin = margin(r = 0), size = 10, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 3), size = 10, face = "bold", family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.title = element_blank(),
@@ -481,7 +481,7 @@ Tail_Arctos <-
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0.25, 0.5, 0.25, 0.5), "cm")) +
   labs(x = "",
-       y = "Tail Length (mm)")
+       y = "Tail Length (resids)")
 
 #Tail <- cowplot::plot_grid(Tail_VertNet, Tail_Arctos, labels = c('C','D'), ncol = 2, nrow = 1, label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
 
@@ -518,7 +518,7 @@ Ear_VertNet <-
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0, 0.5, 0.25, 0.5), "cm")) +
   labs(x = "Degrees from the Equator",
-       y = "Ear Length (mm)")
+       y = "Ear Length (resids)")
 
 
 Ear_Arctos <-
@@ -553,13 +553,13 @@ Ear_Arctos <-
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0, 0.5, 0.25, 0.5), "cm")) +
   labs(x = "Degrees from the Equator",
-       y = "Ear Length (mm)")
+       y = "Ear Length (resids)")
 
 
 
-VertNet <- cowplot::plot_grid(Berg_VertNet, Tail_VertNet, Ear_VertNet, ncol = 1, nrow = 3, align = 'v', labels = c('A','C','E'), label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
+VertNet <- cowplot::plot_grid(Berg_VertNet, Tail_VertNet, Ear_VertNet, ncol = 1, nrow = 3, align = 'v', labels = c('A)','C)','E)'), label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
 
-Arctos <- cowplot::plot_grid(Berg_Arctos, Tail_Arctos, Ear_Arctos, ncol = 1, nrow = 3, align = 'v', labels = c('B','D','F'), label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
+Arctos <- cowplot::plot_grid(Berg_Arctos, Tail_Arctos, Ear_Arctos, ncol = 1, nrow = 3, align = 'v', labels = c('B)','D)','F)'), label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
 
 cowplot::plot_grid(VertNet, Arctos, ncol = 2, nrow = 1)
 

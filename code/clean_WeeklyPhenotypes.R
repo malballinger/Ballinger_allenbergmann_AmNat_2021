@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 12-Feb-2021
-# Script last updated:  07-Apr-2021
+# Script last updated:  08-Apr-2021
 
 
 # This script cleans the metadata file: data/raw/weekly_metadata_RAW_2021-02-11.csv.
@@ -27,6 +27,8 @@ WeeklyMetaData <- read_csv(here("data/raw/weekly_metadata_RAW_2021-02-11.csv")) 
          "Body_Weight_g" = "BodyWeight_g") %>%
   filter(Population == "BRAZIL" | Population == "NEW_YORK") %>% # only keep parental populations (remove F1 hybrids)
   filter(Generation == "N11" | Generation == "N12") %>%
+  filter(Mouse_ID != "193x255_BZ15") %>% filter(Mouse_ID != "193x255_BZ16") %>% # remove samples that were eventually removed from experiment
+  filter(Mouse_ID != "193x255_BZ17") %>% filter(Mouse_ID != "193x255_BZ22") %>% # remove samples that were eventually removed from experiment
   mutate(Sex = fct_recode(Sex, "Female" = "F", "Male" = "M")) %>% # spells out males and females
   mutate(Environment = fct_recode(Environment, "Cold" = "COLD", "Warm" = "RT")) %>%
   mutate(Line = fct_recode(Line, "MANA" = "193x255", "SARA" = "19x13",
@@ -40,7 +42,7 @@ WeeklyMetaData <- read_csv(here("data/raw/weekly_metadata_RAW_2021-02-11.csv")) 
 
 # Sample size of dataset
 FullSampleSize <- WeeklyMetaData %>% summarise(N=n_distinct(Mouse_ID)) %>% pull(N)
-# n = 84
+# n = 80
 
 
 write.csv(WeeklyMetaData, file = "results/tables/WeeklyPhenotypeData.csv", row.names = TRUE)

@@ -3,7 +3,7 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 19-Feb-2021
-# Script last updated:  06-Apr-2021
+# Script last updated:  08-Apr-2021
 
 
 # This script models body mass and extremity length from house mice of common garden
@@ -110,6 +110,21 @@ car::Anova(mod.full.BW, type = "III")
 
 
 
+# Full model - BMI
+mod.full.BMI <- lmer(BMI_kg_m2 ~ Sex * Population * Environment + (1|Line),
+                    data = PostDissectionMetaData)
+#check_model(mod.full.BMI)
+#shapiro.test(resid(mod.full.BMI)) # normally distributed
+
+
+# Stats - BMI
+summary(mod.full.BMI)
+# Anova P test
+car::Anova(mod.full.BMI, type = "III")
+
+
+
+
 
 ################################################################################
 # Data and Model testing
@@ -139,24 +154,30 @@ car::Anova(mod.full.TL, type = "III")
 # *Allen's rule* - ear length
 ################################################################################
 
+# Check for and remove *extreme* outliers
+#PostDissectionMetaData %>% ggplot(aes(x=Ear_Length_mm)) + geom_histogram(binwidth = 1)
+#hist(PostDissectionMetaData$Ear_Length_mm, breaks = 100)
+# from eyeball test, any ear larger than 17mm is an extreme outlier
+# I think it's ok to remove this outlier since it won't change any of the results
+
+PostDissection_filtered <- PostDissectionMetaData %>%
+  mutate(Ear_Length_mm = ifelse(Ear_Length_mm > 17, NA, Ear_Length_mm))
+
+# dataset for ear length > n = 78
+
+
 # Full model - all sexes
-mod.full.EL <- lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line), data = PostDissectionMetaData)
+mod.full.EL <- lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line), data = PostDissection_filtered)
 
 #check_model(mod.full.EL)
-#shapiro.test(resid(mod.full.EL)) # not normally distributed
-
-mod.full_2.EL <- lmer(rank(Ear_Length_mm) ~ Body_Weight_g + Sex * Population * Environment + (1|Line),
-                      data = PostDissectionMetaData)
-#check_model(mod.full_2.EL)
-#shapiro.test(resid(mod.full_2.EL)) # normally distributed
+#shapiro.test(resid(mod.full.EL)) # normally distributed
 
 
 # Stats - all sexes
-summary(mod.full_2.EL)
+summary(mod.full.EL)
 # Anova NP test
-#car::Anova(lmer(rank(Ear_Length_mm) ~ Body_Weight_g + Sex * Population * Environment + (1|Line),
-#data = PostDissectionMetaData), type = "III")
-car::Anova(mod.full_2.EL, type = "III")
+#car::Anova(lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line), data = PostDissection_filtered), type = "III")
+car::Anova(mod.full.EL, type = "III")
 
 
 # # Full model - males
@@ -211,7 +232,7 @@ Model_RXNs <-
                      'SexFemale:EnvironmentCold' = "Sex (Female) : Population (Cold)",
                      'PopulationBrazil:EnvironmentCold' = "Population (Brazil) : Environment (Cold)",
                      'SexFemale:PopulationBrazil:EnvironmentCold' = "Sex (Female) : Population (Brazil) : Environment (Cold)",
-                    '(Intercept)' = "Intercept (Male : New York: Warm)") +
+                    '(Intercept)' = "Intercept (Male - New York - Warm)") +
   scale_color_manual(values = c("purple", "black", "springgreen3"),
                      breaks = c("Model 1", "Model 2", "Model 3"),
                      labels = c("Body Mass", "Tail Length", "Ear Length")) +
@@ -237,3 +258,41 @@ cowplot::plot_grid(Model_RXNs, ncol=1, nrow=1, label_fontfamily = "Palatino", al
 
 ggsave("results/figures/RXNsModel.tiff", height = 5, width = 7, compression = "lzw")
 ggsave("results/figures/RXNsModel.pdf", height = 5, width = 7)
+
+
+
+
+
+################################################################################
+# Plot model results - BMI
+################################################################################
+
+Model_BMI <-
+  dwplot(list(mod.full.BMI), show_intercept = TRUE,
+         vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) %>%
+  relabel_predictors(Body_Weight_g = "Body Mass (g)",
+                     SexFemale = "Sex (Female)",
+                     PopulationBrazil = "Population (Brazil)",
+                     EnvironmentCold = "Environment (Cold)",
+                     'SexFemale:PopulationBrazil' = "Sex (Female) : Population (Brazil)",
+                     'SexFemale:EnvironmentCold' = "Sex (Female) : Population (Cold)",
+                     'PopulationBrazil:EnvironmentCold' = "Population (Brazil) : Environment (Cold)",
+                     'SexFemale:PopulationBrazil:EnvironmentCold' = "Sex (Female) : Population (Brazil) : Environment (Cold)",
+                     '(Intercept)' = "Intercept (Male - New York - Warm)") +
+  scale_color_manual(values = c("black"),
+                     breaks = c("Model 1"),
+                     labels = c("BMI")) +
+  theme_bw() + xlab("Coefficient Estimate") + ylab("") +
+  ggtitle("BMI ~ Sex * Population * Environment") +
+  theme(axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino", hjust = 0.6),
+        axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
+        plot.title = element_text(size = 9, face = "bold.italic", hjust = 0.5, vjust = 0, family = "Palatino"),
+        legend.position = 'none')
+
+
+cowplot::plot_grid(Model_BMI, ncol=1, nrow=1, label_fontfamily = "Palatino", align = 'hv')
+
+ggsave("results/figures/RXNs_BMI_Model.tiff", height = 5, width = 7, compression = "lzw")
+ggsave("results/figures/RXNs_BMI_Model.pdf", height = 5, width = 7)

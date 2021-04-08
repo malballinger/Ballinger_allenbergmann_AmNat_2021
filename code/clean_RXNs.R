@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 12-Feb-2021
-# Script last updated:  06-Apr-2021
+# Script last updated:  07-Apr-2021
 
 
 # This script cleans the metadata file: data/raw/post_dissection_metadata_RAW_2021-02-18.csv.
@@ -38,12 +38,13 @@ PostDissectionMetaData <- read_csv(here("data/raw/post_dissection_metadata_RAW_2
   mutate(Sex = fct_recode(Sex, "Female" = "F", "Male" = "M")) %>% # spells out males and females
   mutate(Environment = fct_recode(Environment, "Cold" = "COLD", "Warm" = "RT")) %>%
   mutate(Line = fct_recode(Line, "MANA" = "193x255", "SARA" = "19x13",
-                           "MANB" = "222x254", "SARB" = "82x81")) # gives each line the JAX name
-
+                           "MANB" = "222x254", "SARB" = "82x81")) %>% # gives each line the JAX name
+  mutate(Age_weeks = round(Age_weeks, 2))
 
 # Sample size of dataset
 FullSampleSize <- PostDissectionMetaData %>% summarise(N=n_distinct(Mouse_ID)) %>% pull(N)
 # n = 80
+
 
 write.csv(PostDissectionMetaData, file = "results/tables/PostDissectionMetaData.csv", row.names = TRUE)
 write.csv(PostDissectionMetaData, file = "data/processed/PostDissectionMetaData.csv", row.names = TRUE)

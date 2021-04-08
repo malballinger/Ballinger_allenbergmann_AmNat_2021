@@ -221,7 +221,7 @@ Berg_Sex_Adults
 
 
 ##### 2e. Stats for Bergmann's Rule
-```{r Berg_stats, message=FALSE}
+```{r Berg_stats, results='asis', message=FALSE}
 # Model 1 includes all data, no sex
 BergM1 <- lm(bodyweight_g~abslat, data = VertNetBerg)
 

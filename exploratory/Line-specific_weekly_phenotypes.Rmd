@@ -17,7 +17,7 @@ library(cowplot)
 
 
 # Read in data
-WeeklyMetaData <- read_csv(here("data/raw/WeeklyMetaData.csv")) %>%
+WeeklyMetaData <- read_csv(here("data/raw/weekly_metadata_RAW_2021-02-15.csv")) %>%
   select(-DOB, -DateMeasured) %>%
   filter(Population == "BRAZIL" | Population == "NEW_YORK") %>%
   #filter(Age_weeks > 3) %>%  #NY lines sometimes were weaned & measured slightly before 3 weeks

@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 31-Mar-2021
-# Script last updated:  03-Apr-2021
+# Script last updated:  07-Apr-2021
 
 
 # This script cleans the metadata file: data/raw/colony_metadata_RAW.xlsx
@@ -32,12 +32,13 @@ GenerationMetaData <- read_xlsx(here("data/raw/colony_metadata_RAW.xlsx"),
          "Body_Weight_g" = "BodyMass_g",
          "Body_Length_mm" = "BodyLength_mm") %>%
   mutate(Sex = fct_recode(Sex, "Female" = "F", "Male" = "M")) %>%
-  mutate(Population = fct_recode(Population, "Brazil" = "BRAZIL", "New_York" = "NEW_YORK"))
+  mutate(Population = fct_recode(Population, "Brazil" = "BRAZIL", "New York" = "NEW_YORK"))
 
 
 # Sample size of dataset
 FullSampleSize <- nrow(GenerationMetaData)
 # n = 451
+
 
 write.csv(GenerationMetaData, file = "results/tables/GenerationColonyData.csv", row.names = TRUE)
 write.csv(GenerationMetaData, file = "data/processed/GenerationColonyData.csv", row.names = TRUE)

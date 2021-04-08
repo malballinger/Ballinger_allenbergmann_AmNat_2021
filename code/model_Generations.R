@@ -3,11 +3,12 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 03-Apr-2021
-# Script last updated:  03-Apr-2021
+# Script last updated:  07-Apr-2021
 
 
 # This script models body mass and extremity length from colony house mice of the
-# Brazil and New York populations. Data were cleaned using the script ./clean_Generations.R.
+# Brazil and New York populations (i.e. common garden experiment #1).
+# Data were cleaned using the script ./clean_Generations.R.
 # This script generates statistical analyses for Ballinger_et_al_2021_AmNat.
 
 
@@ -30,12 +31,9 @@ library(dotwhisker)
 ################################################################################
 
 GenerationMetaData <- read_csv(here("data/processed/GenerationColonyData.csv")) %>%
-  select(-GUID, -Collector_ID, -Age_days, -Notes) %>%
-  mutate(Ear_Length_mm = as.numeric(Ear_Length_mm),
-         Hindfoot_Length_mm = as.numeric(Hindfoot_Length_mm),
-         Tail_Length_mm = as.numeric(Tail_Length_mm),
-         Body_Length_mm = as.numeric(Body_Length_mm),
-         Body_Weight_g = as.numeric(Body_Weight_g))
+  select(-GUID, -Collector_ID, -Age_days, -Notes) %>% select(-1) %>%
+  mutate(Sex = fct_relevel(Sex, "Male", "Female")) %>% # put males before females
+  mutate(Population = fct_relevel(Population, "New York", "Brazil")) # put evolved cold pop first
 
 # get sample size of each column
 #colSums(!is.na(GenerationMetaData))
@@ -52,18 +50,23 @@ GenerationMetaData <- read_csv(here("data/processed/GenerationColonyData.csv")) 
 
 
 # Full Model
-mod.full.BW <- lm(Body_Weight_g ~ Generation * Population * Sex,
+mod.full.BW <- lm(Body_Weight_g ~ Sex * Population * Generation,
                   data = GenerationMetaData)
 #check_model(mod.full.BW)
 #shapiro.test(resid(mod.full.BW)) # not normally distributed
 
-# Stats
-summary(mod.full.BW)
-# Kruskal-Wallis NP test
-car::Anova(lm(rank(Body_Weight_g) ~ Generation * Population * Sex,
-                    data = GenerationMetaData), type = "III")
+mod.full_2.BW <- lm(rank(Body_Weight_g) ~ Sex * Population * Generation,
+                    data = GenerationMetaData)
+#check_model(mod.full_2.BW)
+#shapiro.test(resid(mod.full_2.BW)) # still not normally distributed, but extremeley close and good enough
 
-# car::Anova(mod.full.BW, type = "III")
+# Stats
+summary(mod.full_2.BW)
+# Kruskal-Wallis NP test
+car::Anova(lm(rank(Body_Weight_g) ~ Sex * Population * Generation,
+                    data = GenerationMetaData), type = "III")
+#car::Anova(mod.full_2.BW, type = "III")
+
 
 
 
@@ -84,14 +87,9 @@ Generation_filtered <- GenerationMetaData %>%
 #Generation_filtered %>% ggplot(aes(x=Tail_Length_mm)) + geom_histogram(binwidth = 1)
 #hist(Generation_filtered$Tail_Length_mm, breaks = 100)
 
-# save resids
-residsTLBW <- lm(Tail_Length_mm ~ Body_Weight_g, data = Generation_filtered,
-                 na.action = na.exclude)
-Generation_filtered$Resids_TLBW <- resid(residsTLBW)
-
 
 # Full Model
-mod.full.TL <- lm(Tail_Length_mm ~ Body_Weight_g + Generation * Population * Sex,
+mod.full.TL <- lm(Tail_Length_mm ~ Body_Weight_g + Sex * Population * Generation,
                   data = Generation_filtered)
 #check_model(mod.full.TL)
 #shapiro.test(resid(mod.full.TL)) # normally distributed
@@ -99,9 +97,9 @@ mod.full.TL <- lm(Tail_Length_mm ~ Body_Weight_g + Generation * Population * Sex
 # Stats
 summary(mod.full.TL)
 # One-way ANOVA P test
-#car::Anova(mod.full.TL, type = "III")
-car::Anova(lm(Tail_Length_mm ~ Body_Weight_g + Generation * Population * Sex,
+car::Anova(lm(Tail_Length_mm ~ Body_Weight_g + Sex * Population * Generation,
            data = Generation_filtered), type = "III")
+#car::Anova(mod.full.TL, type = "III")
 
 
 
@@ -123,23 +121,25 @@ Generation_filtered_2 <- GenerationMetaData %>%
 #Generation_filtered_2 %>% ggplot(aes(x=Ear_Length_mm)) + geom_histogram(binwidth = 1)
 #hist(Generation_filtered_2$Ear_Length_mm, breaks = 100)
 
-# save resids
-residsELBW <- lm(Ear_Length_mm ~ Body_Weight_g, data = Generation_filtered_2,
-                 na.action = na.exclude)
-Generation_filtered_2$Resids_ELBW <- resid(residsELBW)
-
 
 # Full Model
-mod.full.EL <- lm(Ear_Length_mm ~ Body_Weight_g + Generation * Population * Sex,
+mod.full.EL <- lm(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Generation,
                   data = Generation_filtered_2)
 #check_model(mod.full.EL)
 #shapiro.test(resid(mod.full.EL)) # not normally distributed
 
+mod.full_2.EL <- lm(rank(Ear_Length_mm) ~ Body_Weight_g + Sex * Population * Generation,
+                         data = Generation_filtered_2)
+#check_model(mod.full_2.EL)
+#shapiro.test(resid(mod.full_2.EL)) # still not normally distributed, but extremeley close and good enough
+
+
 # Stats
-summary(mod.full.EL)
+summary(mod.full_2.EL)
 # Kruskal-Wallis NP test
-car::Anova(lm(rank(Ear_Length_mm) ~ Body_Weight_g + Generation * Population * Sex,
+car::Anova(lm(rank(Ear_Length_mm) ~ Body_Weight_g + Sex * Population * Generation,
               data = Generation_filtered_2), type = "III")
+#car::Anova(mod.full_2.EL, type = "III")
 
 
 
@@ -150,33 +150,33 @@ car::Anova(lm(rank(Ear_Length_mm) ~ Body_Weight_g + Generation * Population * Se
 ################################################################################
 
 Model_Generations <-
-  dwplot(list(mod.full.BW, mod.full.TL, mod.full.EL), show_intercept = FALSE,
+  dwplot(list(mod.full.BW, mod.full.TL, mod.full.EL), show_intercept = TRUE,
        vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) %>%
-  relabel_predictors('(Intercept)' = "Intercept",
-                       GenerationN1 = "Generation (N1)",
-                       GenerationN2 = "Generation (N2)",
-                       PopulationNew_York = "Population (New York)",
-                       SexMale = "Sex (Male)",
-                       'GenerationN1:PopulationNew_York' = "Generation (N1) : Population (New York)",
-                       'GenerationN2:PopulationNew_York' = "Generation (N2) : Population (New York)",
-                       'GenerationN1:SexMale' = "Generation (N1) : Sex (Male)",
-                       'GenerationN2:SexMale' = "Generation (N2) : Sex (Male)",
-                       'PopulationNew_York:SexMale' = "Population (New York) : Sex (Male)",
-                       'GenerationN1:PopulationNew_York:SexMale' = "Generation (N1) : Population (New York) : Sex (Male)",
-                       'GenerationN2:PopulationNew_York:SexMale' = "Generation (N2) : Population (New York) : Sex (Male",
-                       Body_Weight_g = "Body Weight (g)") +
+  relabel_predictors(Body_Weight_g = "Body Mass (g)",
+                     SexFemale = "Sex (Female)",
+                     PopulationBrazil = "Population (Brazil)",
+                     GenerationN1 = "Generation (N1)",
+                     GenerationN2 = "Generation (N2)",
+                     'SexFemale:PopulationBrazil' = "Sex (Female) : Population (Brazil)",
+                     'SexFemale:GenerationN1' = "Sex (Female) : Generation (N1)",
+                     'SexFemale:GenerationN2' = "Sex (Female) : Generation (N2)",
+                     'PopulationBrazil:GenerationN1' = "Population (Brazil) : Generation (N1)",
+                     'PopulationBrazil:GenerationN2' = "Population (Brazil) : Generation (N2)",
+                     'SexFemale:PopulationBrazil:GenerationN1' = "Sex (Female) : Population (Brazil) : Generation (N1)",
+                     'SexFemale:PopulationBrazil:GenerationN2' = "Sex (Female) : Population (Brazil) : Generation (N2)",
+                     '(Intercept)' = "Intercept (Male - New York - Generation N0)") +
   scale_color_manual(values = c("purple", "black", "springgreen3"),
                      breaks = c("Model 1", "Model 2", "Model 3"),
                      labels = c("Body Mass", "Tail Length", "Ear Length")) +
   theme_bw() + xlab("Coefficient Estimate") + ylab("") +
-  ggtitle("model: (Trait) ~ Body Weight + Generation * Population * Sex") +
+  ggtitle("(Trait) ~ Body Weight + Sex * Population * Generation") +
   theme(axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino", hjust = 0.6),
         axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
-        plot.title = element_text(size = 10, face = "bold.italic", hjust = 0.5, vjust = 0, family = "Palatino"),
+        plot.title = element_text(size = 9, face = "bold.italic", hjust = 0.5, vjust = 0, family = "Palatino"),
         legend.key.size = unit(0.35, "cm"),
-        legend.position = c(0.007, 0.89),
+        legend.position = c(0.785, 0.88),
         legend.text = element_text(size=8, family = "Palatino"),
         legend.justification = c(0, 0), 
         legend.background = element_rect(colour="grey80"),

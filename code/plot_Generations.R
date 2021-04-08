@@ -300,7 +300,6 @@ Ftailridge <-
   labs(x = "Tail Length (resid.)",
        y = NULL,
        title = "Females")
-       #tag = "Males")
 
 
 Mtailridge <- 

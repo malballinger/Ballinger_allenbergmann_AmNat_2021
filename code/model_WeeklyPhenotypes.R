@@ -3,10 +3,10 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 03-Apr-2021
-# Script last updated:  08-Apr-2021
+# Script last updated:  09-Apr-2021
 
 
-# This script models body mass and tail length from house mice of common garden
+# This script models body mass and extremity length from house mice of common garden
 # experiment #2. Data were cleaned using the script ./clean_WeeklyPhenotypes.R.
 # This script generates statistical analyses for Ballinger_et_al_2021_AmNat.
 

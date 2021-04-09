@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 12-Feb-2021
-# Script last updated:  08-Apr-2021
+# Script last updated:  09-Apr-2021
 
 
 # This script plots weekly body weight and tail lengths of New York mice and 
@@ -86,7 +86,7 @@ FemaleBW <-
         legend.margin = margin(0.1, 3, 0.3, 0),
         legend.spacing.x = unit(0.5, "mm"),
         legend.spacing.y = unit(0.5, "mm"),
-        legend.text = element_text(size=6, family = "Palatino"),
+        legend.text = element_text(size=6.5, family = "Palatino"),
         legend.title = element_blank(),
         plot.tag = element_text(family = "Palatino", size = 10, face = "italic"),
         plot.tag.position = c(0.18,1.025),
@@ -137,8 +137,8 @@ MaleBW <-
 cowplot::plot_grid(FemaleBW, MaleBW, labels = c('', ''), align = 'h',
                    label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
 
-ggsave("results/figures/Weekly_BW.tiff", height = 3, width = 6, compression = "lzw")
-ggsave("results/figures/Weekly_BW.pdf", height = 3, width = 6)
+ggsave("results/figures/Weekly_BW.tiff", height = 3.5, width = 6, compression = "lzw")
+ggsave("results/figures/Weekly_BW.pdf", height = 3.5, width = 6)
 
 
 
@@ -176,7 +176,7 @@ FemaleTL <-
         legend.margin = margin(0.1, 3, 0.3, 0),
         legend.spacing.x = unit(0.5, "mm"),
         legend.spacing.y = unit(0.5, "mm"),
-        legend.text = element_text(size=6, family = "Palatino"),
+        legend.text = element_text(size=6.5, family = "Palatino"),
         legend.title = element_blank(),
         plot.tag = element_text(family = "Palatino", size = 8, face = "italic"),
         plot.tag.position = c(0.18,1.025),
@@ -226,5 +226,5 @@ MaleTL <-
 cowplot::plot_grid(FemaleTL, MaleTL, labels = c('', ''), nrow = 2, ncol = 1, align = 'v',
                    label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
 
-ggsave("results/figures/Weekly_Tails.tiff", height = 5, width = 3.5, compression = "lzw")
-ggsave("results/figures/Weekly_Tails.pdf", height = 5, width = 3.5)
+ggsave("results/figures/Weekly_Tails.tiff", height = 5.25, width = 3.75, compression = "lzw")
+ggsave("results/figures/Weekly_Tails.pdf", height = 5.25, width = 3.75)

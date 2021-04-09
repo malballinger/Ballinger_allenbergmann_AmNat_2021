@@ -3,11 +3,12 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 12-Feb-2021
-# Script last updated:  08-Apr-2021
+# Script last updated:  09-Apr-2021
 
 
-# This script plots weekly body weight and tail lengths of New York and Brazil mice across environments,
-# and generates Fig. XXXX in Ballinger_et_al_2021_AmNat
+# This script plots reaction norms of body mass and extremity lengths of New York
+# and Brazil mice across environments (i.e. common garden experiment #2.)
+# This script generates Fig. 5, Fig. 6, and Fig. S3 in Ballinger_et_al_2021_AmNat.
 
 
 ##############################################################
@@ -21,6 +22,7 @@ library(cowplot)
 library(glue)
 library(ggtext)
 
+set.seed(19910118) # so that jitter plots stay in same jittered positions
 ##############################################################
 # Import data
 ##############################################################
@@ -171,7 +173,7 @@ BWrxnF <-
         axis.title.x = element_blank(),
         axis.title.y = element_text(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
         axis.text.x = element_text(size = 10, color = "black", family = "Palatino"),
-        axis.text.y = element_text(size = 9, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.position = c(0.047, 0.93),
         legend.background = element_blank(),
         legend.box.background = element_blank(),
@@ -341,7 +343,7 @@ BMIrxnF <-
         axis.title.x = element_blank(),
         axis.title.y = element_markdown(margin = margin(r = 10), size = 11, face = "bold", family = "Palatino"),
         axis.text.x = element_text(size = 10, color = "black", family = "Palatino"),
-        axis.text.y = element_text(size = 9, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.position = c(0.047, 0.96),
         legend.background = element_blank(),
         legend.box.background = element_blank(),

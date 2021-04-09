@@ -3,10 +3,10 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 12-Feb-2021
-# Script last updated:  07-Apr-2021
+# Script last updated:  09-Apr-2021
 
 
-# This script cleans the metadata file: data/raw/post_dissection_metadata_RAW_2021-02-18.csv.
+# This script cleans the metadata file: 'data/raw/post_dissection_metadata_RAW_2021-02-18.csv'.
 # The generated, cleaned dataset is used for downstream analyses.
 
 

@@ -25,6 +25,7 @@ library(ggtext)
 library(glue)
 library(scales)
 
+set.seed(19910118) # so that jitter plots stay in same jittered positions
 ##############################################################
 # Import data
 ##############################################################

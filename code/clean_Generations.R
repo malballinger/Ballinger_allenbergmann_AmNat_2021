@@ -3,10 +3,10 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 31-Mar-2021
-# Script last updated:  07-Apr-2021
+# Script last updated:  09-Apr-2021
 
 
-# This script cleans the metadata file: data/raw/colony_metadata_RAW.xlsx
+# This script cleans the metadata file: 'data/raw/colony_metadata_RAW.xlsx'.
 # The generated, cleaned dataset is used for downstream analyses.
 
 

@@ -3,11 +3,11 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 24-Feb-2021
-# Script last updated:  07-Apr-2021
+# Script last updated:  09-Apr-2021
 
 
 # This script plots sex-specific body weight and extremity lengths of New York mice
-# and Brazil mice cross generations (i.e. common garden experiment #1).
+# and Brazil mice across generations (i.e. common garden experiment #1).
 # This script generates Figure 2 in Ballinger_et_al_2021_AmNat.
 
 
@@ -25,6 +25,8 @@ library(ggtext)
 library(glue)
 library(scales)
 
+
+set.seed(19910118) # so that jitter plots stay in same jittered positions
 ##############################################################
 # Import data
 ##############################################################

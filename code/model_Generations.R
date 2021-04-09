@@ -3,13 +3,13 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 03-Apr-2021
-# Script last updated:  07-Apr-2021
+# Script last updated:  09-Apr-2021
 
 
 # This script models body mass and extremity length from colony house mice of the
 # Brazil and New York populations (i.e. common garden experiment #1).
 # Data were cleaned using the script ./clean_Generations.R.
-# This script generates statistical analyses for Ballinger_et_al_2021_AmNat.
+# This script generates statistical analyses and Figure S2 for Ballinger_et_al_2021_AmNat.
 
 
 ################################################################################

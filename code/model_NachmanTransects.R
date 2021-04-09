@@ -3,13 +3,13 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 23-Feb-2021
-# Script last updated:  29-Mar-2021
+# Script last updated:  09-Apr-2021
 
 
-# This script models body mass and extremity length from wild-caught house mice,
+# This script models body mass and extremity length from wild-caught house mice
 # collected across North and South America. Data are from Arctos.org, and were
 # cleaned using the script ./clean_NachmanTransects.R.
-# This script generates statistical analyses and Tables xxxx in Ballinger_et_al_2021_AmNat.
+# This script generates statistical analyses for Ballinger_et_al_2021_AmNat.
 
 
 ################################################################################
@@ -30,11 +30,7 @@ library(Hmisc)
 ################################################################################
 
 NachmanTransectsMetadata <- read_csv(here("data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv")) %>%
-  mutate(Ear_Length_mm = as.numeric(Ear_Length_mm),
-         Hindfoot_Length_mm = as.numeric(Hindfoot_Length_mm),
-         Tail_Length_mm = as.numeric(Tail_Length_mm),
-         Body_Length_mm = as.numeric(Body_Length_mm),
-         Body_Weight_g = as.numeric(Body_Weight_g))
+  select(-1)
   
 # get sample size of each column
 colSums(!is.na(NachmanTransectsMetadata))
@@ -83,7 +79,7 @@ NachmanTransects_filtered %>% ggplot(aes(x = Tail_Length_mm)) + geom_histogram(b
 
 # First, check for and remove *extreme* outliers for body length
 NachmanTransects_filtered %>% ggplot(aes(x=Body_Length_mm)) + geom_histogram(binwidth = 1)
-# no clear extreme outliers for body weight
+# no clear extreme outliers for body length
 
 
 # Make models
@@ -185,7 +181,7 @@ NachmanTransectsMetadata$Resids_ELBW <- resid(residsELBW)
 ################################################################################
 
 # Bergmann's rule
-fullmodel.Berg <- lm(Body_Weight_g ~ Absolute_Latitude + Sex,
+fullmodel.Berg <- lm(Body_Weight_g ~ Sex + Absolute_Latitude,
                      data = NachmanTransectsMetadata)
 summary(fullmodel.Berg)
 
@@ -194,14 +190,14 @@ cor.Berg <- cor.test(x = NachmanTransectsMetadata$Absolute_Latitude,
                      method = 'pearson')
 cor.Berg
 
-cor.Berg.2 <- Hmisc::rcorr(x = NachmanTransectsMetadata$Absolute_Latitude,
-                           y = NachmanTransectsMetadata$Body_Weight_g,
-                           type="pearson")
-cor.Berg.2
+# cor.Berg.2 <- Hmisc::rcorr(x = NachmanTransectsMetadata$Absolute_Latitude,
+#                            y = NachmanTransectsMetadata$Body_Weight_g,
+#                            type="pearson")
+# cor.Berg.2
 
 
 # Allen's rule - tails
-fullmodel.tail <- lm(Tail_Length_mm ~ Body_Weight_g + Absolute_Latitude + Sex,
+fullmodel.tail <- lm(Tail_Length_mm ~ Body_Weight_g + Sex + Absolute_Latitude,
                      data = NachmanTransects_filtered)
 summary(fullmodel.tail)
 
@@ -210,10 +206,10 @@ cor.tail <- cor.test(x = NachmanTransects_filtered$Absolute_Latitude,
                      method = 'spearman')
 cor.tail
 
-cor.tail.2 <- Hmisc::rcorr(x = NachmanTransects_filtered$Absolute_Latitude,
-                           y = NachmanTransects_filtered$Resids_TLBW,
-                           type="spearman")
-cor.tail.2
+# cor.tail.2 <- Hmisc::rcorr(x = NachmanTransects_filtered$Absolute_Latitude,
+#                            y = NachmanTransects_filtered$Resids_TLBW,
+#                            type="spearman")
+# cor.tail.2
 
 
 # Allen's rule - ears
@@ -226,10 +222,10 @@ cor.ear <- cor.test(x = NachmanTransectsMetadata$Absolute_Latitude,
                     method = 'spearman')
 cor.ear
 
-cor.ear.2 <- Hmisc::rcorr(x = NachmanTransectsMetadata$Absolute_Latitude,
-                          y = NachmanTransectsMetadata$Resids_ELBW,
-                          type="spearman")
-cor.ear.2
+# cor.ear.2 <- Hmisc::rcorr(x = NachmanTransectsMetadata$Absolute_Latitude,
+#                           y = NachmanTransectsMetadata$Resids_ELBW,
+#                           type="spearman")
+# cor.ear.2
 
 
 ################################################################################
@@ -249,10 +245,10 @@ cor.Berg.Male <- cor.test(x = Male_Bergmann$Absolute_Latitude,
                           method = 'pearson')
 cor.Berg.Male
 
-cor.Berg.Male.2 <- Hmisc::rcorr(x = Male_Bergmann$Absolute_Latitude,
-                                y = Male_Bergmann$Body_Weight_g,
-                                type="pearson")
-cor.Berg.Male.2
+# cor.Berg.Male.2 <- Hmisc::rcorr(x = Male_Bergmann$Absolute_Latitude,
+#                                 y = Male_Bergmann$Body_Weight_g,
+#                                 type="pearson")
+# cor.Berg.Male.2
 
 
 Male_Tail <- NachmanTransects_filtered %>%
@@ -268,10 +264,10 @@ cor.Tail.Male <- cor.test(x = Male_Tail$Absolute_Latitude,
                           method = 'spearman')
 cor.Tail.Male
 
-cor.Tail.Male.2 <- Hmisc::rcorr(x = Male_Tail$Absolute_Latitude,
-                                y = Male_Tail$Resids_TLBW,
-                                type="spearman")
-cor.Tail.Male.2
+# cor.Tail.Male.2 <- Hmisc::rcorr(x = Male_Tail$Absolute_Latitude,
+#                                 y = Male_Tail$Resids_TLBW,
+#                                 type="spearman")
+# cor.Tail.Male.2
 
 
 fullmodel.Ear.Male <- lm(Ear_Length_mm ~ Body_Weight_g + Absolute_Latitude,
@@ -284,10 +280,10 @@ cor.Ear.Male <- cor.test(x = Male_Bergmann$Absolute_Latitude,
                          method = 'spearman')
 cor.Ear.Male
 
-cor.Ear.Male.2 <- Hmisc::rcorr(x = Male_Bergmann$Absolute_Latitude,
-                               y = Male_Bergmann$Resids_ELBW,
-                               type="spearman")
-cor.Ear.Male.2
+# cor.Ear.Male.2 <- Hmisc::rcorr(x = Male_Bergmann$Absolute_Latitude,
+#                                y = Male_Bergmann$Resids_ELBW,
+#                                type="spearman")
+# cor.Ear.Male.2
 
 
 ################################################################################
@@ -306,10 +302,10 @@ cor.Berg.Female <- cor.test(x = Female_Bergmann$Absolute_Latitude,
                             method = 'pearson')
 cor.Berg.Female
 
-cor.Berg.Female.2 <- Hmisc::rcorr(x = Female_Bergmann$Absolute_Latitude,
-                                  y = Female_Bergmann$Body_Weight_g,
-                                  type="pearson")
-cor.Berg.Female.2
+# cor.Berg.Female.2 <- Hmisc::rcorr(x = Female_Bergmann$Absolute_Latitude,
+#                                   y = Female_Bergmann$Body_Weight_g,
+#                                   type="pearson")
+# cor.Berg.Female.2
 
 
 Female_Tail <- NachmanTransects_filtered %>%
@@ -325,10 +321,10 @@ cor.Tail.Female <- cor.test(x = Female_Tail$Absolute_Latitude,
                             method = 'spearman')
 cor.Tail.Female
 
-cor.Tail.Female.2 <- Hmisc::rcorr(x = Female_Tail$Absolute_Latitude,
-                                  y = Female_Tail$Resids_TLBW,
-                                  type="spearman")
-cor.Tail.Female.2
+# cor.Tail.Female.2 <- Hmisc::rcorr(x = Female_Tail$Absolute_Latitude,
+#                                   y = Female_Tail$Resids_TLBW,
+#                                   type="spearman")
+# cor.Tail.Female.2
 
 
 Female_Ear <- NachmanTransectsMetadata %>%
@@ -344,7 +340,57 @@ cor.Ear.Female <- cor.test(x = Female_Ear$Absolute_Latitude,
                            method = 'spearman')
 cor.Ear.Female
 
-cor.Ear.Female.2 <- Hmisc::rcorr(x = Female_Ear$Absolute_Latitude,
-                                 y = Female_Ear$Resids_ELBW,
-                                 type="spearman")
-cor.Ear.Female.2
+# cor.Ear.Female.2 <- Hmisc::rcorr(x = Female_Ear$Absolute_Latitude,
+#                                  y = Female_Ear$Resids_ELBW,
+#                                  type="spearman")
+# cor.Ear.Female.2
+
+
+
+
+
+################################################################################
+# Adult Males only
+################################################################################
+
+Male_Bergmann_Adults <- Male_Bergmann %>%
+  filter(Age == "adult")
+
+fullmodel.Berg.Male.Adult <- lm(Body_Weight_g ~ Absolute_Latitude,
+                          data = Male_Bergmann_Adults)
+summary(fullmodel.Berg.Male.Adult)
+#shapiro.test(resid(fullmodel.Berg.Male.Adult)) # normally distributed
+
+cor.Berg.Male.Adult <- cor.test(x = Male_Bergmann_Adults$Absolute_Latitude,
+                          y = Male_Bergmann_Adults$Body_Weight_g,
+                          method = 'pearson')
+cor.Berg.Male.Adult
+
+
+
+Male_Tail_Adults <- Male_Tail %>%
+  filter(Age == "adult")
+
+fullmodel.Tail.Male.Adult <- lm(Tail_Length_mm ~ Body_Weight_g + Absolute_Latitude,
+                          data = Male_Tail_Adults)
+summary(fullmodel.Tail.Male.Adult)
+#check_model(fullmodel.Tail.Male.Adult)
+#shapiro.test(resid(fullmodel.Tail.Male.Adult)) # normally distributed
+
+cor.Tail.Male.Adult <- cor.test(x = Male_Tail_Adults$Absolute_Latitude,
+                          y = Male_Tail_Adults$Resids_TLBW,
+                          method = 'pearson')
+cor.Tail.Male.Adult
+
+
+
+fullmodel.Ear.Male.Adults <- lm(Ear_Length_mm ~ Body_Weight_g + Absolute_Latitude,
+                         data = Male_Bergmann_Adults)
+summary(fullmodel.Ear.Male.Adults)
+#check_model(fullmodel.Ear.Male.Adults)
+#shapiro.test(resid(fullmodel.Ear.Male.Adults)) #normally distributed
+
+cor.Ear.Male.Adults <- cor.test(x = Male_Bergmann_Adults$Absolute_Latitude,
+                         y = Male_Bergmann_Adults$Resids_ELBW,
+                         method = 'pearson')
+cor.Ear.Male.Adults

@@ -3,11 +3,10 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 18-Feb-2021
-# Script last updated:  18-Mar-2021
+# Script last updated:  09-Apr-2021
 
 
-# This script cleans the metadata file:
-# "data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv"
+# This script cleans the metadata file: 'data/processed/VertNet_Mus_processed.xlsx'.
 # The generated, cleaned dataset is used for downstream analyses.
 
 
@@ -55,9 +54,11 @@ VertNetMetaData <- read_xlsx(here("data/processed/VertNet_Mus_processed.xlsx"),
   filter(Sex == "female" | Sex == "male") %>% # only males and females
   mutate(Absolute_Latitude = abs(Latitude))
 
+
 # Sample size of dataset
-FullSampleSize <- VertNetMetaData %>% summarize(N=n_distinct(Reference)) %>% pull(N)
-# n = 3,016
+FullSampleSize <- VertNetMetaData %>% summarise(N=n_distinct(Reference)) %>% pull(N)
+# n = 3,018
+
 
 write.csv(VertNetMetaData, file = "results/tables/VertNetMetadata_Mus.csv", row.names = TRUE)
 write.csv(VertNetMetaData, file = "data/processed/VertNetMetadata_Mus_2021-03-18.csv", row.names = TRUE)

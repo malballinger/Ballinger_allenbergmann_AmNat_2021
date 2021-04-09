@@ -3,11 +3,11 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 15-Feb-2021
-# Script last updated:  15-Mar-2021
+# Script last updated:  09-Apr-2021
 
 
 # This script cleans the metadata file:
-# "data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv"
+# 'data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv'.
 # The generated, cleaned dataset is used for downstream analyses.
 
 
@@ -129,9 +129,11 @@ NachmanTransectsMetadata <- read_csv(here("data/raw/EnvAdapProj_Nachman_Arctos_t
   mutate(Absolute_Latitude = abs(Latitude)) %>%
   select(-Reproductive_Status)
 
+
 # Sample size of dataset
-FullSampleSize <- NachmanTransectsMetadata %>% summarize(N=n_distinct(GUID)) %>% pull(N)
+FullSampleSize <- NachmanTransectsMetadata %>% summarise(N=n_distinct(GUID)) %>% pull(N)
 # n = 214
+
 
 write.csv(NachmanTransectsMetadata, file = "results/tables/EnvAdapProj_Nachman_Arctos_transects.csv", row.names = TRUE)
 write.csv(NachmanTransectsMetadata, file = "data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv", row.names = TRUE)

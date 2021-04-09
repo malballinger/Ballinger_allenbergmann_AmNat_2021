@@ -3,13 +3,13 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 23-Feb-2021
-# Script last updated:  03-Apr-2021
+# Script last updated:  09-Apr-2021
 
 
-# This script plots body mass and tail length from wild-caught house mice,
+# This script plots body mass and extremity length from wild-caught house mice
 # collected across North and South America. Data are from VertNet.org and from
 # the Nachman lab project dowloaded from Arctos.org.
-# This script generates Figure 1 in Ballinger_et_al_2021_AmNat.
+# This script generates Figure 1 and Fig. S1 in Ballinger_et_al_2021_AmNat.
 
 
 ##############################################################
@@ -24,26 +24,19 @@ library(ggtext)
 library(glue)
 library(scales)
 
+set.seed(19910118) # so that jitter plots stay in same jittered positions
 ##############################################################
 # Import data
 ##############################################################
 
 VertNetMetadata <- read_csv(here("data/processed/VertNetMetadata_Mus_2021-03-18.csv")) %>%
-  mutate(Ear_Length_mm = as.numeric(Ear_Length_mm),
-         Hindfoot_Length_mm = as.numeric(Hindfoot_Length_mm),
-         Tail_Length_mm = as.numeric(Tail_Length_mm),
-         Body_Length_mm = as.numeric(Body_Length_mm),
-         Body_Weight_g = as.numeric(Body_Weight_g)) %>%
+  select(-1) %>%
   mutate(Sex = as.factor(Sex)) %>%
   mutate(Sex = fct_relevel(Sex, "male", "female")) # puts males before females
 
 
 NachmanTransectsMetadata <- read_csv(here("data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv")) %>%
-  mutate(Ear_Length_mm = as.numeric(Ear_Length_mm),
-         Hindfoot_Length_mm = as.numeric(Hindfoot_Length_mm),
-         Tail_Length_mm = as.numeric(Tail_Length_mm),
-         Body_Length_mm = as.numeric(Body_Length_mm),
-         Body_Weight_g = as.numeric(Body_Weight_g)) %>%
+  select(-1) %>%
   mutate(Sex = as.factor(Sex)) %>%
   mutate(Sex = fct_relevel(Sex, "male", "female")) # puts males before females
 
@@ -142,6 +135,20 @@ cor.Berg.Female.VertNet_corr <- round(as.double(cor.Berg.Female.VertNet$estimate
 cor.Berg.Female.VertNet_pval <- round(as.double(cor.Berg.Female.VertNet$p.value),2)
 
 
+Male_Bergmann_Adult_VertNet <- Male_Bergmann_VertNet %>%
+  filter(Lifestage == "adult")
+Male_Bergmann_Adult_VertNet_N <- comma(length(which(!is.na(Male_Bergmann_Adult_VertNet$Body_Weight_g))))
+
+cor.Berg.Male.Adult.VertNet <- cor.test(x = Male_Bergmann_Adult_VertNet$Absolute_Latitude,
+                                        y = Male_Bergmann_Adult_VertNet$Body_Weight_g,
+                                        method = 'spearman', exact = FALSE,
+                                        adjust="fdr", alpha=0.5)
+
+cor.Berg.Male.Adult.VertNet_corr <- round(as.double(cor.Berg.Male.Adult.VertNet$estimate),2)
+cor.Berg.Male.Adult.VertNet_pval <- round(as.double(cor.Berg.Male.Adult.VertNet$p.value),3)
+# p-value = 1.07e-07
+
+
 ## Allen's rule - TAIL
 Male_Tail_VertNet <- VertNet_filtered %>%
   filter(Sex == "male")
@@ -169,6 +176,19 @@ cor.Tail.Female.VertNet_corr <- round(as.double(cor.Tail.Female.VertNet$estimate
 cor.Tail.Female.VertNet_pval <- round(as.double(cor.Tail.Female.VertNet$p.value),3)
 
 
+Male_Tail_Adult_VertNet <- Male_Tail_VertNet %>%
+  filter(Lifestage == "adult")
+Male_Tail_Adult_VertNet_N <- comma(length(which(!is.na(Male_Tail_Adult_VertNet$Resids_TLBW))))
+
+cor.Tail.Male.Adult.VertNet <- cor.test(x = Male_Tail_Adult_VertNet$Absolute_Latitude,
+                                        y = Male_Tail_Adult_VertNet$Resids_TLBW,
+                                        method = 'spearman', exact = FALSE,
+                                        adjust="fdr", alpha=0.5)
+
+cor.Tail.Male.Adult.VertNet_corr <- round(as.double(cor.Tail.Male.Adult.VertNet$estimate),2)
+cor.Tail.Male.Adult.VertNet_pval <- round(as.double(cor.Tail.Male.Adult.VertNet$p.value),3)
+
+
 ## Allen's rule - EAR
 Male_Ear_VertNet <- VertNet_filtered_2 %>%
   filter(Sex == "male")
@@ -194,6 +214,20 @@ cor.Ear.Female.VertNet <- cor.test(x = Female_Ear_VertNet$Absolute_Latitude,
 
 cor.Ear.Female.VertNet_corr <- round(as.double(cor.Ear.Female.VertNet$estimate),3)
 cor.Ear.Female.VertNet_pval <- round(as.double(cor.Ear.Female.VertNet$p.value),3)
+
+
+
+Male_Ear_Adult_VertNet <- Male_Ear_VertNet %>%
+  filter(Lifestage == "adult")
+Male_Ear_Adult_VertNet_N <- comma(length(which(!is.na(Male_Ear_Adult_VertNet$Resids_ELBW))))
+
+cor.Ear.Male.Adult.VertNet <- cor.test(x = Male_Ear_Adult_VertNet$Absolute_Latitude,
+                                       y = Male_Ear_Adult_VertNet$Resids_ELBW,
+                                       method = 'spearman', exact = FALSE,
+                                       adjust="fdr", alpha=0.5)
+
+cor.Ear.Male.Adult.VertNet_corr <- round(as.double(cor.Ear.Male.Adult.VertNet$estimate),2)
+cor.Ear.Male.Adult.VertNet_pval <- round(as.double(cor.Ear.Male.Adult.VertNet$p.value),3)
 
 
 
@@ -292,6 +326,9 @@ Berg_VertNet_M <- glue("males (rho = {cor.Berg.Male.VertNet_corr},  \\
 Berg_VertNet_F <- glue("females (rho = {cor.Berg.Female.VertNet_corr}, \\
                       *P* = {cor.Berg.Female.VertNet_pval}, \\
                       *n* = {Female_Bergmann_VertNet_N})")
+Berg_VertNet_Adult_M <- glue("rho = {cor.Berg.Male.Adult.VertNet_corr}, \\
+                             *P* < 0.0001, \\
+                             *n* = {Male_Bergmann_Adult_VertNet_N}")
 
 Tail_VertNet_M <- glue ("males (rho = {cor.Tail.Male.VertNet_corr}, \\
                        *P* < 0.0001, \\
@@ -299,6 +336,9 @@ Tail_VertNet_M <- glue ("males (rho = {cor.Tail.Male.VertNet_corr}, \\
 Tail_VertNet_F <- glue("females (rho = {cor.Tail.Female.VertNet_corr}, \\
                        *P* < 0.0001, \\
                        *n* = {Female_Tail_VertNet_N})")
+Tail_VertNet_Adult_M <- glue("rho = {cor.Tail.Male.Adult.VertNet_corr}, \\
+                             *P* = {cor.Tail.Male.Adult.VertNet_pval}, \\
+                             *n* = {Male_Tail_Adult_VertNet_N}")
 
 Ear_VertNet_M <- glue("males (rho = {cor.Ear.Male.VertNet_corr}, \\
                       *P* < 0.001, \\
@@ -306,6 +346,9 @@ Ear_VertNet_M <- glue("males (rho = {cor.Ear.Male.VertNet_corr}, \\
 Ear_VertNet_F <- glue("females (rho = {cor.Ear.Female.VertNet_corr}, \\
                       *P* = {cor.Ear.Female.VertNet_pval}, \\
                       *n* = {Female_Ear_VertNet_N})")
+Ear_VertNet_Adult_M <- glue("rho = {cor.Ear.Male.Adult.VertNet_corr}, \\
+                            *P* = {cor.Ear.Male.Adult.VertNet_pval}, \\
+                            *n* = {Male_Ear_Adult_VertNet_N}")
 
 
 Berg_Arctos_M <- glue("males (cor = {cor.Berg.Male.Arctos_corr}, \\
@@ -360,7 +403,7 @@ Berg_VertNet <-
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.title = element_blank(),
-        legend.position = c(0.43, 0.95),
+        legend.position = c(0.435, 0.95),
         legend.background = element_blank(),
         legend.box.background = element_blank(),
         legend.key.size = unit(0.25, "lines"),
@@ -368,7 +411,7 @@ Berg_VertNet <-
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0.25, 0.5, 0, 0.5), "cm"), #top, right, bottom, left
         plot.title = element_text(size = 11, face = "bold.italic", hjust = 0.5, vjust = 0.1, family = "Palatino")) +
-  labs(x = "",
+  labs(x = NULL,
        y = "Body Mass (g)",
        title = "VertNet Metadata")
 
@@ -397,7 +440,7 @@ Berg_Arctos <-
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.title = element_blank(),
-        legend.position = c(0.415, 0.95),
+        legend.position = c(0.42, 0.95),
         legend.background = element_blank(),
         legend.box.background = element_blank(),
         legend.key.size = unit(0.25, "lines"),
@@ -405,7 +448,7 @@ Berg_Arctos <-
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0.25, 0.5, 0, 0.5), "cm"),
         plot.title = element_text(size = 11, face = "bold.italic", hjust = 0.5, vjust = 0.1, family = "Palatino")) +
-  labs(x = "",
+  labs(x = NULL,
        y = "Body Mass (g)",
        title = "Nachman Transects")
 
@@ -437,15 +480,15 @@ Tail_VertNet <-
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.title = element_blank(),
-        legend.position = c(0.44, 0.95),
+        legend.position = c(0.445, 0.95),
         legend.background = element_blank(),
         legend.box.background = element_blank(),
         legend.key.size = unit(0.25, "lines"),
         legend.text = element_markdown(size=6.5, family = "Palatino"),
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0.25, 0.5, 0.25, 0.5), "cm")) +
-  labs(x = "",
-       y = "Tail Length (resids)")
+  labs(x = NULL,
+       y = "Tail Length (resid.)")
 
 
 Tail_Arctos <-
@@ -473,15 +516,15 @@ Tail_Arctos <-
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.title = element_blank(),
-        legend.position = c(0.42, 0.95),
+        legend.position = c(0.425, 0.95),
         legend.background = element_blank(),
         legend.box.background = element_blank(),
         legend.key.size = unit(0.25, "lines"),
         legend.text = element_markdown(size=6.5, family = "Palatino"),
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0.25, 0.5, 0.25, 0.5), "cm")) +
-  labs(x = "",
-       y = "Tail Length (resids)")
+  labs(x = NULL,
+       y = "Tail Length (resid.)")
 
 #Tail <- cowplot::plot_grid(Tail_VertNet, Tail_Arctos, labels = c('C','D'), ncol = 2, nrow = 1, label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
 
@@ -510,7 +553,7 @@ Ear_VertNet <-
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.title = element_blank(),
-        legend.position = c(0.44, 0.95),
+        legend.position = c(0.43, 0.95),
         legend.background = element_blank(),
         legend.box.background = element_blank(),
         legend.key.size = unit(0.25, "lines"),
@@ -518,7 +561,7 @@ Ear_VertNet <-
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0, 0.5, 0.25, 0.5), "cm")) +
   labs(x = "Degrees from the Equator",
-       y = "Ear Length (resids)")
+       y = "Ear Length (resid.)")
 
 
 Ear_Arctos <-
@@ -545,7 +588,7 @@ Ear_Arctos <-
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.title = element_blank(),
-        legend.position = c(0.43, 0.95),
+        legend.position = c(0.435, 0.95),
         legend.background = element_blank(),
         legend.box.background = element_blank(),
         legend.key.size = unit(0.25, "lines"),
@@ -553,7 +596,7 @@ Ear_Arctos <-
         legend.key = element_rect(fill = "transparent"),
         plot.margin = unit(c(0, 0.5, 0.25, 0.5), "cm")) +
   labs(x = "Degrees from the Equator",
-       y = "Ear Length (resids)")
+       y = "Ear Length (resid.)")
 
 
 
@@ -566,3 +609,108 @@ cowplot::plot_grid(VertNet, Arctos, ncol = 2, nrow = 1)
 
 ggsave("results/figures/VertNet_Arctos.tiff", height = 7, width = 6, compression = "lzw")
 ggsave("results/figures/VertNet_Arctos.pdf", height = 7, width = 6)
+
+
+
+
+
+##############################################################
+# Adult males only from VertNet
+##############################################################
+
+Berg_Adult_Male_VertNet <-
+  ggplot(data = Male_Bergmann_Adult_VertNet, aes(x = Absolute_Latitude, y = Body_Weight_g, color = "black", fill = "black")) +
+  geom_jitter(size = 2.3, stroke = 0.25, height = 0, width = 0.2, shape = 21, alpha = 0.75, show.legend = FALSE) +
+  geom_smooth(method = "lm", se = TRUE, size = 0.5, show.legend = FALSE) +
+  scale_color_manual(labels=c(Tail_VertNet_Adult_M),
+                     values=c("white")) +
+  scale_fill_manual(labels=c(Tail_VertNet_Adult_M),
+                    values=c("black")) +
+  scale_x_continuous(breaks = seq(from=0, to=65, by=10),
+                     labels = seq(from=0, to=65, by=10),
+                     limits = c(0,65)) +
+  scale_y_continuous(breaks = seq(from=0, to=35, by=10),
+                     labels = seq(from=0, to=35, by=10),
+                     limits = c(0,35)) +
+  theme_bw() +
+  theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 0), size = 10, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
+        legend.position = 'none',
+        plot.tag = element_markdown(family = "Palatino", size = 7, face = "bold"),
+        plot.tag.position = c(0.435,0.95),
+        plot.margin = unit(c(0.25, 0.5, 0, 0.5), "cm")) +
+  labs(x = NULL,
+       y = "Body Mass (g)",
+       tag = Berg_VertNet_Adult_M)
+
+
+Tail_Adult_Male_VertNet <-
+  ggplot(data = Male_Tail_Adult_VertNet, aes(x = Absolute_Latitude, y = Resids_TLBW, color = "black", fill = "black")) +
+  geom_jitter(size = 2.3, stroke = 0.25, height = 0, width = 0.2, shape = 21, alpha = 0.75, show.legend = FALSE) +
+  geom_smooth(method = "lm", se = TRUE, size = 0.5, show.legend = FALSE) +
+  scale_color_manual(labels=c(Tail_VertNet_Adult_M),
+                     values=c("white")) +
+  scale_fill_manual(labels=c(Tail_VertNet_Adult_M),
+                    values=c("black")) +
+  scale_x_continuous(breaks = seq(from=0, to=65, by=10),
+                     labels = seq(from=0, to=65, by=10),
+                     limits = c(0,65)) +
+  scale_y_continuous(breaks = seq(from=-50, to=30, by=10),
+                     labels = seq(from=-50, to=30, by=10),
+                     limits = c(-50,40)) +
+  theme_bw() +
+  theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 5), size = 10, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
+        legend.position = 'none',
+        plot.tag = element_markdown(family = "Palatino", size = 7, face = "bold"),
+        plot.tag.position = c(0.435,0.95),
+        plot.margin = unit(c(0.25, 0.5, 0.25, 0.5), "cm")) +
+  labs(x = NULL,
+       y = "Tail Length (resid.)",
+       tag = Tail_VertNet_Adult_M)
+
+
+Ear_Adult_Male_VertNet <-
+  ggplot(data = Male_Ear_Adult_VertNet, aes(x = Absolute_Latitude, y = Resids_ELBW, color = "black", fill = "black")) +
+  geom_jitter(size = 2.3, stroke = 0.25, height = 0, width = 0.2, shape = 21, alpha = 0.75, show.legend = FALSE) +
+  geom_smooth(method = "lm", se = TRUE, size = 0.5, show.legend = FALSE) +
+  scale_color_manual(labels=c(Ear_VertNet_Adult_M),
+                     values=c("white")) +
+  scale_fill_manual(labels=c(Ear_VertNet_Adult_M),
+                    values=c("black")) +
+  scale_x_continuous(breaks = seq(from=0, to=65, by=10),
+                     labels = seq(from=0, to=65, by=10),
+                     limits = c(0,65)) +
+  scale_y_continuous(breaks = seq(from=-10, to=10, by=5),
+                     labels = seq(from=-10, to=10, by=5),
+                     limits = c(-7,8)) +
+  theme_bw() +
+  theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 0), size = 10, face = "bold", family = "Palatino"),
+        axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
+        axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
+        legend.position = 'none',
+        plot.tag = element_markdown(family = "Palatino", size = 7, face = "bold"),
+        plot.tag.position = c(0.435,0.95),
+        plot.margin = unit(c(0, 0.5, 0.25, 0.5), "cm")) +
+  labs(x = "Degrees from the Equator",
+       y = "Ear Length (resid.)",
+       tag = Ear_VertNet_Adult_M)
+
+
+
+cowplot::plot_grid(Berg_Adult_Male_VertNet, Tail_Adult_Male_VertNet, Ear_Adult_Male_VertNet, ncol = 1, nrow = 3, align = 'v', labels = c('A)','B)','C)'), label_fontfamily = "Palatino", label_size = 12, label_x = 0, hjust = 0)
+
+
+ggsave("results/figures/VertNet_Male_Adult.tiff", height = 6.5, width = 3, compression = "lzw")
+ggsave("results/figures/VertNet_Male_Adult.pdf", height = 6.5, width = 3)

@@ -3,13 +3,13 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 19-Mar-2021
-# Script last updated:  28-Mar-2021
+# Script last updated:  09-Apr-2021
 
 
-# This script models body mass and extremity length from wild-caught house mice,
+# This script models body mass and extremity length from wild-caught house mice
 # collected across North and South America. Data are from VertNet.org, and were
 # cleaned using the script ./clean_VertNetMetadata.R.
-# This script generates statistical analyses and Tables xxxx in Ballinger_et_al_2021_AmNat.
+# This script generates statistical analyses for Ballinger_et_al_2021_AmNat.
 
 
 ################################################################################
@@ -30,11 +30,7 @@ library(Hmisc)
 ################################################################################
 
 VertNetMetadata <- read_csv(here("data/processed/VertNetMetadata_Mus_2021-03-18.csv")) %>%
-  mutate(Ear_Length_mm = as.numeric(Ear_Length_mm),
-         Hindfoot_Length_mm = as.numeric(Hindfoot_Length_mm),
-         Tail_Length_mm = as.numeric(Tail_Length_mm),
-         Body_Length_mm = as.numeric(Body_Length_mm),
-         Body_Weight_g = as.numeric(Body_Weight_g))
+  select(-1)
 
 # get sample size of each column
 colSums(!is.na(VertNetMetadata))
@@ -217,7 +213,7 @@ VertNet_filtered_2$Resids_ELBW <- resid(residsELBW)
 ################################################################################
 
 # Bergmann's rule
-fullmodel.Berg <- lm(Body_Weight_g ~ Absolute_Latitude + Sex,
+fullmodel.Berg <- lm(Body_Weight_g ~ Sex + Absolute_Latitude,
                      data = VertNetMetadata)
 summary(fullmodel.Berg)
 
@@ -234,7 +230,7 @@ cor.Berg.2
 
 
 # Allen's rule - tails
-fullmodel.tail <- lm(Tail_Length_mm ~ Body_Weight_g + Absolute_Latitude + Sex,
+fullmodel.tail <- lm(Tail_Length_mm ~ Body_Weight_g + Sex + Absolute_Latitude,
                      data = VertNet_filtered)
 summary(fullmodel.tail)
 
@@ -245,7 +241,7 @@ cor.tail
 
 
 # Allen's rule - ears
-fullmodel.ear <- lm(Ear_Length_mm ~ Body_Weight_g + Absolute_Latitude + Sex,
+fullmodel.ear <- lm(Ear_Length_mm ~ Body_Weight_g + Sex + Absolute_Latitude,
                      data = VertNet_filtered_2)
 summary(fullmodel.ear)
 
@@ -265,7 +261,8 @@ Male_Bergmann <- VertNetMetadata %>%
 fullmodel.Berg.Male <- lm(Body_Weight_g ~ Absolute_Latitude,
                           data = Male_Bergmann)
 summary(fullmodel.Berg.Male)
-#shapiro.test(resid(fullmodel.Berg.Male))
+#check_model(fullmodel.Berg.Male)
+#shapiro.test(resid(fullmodel.Berg.Male)) # not normally distributed
 
 cor.Berg.Male <- cor.test(x = Male_Bergmann$Absolute_Latitude,
                           y = Male_Bergmann$Body_Weight_g,
@@ -285,7 +282,8 @@ Male_Tail <- VertNet_filtered %>%
 fullmodel.Tail.Male <- lm(Tail_Length_mm ~ Body_Weight_g + Absolute_Latitude,
                           data = Male_Tail)
 summary(fullmodel.Tail.Male)
-#shapiro.test(resid(fullmodel.Tail.Male))
+#check_model(fullmodel.Tail.Male)
+#shapiro.test(resid(fullmodel.Tail.Male)) # not normally distributed
 
 cor.Tail.Male <- cor.test(x = Male_Tail$Absolute_Latitude,
                           y = Male_Tail$Resids_TLBW,
@@ -305,7 +303,8 @@ Male_Ear <- VertNet_filtered_2 %>%
 fullmodel.Ear.Male <- lm(Ear_Length_mm ~ Body_Weight_g + Absolute_Latitude,
                           data = Male_Ear)
 summary(fullmodel.Ear.Male)
-#shapiro.test(resid(fullmodel.Ear.Male))
+#check_model(fullmodel.Ear.Male)
+#shapiro.test(resid(fullmodel.Ear.Male)) # not normally distributed
 
 cor.Ear.Male <- cor.test(x = Male_Ear$Absolute_Latitude,
                          y = Male_Ear$Resids_ELBW,
@@ -327,7 +326,8 @@ Female_Bergmann <- VertNetMetadata %>%
 
 fullmodel.Berg.Female <- lm(Body_Weight_g ~ Absolute_Latitude, data = Female_Bergmann)
 summary(fullmodel.Berg.Female)
-#shapiro.test(resid(fullmodel.Berg.Female))
+#check_model(fullmodel.Berg.Female)
+#shapiro.test(resid(fullmodel.Berg.Female)) # not normally distributed
 
 cor.Berg.Female <- cor.test(x = Female_Bergmann$Absolute_Latitude,
                             y = Female_Bergmann$Body_Weight_g,
@@ -346,7 +346,8 @@ Female_Tail <- VertNet_filtered %>%
 fullmodel.Tail.Female <- lm(Tail_Length_mm ~ Body_Weight_g + Absolute_Latitude,
                           data = Female_Tail)
 summary(fullmodel.Tail.Female)
-#shapiro.test(resid(fullmodel.Tail.Female))
+#check_model(fullmodel.Tail.Female)
+#shapiro.test(resid(fullmodel.Tail.Female)) # not normally distributed
 
 cor.Tail.Female <- cor.test(x = Female_Tail$Absolute_Latitude,
                             y = Female_Tail$Resids_TLBW,
@@ -365,7 +366,8 @@ Female_Ear <- VertNet_filtered_2 %>%
 fullmodel.Ear.Female <- lm(Ear_Length_mm ~ Body_Weight_g + Absolute_Latitude,
                          data = Female_Ear)
 summary(fullmodel.Ear.Female)
-#shapiro.test(resid(fullmodel.Ear.Female))
+#check_model(fullmodel.Ear.Female)
+#shapiro.test(resid(fullmodel.Ear.Female)) # not normally distributed
 
 cor.Ear.Female <- cor.test(x = Female_Ear$Absolute_Latitude,
                            y = Female_Ear$Resids_ELBW,
@@ -389,7 +391,8 @@ Male_Adult_Bergmann <- Male_Bergmann %>%
 fullmodel.Berg.Male.Adult <- lm(Body_Weight_g ~ Absolute_Latitude,
                           data = Male_Adult_Bergmann)
 summary(fullmodel.Berg.Male.Adult)
-#shapiro.test(resid(fullmodel.Berg.Male.Adult))
+#check_model(fullmodel.Berg.Male.Adult)
+#shapiro.test(resid(fullmodel.Berg.Male.Adult)) # not normally distributed
 
 cor.Berg.Male.Adult <- cor.test(x = Male_Adult_Bergmann$Absolute_Latitude,
                                 y = Male_Adult_Bergmann$Body_Weight_g,
@@ -403,7 +406,8 @@ Male_Adult_Tail <- Male_Tail %>%
 fullmodel.Tail.Male.Adult <- lm(Tail_Length_mm ~ Body_Weight_g + Absolute_Latitude,
                           data = Male_Adult_Tail)
 summary(fullmodel.Tail.Male.Adult)
-#shapiro.test(resid(fullmodel.Tail.Male.Adult))
+#check_model(fullmodel.Tail.Male.Adult)
+#shapiro.test(resid(fullmodel.Tail.Male.Adult)) # not normally distributed
 
 cor.Tail.Male.Adult <- cor.test(x = Male_Adult_Tail$Absolute_Latitude,
                                 y = Male_Adult_Tail$Resids_TLBW,
@@ -417,9 +421,64 @@ Male_Adult_Ear <- Male_Ear %>%
 fullmodel.Ear.Male.Adult <- lm(Ear_Length_mm ~ Body_Weight_g + Absolute_Latitude,
                          data = Male_Adult_Ear)
 summary(fullmodel.Ear.Male.Adult)
-#shapiro.test(resid(fullmodel.Ear.Male.Adult))
+#check_model(fullmodel.Ear.Male.Adult)
+#shapiro.test(resid(fullmodel.Ear.Male.Adult)) # not normally distributed
 
 cor.Ear.Male.Adult <- cor.test(x = Male_Adult_Ear$Absolute_Latitude,
                                y = Male_Adult_Ear$Resids_ELBW,
                                method = 'spearman')
+cor.Ear.Male.Adult
+
+
+
+
+
+################################################################################
+# Adult Males only
+################################################################################
+
+Male_Bergmann_Adults <- Male_Bergmann %>%
+  filter(Lifestage == "adult")
+
+fullmodel.Berg.Male.Adult <- lm(Body_Weight_g ~ Absolute_Latitude,
+                          data = Male_Bergmann_Adults)
+summary(fullmodel.Berg.Male.Adult)
+#check_model(fullmodel.Berg.Male.Adult)
+#shapiro.test(resid(fullmodel.Berg.Male.Adult)) # not normally distributed
+
+cor.Berg.Male.Adult <- cor.test(x = Male_Bergmann_Adults$Absolute_Latitude,
+                          y = Male_Bergmann_Adults$Body_Weight_g,
+                          method = "spearman")
+cor.Berg.Male.Adult
+
+
+
+Male_Tail_Adults <- Male_Tail %>%
+  filter(Lifestage == "adult")
+
+fullmodel.Tail.Male.Adult <- lm(Tail_Length_mm ~ Body_Weight_g + Absolute_Latitude,
+                          data = Male_Tail_Adults)
+summary(fullmodel.Tail.Male.Adult)
+#check_model(fullmodel.Tail.Male.Adult)
+#shapiro.test(resid(fullmodel.Tail.Male.Adult)) # not normally distributed
+
+cor.Tail.Male.Adult <- cor.test(x = Male_Tail_Adults$Absolute_Latitude,
+                          y = Male_Tail_Adults$Resids_TLBW,
+                          method = "spearman")
+cor.Tail.Male.Adult
+
+
+
+Male_Ear_Adults <- Male_Ear %>%
+  filter(Lifestage == "adult")
+
+fullmodel.Ear.Male.Adult <- lm(Ear_Length_mm ~ Body_Weight_g + Absolute_Latitude,
+                         data = Male_Ear_Adults)
+summary(fullmodel.Ear.Male.Adult)
+#check_model(fullmodel.Ear.Male.Adult)
+#shapiro.test(resid(fullmodel.Ear.Male.Adult)) # not normally distributed
+
+cor.Ear.Male.Adult <- cor.test(x = Male_Ear_Adults$Absolute_Latitude,
+                         y = Male_Ear_Adults$Resids_ELBW,
+                         method = 'spearman')
 cor.Ear.Male.Adult

@@ -134,4 +134,4 @@ submission/supplementary_material.pdf submission/supplementary_material.docx: su
 				results/figures/RXNsModel.pdf\
 				results/figures/RXNs_BMI.pdf\
 				results/figures/RXNs_BMI_Model.pdf
-	R -e 'library(rmarkdown); render("submission/Ballinger_et_al_2021_AmNat.Rmd", output_format="all")'
+	R -e 'library(rmarkdown); render("submission/supplementary_material.Rmd", output_format="all")'

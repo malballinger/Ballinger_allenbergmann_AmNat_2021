@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 12-Feb-2021
-# Script last updated:  09-Apr-2021
+# Script last updated:  19-Apr-2021
 
 
 # This script plots reaction norms of body mass and extremity lengths of New York
@@ -76,19 +76,40 @@ PostDissection_filtered$Resids_ELBW <- resid(residsELBW)
 # 
 # Response: Body_Weight_g
 # Chisq Df Pr(>Chisq)    
-# (Intercept)                142.5576  1  < 2.2e-16 ***
-# Sex                         20.1407  1  7.195e-06 ***
-# Population                   4.9456  1    0.02616 *  
-# Environment                  0.0742  1    0.78533    
-# Sex:Population               2.6437  1    0.10396    
-# Sex:Environment              0.5630  1    0.45306    
-# Population:Environment       0.0917  1    0.76197    
+# (Intercept)                206.8937  1  < 2.2e-16 ***
+# Sex                         42.1478  1  8.463e-11 ***
+# Population                   4.0046  1    0.04538 *  
+# Environment                  1.7226  1    0.18935    
+# Sex:Population               2.5469  1    0.11051    
+# Sex:Environment              0.0958  1    0.75694    
+# Population:Environment       0.0927  1    0.76072    
 # Sex:Population:Environment   0.5565  1    0.45568    
 # ---
 # Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-BW_deets <- ("&#42;&#42;&#42;sex<br>\
-                        &#42;pop")
+BW_deets <- ("&#42;sex<br>\
+              &#42;pop")
+
+
+
+# > car::Anova(lmer(BMI_kg_m2 ~ Sex * Population * Environment + (1|Line),
+#                   +                 data = PostDissectionMetaData), type = "III")
+# Analysis of Deviance Table (Type III Wald chisquare tests)
+# 
+# Response: BMI_kg_m2
+# Chisq Df Pr(>Chisq)    
+# (Intercept)                685.5193  1  < 2.2e-16 ***
+# Sex                          7.3520  1   0.006699 ** 
+# Population                   0.5018  1   0.478721    
+# Environment                  1.2811  1   0.257699    
+# Sex:Population               0.5605  1   0.454068    
+# Sex:Environment              0.6007  1   0.438295    
+# Population:Environment       0.9289  1   0.335138    
+# Sex:Population:Environment   0.1696  1   0.680472    
+# ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+BMI_deets <- ("&#42;sex")
 
 
 
@@ -98,20 +119,19 @@ BW_deets <- ("&#42;&#42;&#42;sex<br>\
 # 
 # Response: Final_Tail_Length_mm
 # Chisq Df Pr(>Chisq)    
-# (Intercept)                178.2408  1  < 2.2e-16 ***
+# (Intercept)                365.2417  1  < 2.2e-16 ***
 # Body_Weight_g               51.9483  1  5.698e-13 ***
-# Sex                          2.7830  1   0.095271 .  
-# Population                  15.4846  1  8.318e-05 ***
-# Environment                  5.4843  1   0.019188 *  
-# Sex:Population               0.6432  1   0.422544    
-# Sex:Environment              0.2701  1   0.603288    
-# Population:Environment       7.5313  1   0.006064 ** 
-# Sex:Population:Environment   0.0293  1   0.864003    
-#  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Sex                          2.8003  1  0.0942464 .  
+# Population                  11.7068  1  0.0006227 ***
+# Environment                 86.0543  1  < 2.2e-16 ***
+# Sex:Population               0.9737  1  0.3237585    
+# Sex:Environment              0.3154  1  0.5744118    
+# Population:Environment      14.8606  1  0.0001158 ***
+# Sex:Population:Environment   0.0293  1  0.8640034 
 
-TL_deets <- ("&#42;env<br>\
-            &#42;&#42;&#42;pop<br>\
-             &#42;&#42;pop x env")
+TL_deets <- ("&#42;pop<br>\
+             &#42;env<br>\
+             &#42;pop x env")
 
 
 
@@ -120,19 +140,19 @@ TL_deets <- ("&#42;env<br>\
 # 
 # Response: Ear_Length_mm
 # Chisq Df Pr(>Chisq)    
-# (Intercept)                256.1290  1  < 2.2e-16 ***
+# (Intercept)                410.0317  1  < 2.2e-16 ***
 # Body_Weight_g               13.3652  1  0.0002563 ***
-# Sex                          2.4769  1  0.1155265    
-# Population                   0.3438  1  0.5576574    
-# Environment                 14.7500  1  0.0001228 ***
-# Sex:Population               0.0008  1  0.9774778    
-# Sex:Environment              0.2092  1  0.6473669    
-# Population:Environment       0.6701  1  0.4130207    
-# Sex:Population:Environment   0.2545  1  0.6139013    
+# Sex                          3.8759  1  0.0489827   
+# Population                   0.5953  1  0.4403627    
+# Environment                 57.6587  1  3.118e-14 ***
+# Sex:Population               0.2132  1  0.6442756    
+# Sex:Environment              1.2889  1  0.2562444    
+# Population:Environment       0.4486  1  0.5030115    
+# Sex:Population:Environment   0.2545  1  0.6139012   
 # ---
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-EL_deets <- glue("&#42;&#42;&#42;env")
+EL_deets <- glue("&#42;env")
 
 
 
@@ -153,7 +173,7 @@ FemaleData <- PostDissectionMetaData %>%
 
 BWrxnF <-
   ggplot(data=FemaleData, aes(x=Environment, y=Body_Weight_g)) +
-  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE) +
+  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE, coef=0) +
   stat_summary(
     fun = median,
     geom = 'line',
@@ -194,7 +214,7 @@ BWrxnF <-
 
 BWrxnM <-
   ggplot(data=MaleData, aes(x=Environment, y=Body_Weight_g)) +
-  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE) +
+  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE, coef=0) +
   stat_summary(
     fun = median,
     geom = 'line',
@@ -244,7 +264,7 @@ ggsave("results/figures/RXNs_BW.pdf", height = 3.5, width = 6)
 
 TLrxn <-
   ggplot(data=PostDissectionMetaData, aes(x=Environment, y=Resids_TLBW)) +
-  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE) +
+  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE, coef=0) +
   stat_summary(
     fun = median,
     geom = 'line',
@@ -280,7 +300,7 @@ TLrxn <-
 
 ELrxn <-
   ggplot(data=PostDissection_filtered, aes(x=Environment, y=Resids_ELBW)) +
-  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE) +
+  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE, coef=0) +
   stat_summary(
     fun = median,
     geom = 'line',
@@ -323,7 +343,7 @@ ggsave("results/figures/RXNs_Extremities.pdf", height = 4, width = 8.5)
 
 BMIrxnF <-
   ggplot(data=FemaleData, aes(x=Environment, y=BMI_kg_m2)) +
-  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE) +
+  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE, coef=0) +
   stat_summary(
     fun = median,
     geom = 'line',
@@ -364,7 +384,7 @@ BMIrxnF <-
 
 BMIrxnM <-
   ggplot(data=MaleData, aes(x=Environment, y=BMI_kg_m2)) +
-  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE) +
+  geom_boxplot(aes(fill = Population), position = position_dodge(width=0.25), alpha=0.8, size = 0.5, outlier.shape = NA, notch = FALSE, coef=0) +
   stat_summary(
     fun = median,
     geom = 'line',
@@ -387,12 +407,13 @@ BMIrxnM <-
         axis.line.y = element_blank(),
         legend.position = "none",
         plot.tag = element_markdown(family = "Palatino", size = 8, face = "italic", hjust = 1),
-        plot.tag.position = c(0.96,0.88),
+        plot.tag.position = c(0.96,0.89),
         plot.title = element_text(size = 8, face = "italic", hjust = 0.05, vjust = -3, family = "Palatino"),
         plot.title.position = "panel",
         plot.margin = unit(c(0.5, 0.5, 0.5, -0.42), "cm")) + # top, right, bottom, left (0.5, 0.5, 0.1, -0.5)
   labs(x = "",
        y = "",
+       tag = BMI_deets,
        title = "Males")
 
 

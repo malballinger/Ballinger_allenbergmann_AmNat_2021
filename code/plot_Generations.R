@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 24-Feb-2021
-# Script last updated:  09-Apr-2021
+# Script last updated:  19-Apr-2021
 
 
 # This script plots sex-specific body weight and extremity lengths of New York mice
@@ -86,45 +86,45 @@ Generation_filtered_2$Resids_ELBW <- resid(residsELBW)
 # 
 # Response: rank(Body_Weight_g)
 # Sum Sq  Df  F value    Pr(>F)    
-# (Intercept)               1715176   1 201.0258 < 2.2e-16 ***
-# Sex                        105397   1  12.3530  0.000486 ***
-# Population                 470654   1  55.1626 5.829e-13 ***
-# Generation                  41046   2   2.4054  0.091422 .  
-# Sex:Population              33427   1   3.9177  0.048404 *  
-# Sex:Generation              38224   2   2.2400  0.107672    
-# Population:Generation       94670   2   5.5479  0.004174 ** 
-# Sex:Population:Generation   46731   2   2.7386  0.065768 .  
-# Residuals                 3745600 439                       
+# (Intercept)               16755268   1 1963.7874 < 2.2e-16 ***
+# Sex                         433369   1   50.7926 4.243e-12 ***
+# Population                 2410634   1  282.5364 < 2.2e-16 ***
+# Generation                   62333   2    3.6528   0.02671 *  
+# Sex:Population                4388   1    0.5143   0.47366    
+# Sex:Generation               15273   2    0.8951   0.40933    
+# Population:Generation        59838   2    3.5066   0.03084 *  
+# Sex:Population:Generation    46731   2    2.7386   0.06577 .  
+# Residuals                  3745600 439                     
 # ---
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-BW_deets <- ("&#42;&#42;pop x gen<br>\
-                    &#42;sex x pop<br>\
-              &#42;&#42;&#42;sex<br>\
-              &#42;&#42;&#42;pop")
+BW_deets <- ("&#42;sex<br>\
+              &#42;pop<br>\
+              &#42;gen<br>\
+              &#42;pop x gen")
 
 
 # > car::Anova(lm(Tail_Length_mm ~ Body_Weight_g + Sex * Population * Generation, data = Generation_filtered), type = "III")
 # Anova Table (Type III tests)
 # 
-# Response: Tail_Length_mm
-# Sum Sq  Df   F value    Pr(>F)    
-# (Intercept)                31982   1 1448.6627 < 2.2e-16 ***
+# (Intercept)                95850   1 4341.6403 < 2.2e-16 ***
 # Body_Weight_g                868   1   39.3297 8.922e-10 ***
-# Sex                           88   1    3.9841  0.046577 *  
-# Population                    43   1    1.9308  0.165406    
-# Generation                   205   2    4.6466  0.010094 *  
-# Sex:Population                90   1    4.0670  0.044367 *  
-# Sex:Generation               247   2    5.6031  0.003968 ** 
-# Population:Generation         76   2    1.7312  0.178340    
-# Sex:Population:Generation    104   2    2.3548  0.096171 .  
-# Residuals                   9250 419                        
+# Sex                            0   1    0.0131   0.90888    
+# Population                   930   1   42.1210 2.427e-10 ***
+# Generation                   432   2    9.7875 7.009e-05 ***
+# Sex:Population                58   1    2.6267   0.10583    
+# Sex:Generation               156   2    3.5312   0.03015 *  
+# Population:Generation        535   2   12.1225 7.620e-06 ***
+# Sex:Population:Generation    104   2    2.3548   0.09617 .  
+# Residuals                   9250 419                                   
 # ---
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-TL_deets <- ("&#42;pop x sex<br>\
-            &#42;&#42;gen x sex<br>\
-            &#42;gen")
+TL_deets <- ("&#42;pop<br>\
+            &#42;gen<br>\
+            &#42;gen<br>
+            &#42;sex x gen<br>
+            &#42;pop x gen")
 
 
 # > car::Anova(lm(rank(Ear_Length_mm) ~ Body_Weight_g + Sex * Population * Generation, data = Generation_filtered_2), type = "III")
@@ -132,16 +132,16 @@ TL_deets <- ("&#42;pop x sex<br>\
 # 
 # Response: rank(Ear_Length_mm)
 # Sum Sq  Df F value    Pr(>F)    
-# (Intercept)                 49527   1  3.9040   0.04881 *  
+# (Intercept)                115037   1  9.0679  0.002755 ** 
 # Body_Weight_g              310068   1 24.4414 1.102e-06 ***
-# Sex                          8239   1  0.6494   0.42077    
-# Population                    226   1  0.0178   0.89394    
-# Generation                  78562   2  3.0964   0.04623 *  
-# Sex:Population                179   1  0.0141   0.90553    
-# Sex:Generation              21361   2  0.8419   0.43160    
-# Population:Generation       23374   2  0.9212   0.39881    
-# Sex:Population:Generation    2063   2  0.0813   0.92191    
-# Residuals                 5429675 428                      
+# Sex                          3667   1  0.2891  0.591096    
+# Population                  30939   1  2.4388  0.119105    
+# Generation                 345767   2 13.6277 1.830e-06 ***
+#Sex:Population                536   1  0.0422  0.837285    
+# Sex:Generation              31524   2  1.2425  0.289711    
+# Population:Generation       66316   2  2.6137  0.074430 .  
+# Sex:Population:Generation    2063   2  0.0813  0.921914    
+# Residuals                 5429675 428                     
 # ---
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

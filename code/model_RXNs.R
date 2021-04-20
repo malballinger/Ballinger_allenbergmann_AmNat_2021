@@ -3,7 +3,7 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 19-Feb-2021
-# Script last updated:  08-Apr-2021
+# Script last updated:  20-Apr-2021
 
 
 # This script models body mass and extremity length from house mice of common garden
@@ -27,6 +27,12 @@ library(emmeans)
 library(car)
 library(nlme)
 library(dotwhisker)
+library(report)
+
+set.seed(19910118)
+
+#set global contrasts
+options(contrasts = c("contr.sum", "contr.poly")) # for Type III SSS
 
 ################################################################################
 # Import data               
@@ -63,6 +69,16 @@ FemaleData <- PostDissectionMetaData %>%
 # Refer to 'exploratory/Modeling_RXN_2021-02-19.Rmd' for initial model testing and exploration.
 
 
+#PostDissectionMetaData %>% ggplot(aes(x=Body_Weight_g)) + geom_histogram(binwidth = 1)
+
+# BWOutliers <- PostDissectionMetaData %>%
+#    summarise(PostDissectionMetaData, meanBW = mean(Body_Weight_g, na.rm = TRUE),
+#             sdBW = sd(Body_Weight_g, na.rm = TRUE)) %>%
+#    filter(Body_Weight_g < (meanBW - 3*sdBW) |
+#           Body_Weight_g > (meanBW + 3*sdBW))
+
+# no clear extreme outliers below 3 stdev from mean to remove
+
 # Full model - all sexes
 mod.full.BW <- lmer(Body_Weight_g ~ Sex * Population * Environment + (1|Line),
                     data = PostDissectionMetaData)
@@ -72,12 +88,15 @@ mod.full.BW <- lmer(Body_Weight_g ~ Sex * Population * Environment + (1|Line),
 
 # Stats - all sexes
 summary(mod.full.BW)
+report(mod.full.BW)
 # Anova P test
+#anova(mod.full.BW) # Satterthwaite's method
 car::Anova(mod.full.BW, type = "III")
-#car::Anova(lmer(Body_Weight_g ~ Sex * Population * Environment + (1|Line),
-#data = PostDissectionMetaData), type = "III")
+# car::Anova(lmer(Body_Weight_g ~ Sex * Population * Environment + (1|Line),
+# data = PostDissectionMetaData), type = "III")
 # Posthoc Tukey's test
-#emmeans::emmeans(mod.full.BW, list(pairwise ~ Sex * Population), adjust = "tukey")
+# post_BW <- emmeans::emmeans(mod.full.BW, specs = c("Sex", "Population"), adjust = "tukey")
+# pwpp(post_BW)
 
 
 # # Full model - males
@@ -110,6 +129,17 @@ car::Anova(mod.full.BW, type = "III")
 
 
 
+
+#PostDissectionMetaData %>% ggplot(aes(x=BMI_kg_m2)) + geom_histogram(binwidth = 1)
+
+# BMIOutliers <- PostDissectionMetaData %>%
+#    summarise(PostDissectionMetaData, meanBW = mean(BMI_kg_m2, na.rm = TRUE),
+#             sdBW = sd(BMI_kg_m2, na.rm = TRUE)) %>%
+#    filter(BMI_kg_m2 < (meanBW - 3*sdBW) |
+#             BMI_kg_m2 > (meanBW + 3*sdBW))
+
+# no outliers that are 3 stdev below mean
+
 # Full model - BMI
 mod.full.BMI <- lmer(BMI_kg_m2 ~ Sex * Population * Environment + (1|Line),
                     data = PostDissectionMetaData)
@@ -119,9 +149,11 @@ mod.full.BMI <- lmer(BMI_kg_m2 ~ Sex * Population * Environment + (1|Line),
 
 # Stats - BMI
 summary(mod.full.BMI)
+report(mod.full.BMI)
 # Anova P test
 car::Anova(mod.full.BMI, type = "III")
-
+# car::Anova(lmer(BMI_kg_m2 ~ Sex * Population * Environment + (1|Line),
+#                 data = PostDissectionMetaData), type = "III")
 
 
 
@@ -131,19 +163,36 @@ car::Anova(mod.full.BMI, type = "III")
 # *Allen's rule* - tail length
 ################################################################################
 
+#PostDissectionMetaData %>% ggplot(aes(x=Final_Tail_Length_mm)) + geom_histogram(binwidth = 1)
+
+# TLOutliers <- PostDissectionMetaData %>%
+#    summarise(PostDissectionMetaData, meanTL = mean(Final_Tail_Length_mm, na.rm = TRUE),
+#              sdTL = sd(Final_Tail_Length_mm, na.rm = TRUE)) %>%
+#    filter(Final_Tail_Length_mm < (meanTL - 3*sdTL) |
+#           Final_Tail_Length_mm > (meanTL + 3*sdTL))
+ 
+# no outliers below 3 stdev from mean
+
+
 # Full model - all sexes
 mod.full.TL <- lmer(Final_Tail_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line),
-                    data = PostDissectionMetaData)
+                    data = PostDissectionMetaData, REML = T)
 #check_model(mod.full.TL)
 #shapiro.test(resid(mod.full.TL)) # normally distributed
 
 
 # Stats - all sexes
 summary(mod.full.TL)
+report(mod.full.TL)
 # Anova P test
 car::Anova(mod.full.TL, type = "III")
-#car::Anova(lmer(Final_Tail_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line),
-#data = PostDissectionMetaData), type = "III")
+# car::Anova(lmer(Final_Tail_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line),
+# data = PostDissectionMetaData), type = "III")
+
+posthoc_TL <- emmeans(mod.full.TL, ~ Population * Environment)
+pairs(posthoc_TL)
+pwpp(posthoc_TL)
+# both have pop x env interactions
 
 
 
@@ -154,11 +203,15 @@ car::Anova(mod.full.TL, type = "III")
 # *Allen's rule* - ear length
 ################################################################################
 
-# Check for and remove *extreme* outliers
 #PostDissectionMetaData %>% ggplot(aes(x=Ear_Length_mm)) + geom_histogram(binwidth = 1)
-#hist(PostDissectionMetaData$Ear_Length_mm, breaks = 100)
-# from eyeball test, any ear larger than 17mm is an extreme outlier
-# I think it's ok to remove this outlier since it won't change any of the results
+
+# ELOutliers <- PostDissectionMetaData %>%
+#    summarise(PostDissectionMetaData, meanEL = mean(Ear_Length_mm, na.rm = TRUE),
+#             sdEL = sd(Ear_Length_mm, na.rm = TRUE)) %>%
+#    filter(Ear_Length_mm < (meanEL - 3*sdEL) |
+#          Ear_Length_mm > (meanEL + 3*sdEL))
+
+# n = 1 outliers above 17mm (above 3 stdev from mean)
 
 PostDissection_filtered <- PostDissectionMetaData %>%
   mutate(Ear_Length_mm = ifelse(Ear_Length_mm > 17, NA, Ear_Length_mm))
@@ -167,7 +220,8 @@ PostDissection_filtered <- PostDissectionMetaData %>%
 
 
 # Full model - all sexes
-mod.full.EL <- lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line), data = PostDissection_filtered)
+mod.full.EL <- lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line),
+                    data = PostDissection_filtered)
 
 #check_model(mod.full.EL)
 #shapiro.test(resid(mod.full.EL)) # normally distributed
@@ -175,9 +229,12 @@ mod.full.EL <- lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environme
 
 # Stats - all sexes
 summary(mod.full.EL)
+report(mod.full.EL)
 # Anova NP test
-#car::Anova(lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line), data = PostDissection_filtered), type = "III")
+# car::Anova(lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line), data = PostDissection_filtered), type = "III")
 car::Anova(mod.full.EL, type = "III")
+# sex = 0.05 (not significant at P < 0.05)
+
 
 
 # # Full model - males
@@ -222,22 +279,22 @@ car::Anova(mod.full.EL, type = "III")
 ################################################################################
 
 Model_RXNs <-
-  dwplot(list(mod.full.BW, mod.full.TL, mod.full.EL), show_intercept = TRUE,
+  dwplot(list(mod.full.BW, mod.full.TL, mod.full.EL), show_intercept = FALSE,
          vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) %>%
   relabel_predictors(Body_Weight_g = "Body Mass (g)",
-                     SexFemale = "Sex (Female)",
-                     PopulationBrazil = "Population (Brazil)",
-                     EnvironmentCold = "Environment (Cold)",
-                     'SexFemale:PopulationBrazil' = "Sex (Female) : Population (Brazil)",
-                     'SexFemale:EnvironmentCold' = "Sex (Female) : Population (Cold)",
-                     'PopulationBrazil:EnvironmentCold' = "Population (Brazil) : Environment (Cold)",
-                     'SexFemale:PopulationBrazil:EnvironmentCold' = "Sex (Female) : Population (Brazil) : Environment (Cold)",
-                    '(Intercept)' = "Intercept (Male - New York - Warm)") +
+                     Sex1 = "Sex",
+                     Population1 = "Population",
+                     Environment1 = "Environment",
+                     'Sex1:Population1' = "Sex : Population",
+                     'Sex1:Environment1' = "Sex : Environment",
+                     'Population1:Environment1' = "Population : Environment",
+                     'Sex1:Population1:Environment1' = "Sex : Population : Environment",
+                    '(Intercept)' = "Intercept") +
   scale_color_manual(values = c("purple", "black", "springgreen3"),
                      breaks = c("Model 1", "Model 2", "Model 3"),
                      labels = c("Body Mass", "Tail Length", "Ear Length")) +
   theme_bw() + xlab("Coefficient Estimate") + ylab("") +
-  ggtitle("(Trait) ~ Body Weight + Sex * Population * Environment") +
+  ggtitle("(Trait) ~ Body Mass + Sex * Population * Environment") +
   theme(axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino", hjust = 0.6),
         axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
@@ -268,17 +325,17 @@ ggsave("results/figures/RXNsModel.pdf", height = 5, width = 7)
 ################################################################################
 
 Model_BMI <-
-  dwplot(list(mod.full.BMI), show_intercept = TRUE,
+  dwplot(list(mod.full.BMI), show_intercept = FALSE,
          vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) %>%
   relabel_predictors(Body_Weight_g = "Body Mass (g)",
-                     SexFemale = "Sex (Female)",
-                     PopulationBrazil = "Population (Brazil)",
-                     EnvironmentCold = "Environment (Cold)",
-                     'SexFemale:PopulationBrazil' = "Sex (Female) : Population (Brazil)",
-                     'SexFemale:EnvironmentCold' = "Sex (Female) : Population (Cold)",
-                     'PopulationBrazil:EnvironmentCold' = "Population (Brazil) : Environment (Cold)",
-                     'SexFemale:PopulationBrazil:EnvironmentCold' = "Sex (Female) : Population (Brazil) : Environment (Cold)",
-                     '(Intercept)' = "Intercept (Male - New York - Warm)") +
+                     Sex1 = "Sex",
+                     Population1 = "Population",
+                     Environment1 = "Environment",
+                     'Sex1:Population1' = "Sex : Population",
+                     'Sex1:Environment1' = "Sex : Environment",
+                     'Population1:Environment1' = "Population : Environment",
+                     'Sex1:Population1:Environment1' = "Sex : Population : Environment",
+                     '(Intercept)' = "Intercept") +
   scale_color_manual(values = c("black"),
                      breaks = c("Model 1"),
                      labels = c("BMI")) +

@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 23-Feb-2021
-# Script last updated:  09-Apr-2021
+# Script last updated:  20-Apr-2021
 
 
 # This script plots body mass and extremity length from wild-caught house mice
@@ -23,6 +23,7 @@ library(cowplot)
 library(ggtext)
 library(glue)
 library(scales)
+library(report)
 
 set.seed(19910118) # so that jitter plots stay in same jittered positions
 ##############################################################
@@ -117,6 +118,7 @@ cor.Berg.Male.VertNet <- cor.test(x = Male_Bergmann_VertNet$Absolute_Latitude,
                                   y = Male_Bergmann_VertNet$Body_Weight_g,
                                   method = 'spearman', exact = FALSE,
                                   adjust="fdr", alpha=0.5)
+#report(cor.Berg.Male.VertNet)
 
 cor.Berg.Male.VertNet_corr <- round(as.double(cor.Berg.Male.VertNet$estimate),3)
 cor.Berg.Male.VertNet_pval <- round(as.double(cor.Berg.Male.VertNet$p.value),3)
@@ -130,6 +132,7 @@ cor.Berg.Female.VertNet <- cor.test(x = Female_Bergmann_VertNet$Absolute_Latitud
                                     y = Female_Bergmann_VertNet$Body_Weight_g,
                                     method = 'spearman', exact = FALSE,
                                     adjust="fdr", alpha=0.5)
+#report(cor.Berg.Female.VertNet)
 
 cor.Berg.Female.VertNet_corr <- round(as.double(cor.Berg.Female.VertNet$estimate),3)
 cor.Berg.Female.VertNet_pval <- round(as.double(cor.Berg.Female.VertNet$p.value),2)
@@ -143,6 +146,7 @@ cor.Berg.Male.Adult.VertNet <- cor.test(x = Male_Bergmann_Adult_VertNet$Absolute
                                         y = Male_Bergmann_Adult_VertNet$Body_Weight_g,
                                         method = 'spearman', exact = FALSE,
                                         adjust="fdr", alpha=0.5)
+#report(cor.Berg.Male.Adult.VertNet)
 
 cor.Berg.Male.Adult.VertNet_corr <- round(as.double(cor.Berg.Male.Adult.VertNet$estimate),2)
 cor.Berg.Male.Adult.VertNet_pval <- round(as.double(cor.Berg.Male.Adult.VertNet$p.value),3)
@@ -158,6 +162,7 @@ cor.Tail.Male.VertNet <- cor.test(x = Male_Tail_VertNet$Absolute_Latitude,
                                   y = Male_Tail_VertNet$Resids_TLBW,
                                   method = 'spearman', exact = FALSE,
                                   adjust="fdr", alpha=0.5)
+#report(cor.Tail.Male.VertNet)
 
 cor.Tail.Male.VertNet_corr <- round(as.double(cor.Tail.Male.VertNet$estimate),2)
 cor.Tail.Male.VertNet_pval <- round(as.double(cor.Tail.Male.VertNet$p.value),3)
@@ -171,6 +176,7 @@ cor.Tail.Female.VertNet <- cor.test(x = Female_Tail_VertNet$Absolute_Latitude,
                                     y = Female_Tail_VertNet$Resids_TLBW,
                                     method = 'spearman', exact = FALSE,
                                     adjust="fdr", alpha=0.5)
+#report(cor.Tail.Female.VertNet)
 
 cor.Tail.Female.VertNet_corr <- round(as.double(cor.Tail.Female.VertNet$estimate),2)
 cor.Tail.Female.VertNet_pval <- round(as.double(cor.Tail.Female.VertNet$p.value),3)
@@ -184,6 +190,7 @@ cor.Tail.Male.Adult.VertNet <- cor.test(x = Male_Tail_Adult_VertNet$Absolute_Lat
                                         y = Male_Tail_Adult_VertNet$Resids_TLBW,
                                         method = 'spearman', exact = FALSE,
                                         adjust="fdr", alpha=0.5)
+#report(cor.Tail.Male.Adult.VertNet)
 
 cor.Tail.Male.Adult.VertNet_corr <- round(as.double(cor.Tail.Male.Adult.VertNet$estimate),2)
 cor.Tail.Male.Adult.VertNet_pval <- round(as.double(cor.Tail.Male.Adult.VertNet$p.value),3)
@@ -198,6 +205,7 @@ cor.Ear.Male.VertNet <- cor.test(x = Male_Ear_VertNet$Absolute_Latitude,
                                  y = Male_Ear_VertNet$Resids_ELBW,
                                  method = 'spearman', exact = FALSE,
                                  adjust="fdr", alpha=0.5)
+#report(cor.Ear.Male.VertNet)
 
 cor.Ear.Male.VertNet_corr <- round(as.double(cor.Ear.Male.VertNet$estimate),2)
 cor.Ear.Male.VertNet_pval <- round(as.double(cor.Ear.Male.VertNet$p.value),3)
@@ -211,6 +219,7 @@ cor.Ear.Female.VertNet <- cor.test(x = Female_Ear_VertNet$Absolute_Latitude,
                                    y = Female_Ear_VertNet$Resids_ELBW,
                                    method = 'spearman', exact = FALSE,
                                    adjust="fdr", alpha=0.5)
+#report(cor.Ear.Female.VertNet)
 
 cor.Ear.Female.VertNet_corr <- round(as.double(cor.Ear.Female.VertNet$estimate),3)
 cor.Ear.Female.VertNet_pval <- round(as.double(cor.Ear.Female.VertNet$p.value),3)
@@ -225,6 +234,7 @@ cor.Ear.Male.Adult.VertNet <- cor.test(x = Male_Ear_Adult_VertNet$Absolute_Latit
                                        y = Male_Ear_Adult_VertNet$Resids_ELBW,
                                        method = 'spearman', exact = FALSE,
                                        adjust="fdr", alpha=0.5)
+#report(cor.Ear.Male.Adult.VertNet)
 
 cor.Ear.Male.Adult.VertNet_corr <- round(as.double(cor.Ear.Male.Adult.VertNet$estimate),2)
 cor.Ear.Male.Adult.VertNet_pval <- round(as.double(cor.Ear.Male.Adult.VertNet$p.value),3)
@@ -241,6 +251,7 @@ cor.Berg.Male.Arctos <- cor.test(x = Male_Bergmann_Arctos$Absolute_Latitude,
                                  y = Male_Bergmann_Arctos$Body_Weight_g,
                                  method = 'pearson', exact = FALSE,
                                  adjust="fdr", alpha=0.5)
+#report(cor.Berg.Male.Arctos)
 
 cor.Berg.Male.Arctos_corr <- round(as.double(cor.Berg.Male.Arctos$estimate),2)
 cor.Berg.Male.Arctos_pval <- round(as.double(cor.Berg.Male.Arctos$p.value),2)
@@ -254,6 +265,7 @@ cor.Berg.Female.Arctos <- cor.test(x = Female_Bergmann_Arctos$Absolute_Latitude,
                                    y = Female_Bergmann_Arctos$Body_Weight_g,
                                    method = 'pearson', exact = FALSE,
                                    adjust="fdr", alpha=0.5)
+#report(cor.Berg.Female.Arctos)
 
 cor.Berg.Female.Arctos_corr <- round(as.double(cor.Berg.Female.Arctos$estimate),2)
 cor.Berg.Female.Arctos_pval <- round(as.double(cor.Berg.Female.Arctos$p.value),2)
@@ -268,6 +280,7 @@ cor.Tail.Male.Arctos <- cor.test(x = Male_Tail_Arctos$Absolute_Latitude,
                                  y = Male_Tail_Arctos$Resids_TLBW,
                                  method = 'spearman', exact = FALSE,
                                  adjust="fdr", alpha=0.5)
+#report(cor.Tail.Male.Arctos)
 
 cor.Tail.Male.Arctos_corr <- round(as.double(cor.Tail.Male.Arctos$estimate),3)
 cor.Tail.Male.Arctos_pval <- round(as.double(cor.Tail.Male.Arctos$p.value),2)
@@ -281,6 +294,7 @@ cor.Tail.Female.Arctos <- cor.test(x = Female_Tail_Arctos$Absolute_Latitude,
                                    y = Female_Tail_Arctos$Resids_TLBW,
                                    method = 'spearman', exact = FALSE,
                                    adjust="fdr", alpha=0.5)
+#report(cor.Tail.Female.Arctos)
 
 cor.Tail.Female.Arctos_corr <- round(as.double(cor.Tail.Female.Arctos$estimate),2)
 cor.Tail.Female.Arctos_pval <- round(as.double(cor.Tail.Female.Arctos$p.value),2)
@@ -295,6 +309,7 @@ cor.Ear.Male.Arctos <- cor.test(x = Male_Ear_Arctos$Absolute_Latitude,
                                 y = Male_Ear_Arctos$Resids_ELBW,
                                 method = 'spearman', exact = FALSE,
                                 adjust="fdr", alpha=0.5)
+#report(cor.Ear.Male.Arctos)
 
 cor.Ear.Male.Arctos_corr <- round(as.double(cor.Ear.Male.Arctos$estimate),3)
 cor.Ear.Male.Arctos_pval <- round(as.double(cor.Ear.Male.Arctos$p.value),2)
@@ -308,6 +323,7 @@ cor.Ear.Female.Arctos <- cor.test(x = Female_Ear_Arctos$Absolute_Latitude,
                                   y = Female_Ear_Arctos$Resids_ELBW,
                                   method = 'spearman', exact = FALSE,
                                   adjust="fdr", alpha=0.5)
+#report(cor.Ear.Female.Arctos)
 
 cor.Ear.Female.Arctos_corr <- round(as.double(cor.Ear.Female.Arctos$estimate),2)
 cor.Ear.Female.Arctos_pval <- round(as.double(cor.Ear.Female.Arctos$p.value),3)
@@ -629,9 +645,9 @@ Berg_Adult_Male_VertNet <-
   scale_x_continuous(breaks = seq(from=0, to=65, by=10),
                      labels = seq(from=0, to=65, by=10),
                      limits = c(0,65)) +
-  scale_y_continuous(breaks = seq(from=0, to=35, by=10),
-                     labels = seq(from=0, to=35, by=10),
-                     limits = c(0,35)) +
+  scale_y_continuous(breaks = seq(from=5, to=35, by=10),
+                     labels = seq(from=5, to=35, by=10),
+                     limits = c(5,35)) +
   theme_bw() +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),

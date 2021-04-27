@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 24-Feb-2021
-# Script last updated:  19-Apr-2021
+# Script last updated:  20-Apr-2021
 
 
 # This script plots sex-specific body weight and extremity lengths of New York mice
@@ -98,10 +98,10 @@ Generation_filtered_2$Resids_ELBW <- resid(residsELBW)
 # ---
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-BW_deets <- ("&#42;sex<br>\
+BW_deets <- ("&#42;pop x gen<br>\
+              &#42;sex<br>\
               &#42;pop<br>\
-              &#42;gen<br>\
-              &#42;pop x gen")
+              &#42;gen")
 
 
 # > car::Anova(lm(Tail_Length_mm ~ Body_Weight_g + Sex * Population * Generation, data = Generation_filtered), type = "III")
@@ -120,11 +120,10 @@ BW_deets <- ("&#42;sex<br>\
 # ---
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-TL_deets <- ("&#42;pop<br>\
-            &#42;gen<br>\
-            &#42;gen<br>
-            &#42;sex x gen<br>
-            &#42;pop x gen")
+TL_deets <- ("&#42;sex x gen<br>
+            &#42;pop x gen<br>\
+            &#42;pop<br>\
+            &#42;gen")
 
 
 # > car::Anova(lm(rank(Ear_Length_mm) ~ Body_Weight_g + Sex * Population * Generation, data = Generation_filtered_2), type = "III")
@@ -341,7 +340,7 @@ Mtailridge <-
         legend.text = element_text(size=8, family = "Palatino"),
         legend.title = element_blank(),
         plot.tag = element_markdown(family = "Palatino", size = 7, face = "italic", hjust = 1),
-        plot.tag.position = c(0.98,0.83),
+        plot.tag.position = c(0.98,0.81),
         plot.title = element_text(size = 8, face = "italic", hjust = 0.05, vjust = -3, family = "Palatino"),
         plot.title.position = "panel",
         plot.margin = unit(c(0, 0.75, 0.5, 0), "cm")) + # top, right, bottom, left (0.5, 0.5, 0.1, -0.5)

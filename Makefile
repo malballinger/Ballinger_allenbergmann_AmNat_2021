@@ -52,6 +52,11 @@ results/figures/VertNet_Arctos.pdf: code/plot_ArctosVertNet.R\
 				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
 			./code/plot_ArctosVertNet.R
 
+results/figures/VertNet_all.pdf: code/plot_ArctosVertNet.R\
+				data/processed/VertNetMetadata_Mus_2021-03-18.csv\
+				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
+			./code/plot_ArctosVertNet.R
+
 results/figures/Generations_colony.pdf: code/plot_Generations.R\
 				data/processed/GenerationColonyData.csv
 			./code/plot_Generations.R
@@ -77,6 +82,11 @@ results/figures/RXNs_BMI.pdf: code/plot_RXNs.R\
 			./code/plot_RXNs.R
 
 results/figures/VertNet_Male_Adult.pdf: code/plot_ArctosVertNet.R\
+				data/processed/VertNetMetadata_Mus_2021-03-18.csv\
+				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
+			./code/plot_ArctosVertNet.R
+
+results/figures/Arctos.pdf: code/plot_ArctosVertNet.R\
 				data/processed/VertNetMetadata_Mus_2021-03-18.csv\
 				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
 			./code/plot_ArctosVertNet.R
@@ -109,12 +119,14 @@ submission/Ballinger_et_al_2021_AmNat.pdf submission/Ballinger_et_al_2021_AmNat.
 				data/processed/WeeklyPhenotypeData.csv\
 				data/processed/PostDissectionMetaData.csv\
 				results/figures/VertNet_Arctos.pdf\
+				results/figures/VertNet_all.pdf\
 				results/figures/Generations_colony.pdf\
 				results/figures/Weekly_BW.pdf\
 				results/figures/Weekly_Tails.pdf\
 				results/figures/RXNs_BW.pdf\
 				results/figures/RXNs_Extremities.pdf\
 				results/figures/VertNet_Male_Adult.pdf\
+				results/figures/Arctos.pdf\
 				results/figures/GenerationsModel.pdf\
 				results/figures/RXNsModel.pdf\
 				results/figures/RXNs_BMI.pdf\

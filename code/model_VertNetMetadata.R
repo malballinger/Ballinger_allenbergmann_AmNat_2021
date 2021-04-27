@@ -3,7 +3,7 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 19-Mar-2021
-# Script last updated:  09-Apr-2021
+# Script last updated:  23-Apr-2021
 
 
 # This script models body mass and extremity length from wild-caught house mice
@@ -44,7 +44,13 @@ colSums(!is.na(VertNetMetadata))
 # Check for and remove *extreme* outliers
 
 VertNetMetadata %>% ggplot(aes(x=Body_Weight_g)) + geom_histogram(binwidth = 1)
-# no clear extreme outliers for body weight
+
+BWOutliers <- VertNetMetadata %>%
+  summarise(VertNetMetadata, meanBW = mean(Body_Weight_g, na.rm = TRUE),
+            sdBW = sd(Body_Weight_g, na.rm = TRUE)) %>%
+  filter(Body_Weight_g < (meanBW - 3.5*sdBW) | Body_Weight_g > (meanBW + 3.5*sdBW))
+
+# no clear extreme outliers above or below 3.5 stdev from mean to remove
 
 # get sample size for Body Weight
 length(which(!is.na(VertNetMetadata$Body_Weight_g)))
@@ -68,11 +74,17 @@ shapiro.test(resid(lmBW)) # not normally distributed
 # Check for and remove *extreme* outliers
 
 VertNetMetadata %>% ggplot(aes(x=Tail_Length_mm)) + geom_histogram(binwidth = 1)
-# from eyeball test, any tail shorter than 20mm and longer than 120mm are extreme outliers
+
+TLOutliers <- VertNetMetadata %>%
+  summarise(VertNetMetadata, meanTL = mean(Tail_Length_mm, na.rm = TRUE),
+            sdTL = sd(Tail_Length_mm, na.rm = TRUE)) %>%
+  filter(Tail_Length_mm < (meanTL - 3.5*sdTL) | Tail_Length_mm > (meanTL + 3.5*sdTL))
 
 VertNet_filtered <- VertNetMetadata %>%
   mutate(Tail_Length_mm = ifelse(Tail_Length_mm < 20, NA, Tail_Length_mm),
          Tail_Length_mm = ifelse(Tail_Length_mm > 120, NA, Tail_Length_mm))
+
+# any tail shorter than 20mm and longer than 120mm are extreme outliers (>3.5 stdev from mean)
 
 VertNet_filtered %>% ggplot(aes(x = Tail_Length_mm)) + geom_histogram(binwidth = 1)
 
@@ -158,7 +170,13 @@ VertNet_filtered$Resids_TLBW <- resid(residsTLBW)
 # Check for and remove *extreme* outliers
 
 VertNetMetadata %>% ggplot(aes(x=Ear_Length_mm)) + geom_histogram(binwidth = 1)
-# just from eyeball test, any ear longer than 30 mm is an outlier
+
+ELOutliers <- VertNetMetadata %>%
+  summarise(VertNetMetadata, meanEL = mean(Ear_Length_mm, na.rm = TRUE),
+            sdEL = sd(Ear_Length_mm, na.rm = TRUE)) %>%
+  filter(Ear_Length_mm < (meanEL - 3.5*sdEL) | Ear_Length_mm > (meanEL + 3.5*sdEL))
+
+# any ear longer than 30 mm is an extreme outlier (>3.5 stdev from mean)
 
 VertNet_filtered_2 <- VertNetMetadata %>%
   mutate(Ear_Length_mm = ifelse(Ear_Length_mm > 30, NA, Ear_Length_mm))

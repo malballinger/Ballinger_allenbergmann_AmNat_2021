@@ -95,7 +95,7 @@ car::Anova(mod.full.BW, type = "III")
 # car::Anova(lmer(Body_Weight_g ~ Sex * Population * Environment + (1|Line),
 # data = PostDissectionMetaData), type = "III")
 # Posthoc Tukey's test
-# post_BW <- emmeans::emmeans(mod.full.BW, specs = c("Sex", "Population"), adjust = "tukey")
+# post_BW <- emmeans::emmeans(mod.full.BW, specs = c("Population"), adjust = "tukey")
 # pwpp(post_BW)
 
 
@@ -233,7 +233,6 @@ report(mod.full.EL)
 # Anova NP test
 # car::Anova(lmer(Ear_Length_mm ~ Body_Weight_g + Sex * Population * Environment + (1|Line), data = PostDissection_filtered), type = "III")
 car::Anova(mod.full.EL, type = "III")
-# sex = 0.05 (not significant at P < 0.05)
 
 
 
@@ -301,7 +300,7 @@ Model_RXNs <-
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         plot.title = element_text(size = 9, face = "bold.italic", hjust = 0.5, vjust = 0, family = "Palatino"),
         legend.key.size = unit(0.35, "cm"),
-        legend.position = c(0.77, 0.88),
+        legend.position = c(0.835, 0.88),
         legend.text = element_text(size=8, family = "Palatino"),
         legend.justification = c(0, 0), 
         legend.background = element_rect(colour="grey80"),

@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 12-Feb-2021
-# Script last updated:  09-Apr-2021
+# Script last updated:  22-Apr-2021
 
 
 # This script plots weekly body weight and tail lengths of New York mice and 
@@ -165,7 +165,7 @@ FemaleTL <-
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
         axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino"),
-        axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino", hjust = -1),
+        axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino", hjust = -4),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.position = c(0.6, 0.15),
@@ -185,7 +185,7 @@ FemaleTL <-
         plot.title.position = "panel",
         plot.margin = unit(c(0, 0.5, -0.3, 0.5), "cm")) +
   labs(x = "",
-       y = "Tail Length (mm)",
+       y = "Absolute Tail Length (mm)",
        title = "Females")
        #tag = "Females")
 

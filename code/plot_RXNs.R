@@ -3,7 +3,7 @@
 ##############################################################
 # Author: Mallory A. Ballinger
 # Script first created: 12-Feb-2021
-# Script last updated:  19-Apr-2021
+# Script last updated:  20-Apr-2021
 
 
 # This script plots reaction norms of body mass and extremity lengths of New York
@@ -129,9 +129,9 @@ BMI_deets <- ("&#42;sex")
 # Population:Environment      14.8606  1  0.0001158 ***
 # Sex:Population:Environment   0.0293  1  0.8640034 
 
-TL_deets <- ("&#42;pop<br>\
-             &#42;env<br>\
-             &#42;pop x env")
+TL_deets <- ("&#42;pop x env<br>\
+              &#42;pop<br>\
+              &#42;env")
 
 
 

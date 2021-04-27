@@ -3,7 +3,7 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 03-Apr-2021
-# Script last updated:  09-Apr-2021
+# Script last updated:  22-Apr-2021
 
 
 # This script models body mass and extremity length from house mice of common garden
@@ -24,6 +24,12 @@ library(car)
 library(nlme)
 library(Hmisc)
 library(dotwhisker)
+
+set.seed(19910118)
+
+#set global contrasts
+options(contrasts = c("contr.sum", "contr.poly")) # for Type III SSS
+
 
 ################################################################################
 # Import data               

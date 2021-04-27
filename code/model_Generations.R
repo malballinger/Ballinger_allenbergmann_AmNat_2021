@@ -3,7 +3,7 @@
 ################################################################################
 # Author: Mallory A. Ballinger
 # Script first created: 03-Apr-2021
-# Script last updated:  20-Apr-2021
+# Script last updated:  23-Apr-2021
 
 
 # This script models body mass and extremity length from colony house mice of the
@@ -84,6 +84,13 @@ car::Anova(lm(rank(Body_Weight_g) ~ Sex * Population * Generation,
                     data = GenerationMetaData), type = "III")
 #car::Anova(mod.full_2.BW, type = "III")
 
+# Posthoc Mann Whitney U tests:
+GenerationMetaData_ph <- GenerationMetaData %>%
+  mutate(PopGen = paste(Population, Generation, sep = "_"))
+
+GEN_BW_PopGen_PHtest <- pairwise.wilcox.test(GenerationMetaData_ph$Body_Weight_g, GenerationMetaData_ph$PopGen,
+                     p.adjust.method = "none")
+
 
 
 
@@ -126,9 +133,12 @@ car::Anova(lm(Tail_Length_mm ~ Body_Weight_g + Sex * Population * Generation,
            data = Generation_filtered), type = "III")
 #car::Anova(mod.full.TL, type = "III")
 
+# Posthoc Tukey's test:
 posthoc_TL <- emmeans(mod.full.TL, ~ Population * Generation)
 pairs(posthoc_TL)
 pwpp(posthoc_TL)
+# Brazil has longer tails than NY across N1 and N2 generations
+
 
 
 
@@ -212,7 +222,7 @@ Model_Generations <-
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         plot.title = element_text(size = 9, face = "bold.italic", hjust = 0.5, vjust = 0, family = "Palatino"),
         legend.key.size = unit(0.35, "cm"),
-        legend.position = c(0.785, 0.88),
+        legend.position = c(0.83, 0.88),
         legend.text = element_text(size=8, family = "Palatino"),
         legend.justification = c(0, 0), 
         legend.background = element_rect(colour="grey80"),

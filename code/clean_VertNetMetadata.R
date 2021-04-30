@@ -1,13 +1,11 @@
 #!/usr/bin/env Rscript --vanilla
 
 ##############################################################
+
 # Author: Mallory A. Ballinger
-# Script first created: 18-Feb-2021
-# Script last updated:  09-Apr-2021
 
-
-# This script cleans the metadata file: 'data/processed/VertNet_Mus_processed.xlsx'.
-# The generated, cleaned dataset is used for downstream analyses.
+# This script cleans the metadata file: data/processed/VertNet_Mus_processed.xlsx
+# The generated, cleaned dataset is used for downstream analyses in Ballinger_AmNat_2021.
 
 
 ##############################################################

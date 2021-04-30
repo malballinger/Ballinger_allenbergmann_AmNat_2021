@@ -1,14 +1,11 @@
 #!/usr/bin/env Rscript --vanilla
 
 ##############################################################
+
 # Author: Mallory A. Ballinger
-# Script first created: 15-Feb-2021
-# Script last updated:  09-Apr-2021
 
-
-# This script cleans the metadata file:
-# 'data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv'.
-# The generated, cleaned dataset is used for downstream analyses.
+# This script cleans the metadata file: data/raw/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
+# The generated, cleaned dataset is used for downstream analyses in Ballinger_AmNat_2021.
 
 
 ##############################################################

@@ -1,15 +1,13 @@
 #!/usr/bin/env Rscript --vanilla
 
 ##############################################################
-# Author: Mallory A. Ballinger
-# Script first created: 23-Feb-2021
-# Script last updated:  21-Apr-2021
 
+# Author: Mallory A. Ballinger
 
 # This script plots body mass and extremity length from wild-caught house mice
-# collected across North and South America. Data are from VertNet.org and from
-# the Nachman lab project dowloaded from Arctos.org.
-# This script generates Figure 1 and Fig. S1 in Ballinger_et_al_2021_AmNat.
+# collected across North and South America. Data are from VertNet.org and were
+# cleaned using the script ./clean_VertNetMetadata.R.
+# This script generates Figure 1 in Ballinger_AmNat_2021.
 
 
 ##############################################################
@@ -56,7 +54,7 @@ NachmanTransectsMetadata <- read_csv(here("data/processed/EnvAdapProj_Nachman_Ar
 
 # VertNet dataset
 
-# Based on outlier tests (see 'code/model_VertNetMetadata.R'), any tail length
+# Based on outlier tests (see ./model_VertNetMetadata.R), any tail length
 # less than 20 and greater than 120 are extreme outliers
 VertNet_filtered <- VertNetMetadata %>%
   mutate(Tail_Length_mm = ifelse(Tail_Length_mm < 20, NA, Tail_Length_mm),
@@ -68,7 +66,7 @@ residsTLBW <- lm(Tail_Length_mm ~ Body_Weight_g, data = VertNet_filtered,
 VertNet_filtered$Resids_TLBW <- resid(residsTLBW)
 
 
-# Based on outlier tests (see 'code/model_VertNetMetadata.R'), any ear length
+# Based on outlier tests (see ./model_VertNetMetadata.R), any ear length
 # greater than 30 is extreme outliers
 VertNet_filtered_2 <- VertNetMetadata %>%
   mutate(Ear_Length_mm = ifelse(Ear_Length_mm > 30, NA, Ear_Length_mm))
@@ -82,7 +80,7 @@ VertNet_filtered_2$Resids_ELBW <- resid(residsELBW)
 
 # NachmanArctos dataset
 
-# Based on outlier tests (see 'code/model_NachmanTransects.R'), any tail length
+# Based on outlier tests (see ./model_NachmanTransects.R), any tail length
 # less than 25 is an extreme outlier
 NachmanTransects_filtered <- NachmanTransectsMetadata %>%
   mutate(Tail_Length_mm = ifelse(Tail_Length_mm < 25, NA, Tail_Length_mm))
@@ -105,7 +103,7 @@ NachmanTransectsMetadata$Resids_ELBW <- resid(residsELBW)
 ##############################################################
 # Get values from correlation analyses
 ##############################################################
-# Refer to (code/model_VertNetMetadata.R) and (code/model_NachmanTransects.R)
+# Refer to ./model_VertNetMetadata.R and ./model_NachmanTransects.R
 # for model comparisons and correlation analyses
 
 # VertNet Metadata
@@ -391,6 +389,7 @@ Ear_Arctos_F <- glue("females (rho = {cor.Ear.Female.Arctos_corr}, \\
 
 
 
+
 ##############################################################
 # Combine all 6 plots for publication
 ##############################################################
@@ -619,6 +618,8 @@ Ear_Arctos <-
 VertNet <- cowplot::plot_grid(Berg_VertNet, Tail_VertNet, Ear_VertNet, ncol = 1, nrow = 3, align = 'v', labels = c('A)','C)','E)'), label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
 
 Arctos <- cowplot::plot_grid(Berg_Arctos, Tail_Arctos, Ear_Arctos, ncol = 1, nrow = 3, align = 'v', labels = c('B)','D)','F)'), label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
+
+
 
 
 

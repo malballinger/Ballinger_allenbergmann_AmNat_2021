@@ -1,15 +1,13 @@
 #!/usr/bin/env Rscript --vanilla
 
 ################################################################################
-# Author: Mallory A. Ballinger
-# Script first created: 23-Feb-2021
-# Script last updated:  09-Apr-2021
 
+# Author: Mallory A. Ballinger
 
 # This script models body mass and extremity length from wild-caught house mice
 # collected across North and South America. Data are from Arctos.org, and were
 # cleaned using the script ./clean_NachmanTransects.R.
-# This script generates statistical analyses for Ballinger_et_al_2021_AmNat.
+# This script generates statistical analyses for Ballinger_AmNat_2021.
 
 
 ################################################################################
@@ -228,6 +226,7 @@ cor.ear
 # cor.ear.2
 
 
+
 ################################################################################
 # Males only
 ################################################################################
@@ -284,6 +283,7 @@ cor.Ear.Male
 #                                y = Male_Bergmann$Resids_ELBW,
 #                                type="spearman")
 # cor.Ear.Male.2
+
 
 
 ################################################################################

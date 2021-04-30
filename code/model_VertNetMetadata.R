@@ -1,15 +1,13 @@
 #!/usr/bin/env Rscript --vanilla
 
 ################################################################################
-# Author: Mallory A. Ballinger
-# Script first created: 19-Mar-2021
-# Script last updated:  23-Apr-2021
 
+# Author: Mallory A. Ballinger
 
 # This script models body mass and extremity length from wild-caught house mice
-# collected across North and South America. Data are from VertNet.org, and were
+# collected across North and South America. Data are from VertNet.org and were
 # cleaned using the script ./clean_VertNetMetadata.R.
-# This script generates statistical analyses for Ballinger_et_al_2021_AmNat.
+# This script generates statistical analyses for Ballinger_AmNat_2021.
 
 
 ################################################################################
@@ -104,7 +102,6 @@ VertNet_filtered %>% ggplot(aes(x = Body_Length_mm)) + geom_histogram(binwidth =
 
 
 # Make models
-
 lmTLBW <- lm(Tail_Length_mm ~ Body_Weight_g + Absolute_Latitude, data = VertNet_filtered)
 check_model(lmTLBW)
 shapiro.test(resid(lmTLBW)) # not normally distributed
@@ -115,7 +112,6 @@ ggplot(data = VertNet_filtered, aes(x = Body_Weight_g, y = Tail_Length_mm)) +
 
 # sample size of lmTLBW resids
 length(which(!is.na(resid(lmTLBW))))
-
 
 
 lmTLBL <- lm(Tail_Length_mm ~ Body_Length_mm + Absolute_Latitude, data = VertNet_filtered)
@@ -131,7 +127,6 @@ length(which(!is.na(resid(lmTLBL))))
 
 
 compare_performance(lmTLBW, lmTLBL, rank = TRUE)
-
 # body weight gives better model
 
 
@@ -149,7 +144,6 @@ lmTLBL.2 <- lm(Tail_Length_mm ~ Body_Length_mm + Absolute_Latitude, data = VertN
 
 
 compare_performance(lmTLBW.2, lmTLBL.2, rank = TRUE)
-
 # body weight is still a better model
 
 
@@ -212,7 +206,6 @@ length(which(!is.na(resid(lmELBL))))
 
 
 compare_performance(lmELBW, lmELBL, rank = TRUE)
-
 # body weight gives better model (just like with tail length)
 
 

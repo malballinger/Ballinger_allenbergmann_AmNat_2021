@@ -1,14 +1,12 @@
 #!/usr/bin/env Rscript --vanilla
 
 ##############################################################
+
 # Author: Mallory A. Ballinger
-# Script first created: 12-Feb-2021
-# Script last updated:  22-Apr-2021
 
-
-# This script plots weekly body weight and tail lengths of New York mice and 
+# This script plots weekly body mass and tail lengths of New York mice and 
 # Brazil mice across environments (i.e., common garden experiment #2).
-# This script generates Figures 3 and 4 in Ballinger_et_al_2021_AmNat.
+# This script generates Figures 3 and 4 in Ballinger_AmNat_2021.
 
 
 ##############################################################

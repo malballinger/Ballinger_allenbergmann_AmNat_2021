@@ -1,15 +1,12 @@
 #!/usr/bin/env Rscript --vanilla
 
 ################################################################################
+
 # Author: Mallory A. Ballinger
-# Script first created: 19-Feb-2021
-# Script last updated:  20-Apr-2021
 
-
-# This script models body mass and extremity length from house mice of common garden
+# This script models body mass and extremity lengths from house mice of common garden
 # experiment #2. Data were cleaned using the script ./clean_RXNs.R.
-# This script generates statistical analyses for Ballinger_et_al_2021_AmNat,
-# and generates Figure S3.
+# This script generates statistical analyses for Ballinger_AmNat_2021, and generates Figure S2.
 
 
 ################################################################################
@@ -66,7 +63,7 @@ FemaleData <- PostDissectionMetaData %>%
 # *Bergmann's rule*
 ################################################################################
 
-# Refer to 'exploratory/Modeling_RXN_2021-02-19.Rmd' for initial model testing and exploration.
+# Refer to exploratory/Modeling_RXN_2021-02-19.Rmd' for initial model testing and exploration.
 
 
 #PostDissectionMetaData %>% ggplot(aes(x=Body_Weight_g)) + geom_histogram(binwidth = 1)
@@ -154,6 +151,7 @@ report(mod.full.BMI)
 car::Anova(mod.full.BMI, type = "III")
 # car::Anova(lmer(BMI_kg_m2 ~ Sex * Population * Environment + (1|Line),
 #                 data = PostDissectionMetaData), type = "III")
+
 
 
 

@@ -393,6 +393,8 @@ Ear_Arctos_F <- glue("females (rho = {cor.Ear.Female.Arctos_corr}, \\
 ##############################################################
 # Combine all 6 plots for publication
 ##############################################################
+# need to loop this into a funciton....
+
 
 Berg_VertNet <-
   ggplot(data = VertNetMetadata, aes(x = Absolute_Latitude, y = Body_Weight_g)) +

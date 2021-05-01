@@ -1,15 +1,13 @@
 #!/usr/bin/env Rscript --vanilla
 
 ################################################################################
-# Author: Mallory A. Ballinger
-# Script first created: 03-Apr-2021
-# Script last updated:  23-Apr-2021
 
+# Author: Mallory A. Ballinger
 
 # This script models body mass and extremity length from colony house mice of the
 # Brazil and New York populations (i.e. common garden experiment #1).
 # Data were cleaned using the script ./clean_Generations.R.
-# This script generates statistical analyses and Figure S2 for Ballinger_et_al_2021_AmNat.
+# This script generates statistical analyses and Figure S1 for Ballinger_AmNat_2021.
 
 
 ################################################################################
@@ -46,6 +44,10 @@ GenerationMetaData <- read_csv(here("data/processed/GenerationColonyData.csv")) 
 
 # get sample size of each column
 #colSums(!is.na(GenerationMetaData))
+
+
+
+
 
 ################################################################################
 # Data and Model testing

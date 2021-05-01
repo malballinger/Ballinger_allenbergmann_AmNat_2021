@@ -1,14 +1,13 @@
 #!/usr/bin/env Rscript --vanilla
 
 ##############################################################
-# Author: Mallory A. Ballinger
-# Script first created: 24-Feb-2021
-# Script last updated:  20-Apr-2021
 
+# Author: Mallory A. Ballinger
 
 # This script plots sex-specific body weight and extremity lengths of New York mice
 # and Brazil mice across generations (i.e. common garden experiment #1).
-# This script generates Figure 2 in Ballinger_et_al_2021_AmNat.
+# Data were cleaned using the script ./clean_Generations.R.
+# This script generates Figure 2 in Ballinger_AmNat_2021.
 
 
 ##############################################################
@@ -47,7 +46,7 @@ GenerationMetaData <- read_csv(here("data/processed/GenerationColonyData.csv")) 
 # Apply filtering and calculate residuals
 ##############################################################
 
-# Based on outlier tests (see 'code/model_Generations.R'), any tail length
+# Based on outlier tests (see ./model_Generations.R), any tail length
 # less than 50mm is an extreme outlier
 
 Generation_filtered <- GenerationMetaData %>%
@@ -78,7 +77,7 @@ Generation_filtered_2$Resids_ELBW <- resid(residsELBW)
 # Get values from statistical analyses
 ##############################################################
 
-# Refer to 'code/model_Generations.R' for model comparisons and statistical analyses
+# Refer to ./model_Generations.R for model comparisons and statistical analyses
 
 
 # > car::Anova(lm(rank(Body_Weight_g) ~ Sex * Population * Generation, data = GenerationMetaData), type = "III")

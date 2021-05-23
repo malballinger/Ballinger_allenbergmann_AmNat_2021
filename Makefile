@@ -103,13 +103,22 @@ results/figures/RXNs_BMI_Model.pdf: code/model_RXNs.R\
 				data/processed/PostDissectionMetaData.csv
 			./code/model_RXNs.R
 
-submission/figure_1.tiff : figures/VertNet_Arctos.tiff
+submission/figure_1.tiff : results/figures/VertNet_all.tiff
 			convert -compress lzw $< $@
 
-submission/figure_2.tiff : figures/generation_phenotypes.tiff
+submission/figure_2.tiff : results/figures/Generations_colony.tiff
 			convert -compress lzw $< $@
 
-submission/figure_3.tiff : figures/weekly_phenotypes.tiff
+submission/figure_3.tiff : results/figures/Weekly_BW.tiff
+			convert -compress lzw $< $@
+
+submission/figure_4.tiff : results/figures/Weekly_Tails.tiff
+			convert -compress lzw $< $@
+
+submission/figure_5.tiff : results/figures/RXNs_BW.tiff
+			convert -compress lzw $< $@
+
+submission/figure_6.tiff : results/figures/RXNs_Extremities.tiff
 			convert -compress lzw $< $@
 
 submission/Ballinger_et_al_2021_AmNat.pdf submission/Ballinger_et_al_2021_AmNat.docx: submission/Ballinger_et_al_2021_AmNat.Rmd\

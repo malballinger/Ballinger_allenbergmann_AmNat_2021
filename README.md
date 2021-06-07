@@ -2,7 +2,7 @@ Environmental and genetic contributions to ecogeographic rules in house
 mice
 ================
 Mallory A. Ballinger
-June 07, 2020
+(June 07, 2020)
 
 Distinguishing between genetic, environmental, and
 genotype-by-environment effects is central to understanding geographic
@@ -29,7 +29,7 @@ adaptive phenotypic plasticity as well as genetic changes underlie major
 patterns of clinal variation in house mice and likely facilitated their
 rapid expansion into new environments across the Americas.
 
-## \#\#\# Overview:
+## Overview:
 
     BallingerNachman_allenbergmann_XXXX_2021
     |- README          # top level description of content

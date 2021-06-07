@@ -6,7 +6,7 @@
 
 # This script plots weekly body mass and tail lengths of New York mice and 
 # Brazil mice across environments (i.e., common garden experiment #2).
-# This script generates Figures 3 and 4 in Ballinger_AmNat_2021.
+# This script generates Figures 3 and 5 in Ballinger_AmNat_2021.
 
 
 ##############################################################
@@ -35,7 +35,8 @@ WeeklyPhenotypeData <- read_csv(here("data/processed/WeeklyPhenotypeData.csv")) 
   mutate(PopEnv = paste(Population, Environment, sep = "_")) %>%
   mutate(PopEnv = fct_recode(PopEnv, "Brazil - Warm" = "Brazil_Warm", "Brazil - Cold" = "Brazil_Cold",
                              "New York - Warm" = "New York_Warm", "New York - Cold" = "New York_Cold")) %>%
-  mutate(PopEnv = fct_relevel(PopEnv, "New York - Warm", "New York - Cold", "Brazil - Warm", "Brazil - Cold"))
+  mutate(PopEnv = fct_relevel(PopEnv, "New York - Warm", "New York - Cold", "Brazil - Warm", "Brazil - Cold")) %>%
+  mutate(RelativeTail = Tail_Length_mm / Body_Weight_g)
 
 
 # Sample size of dataset
@@ -225,5 +226,89 @@ MaleTL <-
 cowplot::plot_grid(FemaleTL, MaleTL, labels = c('', ''), nrow = 2, ncol = 1, align = 'v',
                    label_fontfamily = "Palatino", label_size = 12, label_x = 0.05, hjust = 0)
 
-ggsave("results/figures/Weekly_Tails.tiff", height = 5.25, width = 3.75, compression = "lzw")
-ggsave("results/figures/Weekly_Tails.pdf", height = 5.25, width = 3.75)
+ggsave("results/figures/Weekly_Tails.tiff", height = 5.75, width = 3.75, compression = "lzw")
+ggsave("results/figures/Weekly_Tails.pdf", height = 5.75, width = 3.75)
+
+
+
+
+
+
+
+##############################################################
+# Plot weekly phenotypes - relative tail length
+##############################################################
+
+# FemaleRTL <-
+#   ggplot(data=FemaleData, aes(x=Age_weeks, y=RelativeTail, color = PopEnv, fill = PopEnv, linetype = PopEnv)) +
+#   geom_point(position = position_dodge(0.1), size=1.1, alpha=0.5, show.legend = FALSE) +
+#   geom_smooth(aes(group = PopEnv), size=1.5, method = "loess", alpha = 0.15, se = TRUE) + #std error
+#   scale_color_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3", "goldenrod1"))) +
+#   scale_fill_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3","goldenrod1"))) +
+#   scale_linetype_manual(values=rep(c("solid","dashed", "solid", "dashed"))) +
+#   guides(color=guide_legend(override.aes=list(fill=NA)),
+#          linetype=guide_legend(override.aes = list(size=0.5)),
+#          linetype=guide_legend(override.aes = list(fill=NA))) +# removes gray shading from legend
+#   scale_x_continuous(breaks = seq(from=3, to=12, by=2), labels = seq(from=3, to=12, by=2), limits = c(3,11.3)) +
+#   # scale_y_continuous(breaks = seq(from=45, to=90, by=10), labels = seq(from=45, to=90, by=10), limits = c(45,85)) +
+#   theme_half_open(20) +
+#   panel_border() + # puts border around facets
+#   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+#         axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino"),
+#         axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino", hjust = -4),
+#         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
+#         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
+#         legend.position = c(0.6, 0.15),
+#         legend.background = element_blank(),
+#         legend.box.background = element_blank(),
+#         legend.key = element_blank(),
+#         legend.key.height = unit(0.2, "cm"),
+#         legend.key.width = unit(0.6, "cm"),
+#         legend.margin = margin(0.1, 3, 0.3, 0),
+#         legend.spacing.x = unit(0.5, "mm"),
+#         legend.spacing.y = unit(0.5, "mm"),
+#         legend.text = element_text(size=6.5, family = "Palatino"),
+#         legend.title = element_blank(),
+#         plot.tag = element_text(family = "Palatino", size = 8, face = "italic"),
+#         plot.tag.position = c(0.18,1.025),
+#         plot.title = element_text(size = 8, face = "italic", hjust = 0.05, vjust = -3, family = "Palatino"),
+#         plot.title.position = "panel",
+#         plot.margin = unit(c(0, 0.5, -0.3, 0.5), "cm")) +
+#   labs(x = "",
+#        y = "Relative Tail Length",
+#        title = "Females")
+# #tag = "Females")
+# 
+# MaleRTL <-
+#   ggplot(data=MaleData, aes(x=Age_weeks, y=RelativeTail, fill = PopEnv, linetype = PopEnv, color = PopEnv)) +
+#   geom_point(position = position_dodge(0.1), size=1.1, alpha=0.5, show.legend = FALSE) +
+#   geom_smooth(aes(group = PopEnv), size=1.5, method = "loess", alpha = 0.15, se = TRUE) + #std error
+#   scale_color_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3", "goldenrod1"))) +
+#   scale_fill_manual(values=rep(c("dodgerblue4", "dodgerblue3", "goldenrod3","goldenrod1"))) +
+#   scale_linetype_manual(values=rep(c("solid","dashed", "solid", "dashed"))) +
+#   scale_x_continuous(breaks = seq(from=3, to=12, by=2), labels = seq(from=3, to=12, by=2), limits = c(3,11.3)) +
+#   # scale_y_continuous(breaks = seq(from=45, to=90, by=10), labels = seq(from=45, to=90, by=10), limits = c(45,85)) +
+#   theme_half_open(20) +
+#   panel_border() + # puts border around facets
+#   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+#         axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino"),
+#         axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino"),
+#         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
+#         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
+#         legend.position = "none",
+#         legend.background = element_blank(),
+#         legend.box.background = element_blank(),
+#         legend.key = element_blank(),
+#         legend.key.height = unit(0.3, "cm"),
+#         legend.key.width = unit(1.5, "cm"),
+#         legend.text = element_text(size=7, family = "Palatino"),
+#         legend.title = element_blank(),
+#         plot.tag = element_text(family = "Palatino", size = 10, face = "italic"),
+#         plot.tag.position = c(0.13,1.025),
+#         plot.title = element_text(size = 8, face = "italic", hjust = 0.05, vjust = -3, family = "Palatino"),
+#         plot.title.position = "panel",
+#         plot.margin = unit(c(-0.3, 0.5, 0, 0.5), "cm")) + # top, right, bottom, left (0.5, 0.5, 0.1, -0.5)
+#   labs(x = "Age (weeks)",
+#        y = "",
+#        title = "Males")
+# #tag ="Males")

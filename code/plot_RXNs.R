@@ -6,7 +6,7 @@
 
 # This script plots reaction norms of body mass and extremity lengths of New York
 # and Brazil mice across environments (i.e. common garden experiment #2.)
-# This script generates Fig. 5, Fig. 6, and Fig. S3 in Ballinger_AmNat_2021.
+# This script generates Fig. 4 and Fig. S3 in Ballinger_AmNat_2021.
 
 
 ##############################################################

@@ -90,8 +90,7 @@ car::Anova(lm(rank(Body_Weight_g) ~ Sex * Population * Generation,
 GenerationMetaData_ph <- GenerationMetaData %>%
   mutate(PopGen = paste(Population, Generation, sep = "_"))
 
-GEN_BW_PopGen_PHtest <- pairwise.wilcox.test(GenerationMetaData_ph$Body_Weight_g, GenerationMetaData_ph$PopGen,
-                     p.adjust.method = "none")
+GEN_BW_PopGen_PHtest <- pairwise.wilcox.test(GenerationMetaData_ph$Body_Weight_g, GenerationMetaData_ph$PopGen, p.adjust.method = "fdr")
 
 
 

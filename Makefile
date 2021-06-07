@@ -52,14 +52,13 @@ results/figures/VertNet_Arctos.pdf: code/plot_ArctosVertNet.R\
 				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
 			./code/plot_ArctosVertNet.R
 
-results/figures/VertNet_all.pdf: code/plot_ArctosVertNet.R\
-				data/processed/VertNetMetadata_Mus_2021-03-18.csv\
-				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
-			./code/plot_ArctosVertNet.R
+results/figures/VertNet_relative.pdf: code/plot_VertNetMetadata_relative.R\
+				data/processed/VertNetMetadata_Mus_2021-03-18.csv
+			./code/plot_VertNetMetadata_relative.R
 
-results/figures/Generations_colony.pdf: code/plot_Generations.R\
+results/figures/Generations_relative.pdf: code/plot_Generations_relative.R\
 				data/processed/GenerationColonyData.csv
-			./code/plot_Generations.R
+			./code/plot_Generations_relative.R
 
 results/figures/Weekly_BW.pdf: code/plot_WeeklyPhenotypes.R\
 				data/processed/WeeklyPhenotypeData.csv
@@ -73,9 +72,9 @@ results/figures/RXNs_BW.pdf: code/plot_RXNs.R\
 				data/processed/PostDissectionMetaData.csv
 			./code/plot_RXNs.R
 
-results/figures/RXNs_Extremities.pdf: code/plot_RXNs.R\
+results/figures/RXNs_Extremities_relative.pdf: code/plot_RXNs_relative.R\
 				data/processed/PostDissectionMetaData.csv
-			./code/plot_RXNs.R
+			./code/plot_RXNs_relative.R
 
 results/figures/RXNs_BMI.pdf: code/plot_RXNs.R\
 				data/processed/PostDissectionMetaData.csv
@@ -91,22 +90,22 @@ results/figures/Arctos.pdf: code/plot_ArctosVertNet.R\
 				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv
 			./code/plot_ArctosVertNet.R
 
-results/figures/GenerationsModel.pdf: code/model_Generations.R\
+results/figures/GenerationsModel_relative.pdf: code/model_Generations_relative.R\
 				data/processed/GenerationColonyData.csv
-			./code/model_Generations.R
+			./code/model_Generations_relative.R
 
-results/figures/RXNsModel.pdf: code/model_RXNs.R\
+results/figures/RXNsModel_relative.pdf: code/model_RXNs_relative.R\
 				data/processed/PostDissectionMetaData.csv
-			./code/model_RXNs.R
+			./code/model_RXNs_relative.R
 
 results/figures/RXNs_BMI_Model.pdf: code/model_RXNs.R\
 				data/processed/PostDissectionMetaData.csv
 			./code/model_RXNs.R
 
-submission/figure_1.tiff : results/figures/VertNet_all.tiff
+submission/figure_1.tiff : results/figures/VertNet_relative.tiff
 			convert -compress lzw $< $@
 
-submission/figure_2.tiff : results/figures/Generations_colony.tiff
+submission/figure_2.tiff : results/figures/Generations_relative.tiff
 			convert -compress lzw $< $@
 
 submission/figure_3.tiff : results/figures/Weekly_BW.tiff
@@ -118,28 +117,23 @@ submission/figure_4.tiff : results/figures/Weekly_Tails.tiff
 submission/figure_5.tiff : results/figures/RXNs_BW.tiff
 			convert -compress lzw $< $@
 
-submission/figure_6.tiff : results/figures/RXNs_Extremities.tiff
+submission/figure_6.tiff : results/figures/RXNs_Extremities_relative.tiff
 			convert -compress lzw $< $@
 
 submission/Ballinger_et_al_2021_AmNat.pdf submission/Ballinger_et_al_2021_AmNat.docx: submission/Ballinger_et_al_2021_AmNat.Rmd\
 				data/processed/VertNetMetadata_Mus_2021-03-18.csv\
-				data/processed/EnvAdapProj_Nachman_Arctos_transects_2021-03-15.csv\
 				data/processed/GenerationColonyData.csv\
 				data/processed/WeeklyPhenotypeData.csv\
 				data/processed/PostDissectionMetaData.csv\
-				results/figures/VertNet_Arctos.pdf\
-				results/figures/VertNet_all.pdf\
-				results/figures/Generations_colony.pdf\
+				results/figures/VertNet_relative.pdf\
+				results/figures/Generations_relative.pdf\
 				results/figures/Weekly_BW.pdf\
 				results/figures/Weekly_Tails.pdf\
 				results/figures/RXNs_BW.pdf\
-				results/figures/RXNs_Extremities.pdf\
-				results/figures/VertNet_Male_Adult.pdf\
-				results/figures/Arctos.pdf\
-				results/figures/GenerationsModel.pdf\
-				results/figures/RXNsModel.pdf\
+				results/figures/RXNs_Extremities_relative.pdf\
+				results/figures/GenerationsModel_relative.pdf\
+				results/figures/RXNsModel_relative.pdf\
 				results/figures/RXNs_BMI.pdf\
-				results/figures/RXNs_BMI_Model.pdf\
 				submission/AmNat.csl\
 				submission/references.bib
 	R -e 'library(rmarkdown); render("submission/Ballinger_et_al_2021_AmNat.Rmd", output_format="all")'

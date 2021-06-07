@@ -487,7 +487,7 @@ Tail_VertNet <-
                      limits = c(0,65)) +
   scale_y_continuous(breaks = seq(from=-50, to=30, by=10),
                      labels = seq(from=-50, to=30, by=10),
-                     limits = c(-50,40)) +
+                     limits = c(NA,40)) +
   theme_bw() +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
         panel.grid.major = element_blank(),
@@ -561,7 +561,7 @@ Ear_VertNet <-
                      limits = c(0,65)) +
   scale_y_continuous(breaks = seq(from=-10, to=10, by=5),
                      labels = seq(from=-10, to=10, by=5),
-                     limits = c(-10,12)) +
+                     limits = c(NA,12)) +
   theme_bw() +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),

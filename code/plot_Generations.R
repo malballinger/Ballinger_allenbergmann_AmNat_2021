@@ -98,9 +98,9 @@ Generation_filtered_2$Resids_ELBW <- resid(residsELBW)
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 BW_deets <- ("&#42;pop x gen<br>\
-              &#42;sex<br>\
-              &#42;pop<br>\
-              &#42;gen")
+             &#42;sex<br>\
+             &#42;pop<br>\
+             &#42;gen")
 
 
 # > car::Anova(lm(Tail_Length_mm ~ Body_Weight_g + Sex * Population * Generation, data = Generation_filtered), type = "III")
@@ -120,9 +120,9 @@ BW_deets <- ("&#42;pop x gen<br>\
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 TL_deets <- ("&#42;sex x gen<br>
-            &#42;pop x gen<br>\
-            &#42;pop<br>\
-            &#42;gen")
+             &#42;pop x gen<br>\
+             &#42;pop<br>\
+             &#42;gen")
 
 
 # > car::Anova(lm(rank(Ear_Length_mm) ~ Body_Weight_g + Sex * Population * Generation, data = Generation_filtered_2), type = "III")

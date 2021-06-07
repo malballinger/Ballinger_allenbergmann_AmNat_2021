@@ -4,4 +4,4 @@
 .Ruserdata
 *logfile
 Rplots.pdf
-./exploratory/
+./exploratory/*

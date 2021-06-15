@@ -67,63 +67,65 @@
 \usepackage[left]{lineno}
 \linenumbers
 \usepackage{indentfirst}
+\setlength{\parindent}{20pt}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
 
+\title{\LARGE{The contribution of genetic and environmental effects to Bergmann’s rule and Allen’s rule in house mice}}
+\providecommand{\subtitle}[1]{}
+\subtitle{\vspace{10mm}\large{Mallory A. Ballinger and Michael W. Nachman}}
 \author{}
 \date{\vspace{-2.5em}}
 
 \begin{document}
+\maketitle
 
-\hypertarget{the-contribution-of-genetic-and-environmental-effects-to-bergmanns-rule-and-allens-rule-in-house-mice}{%
-\section{The contribution of genetic and environmental effects to
-Bergmann's rule and Allen's rule in house
-mice}\label{the-contribution-of-genetic-and-environmental-effects-to-bergmanns-rule-and-allens-rule-in-house-mice}}
+\vspace{-5mm}
 
-\vspace{20mm}
+\noindent Department of Integrative Biology
 
-Mallory A. Ballinger and Michael W. Nachman
+\noindent Museum of Vertebrate Zoology
 
-\vspace{20mm}
+\noindent University of California, Berkeley
 
-Department of Integrative Biology
-
-Museum of Vertebrate Zoology
-
-University of California, Berkeley
-
-Berkeley, CA 94702-3160
+\noindent Berkeley, CA 94702-3160
 
 \vspace{10mm}
 
-To whom correspondence should be addressed:
+\noindent To whom correspondence should be addressed:
 
-\href{mailto:mallory.ballinger@berkeley.edu}{mallory.ballinger@berkeley.edu}
-or \href{mailto:mnachman@berkeley.edu}{mnachman@berkeley.edu}
+\noindent\href{mailto:mallory.ballinger@berkeley.edu}{mallory.ballinger@berkeley.edu},
+\noindent\href{mailto:mnachman@berkeley.edu}{mnachman@berkeley.edu}
 
-\vspace{30mm}
+\vspace{10mm}
 
-\textbf{Running title:} Genetics and plasticity to ecogeographic rules
+\noindent\textbf{Running title:} Ecogeographic rules in house mice
 
-\textbf{Keywords:} body size, extremity length, adaptive plasticity,
-\emph{Mus}
+\noindent\textbf{Keywords:} body size, extremity length, adaptive
+plasticity, \emph{Mus}
 
-\textbf{Article type:} Major article
+\noindent\textbf{Article type:} Major article
 
-\textbf{Total words:} 8,308
+\noindent\textbf{Total words:} 8,308
 
-\textbf{Number of figures:} 6
+\noindent\textbf{Number of figures:} 6
 
-\textbf{Number of supplementary figures:} 3
+\noindent\textbf{Number of supplementary figures:} 3
 
-\vspace{5mm}
+\vspace{10mm}
 
-The authors wish to be identified to the reviewers.
+\noindent The authors wish to be identified to the reviewers.
 
 \newpage
 
 \hypertarget{abstract}{%
 \subsection{Abstract}\label{abstract}}
 
-Distinguishing between genetic, environmental, and
+\noindent Distinguishing between genetic, environmental, and
 genotype-by-environment effects is central to understanding geographic
 variation in phenotypic clines. Two of the best-documented phenotypic
 clines are Bergmann's rule and Allen's rule, which describe larger body
@@ -171,13 +173,13 @@ Yom-Tov and Nix 1986; Fooden and Albrecht 1999), including humans (Ruff
 1994, 2002; Foster and Collard 2013; Betti et al. 2015). Moreover,
 various meta-analyses have supported the generality of these rules
 (Ashton et al. 2000; Ashton 2002; Freckleton et al. 2003; Meiri and
-Dayan 2003; Blackburn and Hawkins 2004; Millien2006; Olson2009; Symonds
-and Tattersall 2010; Nudds and Oswald 2007). On the other hand, several
-meta-analyses have questioned the ubiquity of these patterns arguing
-that statistical support is weak (Geist 1987; Gohli and Voje 2016;
-Riemer et al. 2018) or that phenotypic differences are more likely to be
-driven by resource abundance rather than by considerations of
-temperature (McNab 1971; Geist 1987; Alhajeri and Steppan 2016). The
+Dayan 2003; Blackburn and Hawkins 2004; Millien et al. 2006; Nudds and
+Oswald 2007; Olson et al. 2009; Symonds and Tattersall 2010). On the
+other hand, several meta-analyses have questioned the ubiquity of these
+patterns arguing that statistical support is weak (Geist 1987; Gohli and
+Voje 2016; Riemer et al. 2018) or that phenotypic differences are more
+likely to be driven by resource abundance rather than by considerations
+of temperature (McNab 1971; Geist 1987; Alhajeri and Steppan 2016). The
 contradicting results found across the literature are unsurprising given
 the variation within and among datasets, such as choice of taxonomic
 groups, environmental variables, and inconsistencies in measurements.
@@ -196,12 +198,12 @@ environment (Falconer and Mackay 1996; Lynch et al. 1998). Disentangling
 genetics from environmental effects in natural populations is difficult
 when using phenotypic data collected from wild-caught animals. Genetic
 contributions to trait values may be masked by environmental effects and
-possible genotype-by-environment interactions (Conover and Schultz 1995;
-Alho et al. 2011). Phenotypic plasticity may also generate clinal
-patterns, giving a false impression of adaptive clines (James 1983). In
-fact, many temporal changes in body size are driven by the environment
-and not genetic adaptation in birds (Teplitsky et al. 2008; Husby et al.
-2011) and mammals (Ozgul et al. 2009, 2010). Furthermore, we have little
+genotype-by-environment interactions (Conover and Schultz 1995; Alho et
+al. 2011). Phenotypic plasticity may also generate clinal patterns,
+giving a false impression of adaptive clines (James 1983). In fact, many
+temporal changes in body size are driven by the environment and not
+genetic adaptation in birds (Teplitsky et al. 2008; Husby et al. 2011)
+and mammals (Ozgul et al. 2009, 2010). Furthermore, we have little
 understanding of how populations conforming to these ecogeographic rules
 vary in the degree and direction of plasticity they exhibit in response
 to environmental stimuli. Variation in plasticity and
@@ -216,13 +218,13 @@ on understanding the evolutionary and ecological mechanisms underlying
 Bergmann's rule and Allen's rule.
 
 House mice (\emph{Mus musculus domesticus}) provide a tractable system
-for dissentangling the genetic and environmental contributions to
-complex traits. House mice have recently expanded their range from
-Western Europe to the Americas, where they can be found from the tip of
-South America to Alaska. Across this broad latitudinal range, mice are
-exposed to various environmental gradients, from cold, temperate
-environments to warm, tropical and arid environments (Phifer-Rixey and
-Nachman 2015). Despite residing in these novel environments for only
+for disentangling the genetic and environmental contributions to complex
+traits. House mice have recently expanded their range from Western
+Europe to the Americas, where they can be found from the tip of South
+America to Alaska. Across this broad latitudinal range, mice are exposed
+to various environmental gradients, from cold, temperate environments to
+warm, tropical and arid environments (Phifer-Rixey and Nachman 2015).
+Despite residing in these novel environments for only
 \textasciitilde{}500 generations (Phifer-Rixey et al. 2018), there is
 evidence for clinal variation across latitudes. Specifically, mice in
 eastern North America follow Bergmann's rule (Lynch 1992), with larger
@@ -240,7 +242,7 @@ reared at warm temperatures, consistent with Allen's rule (Sumner 1909,
 single population of mice or used classical inbred laboratory strains of
 mice, making it difficult to place the results in an explicit
 evolutionary framework. We still have little understanding of the
-phenotpic variation of house mice across their entire latitudinal
+phenotypic variation of house mice across their entire latitudinal
 distribution, and even less understanding of the contributions of
 genetics and environment to these complex traits.
 
@@ -264,16 +266,14 @@ traits and to understand the evolutionary mechanisms underlying these
 clinal patterns. Specifically, we found that unlike body size, tail and
 ear length are highly plastic and this plastic response goes in the same
 direction as the evolved response, highlighting an example of adaptive
-phentoypic plasticity.
+phenotypic plasticity.
 
 \vspace{5mm}
 
 \hypertarget{materials-and-methods}{%
 \subsection{Materials and Methods}\label{materials-and-methods}}
 
-\hypertarget{phenotypic-data-from-wild-caught-mice}{%
-\subparagraph{\texorpdfstring{\emph{Phenotypic data from wild-caught
-mice}}{Phenotypic data from wild-caught mice}}\label{phenotypic-data-from-wild-caught-mice}}
+\noindent\emph{Phenotypic data from wild-caught mice}
 
 To determine if house mice conform to Allen's rule and Bergmann's rule,
 we tested for associations between body mass, tail length, ear length,
@@ -283,25 +283,21 @@ VertNet (Constable et al. 2010) on October 13, 2020, using the search
 query: \emph{vntype}:specimen, \emph{genus}:Mus. We obtained 62,139
 museum records and retained records that included \emph{Mus musculus}
 specimens collected in North or South America (excluding islands). We
-further excluded individuals listed as pregnant, juvenile, subadult, or
-immature, and kept those identified as adult, mature, or with no age
-class noted. We also manually coded females and males as `adult' if they
+omitted individuals listed as pregnant, juvenile, subadult, or immature,
+and included individuals listed as adult, mature, or with no age class
+specified. We also manually coded females and males as `adult' if they
 fulfilled any of the following criteria: females - presence of placental
 scars, parous, or lactating; males - presence of seminal vesicles,
 testes descended (TD), or testes scrotal (TS). Tail lengths shorter than
 20mm and longer than 120mm (\emph{n} = 8), and ear lengths greater than
 30mm (\emph{n} = 1) were considered extreme outliers (greater than 3.5
 standard deviations from the mean) and were removed from downstream
-analyses, as these likely represent juveniles or measurement errors.
-Sample information for the final VertNet dataset (\emph{n} = 3,018) is
-provided in Data S1.
+analyses. Sample information for the final VertNet dataset (\emph{n} =
+3,018) is provided in Data S1.
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{laboratory-reared-mice---common-garden-experiment-1}{%
-\subparagraph{\texorpdfstring{\emph{Laboratory-reared mice - common
-garden experiment
-1}}{Laboratory-reared mice - common garden experiment 1}}\label{laboratory-reared-mice---common-garden-experiment-1}}
+\noindent\emph{Laboratory-reared mice - common garden experiment 1}
 
 For the first common garden experiment, we collected live animals from
 two locations that represent the ends of a latitudinal transect: Manaus,
@@ -316,8 +312,8 @@ to produce first generation (N1) lab-reared mice, and these inbred lines
 have subsequently been maintained through sib-sib matings each
 generation for over 10 generations. Wild-caught mice and their
 descendants were housed in a standard laboratory environment at
-21\textsuperscript{o}C with a 12-hr dark and 12-hr light cycle.
-Commercial rodent chow (Teklad Global, 18\% protein, 6\% fat) was
+21\textsuperscript{o}C with a 12-hr dark and 12-hr light cycle. Water
+and commercial rodent chow (Teklad Global, 18\% protein, 6\% fat) were
 provided ad libitium. Standard museum measurements (total length, tail
 length, hind foot length, ear length, and body mass) were taken for all
 wild-caught, N1, and N2 mice from each population (see Data S2). Tail
@@ -326,19 +322,17 @@ lengths less than 50mm (\emph{n} = 2) and ear lengths less than 8mm
 deviations away from the mean) and were removed from downstream
 analyses.
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{developmental-phenotypic-plasticity---common-garden-experiment-2}{%
-\subparagraph{\texorpdfstring{\emph{Developmental phenotypic plasticity
-- common garden experiment
-2}}{Developmental phenotypic plasticity - common garden experiment 2}}\label{developmental-phenotypic-plasticity---common-garden-experiment-2}}
+\noindent\emph{Developmental phenotypic plasticity - common garden
+experiment 2}
 
 For the second common garden experiment, we used two wild-derived inbred
 lines each from Brazil (MANA, MANB) and New York (SARA, SARB). Each line
 has been inbred for more than 10 generations, and thus mice within a
 line are nearly identical genetically. Equal numbers of males and
 females were produced for each within-line comparison (\emph{n} = 80;
-see Data S3). Full sibs were born at room temperature
+see Data S3 and S4). Full-sibs were born at room temperature
 (21\textsuperscript{o}C) and singly-housed at weaning
 (\textasciitilde{}21 days old). After a brief acclimation period, we
 randomaly assigned 3.5-week-old mice into size-matched groups based on
@@ -347,20 +341,18 @@ sex-specific body mass, and then housed mice at either
 duration of the experiment (\textasciitilde{}50 days total). We measured
 initial body mass and tail length and recorded subsequent body mass and
 tail lengths once a week for each mouse. At the end of the experiment,
-we sacrificed mice at 75 ± 3 days of age, and recorded final body mass
+we euthanized mice at 75 ± 3 days of age, and recorded final body mass
 and tail length, in addition to standard museum measurements. Two final
 ear lengths were not included in downstream analyses due to ear damage.
 We deposited skulls and skeletons of all mice in the Museum of
 Vertebrate Zoology, University of California, Berkeley (catalog numbers
-are given in Data S3). All experimental procedures were in accordance
+are given in Data S4). All experimental procedures were in accordance
 with the UC Berkeley Institutional Animal Care and Use Committee
 (AUP-2017-08-10248).
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{data-analysis}{%
-\subparagraph{\texorpdfstring{\emph{Data
-Analysis}}{Data Analysis}}\label{data-analysis}}
+\noindent\emph{Data Analysis}
 
 All data analyses and visualizations were completed in R (v. 4.0.3).
 Within R, we used the tidyverse (v. 1.3.0) (Wickham et al. 2019),
@@ -386,12 +378,11 @@ lmer\{lme4\} (v. 1.1.26) (Bates et al. 2015) to predict body mass, tail
 length, and ear length with sex, population and environment (formula:
 (trait) \textasciitilde{} Sex * Population * Environment). The model
 included line as a random effect (formula: \textasciitilde{}1 \textbar{}
-Line). Results were evaluated using summary\{lmerTest\} (v.
-3.1.3)(Kuznetsova et al. 2017) and Anova\{car\}. We peformed \emph{post
-hoc} comparisons on significant two-way interactions using Tukey's HSD
-tests or Mann-Whitney \emph{U} tests. The code to perform analyses for
-this study are available as a git-based version control repository on
-GitHub
+Line). Results were evaluated using summary\{lmerTest\} (v. 3.1.3)
+(Kuznetsova et al. 2017) and Anova\{car\}. We peformed \emph{post hoc}
+comparisons on significant two-way interactions using Tukey's HSD tests
+or Mann-Whitney \emph{U} tests. The code to perform analyses for this
+study are available as a git-based version control repository on GitHub
 (\url{https://github.com/malballinger/Ballinger_allenbergmann_AmNat_2021}).
 The analysis can be reproduced using a GNU Make-based workflow with
 built-in bash tools (v. 3.2.57(1)-release) and R (v. 4.0.3).
@@ -401,10 +392,8 @@ built-in bash tools (v. 3.2.57(1)-release) and R (v. 4.0.3).
 \hypertarget{results}{%
 \subsection{Results}\label{results}}
 
-\hypertarget{evidence-for-bergmanns-rule-and-allens-rule-in-wild-house-mice}{%
-\subparagraph{\texorpdfstring{\emph{Evidence for Bergmann's rule and
-Allen's rule in wild house
-mice}}{Evidence for Bergmann's rule and Allen's rule in wild house mice}}\label{evidence-for-bergmanns-rule-and-allens-rule-in-wild-house-mice}}
+\noindent\emph{Evidence for Bergmann's rule and Allen's rule in wild
+house mice}
 
 We assessed the relationship between tail length, ear length, body mass,
 and latitude in mice collected across North and South America to
@@ -413,11 +402,11 @@ Bergmann's rule. Using a large dataset downloaded from VertNet (\emph{n}
 = 3,018; Data S1), we find little evidence for Bergmann's rule, as body
 mass showed a non-significant, positive correlation with latitude across
 both males and females (Figure 1A). In contrast, we found stronger
-evidence for Allen's rule in American house mice, with tail length
+evidence for Allen's rule in American house mice, with both tail length
 (Figure 1C) and ear length (Figure 1E) showing a significant, negative
 correlation with latitude. These patterns of extremity length largely
 hold true across both sexes (Figure 1C, 1E). In each of these
-comparisons, however, latitude explained only a very small amount of
+comparisons, however, latitude explained only a very small amount of the
 phenotypic variation.
 
 The lack of evidence for Bergmann's rule in Figure 1A may be due to the
@@ -436,22 +425,20 @@ rule (Figure 1D, 1F). The comparison between the larger dataset (Figures
 how uncontrolled variation in collated museum metadata may obscure broad
 ecogeographic patterns.
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{differences-in-body-mass-and-tail-length-persist-in-a-common-environment}{%
-\subparagraph{\texorpdfstring{\emph{Differences in body mass and tail
-length persist in a common
-environment}}{Differences in body mass and tail length persist in a common environment}}\label{differences-in-body-mass-and-tail-length-persist-in-a-common-environment}}
+\noindent\emph{Differences in body mass and extremity length persist in
+a common environment}
 
-The phenotypic clines observed across wild house mouse populations could
-represent genetic differences, phenotypic plasticity, or both. To
-dissentangle genetics from plasticity, we collected live mice from near
-the equator (Manaus, Amazonas, Brazil) and from 43\textsuperscript{o}N
-latitude (Saratoga Springs, New York, USA) and brought them into a
-common laboratory environment. Population-specific differences in body
-mass in wild-caught mice (N0) persisted across the first two generations
-of laboratory-reared mice (N1 and N2; Figure 2A). Specifically, mice
-from New York were larger than mice from Brazil (Kruskal--Wallis,
+The phenotypic clines observed across wild house mice could represent
+genetic differences, phenotypic plasticity, or both. To disentangle
+genetics from plasticity, we collected live mice from near the equator
+(Manaus, Amazonas, Brazil) and from 43\textsuperscript{o}N latitude
+(Saratoga Springs, New York, USA) and brought them into a common
+laboratory environment. Population-specific differences in body mass in
+wild-caught mice (N0) persisted across the first two generations of
+laboratory-reared mice (N1 and N2; Figure 2A). Specifically, mice from
+New York were larger than mice from Brazil (Kruskal--Wallis,
 \emph{F}\(_{1,439}\)=282.54, \emph{P}\textless{}0.001) (Figure 2A;
 Figure S1), and these differences persisted across generations
 (Mann-Whitney \emph{U}, \emph{P}\textless{}0.05). Sex-specific
@@ -463,25 +450,22 @@ house mice. The maintenance of body mass differences in a common
 environment and across generations suggests a strong genetic basis in
 house mice.
 
-Similarly, population-specific differences in extremity length
-(i.e.~relative tail length and relative ear length) in wild-caught mice
-(N0) persisted across the first two generations of laboratory-reared
-mice (N1 and N2; Figure 2B-C). Specifically, mice from New York had
-shorter tails (ANOVA, \emph{F}\(_{1,420}\)=321.40,
-\emph{P}\textless{}0.001) (Figure 2B; Figure S1) and shorter ears
-(ANOVA, \emph{F}\(_{1,422}\)=193.08, \emph{P}\textless{}0.001) (Figure
-2C; Figure S1) compared to mice from Brazil, and these differences
-persisted across generations (Tukey's HSD, \emph{P}\textless{}0.05). The
-maintenance of tail length and ear length differences in a common
-environment and across generations suggests a strong genetic basis in
-house mice.
+Similarly, population-specific differences in extremity length (i.e.,
+relative tail length and relative ear length) in wild-caught mice (N0)
+persisted across the first two generations of laboratory-reared mice (N1
+and N2; Figure 2B-C). Specifically, mice from New York had shorter tails
+(ANOVA, \emph{F}\(_{1,420}\)=321.40, \emph{P}\textless{}0.001) (Figure
+2B; Figure S1) and shorter ears (ANOVA, \emph{F}\(_{1,422}\)=193.08,
+\emph{P}\textless{}0.001) (Figure 2C; Figure S1) compared to mice from
+Brazil, and these differences persisted across generations (Tukey's HSD,
+\emph{P}\textless{}0.05). The maintenance of tail length and ear length
+differences in a common environment and across generations suggests a
+strong genetic basis in house mice.
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{extremity-length-and-not-body-size-is-greatly-influenced-by-temperature}{%
-\subparagraph{\texorpdfstring{\emph{Extremity length, and not body size,
-is greatly influenced by
-temperature}}{Extremity length, and not body size, is greatly influenced by temperature}}\label{extremity-length-and-not-body-size-is-greatly-influenced-by-temperature}}
+\noindent\emph{Extremity length, but not body size, is greatly
+influenced by temperature}
 
 The results presented above identified phenotypic divergence in body
 mass and tail and ear length in house mice, with New York mice having
@@ -508,7 +492,7 @@ differences in fat accumulation, as body mass index (BMI) did not differ
 between populations (ANOVA, \(\chi^2\)=0.50, \emph{P}\textgreater{}0.05)
 or environments (ANOVA, \(\chi^2\)=1.28, \emph{P}\textgreater{}0.05)
 (Figure S2; Figure S3). These results suggest that phenotypic plasticity
-plays a modest role in body size evolution of house mice.
+does not play a significant role in body size evolution of house mice.
 
 In contrast to body mass, tail length was greatly influenced by
 developmental temperature, with the first few weeks post-weaning having
@@ -520,7 +504,7 @@ striking in Brazil mice, corresponding to 5.40 mm, on average, or 7\% of
 the total tail length. Despite developmental temperature playing a
 signficant role in tail length, evolved differences in tail length were
 evident at the end of the experiment, with Brazil mice growing longer
-tails than New York mice (ANOVA, \(\chi^2\)=6.54,
+tails than New York mice in both environments (ANOVA, \(\chi^2\)=6.54,
 \emph{P}\textless{}0.05) (Figure 5; Figure 6A; Figure S2). Thus, tail
 length exhibits both evolved divergence and phenotypic plasticity.
 Similarly, cold-reared mice grew shorter ears than warm-reared mice
@@ -534,34 +518,32 @@ plasticity in response to temperature, with mice growing shorter
 extremities in a cold environment, consistent with patterns of Allen's
 rule.
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{adaptive-phenotypic-plasticity-in-extremity-length}{%
-\subparagraph{\texorpdfstring{\emph{Adaptive phenotypic plasticity in
-extremity
-length}}{Adaptive phenotypic plasticity in extremity length}}\label{adaptive-phenotypic-plasticity-in-extremity-length}}
+\noindent\emph{Adaptive phenotypic plasticity in extremity length}
 
 Differences between warm- and cold-reared mice revealed a strong plastic
 response to temperature in extremity length. Because plasticity is
 considered adaptive when a phenotype is altered in the same direction as
 natural selection (Ghalambor et al. 2007), we next asked whether
 phenotypic plasticity of Brazil mice goes in the same or opposite
-direction as the evolved response of New York mice. For tail length, the
-plastic response in Brazil house mice nearly recapitulates the evolved
-tail length of New York mice (Figure 5, Figure 6A), highlighting an
-example of adaptive phenotypic plasticity. Interestingly, the plastic
-response of tail length for New York mice raised in the cold was
-attenuated in comparison to the plastic response of tail length for
-Brazil mice (Figure 5, Figure 6A), suggesting that New York house mice
-may be closer to the phenotypic optimum or that there is a developmental
-constraint on tail length. Lastly, plasticity in ear length of Brazil
-house mice went in the same direction as the evolved response of New
-York house mice (Figure 6B), further illustrating adaptive phenotypic
-plasticity. The overall degree and direction of plasticity in
-extremities mirror patterns associated with Allen's rule. In fact, the
-plastic response of both tail length and ear length in Brazil mice
-explains roughly 40\% of the mean phenotypic differences we observe in
-wild mice (i.e.~between N0 Brazil mice and N0 New York mice).
+direction as the evolved response of New York mice. For absolute tail
+length, the plastic response in Brazil house mice nearly recapitulates
+the evolved tail length of New York mice (Figure 5, Figure 6A),
+highlighting an example of adaptive phenotypic plasticity.
+Interestingly, the plastic response of tail length for New York mice
+raised in the cold was attenuated in comparison to the plastic response
+of tail length for Brazil mice (Figure 5, Figure 6A), suggesting that
+New York house mice may be closer to the phenotypic optimum or that
+there is a developmental constraint on tail length. Lastly, plasticity
+in ear length of Brazil house mice went in the same direction as the
+evolved response of New York house mice (Figure 6B), further
+illustrating adaptive phenotypic plasticity. The overall degree and
+direction of plasticity in extremities mirror patterns associated with
+Allen's rule. In fact, the plastic response of both tail length and ear
+length in Brazil mice explains roughly 40\% of the mean phenotypic
+differences we observe in wild mice (i.e., between N0 Brazil mice and N0
+New York mice).
 
 \vspace{5mm}
 
@@ -580,10 +562,10 @@ plasticity to patterns seen in nature.
 
 First, we found that wild house mice across North and South America
 conform to Bergmann's rule and Allen's rule, as house mice are larger in
-size with shortened farther from the equator. Second, persistent
-differences in body mass and tail and ear length in a common environment
-across more than 10 generations indicated a genetic basis to Bergmann's
-rule and Allen's rule, presumably reflecting thermoregulatory
+size with shortened extremities farther from the equator. Second,
+persistent differences in body mass and tail and ear length in a common
+environment across more than 10 generations indicated a genetic basis to
+Bergmann's rule and Allen's rule, presumably reflecting thermoregulatory
 adaptations. Finally, we measured the contributions of phenotypic
 plasticity to these traits and found that tail and ear length are highly
 plastic in response to cold temperature, while body size is not. The
@@ -594,12 +576,9 @@ rule, in conjunction with strong selection for body size, likely
 promoted the rapid expansion of house mice into new environments across
 the Americas.
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{genetic-contributions-to-ecogeographic-rules}{%
-\subparagraph{\texorpdfstring{\emph{Genetic contributions to
-ecogeographic
-rules}}{Genetic contributions to ecogeographic rules}}\label{genetic-contributions-to-ecogeographic-rules}}
+\noindent\emph{Genetic contributions to ecogeographic rules}
 
 Parallel phenotypic clines across multiple transects provide strong
 evidence for natural selection (Endler 1977). Body mass in house mice
@@ -611,10 +590,10 @@ Notably, this pattern is much clearer when looking at a dataset that
 includes only adult males (Figure 1B) compared to a dataset with all
 animals (Figure 1A). This difference may help to explain the
 discrepancies between previous meta-analyses based on museum collections
-(e.g. Meiri and Dayan 2003; Riemer et al. 2018). Moreover, the
-substantial trait variation in Figure 1 among individuals, even when
-sampled at the same latitude, provides strong motivation for studying
-these traits in a common laboratory environment.
+(e.g., Ashton et al. 2000; Meiri and Dayan 2003; Riemer et al. 2018).
+Moreover, the substantial trait variation in Figure 1 among individuals,
+even when sampled at the same latitude, provides strong motivation for
+studying these traits in a common laboratory environment.
 
 Phenotypic measurements of lab-reared mice from temperate and tropical
 populations revealed a genetically determined difference in body mass,
@@ -637,9 +616,9 @@ et al. 1985; Coyne and Beecham 1987; Partridge et al. 1994; James et al.
 Latitudinal clines for body size have also arisen rapidly in introduced
 populations of house sparrows (Johnston and Selander 1964, 1971) and
 starlings (Cardilini et al. 2016). Together, these results suggest that
-introduced species may experience strong selection as they expand their
-geographic range into new environments, allowing patterns conforming to
-Bergmann's rule to become quickly established.
+introduced species may undergo strong selection while colonizing new
+environments, allowing patterns conforming to Bergmann's rule to become
+quickly established.
 
 Phenotypic measurements of wild mice revealed clines for relative tail
 length and relative ear length, with shorter extremities seen in mice
@@ -661,12 +640,10 @@ climbing ability with increased arboreality (Alroy 2019; Mincer and
 Russo 2020). Because house mice are commensal with humans, it is
 unlikely that longer tails confer a climbing advantage in the tropics.
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{contributions-of-phenotypic-plasticity-to-ecogeographic-rules}{%
-\subparagraph{\texorpdfstring{\emph{Contributions of phenotypic
-plasticity to ecogeographic
-rules}}{Contributions of phenotypic plasticity to ecogeographic rules}}\label{contributions-of-phenotypic-plasticity-to-ecogeographic-rules}}
+\noindent\emph{Contributions of phenotypic plasticity to ecogeographic
+rules}
 
 Body size in house mice shows very little plasticity in response to cold
 temperature (Figures 3 and 5), reaffirming that there has likely been
@@ -681,10 +658,9 @@ Andrew et al. 2017). Second, traits that provide flexible and immediate
 heat conservation, such as increased fur insulation (e.g., Sumner 1915;
 Weaver and Ingram 1969), may provide an initial phenotypic response to
 cold temperature and thereby mitigate selection on body size. Lastly,
-exposure to high temperatures instead of low temperatures may likely
-elicit a plastic response in body size, as seen previously in various
-endotherms (Ashoub 1958; Gordon 2012; Burness et al. 2013; Andrew et al.
-2017).
+exposure to high temperatures instead of low temperatures may elicit a
+plastic response in body size, as seen previously in some endotherms
+(Ashoub 1958; Gordon 2012; Burness et al. 2013; Andrew et al. 2017).
 
 Unlike Bergmann's rule, Allen's rule can be generated via developmental
 phenotypic plasticity, as extremity length is highly senstive to ambient
@@ -692,7 +668,7 @@ temperature in both mammals and birds (Serrat 2014; Tattersall et al.
 2017). Our results in wild house mice agree with previous studies in
 mammals, with mice growing shorter tails and ears in a cold environment
 (Figure 6) (Ogle and Mills 1933; Harland 1960; Chevillard et al. 1963;
-Weaver and Ingram 1969). In laboratory mice, temperature direclty
+Weaver and Ingram 1969). In laboratory mice, temperature directly
 affects the growth of cartilage in both tails and ears, influencing
 extremity length (Serrat et al. 2008). Furthermore, the widespread
 patterns of tail length plasticity in response to cold are also
@@ -713,22 +689,19 @@ illustrated by tail length and ear length plasticity accounting for
 roughly 40\% of the observed differences among wild New York and Brazil
 house mice.
 
-\vspace{2.5mm}
+\vspace{3.5mm}
 
-\hypertarget{adaptive-phenotypic-plasticity-and-allens-rule}{%
-\subparagraph{\texorpdfstring{\emph{Adaptive phenotypic plasticity and
-Allen's
-rule}}{Adaptive phenotypic plasticity and Allen's rule}}\label{adaptive-phenotypic-plasticity-and-allens-rule}}
+\noindent\emph{Adaptive phenotypic plasticity and Allen's rule}
 
 Phenotypic plasticity is adaptive when it aligns with the direction of
 selection, moving traits closer to the local phenotypic optima (Baldwin
 1896; West-Eberhard 2003; Ghalambor et al. 2007). We found evidence for
 adaptive phenotypic plasticity underlying Allen's rule, as plasticity
-produces shorter ears and tails in cold environments. We also observed
+produced shorter ears and tails in cold environments. We also observed
 an attenuated plastic response for tail length in New York house mice
 compared to Brazil house mice, suggesting that New York mice are closer
 to the phenotypic optimum and are better adapted to colder environments.
-Overall, plasticity in house mouse extremities mirror general
+Overall, plasticity in house mouse extremities mirrors general
 evolutionary patterns of shorter extremity lengths in colder climates
 and may play an important role in generating Allen's rule.
 
@@ -758,17 +731,18 @@ rapid expansion of house mice into new environments across the Americas.
 \hypertarget{acknowledgements}{%
 \subsection{Acknowledgements}\label{acknowledgements}}
 
-We thank Michael Sheehan and Felipe Martins for collecting wild mice,
-and we thank Kathleen Ferris, Gabriela Heyer, Dana Lin, Felipe Martins,
-Megan Phifer-Rixey, Michael Sheehan, and Taichi Suzki for help with
-mouse husbandry. M.A.B was supported by a National Science Foundation
-Graduate Research Fellowship (DGE 1106400), Junea W. Kelly Museum of
-Vertebrate Zoology Graduate Fellowship, and a UC Berkeley Philomathia
-Graduate Fellowship. This work was supported by Museum of Vertebrate
-Zoology and Department of Integrative Biology graduate student research
-funds to M.A.B and an NIH grant to M.W.N. (R01GM127468).
+\noindent We thank Michael Sheehan and Felipe Martins for collecting
+wild mice, and we thank Kathleen Ferris, Gabriela Heyer, Dana Lin,
+Felipe Martins, Megan Phifer-Rixey, Michael Sheehan, and Taichi Suzki
+for help with mouse husbandry. M.A.B was supported by a National Science
+Foundation Graduate Research Fellowship (DGE 1106400), Junea W. Kelly
+Museum of Vertebrate Zoology Graduate Fellowship, and a UC Berkeley
+Philomathia Graduate Fellowship. This work was supported by graduate
+student research funds from the Museum of Vertebrate Zoology and
+Department of Integrative Biology to M.A.B and an NIH grant to M.W.N.
+(R01GM127468).
 
-\vspace{10mm}
+\vspace{5mm}
 
 \hypertarget{references}{%
 \subsection{References}\label{references}}
@@ -781,12 +755,12 @@ funds to M.A.B and an NIH grant to M.W.N. (R01GM127468).
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-Alhajeri2020}{}%
 Alhajeri, B. H., Y. Fourcade, N. S. Upham, and H. Alhaddad. 2020. A
-global test of allen's rule in rodents. Global Ecology and Biogeography
+global test of Allen's rule in rodents. Global Ecology and Biogeography
 29:2248--2260.
 
 \leavevmode\hypertarget{ref-Alhajeri2016}{}%
 Alhajeri, B. H., and S. J. Steppan. 2016. Association between climate
-and body size in rodents: A phylogenetic test of bergmann's rule.
+and body size in rodents: A phylogenetic test of Bergmann's rule.
 Mammalian Biology 81:219--225.
 
 \leavevmode\hypertarget{ref-Al-Hilli1983}{}%
@@ -803,7 +777,7 @@ Biology 24:59--70.
 
 \leavevmode\hypertarget{ref-Allaire2021}{}%
 Allaire, J., Y. Xie, J. McPherson, J. Luraschi, K. Ushey, A. Atkins, H.
-Wickham, et al. 2021. Rmarkdown: Dynamic documents for r.
+Wickham, et al. 2021. Rmarkdown: Dynamic documents for R.
 
 \leavevmode\hypertarget{ref-Allen1877}{}%
 Allen, J. A. 1877. The influence of physical conditions in the genesis
@@ -825,11 +799,11 @@ tail-length of mice. Nature 181:284--284.
 
 \leavevmode\hypertarget{ref-Ashton2002}{}%
 Ashton, K. G. 2002. Patterns of within-species body size variation of
-birds: Strong evidence for bergmann's rule. Global Ecology and
+birds: Strong evidence for Bergmann's rule. Global Ecology and
 Biogeography 11:505--523.
 
 \leavevmode\hypertarget{ref-Ashton2000}{}%
-Ashton, K. G., M. C. Tracy, and A. de Queiroz. 2000. Is bergmann's rule
+Ashton, K. G., M. C. Tracy, and A. de Queiroz. 2000. Is Bergmann's rule
 valid for mammals? The American Naturalist 156:390--415.
 
 \leavevmode\hypertarget{ref-Baldwin1896}{}%
@@ -842,7 +816,7 @@ Quarterly Journal of Experimental Physiology and Cognate Medical
 Sciences: Translation and Integration 50:417--429.
 
 \leavevmode\hypertarget{ref-Barnett1984}{}%
-Barnett, S., and R. Dickson. 1984. Changes among wild house mice (mus
+Barnett, S., and R. Dickson. 1984. Changes among wild house mice (Mus
 musculus) bred for ten generations in a cold environment, and their
 evolutionary implications. Journal of Zoology 203:163--180.
 
@@ -857,21 +831,21 @@ ihrer grösse. Gottinger Studien 3:595--708.
 
 \leavevmode\hypertarget{ref-Betti2015}{}%
 Betti, L., S. J. Lycett, N. von Cramon-Taubadel, and O. M. Pearson.
-2015. Are human hands and feet affected by climate? A test of allen's
+2015. Are human hands and feet affected by climate? A test of Allen's
 rule. American Journal of Physical Anthropology 158:132--140.
 
 \leavevmode\hypertarget{ref-Blackburn2004}{}%
 Blackburn, T. M., and B. A. Hawkins. 2004. Bergmann's rule and the
-mammal fauna of northern north america. Ecography 27:715--724.
+mammal fauna of northern North America. Ecography 27:715--724.
 
 \leavevmode\hypertarget{ref-Brown1969}{}%
 Brown, J. H., and A. K. Lee. 1969. Bergmann's rule and climatic
-adaptation in woodrats (neotoma). Evolution 329--338.
+adaptation in woodrats (Neotoma). Evolution 329--338.
 
 \leavevmode\hypertarget{ref-Burness2013}{}%
 Burness, G., J. R. Huard, E. Malcolm, and G. J. Tattersall. 2013.
 Post-hatch heat warms adult beaks: Irreversible physiological plasticity
-in japanese quail. Proceedings of the Royal Society B: Biological
+in Japanese quail. Proceedings of the Royal Society B: Biological
 Sciences 280:20131436.
 
 \leavevmode\hypertarget{ref-Cardilini2016}{}%
@@ -881,7 +855,7 @@ species: What rules avian morphology? Oecologia 181:783--793.
 
 \leavevmode\hypertarget{ref-Cavicchi1985}{}%
 Cavicchi, S., D. Guerra, G. Giorgi, and C. Pezzoli. 1985.
-Temperature-related divergence in experimental populations of drosophila
+Temperature-related divergence in experimental populations of Drosophila
 melanogaster. I. Genetic and developmental basis of wing size and shape
 variation. Genetics 109:665--689.
 
@@ -901,12 +875,12 @@ data sharing. PLoS Biology 8:e1000309.
 
 \leavevmode\hypertarget{ref-Coyne1987}{}%
 Coyne, J. A., and E. Beecham. 1987. Heritability of two morphological
-characters within and among natural populations of drosophila
+characters within and among natural populations of Drosophila
 melanogaster. Genetics 117:727--737.
 
 \leavevmode\hypertarget{ref-Danner2015}{}%
 Danner, R. M., and R. Greenberg. 2015. A critical season approach to
-allen's rule: Bill size declines with winter temperature in a cold
+Allen's rule: Bill size declines with winter temperature in a cold
 temperate environment. Journal of Biogeography 42:114--120.
 
 \leavevmode\hypertarget{ref-Endler1977}{}%
@@ -915,21 +889,21 @@ Princeton University Press.
 
 \leavevmode\hypertarget{ref-Falconer1996}{}%
 Falconer, D. S., and T. F. Mackay. 1996. Introduction to quantitative
-genetics (Vol. 1). Pearson.
+genetics. Pearson.
 
 \leavevmode\hypertarget{ref-Ferris2021}{}%
 Ferris, K. G., A. S. Chavez, T. A. Suzuki, E. J. Beckman, M.
 Phifer-Rixey, K. Bi, and M. W. Nachman. 2021. The genomics of rapid
-climatic adaptation and parallel evolution in north american house mice.
+climatic adaptation and parallel evolution in North American house mice.
 PLoS Genetics 17:e1009495.
 
 \leavevmode\hypertarget{ref-Fooden1999}{}%
 Fooden, J., and G. H. Albrecht. 1999. Tail-length evolution in
-fascicularis-group macaques (cercopithecidae: Macaca). International
+fascicularis-group macaques (Cercopithecidae: Macaca). International
 Journal of Primatology 20:431--440.
 
 \leavevmode\hypertarget{ref-Foster2013}{}%
-Foster, F., and M. Collard. 2013. A reassessment of bergmann's rule in
+Foster, F., and M. Collard. 2013. A reassessment of Bergmann's rule in
 modern humans. PloS One 8:e72269.
 
 \leavevmode\hypertarget{ref-Fox2019}{}%
@@ -943,7 +917,7 @@ body size in mammals. The American Naturalist 161:821--825.
 \leavevmode\hypertarget{ref-Friedman2017}{}%
 Friedman, N. R., L. Harmáčková, E. P. Economo, and V. Remeš. 2017.
 Smaller beaks for colder winters: Thermoregulation drives beak size
-evolution in australasian songbirds. Evolution 71:2120--2129.
+evolution in Australasian songbirds. Evolution 71:2120--2129.
 
 \leavevmode\hypertarget{ref-Geist1987}{}%
 Geist, V. 1987. Bergmann's rule is invalid. Canadian Journal of Zoology
@@ -958,11 +932,11 @@ contemporary adaptation in new environments. Functional Ecology
 \leavevmode\hypertarget{ref-Gilchrist2004a}{}%
 Gilchrist, G. W., R. B. Huey, J. Balanyà, M. Pascual, and L. Serra.
 2004. A time series of evolution in action: A latitudinal cline in wing
-size in south american drosophila subobscura. Evolution 58:768--780.
+size in South American Drosophila subobscura. Evolution 58:768--780.
 
 \leavevmode\hypertarget{ref-Gilchrist2001}{}%
 Gilchrist, G. W., R. B. Huey, and L. Serra. 2001. Rapid evolution of
-wing size clines in drosophila subobscura. Genetica 273--286.
+wing size clines in Drosophila subobscura. Genetica 273--286.
 
 \leavevmode\hypertarget{ref-Gillespie1989}{}%
 Gillespie, J. H., and M. Turelli. 1989. Genotype-environment
@@ -971,7 +945,7 @@ interactions and the maintenance of polygenic variation. Genetics
 
 \leavevmode\hypertarget{ref-Gohli2016}{}%
 Gohli, J., and K. L. Voje. 2016. An interspecific assessment of
-bergmann's rule in 22 mammalian families. BMC Evolutionary Biology
+Bergmann's rule in 22 mammalian families. BMC Evolutionary Biology
 16:1--12.
 
 \leavevmode\hypertarget{ref-Gomulkiewicz1992}{}%
@@ -984,7 +958,7 @@ thermoneutrality. Journal of Thermal Biology 37:654--685.
 
 \leavevmode\hypertarget{ref-Griffing1974}{}%
 Griffing, J. P. 1974. Body measurements of black-tailed jackrabbits of
-southeastern new mexico with implications of allen's rule. Journal of
+southeastern New Mexico with implications of Allen's rule. Journal of
 Mammalogy 55:674--678.
 
 \leavevmode\hypertarget{ref-Harland1960}{}%
@@ -998,7 +972,7 @@ fly. Science 287:308--309.
 
 \leavevmode\hypertarget{ref-Husby2011}{}%
 Husby, A., S. M. Hille, and M. E. Visser. 2011. Testing mechanisms of
-bergmann's rule: Phenotypic decline but no genetic change in body size
+Bergmann's rule: Phenotypic decline but no genetic change in body size
 in three passerine bird populations. The American Naturalist
 178:202--213.
 
@@ -1008,7 +982,7 @@ tot de Dierkunde 27:491--520.
 
 \leavevmode\hypertarget{ref-James1995}{}%
 James, A. C., R. Azevedo, and L. Partridge. 1995. Cellular basis and
-developmental timing in a size cline of drosophila melanogaster.
+developmental timing in a size cline of Drosophila melanogaster.
 Genetics 140:659--666.
 
 \leavevmode\hypertarget{ref-James1970}{}%
@@ -1021,11 +995,11 @@ differentiation in birds. Science 221:184--186.
 
 \leavevmode\hypertarget{ref-Johnston1964}{}%
 Johnston, R. F., and R. K. Selander. 1964. House sparrows: Rapid
-evolution of races in north america. Science 144:548--550.
+evolution of races in North America. Science 144:548--550.
 
 \leavevmode\hypertarget{ref-Johnston1971}{}%
 ---------. 1971. Evolution in the house sparrow. II. Adaptive
-differentiation in north american populations. Evolution 1--28.
+differentiation in North American populations. Evolution 1--28.
 
 \leavevmode\hypertarget{ref-Kuznetsova2017}{}%
 Kuznetsova, A., P. B. Brockhoff, and R. H. B. Christensen. 2017.
@@ -1034,38 +1008,38 @@ Statistical Software 82:1--26.
 
 \leavevmode\hypertarget{ref-Laiolo2001}{}%
 Laiolo, P., and A. Rolando. 2001. Ecogeographic correlates of
-morphometric variation in the red-billed chough pyrrhocorax pyrrhocorax
-and the alpine chough pyrrhocorax graculus. Ibis 143:602--616.
+morphometric variation in the red-billed chough Pyrrhocorax pyrrhocorax
+and the alpine chough Pyrrhocorax graculus. Ibis 143:602--616.
 
 \leavevmode\hypertarget{ref-Land1999}{}%
 Land, J. V. `., P. V. Putten, and W. V. Delden. 1999. Latitudinal
-variation in wild populations of drosophila melanogaster: Heritabilities
+variation in wild populations of Drosophila melanogaster: Heritabilities
 and reaction norms. Journal of Evolutionary Biology 12:222--232.
 
 \leavevmode\hypertarget{ref-Luxfcdecke2021}{}%
 Lüdecke, D., M. S. Ben-Shachar, I. Patil, P. Waggoner, and D. Makowski.
-2021. Assessment, testing and comparison of statistical models using r.
+2021. Assessment, testing and comparison of statistical models using R.
 Journal of Open Source Software 6:3112.
 
 \leavevmode\hypertarget{ref-Lynch1992}{}%
-Lynch, C. B. 1992. Clinal variation in cold adaptation in mus
+Lynch, C. B. 1992. Clinal variation in cold adaptation in Mus
 domesticus: Verification of predictions from laboratory populations. The
 American Naturalist 139:1219--1236.
 
 \leavevmode\hypertarget{ref-Lynch1998}{}%
 Lynch, M., B. Walsh, and others. 1998. Genetics and analysis of
-quantitative traits (Vol. 1). Sinauer Sunderland, MA.
+quantitative traits. Sinauer Sunderland, MA.
 
 \leavevmode\hypertarget{ref-Mayr1956}{}%
 Mayr, E. 1956. Geographical character gradients and climatic adaptation.
 Evolution 10:105--108.
 
 \leavevmode\hypertarget{ref-McNab1971}{}%
-McNab, B. K. 1971. On the ecological significance of bergmann's rule.
+McNab, B. K. 1971. On the ecological significance of Bergmann's rule.
 Ecology 52:845--854.
 
 \leavevmode\hypertarget{ref-Meiri2003}{}%
-Meiri, S., and T. Dayan. 2003. On the validity of bergmann's rule.
+Meiri, S., and T. Dayan. 2003. On the validity of Bergmann's rule.
 Journal of Biogeography 30:331--351.
 
 \leavevmode\hypertarget{ref-Millien2006}{}%
@@ -1084,7 +1058,7 @@ temperature on the growth of vertebrae in the tail of the mouse.
 Development 24:405--410.
 
 \leavevmode\hypertarget{ref-Nudds2007}{}%
-Nudds, R., and S. Oswald. 2007. An interspecific test of allen's rule:
+Nudds, R., and S. Oswald. 2007. An interspecific test of Allen's rule:
 Evolutionary implications for endothermic species. Evolution:
 International Journal of Organic Evolution 61:2839--2848.
 
@@ -1092,6 +1066,11 @@ International Journal of Organic Evolution 61:2839--2848.
 Ogle, C., and C. Mills. 1933. Animal adaptation to environmental
 temperature conditions. American Journal of Physiology-Legacy Content
 103:606--612.
+
+\leavevmode\hypertarget{ref-Olson2009}{}%
+Olson, V. A., R. G. Davies, C. D. L. Orme, G. H. Thomas, S. Meiri, T. M.
+Blackburn, K. J. Gaston, et al. 2009. Global biogeography and ecology of
+body size in birds. Ecology Letters 12:249--259.
 
 \leavevmode\hypertarget{ref-Ozgul2010}{}%
 Ozgul, A., D. Z. Childs, M. K. Oli, K. B. Armitage, D. T. Blumstein, L.
@@ -1102,11 +1081,11 @@ population growth in response to environmental change. Nature
 \leavevmode\hypertarget{ref-Ozgul2009}{}%
 Ozgul, A., S. Tuljapurkar, T. G. Benton, J. M. Pemberton, T. H.
 Clutton-Brock, and T. Coulson. 2009. The dynamics of phenotypic change
-and the shrinking sheep of st. Kilda. Science 325:464--467.
+and the shrinking sheep of St. kilda. Science 325:464--467.
 
 \leavevmode\hypertarget{ref-Partridge1994}{}%
 Partridge, L., B. Barrie, K. Fowler, and V. French. 1994. Evolution and
-development of body size and cell size in drosophila melanogaster in
+development of body size and cell size in Drosophila melanogaster in
 response to temperature. Evolution 48:1269--1276.
 
 \leavevmode\hypertarget{ref-Phifer-Rixey2018}{}%
@@ -1116,7 +1095,7 @@ adaptation in house mice. PLoS Genetics 14:e1007672.
 
 \leavevmode\hypertarget{ref-Phifer-Rixey2015}{}%
 Phifer-Rixey, M., and M. W. Nachman. 2015. The natural history of model
-organisms: Insights into mammalian biology from the wild house mouse mus
+organisms: Insights into mammalian biology from the wild house mouse Mus
 musculus. Elife 4:e05959.
 
 \leavevmode\hypertarget{ref-Price2003}{}%
@@ -1131,7 +1110,7 @@ relationship between mass and temperature in endothermic species. Elife
 
 \leavevmode\hypertarget{ref-Romano2020}{}%
 Romano, A., R. Séchaud, and A. Roulin. 2020. Geographical variation in
-bill size provides evidence for allen's rule in a cosmopolitan raptor.
+bill size provides evidence for Allen's rule in a cosmopolitan raptor.
 Global Ecology and Biogeography 29:65--75.
 
 \leavevmode\hypertarget{ref-Ruff2002}{}%
@@ -1167,12 +1146,12 @@ Zoology 18:325.
 
 \leavevmode\hypertarget{ref-Suzuki2020}{}%
 Suzuki, T. A., F. M. Martins, Phifer-Rixey Megan, and M. W. Nachman.
-2020. The gut microbiota and bergmann's rule in wild house mice.
+2020. The gut microbiota and Bergmann's rule in wild house mice.
 Molecular Ecology 29:2300--2311.
 
 \leavevmode\hypertarget{ref-Symonds2010}{}%
 Symonds, M. R., and G. J. Tattersall. 2010. Geographical variation in
-bill size across bird species provides evidence for allen's rule. The
+bill size across bird species provides evidence for Allen's rule. The
 American Naturalist 176:188--197.
 
 \leavevmode\hypertarget{ref-Tattersall2017}{}%
@@ -1188,13 +1167,13 @@ Proceedings of the National Academy of Sciences 105:13492--13496.
 
 \leavevmode\hypertarget{ref-Thorington1970}{}%
 Thorington Jr, R. W. 1970. Lability of tail length of the white-footed
-mouse, peromyscus leucopus noveboracensis. Journal of Mammalogy
+mouse, Peromyscus leucopus noveboracensis. Journal of Mammalogy
 51:52--59.
 
 \leavevmode\hypertarget{ref-Tomlinson2009}{}%
 Tomlinson, S., and P. C. Withers. 2009. Biogeographical effects on body
-mass of native australian and introduced mice, pseudomys
-hermannsburgensis and mus domesticus: An inquiry into bergmann's rule.
+mass of native Australian and introduced mice, Pseudomys
+hermannsburgensis and Mus domesticus: An inquiry into Bergmann's rule.
 Australian Journal of Zoology 56:423--430.
 
 \leavevmode\hypertarget{ref-Via1985}{}%
@@ -1216,8 +1195,8 @@ Source Software 4:1686.
 
 \leavevmode\hypertarget{ref-Yom-Tov1986}{}%
 Yom-Tov, Y., and H. Nix. 1986. Climatological correlates for body size
-of five species of australian mammals. Biological Journal of the Linnean
-society 29:245--262.
+of five species of Australian mammals. Biological Journal of the Linnean
+Society 29:245--262.
 
 \setlength{\parindent}{0in}
 \setlength{\leftskip}{0in}
@@ -1234,8 +1213,8 @@ North and South America.} Associations between body mass (A-B), tail
 length (C-D), ear length (E-F), and absolute latitude across wild-caught
 North and South American house mice. Tail length and ear length are
 plotted relative to body mass for each individual. Individuals are
-represented as individual points, with males denoted in black and
-females denoted in white. Results from Spearman correlations are
+represented as individual points, with males depicted in black and
+females depicted in white. Results from Spearman correlations are
 presented in each plot, along with sample sizes. For clarity, standard
 error shading is ommitted from linear regression lines associated with
 the VertNet Metadata (panels A, C, and E).
@@ -1244,18 +1223,17 @@ the VertNet Metadata (panels A, C, and E).
 
 \includegraphics{../results/figures/Generations_relative.pdf}
 
-\textbf{Figure 2. Body mass and tail length differences among
+\textbf{Figure 2. Body mass and extremity length differences among
 populations persist over generations in a common lab environment.}
 Differences in body mass (A), tail length (B), and ear length (C)
 between New York mice (blue) and Brazil mice (gold) across generations.
 Tail length and ear length are plotted relative to body mass for each
 individual. Population-level data are depicted as boxplots overlayed on
 density plots, with boxplot vertical lines denoting 1.5x the
-inerquartile range. Individuals are represented as individual points,
-and the horizontal variation within each generation determined
-randomally to separate points. Results from linear models are presented
-in each plot (*P\textless{}0.05; Figure S1). Sample sizes: (A) n = 441;
-(B) n = 432; (C) n = 434.
+inerquartile range. Individuals are represented as individual points.
+Results from linear models are presented in the upper right corner of
+each panel (*\emph{P}\textless{}0.05; Figure S1). Sample sizes: (A)
+\emph{n} = 441; (B) \emph{n} = 432; (C) \emph{n} = 434.
 
 \newpage
 
@@ -1265,7 +1243,7 @@ in each plot (*P\textless{}0.05; Figure S1). Sample sizes: (A) n = 441;
 development.} Body mass growth trajectories across environments in New
 York (blue) and Brazil (gold) house mice. Cold-reared mice are denoted
 as dotted lines and warm-reared mice are denoted as solid lines.
-Individuals are plotted as semi-transparent points (n = 80), with
+Individuals are plotted as semi-transparent points (\emph{n} = 80), with
 population means depicted as smoothed regression fits, with standard
 error shading. The same individuals depicted here are also depicted in
 Figure 4.
@@ -1276,11 +1254,10 @@ Figure 4.
 
 \textbf{Figure 4. Evolved differences and very little plasticity in body
 size among New York and Brazil house mice.} Individuals are represented
-as individual points (n = 80), with New York mice denoted in blue and
-Brazil mice denoted in gold. Boxplots indicate the 25th, median, and
-75th quartiles. Results from linear mixed models are presented in each
-plot (*P\textless{}0.05; Figure S2). The same individuals depicted here
-are also depicted in Figure 3.
+as individual points (\emph{n} = 80), and boxplots indicate the 25th,
+median, and 75th quartiles. Results from linear mixed models are
+presented in the upper right corner (*\emph{P}\textless{}0.05; Figure
+S2). The same individuals depicted here are also depicted in Figure 3.
 
 \newpage
 
@@ -1290,24 +1267,24 @@ are also depicted in Figure 3.
 across development.} Absolute tail length growth trajectories across
 environments in New York (blue) and Brazil (gold) house mice.
 Cold-reared mice are denoted as dotted lines and warm-reared mice are
-deonted as solid lines. Individuals are plotted as semi-transparent
-points (n = 80), with population means depicted as smoothed regression
-fits, with standard error shading. The same individuals depicted here
-are also depicted in Figure 6.
+denoted as solid lines. Individuals are plotted as semi-transparent
+points (\emph{n} = 80), with population means depicted as smoothed
+regression fits, with standard error shading. The same individuals
+depicted here are also depicted in Figure 6.
 
 \newpage
 
 \includegraphics{../results/figures/RXNs_Extremities_relative.pdf}
 
 \textbf{Figure 6. Adaptive phenotypic plasticity in extremity length
-among New York and Brazil house mice.} Relative tail length (A) and
-relative ear length (B) were calculated by regressing from body mass.
-Individuals are represented as individual points (tail length: n = 80;
-ear length: n = 78), with New York mice denoted in blue and Brazil mice
-denoted in gold. Boxplots indicate the 25th, median, and 75th quartiles.
-Both sexes were combined for simplicity. Results from linear mixed
-models are presented in each plot (*P\textless{}0.05; Figure S2). The
-same individuals depicted here are also depicted in Figure 5.
+among New York and Brazil house mice.} Tail length (A) and ear length
+(B) are plotted relative to body mass for each individual. Individuals
+are represented as individual points (tail length: \emph{n} = 80; ear
+length: \emph{n} = 78), and boxplots indicate the 25th, median, and 75th
+quartiles. Both sexes were combined for simplicity. Results from linear
+mixed models are presented in the upper right corner
+(*\emph{P}\textless{}0.05; Figure S2). The same individuals depicted
+here are also depicted in Figure 5.
 
 \newpage
 
@@ -1330,19 +1307,19 @@ dotted, vertical line are significant.
 
 \textbf{Figure S2. Effect sizes for common garden experiment two,
 investigating the fixed effects of sex, population, and environment on
-body mass, tail length, and ear length.} Points and ranges represent
-model estimates and 95\% credibility estimates for the linear mixed
-model, with color indicating the phenotypic trait (purple: body mass;
-black: tail length; green: ear length; gray: BMI). Solid lines that do
-not cross the dotted, vertical line are significant.
+body mass, tail length, ear length, and body mass index.} Points and
+ranges represent model estimates and 95\% credibility estimates for the
+linear mixed model, with color indicating the phenotypic trait (purple:
+body mass; black: tail length; green: ear length; gray: BMI). Solid
+lines that do not cross the dotted, vertical line are significant.
 
 \newpage
 
 \includegraphics{../results/figures/RXNs_BMI.pdf}
 
-\textbf{Figure S3. No differences in body mass index (BMI) among New
-York mice and Brazil mice.} No evolved differences or plasticity in BMI
-between New York (blue) and Brazil (gold) house mice. Individuals are
-represented as individual points (n = 80).
+\textbf{Figure S3. No evolved differences or plasticity in body mass
+index (BMI) among New York mice and Brazil mice.} Individuals are
+represented as individual points (\emph{n} = 80). The same individuals
+depicted here are also depicted in Figure 4.
 
 \end{document}

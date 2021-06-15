@@ -48,8 +48,8 @@ VertNetMetaData <- read_xlsx(here("data/processed/VertNet_Mus_processed.xlsx"),
          "Species" = "scientificname") %>%
   filter(Continent == "North America" | Continent == "South America") %>%
   filter(is.na(Lifestage) | Lifestage == "adult") %>% # only keep adults and NAs
-  filter(is.na(Reproductive_Status) | Reproductive_Status != "preg") %>% # everything but pregnant mice (including NAs)
-  filter(Sex == "female" | Sex == "male") %>% # only males and females
+  filter(is.na(Reproductive_Status) | Reproductive_Status != "preg") %>% # keep everything but pregnant mice (including NAs)
+  filter(Sex == "female" | Sex == "male") %>% # only keep males and females
   mutate(Absolute_Latitude = abs(Latitude))
 
 

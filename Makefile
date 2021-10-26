@@ -18,6 +18,10 @@ data/processed/GenerationColonyData.csv: code/clean_Generations.R\
 				data/raw/colony_metadata_RAW.xlsx
 			./code/clean_Generations.R
 
+data/processed/N2N3_h2_data.csv: code/clean_N2N3Heritability.R\
+				data/raw/N2vsN3_h2.xlsx
+			./code/clean_N2N3Heritability.R
+
 data/processed/WeeklyPhenotypeData.csv: code/clean_WeeklyPhenotypes.R\
 				data/raw/weekly_metadata_RAW_2021-02-11.csv
 			./code/clean_WeeklyPhenotypes.R
@@ -39,6 +43,10 @@ results/tables/GenerationColonyData.csv: code/clean_Generations.R\
 				data/raw/colony_metadata_RAW.xlsx
 			./code/clean_Generations.R
 
+results/tables/N2N3_h2_data.csv: code/clean_N2N3Heritability.R\
+				data/raw/N2vsN3_h2.xlsx
+			./code/clean_N2N3Heritability.R
+
 results/tables/WeeklyPhenotypeData.csv: code/clean_WeeklyPhenotypes.R\
 				data/raw/weekly_metadata_RAW_2021-02-11.csv
 			./code/clean_WeeklyPhenotypes.R
@@ -59,6 +67,10 @@ results/figures/VertNet_relative.pdf: code/plot_VertNetMetadata_relative.R\
 results/figures/Generations_relative.pdf: code/plot_Generations_relative.R\
 				data/processed/GenerationColonyData.csv
 			./code/plot_Generations_relative.R
+
+results/figures/N2N3_h2.pdf: code/plot_N2N3Heritability.R\
+				data/processed/N2N3_h2_data.csv
+			./code/plot_N2N3Heritability.R
 
 results/figures/Weekly_BW.pdf: code/plot_WeeklyPhenotypes.R\
 				data/processed/WeeklyPhenotypeData.csv
@@ -123,10 +135,12 @@ submission/figure_6.tiff : results/figures/RXNs_Extremities_relative.tiff
 submission/Ballinger_et_al_2021_AmNat.pdf submission/Ballinger_et_al_2021_AmNat.docx: submission/Ballinger_et_al_2021_AmNat.Rmd\
 				data/processed/VertNetMetadata_Mus_2021-03-18.csv\
 				data/processed/GenerationColonyData.csv\
+				data/processed/N2N3_h2_data.csv\
 				data/processed/WeeklyPhenotypeData.csv\
 				data/processed/PostDissectionMetaData.csv\
 				results/figures/VertNet_relative.pdf\
 				results/figures/Generations_relative.pdf\
+				results/figures/N2N3_h2.pdf\
 				results/figures/Weekly_BW.pdf\
 				results/figures/Weekly_Tails.pdf\
 				results/figures/RXNs_BW.pdf\

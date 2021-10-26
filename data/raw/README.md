@@ -12,3 +12,7 @@
 
 ##### *Raw data files used for Figure 3 and Fig Sxx include:*
 * <strong>weekly_metadata_RAW_2021-02-11.csv</strong>
+
+
+##### *WorldClim data files include:*
+* <strong>wc2.1_30s_tavg*.tif</strong>

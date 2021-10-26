@@ -3,7 +3,7 @@
 #	(tab)recipe
 
 README.md : README.Rmd
-	R -e "library(rmarkdown); render('README.Rmd')"
+	R -e "Sys.setenv(RSTUDIO_PANDOC='/Applications/RStudio.app/Contents/MacOS/pandoc'); library(rmarkdown); render('README.Rmd')"
 
 data/processed/VertNetMetadata_Mus_2021-03-18.csv: code/clean_VertNetMetadata.R\
 				data/raw/VertNet_Mus_specimen_20201013.tsv\

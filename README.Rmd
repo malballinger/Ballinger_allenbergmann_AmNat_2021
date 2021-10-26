@@ -1,7 +1,7 @@
 ---
-title: "Environmental and genetic contributions to ecogeographic rules in house mice"
-author: "Mallory A. Ballinger"
-date: "(last updated: June 07, 2021)"
+title: "The contribution of genetic and environmental effects to Bergmann's rule and Allen's rule in house mice"
+author: "Mallory A. Ballinger and Michael W. Nachman"
+date: "(last updated: October 26, 2021)"
 output:
   github_document:
     html_preview: false

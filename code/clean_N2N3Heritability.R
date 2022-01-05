@@ -4,7 +4,7 @@
 
 # Author: Mallory A. Ballinger
 
-# This script cleans the metadata file: data/raw/colony_metadata_RAW_v2.xlsx
+# This script cleans the metadata file: data/raw/N2vsN3_h2.xlsx.
 # The generated, cleaned data set is used for downstream analyses in Ballinger_AmNat_2021.
 
 
@@ -16,6 +16,7 @@ rm(list = ls()) # clear R's environment
 library(tidyverse)
 library(here)
 library(readxl)
+
 
 ##############################################################
 # Import & clean data
@@ -47,7 +48,7 @@ n_distinct(NewYork_lines) # 10 lines
 NewYork_families <- h2MetaData %>%
   filter(Population == "New York") %>%
   select(Midparent_ID)
-n_distinct(NewYork_families) # 16
+n_distinct(NewYork_families) # 16 families
 
 
 # Sample size of Brazil
@@ -59,7 +60,7 @@ n_distinct(Brazil_lines) # 13 lines
 Brazil_families <- h2MetaData %>%
   filter(Population == "Brazil") %>%
   select(Midparent_ID)
-n_distinct(Brazil_families) # 16
+n_distinct(Brazil_families) # 16 families
 
 
 write.csv(h2MetaData, file = "results/tables/N2N3_h2_data.csv", row.names = TRUE)

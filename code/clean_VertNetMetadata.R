@@ -17,6 +17,7 @@ library(tidyverse)
 library(here)
 library(readxl)
 
+
 ##############################################################
 # Import & clean data
 ##############################################################
@@ -46,7 +47,7 @@ VertNetMetaData <- read_xlsx(here("data/processed/VertNet_Mus_processed.xlsx"),
          "Latitude" = "decimallatitude",
          "Longitude" = "decimallongitude",
          "Species" = "scientificname") %>%
-  filter(Continent == "North America" | Continent == "South America") %>%
+  filter(Continent == "North America" | Continent == "South America") %>% # do not include islands
   filter(is.na(Lifestage) | Lifestage == "adult") %>% # only keep adults and NAs
   filter(is.na(Reproductive_Status) | Reproductive_Status != "preg") %>% # keep everything but pregnant mice (including NAs)
   filter(Sex == "female" | Sex == "male") %>% # only keep males and females
@@ -58,5 +59,5 @@ FullSampleSize <- VertNetMetaData %>% summarise(N=n_distinct(Reference)) %>% pul
 # n = 3,018
 
 
-write.csv(VertNetMetaData, file = "results/tables/VertNetMetadata_Mus.csv", row.names = TRUE)
+write.csv(VertNetMetaData, file = "results/tables/VertNetMetadata_Mus.csv", row.names = TRUE) # reformated as Data S1
 write.csv(VertNetMetaData, file = "data/processed/VertNetMetadata_Mus_2021-03-18.csv", row.names = TRUE)

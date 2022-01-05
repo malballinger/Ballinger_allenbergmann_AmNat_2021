@@ -4,9 +4,9 @@
 
 # Author: Mallory A. Ballinger
 
-# This script plots body mass and *relative* extremity length from wild-caught
+# This script plots body mass and relative extremity length from wild-caught
 # house mice collected across North and South America. Data are from VertNet.org
-# and were cleaned using the script ./clean_VertNetMetadata.R.
+# and were cleaned in ./clean_VertNetMetadata.R.
 # This script generates Figure 1 in Ballinger_AmNat_2021.
 
 
@@ -22,8 +22,12 @@ library(ggtext)
 library(glue)
 library(scales)
 library(report)
+library(patchwork)
+library(effectsize)
 
 set.seed(19910118) # so that jitter plots stay in same jittered positions
+
+
 ##############################################################
 # Import data
 ##############################################################
@@ -34,14 +38,9 @@ VertNetMetadata <- read_csv(here("data/processed/VertNetMetadata_Mus_2021-03-18.
   mutate(Sex = fct_relevel(Sex, "male", "female")) # puts males before females
 
 
-
-
-
 ##############################################################
-# Apply filtering and calculate residuals
+# Apply filtering and calculate relative lengths
 ##############################################################
-
-# VertNet dataset
 
 # Based on outlier tests (see ./model_VertNetMetadata_relative.R), any tail length
 # less than 20 and greater than 120 are extreme outliers
@@ -58,25 +57,56 @@ VertNet_filtered_2 <- VertNetMetadata %>%
   mutate(RelativeEar = (Ear_Length_mm) / (Body_Weight_g))
 
 
+##############################################################
+# Are results sex-specific and do females show more variation than males?
+##############################################################
 
+# Broad evidence for Bergmann's rule and Allen's rule, after accounting for sex
+
+# lm.BW <- lm(Body_Weight_g ~ Sex + Absolute_Latitude, data = VertNetMetadata)
+# summary(lm.BW)
+# lm.BW.Anova <- car::Anova(lm.BW)
+# effect_size_BW <- omega_squared(lm.BW)
+# 
+# lm.RelTL <- lm(RelativeTail ~ Absolute_Latitude + Sex, data = VertNet_filtered)
+# summary(lm.RelTL)
+# lm.TL.Anova <- car::Anova(lm.RelTL)
+# effect_size_TL <- omega_squared(lm.RelTL)
+# 
+# lm.RelEL <- lm(RelativeEar ~ Absolute_Latitude + Sex, data = VertNet_filtered_2)
+# summary(lm.RelEL)
+# lm.EL.Anova <- car::Anova(lm.RelEL)
+# effect_size_EL <- omega_squared(lm.EL.Anova)
+
+
+# Variance between sexes
+
+# var.BM.model <- lm(Body_Weight_g ~ Sex, data = VertNetMetadata)
+#check_model(var.BM.model) # close to normality
+# leveneTest(Body_Weight_g ~ Sex, data = VertNetMetadata)
+# leveneTest(RelativeTail ~ Sex, data = VertNet_filtered)
+# leveneTest(RelativeEar ~ Sex, data = VertNet_filtered_2)
+# boxplot(Body_Weight_g ~ Sex, data = VertNetMetadata)
 
 
 ##############################################################
 # Get values from correlation analyses
 ##############################################################
+
 # Refer to ./model_VertNetMetadata_relative.R for model comparisons and correlation analyses
 
-# VertNet Metadata
 ## Bergmann's rule
+
 Male_Bergmann_VertNet <- VertNetMetadata %>%
   filter(Sex == "male")
+#check_model(lm(Body_Weight_g ~ Absolute_Latitude, data = Male_Bergmann_VertNet)) # looks good
+
 Male_Bergmann_VertNet_N <- comma(length(which(!is.na(Male_Bergmann_VertNet$Body_Weight_g))))
 
 cor.Berg.Male.VertNet <- cor.test(x = Male_Bergmann_VertNet$Absolute_Latitude,
                                   y = Male_Bergmann_VertNet$Body_Weight_g,
                                   method = 'spearman', exact = FALSE,
                                   adjust="fdr", alpha=0.5)
-#report(cor.Berg.Male.VertNet)
 
 cor.Berg.Male.VertNet_corr <- signif(as.double(cor.Berg.Male.VertNet$estimate), digits = 2)
 cor.Berg.Male.VertNet_pval <- signif(as.double(cor.Berg.Male.VertNet$p.value), digits = 2)
@@ -84,6 +114,8 @@ cor.Berg.Male.VertNet_pval <- signif(as.double(cor.Berg.Male.VertNet$p.value), d
 
 Female_Bergmann_VertNet <- VertNetMetadata %>%
   filter(Sex == "female")
+#check_model(lm(Body_Weight_g ~ Absolute_Latitude, data = Female_Bergmann_VertNet)) # looks good
+
 Female_Bergmann_VertNet_N <- comma(length(which(!is.na(Female_Bergmann_VertNet$Body_Weight_g))))
 
 cor.Berg.Female.VertNet <- cor.test(x = Female_Bergmann_VertNet$Absolute_Latitude,
@@ -113,13 +145,14 @@ cor.Berg.Male.Adult.VertNet_pval <- signif(as.double(cor.Berg.Male.Adult.VertNet
 ## Allen's rule - TAIL
 Male_Tail_VertNet <- VertNet_filtered %>%
   filter(Sex == "male")
+#check_model(lm(RelativeTail ~ Absolute_Latitude, data = Male_Tail_VertNet)) # looks good
+
 Male_Tail_VertNet_N <- comma(length(which(!is.na(Male_Tail_VertNet$RelativeTail))))
 
 cor.Tail.Male.VertNet <- cor.test(x = Male_Tail_VertNet$Absolute_Latitude,
                                   y = Male_Tail_VertNet$RelativeTail,
                                   method = 'spearman', exact = FALSE,
                                   adjust="fdr", alpha=0.5)
-#report(cor.Tail.Male.VertNet)
 
 cor.Tail.Male.VertNet_corr <- signif(as.double(cor.Tail.Male.VertNet$estimate), digits = 2)
 cor.Tail.Male.VertNet_pval <- signif(as.double(cor.Tail.Male.VertNet$p.value), digits = 3)
@@ -182,7 +215,6 @@ cor.Ear.Female.VertNet_corr <- signif(as.double(cor.Ear.Female.VertNet$estimate)
 cor.Ear.Female.VertNet_pval <- signif(as.double(cor.Ear.Female.VertNet$p.value), digits = 2)
 
 
-
 Male_Ear_Adult_VertNet <- Male_Ear_VertNet %>%
   filter(Lifestage == "adult")
 Male_Ear_Adult_VertNet_N <- comma(length(which(!is.na(Male_Ear_Adult_VertNet$RelativeEar))))
@@ -195,9 +227,6 @@ cor.Ear.Male.Adult.VertNet <- cor.test(x = Male_Ear_Adult_VertNet$Absolute_Latit
 
 cor.Ear.Male.Adult.VertNet_corr <- signif(as.double(cor.Ear.Male.Adult.VertNet$estimate), digits = 2)
 cor.Ear.Male.Adult.VertNet_pval <- signif(as.double(cor.Ear.Male.Adult.VertNet$p.value), digits = 2)
-
-
-
 
 
 ##############################################################
@@ -235,13 +264,9 @@ Ear_VertNet_Adult_M <- glue("rho = {cor.Ear.Male.Adult.VertNet_corr}, \\
                             *n* = {Male_Ear_Adult_VertNet_N}")
 
 
-
-
-
 ##############################################################
-# Combine all 6 plots for publication
+# Combine all 6 plots for manuscript
 ##############################################################
-# need to loop this into a funciton....
 
 Berg_VertNet <-
   ggplot(data = VertNetMetadata, aes(x = Absolute_Latitude, y = Body_Weight_g)) +
@@ -351,9 +376,6 @@ Ear_VertNet <-
        y = "Relative Ear Length")
 
 
-
-
-
 ##############################################################
 # Adult males only from VertNet
 ##############################################################
@@ -451,16 +473,16 @@ Ear_Adult_Male_VertNet <-
 
 
 VertNet <- cowplot::plot_grid(Berg_VertNet, Tail_VertNet, Ear_VertNet, ncol = 1, nrow = 3, align = 'v',
-                              labels = c('A)','C)', 'E)'), label_fontfamily = "Palatino", label_size = 12,
+                              labels = c('A)','C)','E)'), label_fontfamily = "Palatino", label_size = 12,
                               label_x = c(0.05, 0.05, 0.05), label_y = c(0.915, 1, 1.05), hjust = 0)
 
 AdultMales <- cowplot::plot_grid(Berg_Adult_Male_VertNet, Tail_Adult_Male_VertNet, Ear_Adult_Male_VertNet, ncol = 1, nrow = 3, align = 'v',
-                                 labels = c('B)','D)', 'F)'), label_fontfamily = "Palatino", label_size = 12,
+                                 labels = c('B)','D)','F)'), label_fontfamily = "Palatino", label_size = 12,
                                  label_x = c(0.05, 0.05, 0.05), label_y = c(0.915, 1, 1.05), hjust = 0)
 
 
 
 cowplot::plot_grid(VertNet, AdultMales, ncol = 2, nrow = 1)
 
-ggsave("results/figures/VertNet_relative.tiff", height = 7, width = 6, compression = "lzw")
+#ggsave("results/figures/VertNet_relative.tiff", height = 7, width = 6, compression = "lzw")
 ggsave("results/figures/VertNet_relative.pdf", height = 7, width = 6)

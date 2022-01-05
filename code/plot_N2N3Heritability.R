@@ -55,8 +55,8 @@ BW_midparent <-
   theme_bw() +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.title.x = element_text(margin = margin(t = 3), size = 10, face = "bold", family = "Palatino"),
-        axis.title.y = element_markdown(margin = margin(r = 4), size = 10, face = "bold", family = "Palatino"),
+        axis.title.x = element_text(margin = margin(t = 3), size = 10, family = "Palatino"),
+        axis.title.y = element_markdown(margin = margin(r = 4), size = 10, family = "Palatino"),
         axis.text.x = element_text(size = 9, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 9, color = "black", family = "Palatino"),
         legend.position = c(0.345, 0.95),
@@ -97,8 +97,8 @@ TL_midparent <-
   theme_bw() +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.title.x = element_text(margin = margin(t = 2.5), size = 10, face = "bold", family = "Palatino"),
-        axis.title.y = element_markdown(margin = margin(r = 4), size = 10, face = "bold", family = "Palatino"),
+        axis.title.x = element_text(margin = margin(t = 2.5), size = 10, family = "Palatino"),
+        axis.title.y = element_markdown(margin = margin(r = 4), size = 10, family = "Palatino"),
         axis.text.x = element_text(size = 9, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 9, color = "black", family = "Palatino"),
         legend.position = c(0.355, 0.95),
@@ -139,8 +139,8 @@ EL_midparent <-
   theme_bw() +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 1),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.title.x = element_text(margin = margin(t = 3), size = 10, face = "bold", family = "Palatino"),
-        axis.title.y = element_markdown(margin = margin(r = 4), size = 10, face = "bold", family = "Palatino"),
+        axis.title.x = element_text(margin = margin(t = 3), size = 10, family = "Palatino"),
+        axis.title.y = element_markdown(margin = margin(r = 4), size = 10, family = "Palatino"),
         axis.text.x = element_text(size = 9, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 9, color = "black", family = "Palatino"),
         legend.position = c(0.36, 0.95),
@@ -205,12 +205,12 @@ parents_offspring_BW_plot <-
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(),
         axis.title.x = element_blank(),
-        axis.title.y = element_text(margin = margin(r = 5), size = 8, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 5), size = 8, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         strip.background = element_blank(),
         strip.placement = "outside",
-        strip.text.x = element_text(margin = margin(0,0,0.15,0, "cm"), size = 8, face = "bold", family = "Palatino"),
+        strip.text.x = element_text(margin = margin(0,0,0.15,0, "cm"), size = 8, family = "Palatino"),
         legend.position = 'none') +
   labs(x = NULL,
        y = "Offspring Body Mass")
@@ -255,12 +255,12 @@ parent_offspring_TL_plot <-
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(),
         axis.title.x = element_blank(),
-        axis.title.y = element_text(margin = margin(r = 5), size = 8, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 5), size = 8, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         strip.background = element_blank(),
         strip.placement = "outside",
-        strip.text.x = element_text(margin = margin(0,0,0.15,0, "cm"), size = 8, face = "bold", family = "Palatino"),
+        strip.text.x = element_text(margin = margin(0,0,0.15,0, "cm"), size = 8, family = "Palatino"),
         legend.position = 'none') +
   labs(x = "",
        y = "Offspring Relative Tail Length")
@@ -304,13 +304,13 @@ parent_offspring_EL_plot <-
   theme_half_open(10) +
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(),
-        axis.title.y = element_text(margin = margin(r = 5), size = 8, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 5), size = 8, family = "Palatino"),
         axis.title.x = element_blank(),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         strip.background = element_blank(),
         strip.placement = "outside",
-        strip.text.x = element_text(margin = margin(0,0,0.15,0, "cm"), size = 8, face = "bold", family = "Palatino"),
+        strip.text.x = element_text(margin = margin(0,0,0.15,0, "cm"), size = 8, family = "Palatino"),
         legend.position = 'none') +
   labs(x = "",
        y = "Offspring Relative Ear Length")

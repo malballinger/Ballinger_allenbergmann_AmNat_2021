@@ -1,0 +1,657 @@
+DOB,DateMeasured,Age_days,Age_weeks,Age_category,Population,Generation,Line,Mouse_ID,Sex,Environment,Body_Weight_g,Tail_Length_mm,PopEnv
+7/17/18,9/29/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ1,Female,Cold,10.89,72.5,Brazil - Cold
+7/17/18,9/29/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ2,Male,Warm,10.35,76,Brazil - Warm
+7/17/18,9/29/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ4,Male,Warm,14.42,83,Brazil - Warm
+7/17/18,9/29/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ6,Male,Cold,12.52,73,Brazil - Cold
+8/13/18,10/27/18,75,10.71,endexp,Brazil,N11,MANA,193x255_BZ3,Female,Cold,10.95,72.5,Brazil - Cold
+8/13/18,10/27/18,75,10.71,endexp,Brazil,N11,MANA,193x255_BZ5,Female,Warm,9.38,74.5,Brazil - Warm
+8/13/18,10/27/18,75,10.71,endexp,Brazil,N11,MANA,193x255_BZ7,Female,Warm,12.03,81,Brazil - Warm
+8/13/18,10/27/18,75,10.71,endexp,Brazil,N11,MANA,193x255_BZ8,Male,Cold,12.92,76,Brazil - Cold
+8/13/18,10/27/18,75,10.71,endexp,Brazil,N11,MANA,193x255_BZ9,Female,Warm,11.39,79.5,Brazil - Warm
+9/8/18,11/21/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ11,Female,Warm,10.71,79.5,Brazil - Warm
+9/8/18,11/21/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ10,Male,Warm,12.78,78.5,Brazil - Warm
+9/8/18,11/21/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ12,Male,Cold,13.18,76,Brazil - Cold
+9/8/18,11/21/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ14,Male,Warm,10.96,78,Brazil - Warm
+9/8/18,11/21/18,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ13,Male,Cold,11.59,70.5,Brazil - Cold
+10/29/18,1/16/19,79,11.29,endexp,Brazil,N11,MANA,193x255_BZ19,Female,Cold,10.86,71,Brazil - Cold
+10/29/18,1/16/19,79,11.29,endexp,Brazil,N11,MANA,193x255_BZ21,Female,Cold,11.83,73,Brazil - Cold
+10/29/18,1/16/19,79,11.29,endexp,Brazil,N11,MANA,193x255_BZ23,Female,Warm,11.79,77.5,Brazil - Warm
+11/23/18,2/2/19,71,10.14,endexp,Brazil,N11,MANA,193x255_BZ18,Male,Warm,10.92,80,Brazil - Warm
+11/23/18,2/2/19,71,10.14,endexp,Brazil,N11,MANA,193x255_BZ20,Male,Cold,12.29,74,Brazil - Cold
+11/23/18,2/2/19,71,10.14,endexp,Brazil,N11,MANA,193x255_BZ25,Female,Cold,11.62,75.5,Brazil - Cold
+11/23/18,2/2/19,71,10.14,endexp,Brazil,N11,MANA,193x255_BZ27,Female,Warm,10.87,80.5,Brazil - Warm
+11/23/18,2/2/19,71,10.14,endexp,Brazil,N11,MANA,193x255_BZ29,Female,Cold,11.34,73,Brazil - Cold
+12/18/18,3/2/19,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ31,Female,Warm,11.61,79,Brazil - Warm
+12/18/18,3/2/19,74,10.57,endexp,Brazil,N11,MANA,193x255_BZ33,Female,Cold,11.81,71,Brazil - Cold
+2/1/19,4/22/19,80,11.43,endexp,Brazil,N11,MANA,193x255_BZ26,Male,Cold,12.87,72.5,Brazil - Cold
+2/1/19,4/21/19,79,11.29,endexp,Brazil,N11,MANA,193x255_BZ28,Male,Cold,14.05,75,Brazil - Cold
+2/1/19,4/21/19,79,11.29,endexp,Brazil,N11,MANA,193x255_BZ30,Male,Warm,14.05,83,Brazil - Warm
+7/17/18,8/18/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ1,Female,Cold,8.55,64.5,Brazil - Cold
+7/17/18,8/18/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ2,Male,Warm,8.46,62.5,Brazil - Warm
+7/17/18,8/18/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ4,Male,Warm,10.12,69,Brazil - Warm
+7/17/18,8/18/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ6,Male,Cold,9.76,65,Brazil - Cold
+7/17/18,8/25/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ1,Female,Cold,9.13,65.5,Brazil - Cold
+7/17/18,8/25/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ2,Male,Warm,9.21,67,Brazil - Warm
+7/17/18,8/25/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ4,Male,Warm,12.2,73.5,Brazil - Warm
+7/17/18,8/25/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ6,Male,Cold,10.74,66.5,Brazil - Cold
+7/17/18,9/1/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ1,Female,Cold,10.11,67.5,Brazil - Cold
+7/17/18,9/1/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ2,Male,Warm,9.02,70.5,Brazil - Warm
+7/17/18,9/1/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ4,Male,Warm,12.97,77.5,Brazil - Warm
+7/17/18,9/1/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ6,Male,Cold,11.58,71,Brazil - Cold
+7/17/18,9/9/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ1,Female,Cold,10.9,70,Brazil - Cold
+7/17/18,9/9/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ2,Male,Warm,9.78,74,Brazil - Warm
+7/17/18,9/9/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ4,Male,Warm,13.5,79,Brazil - Warm
+7/17/18,9/9/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ6,Male,Cold,11.69,71.5,Brazil - Cold
+7/17/18,9/16/18,61,8.71,na,Brazil,N11,MANA,193x255_BZ1,Female,Cold,10.96,71,Brazil - Cold
+7/17/18,9/16/18,61,8.71,na,Brazil,N11,MANA,193x255_BZ2,Male,Warm,10.16,74,Brazil - Warm
+7/17/18,9/16/18,61,8.71,na,Brazil,N11,MANA,193x255_BZ4,Male,Warm,13.93,82.5,Brazil - Warm
+7/17/18,9/16/18,61,8.71,na,Brazil,N11,MANA,193x255_BZ6,Male,Cold,11.95,73,Brazil - Cold
+7/17/18,9/23/18,68,9.71,na,Brazil,N11,MANA,193x255_BZ1,Female,Cold,10.92,72,Brazil - Cold
+7/17/18,9/23/18,68,9.71,na,Brazil,N11,MANA,193x255_BZ2,Male,Warm,10.18,76,Brazil - Warm
+7/17/18,9/23/18,68,9.71,na,Brazil,N11,MANA,193x255_BZ4,Male,Warm,14.36,83,Brazil - Warm
+7/17/18,9/23/18,68,9.71,na,Brazil,N11,MANA,193x255_BZ6,Male,Cold,11.98,73,Brazil - Cold
+8/13/18,9/14/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ3,Female,Cold,8.31,65,Brazil - Cold
+8/13/18,9/14/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ5,Female,Warm,7.22,61.5,Brazil - Warm
+8/13/18,9/14/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ7,Female,Warm,9.7,71.5,Brazil - Warm
+8/13/18,9/14/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ8,Male,Cold,9.66,67,Brazil - Cold
+8/13/18,9/14/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ9,Female,Warm,9.46,70.5,Brazil - Warm
+8/13/18,9/22/18,40,5.71,na,Brazil,N11,MANA,193x255_BZ3,Female,Cold,9.65,67.5,Brazil - Cold
+8/13/18,9/22/18,40,5.71,na,Brazil,N11,MANA,193x255_BZ5,Female,Warm,8.21,66.5,Brazil - Warm
+8/13/18,9/22/18,40,5.71,na,Brazil,N11,MANA,193x255_BZ7,Female,Warm,11.33,76.5,Brazil - Warm
+8/13/18,9/22/18,40,5.71,na,Brazil,N11,MANA,193x255_BZ8,Male,Cold,11.28,70.5,Brazil - Cold
+8/13/18,9/22/18,40,5.71,na,Brazil,N11,MANA,193x255_BZ9,Female,Warm,10.81,75.5,Brazil - Warm
+8/13/18,9/28/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ3,Female,Cold,10.13,68.5,Brazil - Cold
+8/13/18,9/28/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ5,Female,Warm,8.64,69,Brazil - Warm
+8/13/18,9/28/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ7,Female,Warm,11.56,77,Brazil - Warm
+8/13/18,9/28/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ8,Male,Cold,11.78,71,Brazil - Cold
+8/13/18,9/28/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ9,Female,Warm,10.84,76,Brazil - Warm
+8/13/18,10/6/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ3,Female,Cold,10.51,69.5,Brazil - Cold
+8/13/18,10/6/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ5,Female,Warm,9.57,71,Brazil - Warm
+8/13/18,10/6/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ7,Female,Warm,12.28,79.5,Brazil - Warm
+8/13/18,10/6/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ8,Male,Cold,11.82,73,Brazil - Cold
+8/13/18,10/6/18,54,7.71,na,Brazil,N11,MANA,193x255_BZ9,Female,Warm,11.2,76,Brazil - Warm
+8/13/18,10/12/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ3,Female,Cold,10.47,71.5,Brazil - Cold
+8/13/18,10/12/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ5,Female,Warm,9.26,72,Brazil - Warm
+8/13/18,10/12/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ7,Female,Warm,11.88,79.5,Brazil - Warm
+8/13/18,10/12/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ8,Male,Cold,12.27,74,Brazil - Cold
+8/13/18,10/12/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ9,Female,Warm,11.01,79,Brazil - Warm
+8/13/18,10/19/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ3,Female,Cold,10.94,72,Brazil - Cold
+8/13/18,10/19/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ5,Female,Warm,9.69,74.5,Brazil - Warm
+8/13/18,10/19/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ7,Female,Warm,12.14,80,Brazil - Warm
+8/13/18,10/19/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ8,Male,Cold,12.52,75.5,Brazil - Cold
+8/13/18,10/19/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ9,Female,Warm,11.63,79,Brazil - Warm
+9/8/18,10/10/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ11,Female,Warm,8.56,67.5,Brazil - Warm
+9/8/18,10/17/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ11,Female,Warm,9.85,71,Brazil - Warm
+9/8/18,10/24/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ11,Female,Warm,10.12,73.5,Brazil - Warm
+9/8/18,10/31/18,53,7.57,na,Brazil,N11,MANA,193x255_BZ11,Female,Warm,10.54,76,Brazil - Warm
+9/8/18,11/7/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ11,Female,Warm,10.75,77,Brazil - Warm
+9/8/18,11/14/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ11,Female,Warm,10.92,78,Brazil - Warm
+9/8/18,10/10/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ10,Male,Warm,9.75,64.5,Brazil - Warm
+9/8/18,10/17/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ10,Male,Warm,11.11,70,Brazil - Warm
+9/8/18,10/24/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ10,Male,Warm,11.76,73.5,Brazil - Warm
+9/8/18,10/31/18,53,7.57,na,Brazil,N11,MANA,193x255_BZ10,Male,Warm,12.32,75.5,Brazil - Warm
+9/8/18,11/7/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ10,Male,Warm,12.27,77,Brazil - Warm
+9/8/18,11/14/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ10,Male,Warm,12.56,78.5,Brazil - Warm
+9/8/18,10/10/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ12,Male,Cold,8.89,64,Brazil - Cold
+9/8/18,10/17/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ12,Male,Cold,10.8,67,Brazil - Cold
+9/8/18,10/24/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ12,Male,Cold,11.41,70,Brazil - Cold
+9/8/18,10/31/18,53,7.57,na,Brazil,N11,MANA,193x255_BZ12,Male,Cold,11.64,70.5,Brazil - Cold
+9/8/18,11/7/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ12,Male,Cold,12.08,72.5,Brazil - Cold
+9/8/18,11/14/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ12,Male,Cold,12.55,73,Brazil - Cold
+9/8/18,10/10/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ14,Male,Warm,7.6,64,Brazil - Warm
+9/8/18,10/17/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ14,Male,Warm,8.96,67,Brazil - Warm
+9/8/18,10/24/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ14,Male,Warm,9.7,70,Brazil - Warm
+9/8/18,10/31/18,53,7.57,na,Brazil,N11,MANA,193x255_BZ14,Male,Warm,10.58,75.5,Brazil - Warm
+9/8/18,11/7/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ14,Male,Warm,10.99,76,Brazil - Warm
+9/8/18,11/14/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ14,Male,Warm,10.98,76,Brazil - Warm
+9/8/18,10/10/18,32,4.57,na,Brazil,N11,MANA,193x255_BZ13,Male,Cold,7.5,59,Brazil - Cold
+9/8/18,10/17/18,39,5.57,na,Brazil,N11,MANA,193x255_BZ13,Male,Cold,8.98,62,Brazil - Cold
+9/8/18,10/24/18,46,6.57,na,Brazil,N11,MANA,193x255_BZ13,Male,Cold,9.79,64.5,Brazil - Cold
+9/8/18,10/31/18,53,7.57,na,Brazil,N11,MANA,193x255_BZ13,Male,Cold,10.26,66.5,Brazil - Cold
+9/8/18,11/7/18,60,8.57,na,Brazil,N11,MANA,193x255_BZ13,Male,Cold,10.74,68,Brazil - Cold
+9/8/18,11/14/18,67,9.57,na,Brazil,N11,MANA,193x255_BZ13,Male,Cold,11.26,70,Brazil - Cold
+10/29/18,12/2/18,34,4.86,na,Brazil,N11,MANA,193x255_BZ19,Female,Cold,8.72,64.5,Brazil - Cold
+10/29/18,12/16/18,48,6.86,na,Brazil,N11,MANA,193x255_BZ19,Female,Cold,9.94,67.5,Brazil - Cold
+10/29/18,12/29/18,61,8.71,na,Brazil,N11,MANA,193x255_BZ19,Female,Cold,10.03,70,Brazil - Cold
+10/29/18,1/10/19,73,10.43,na,Brazil,N11,MANA,193x255_BZ19,Female,Cold,10.72,NA,Brazil - Cold
+10/29/18,12/2/18,34,4.86,na,Brazil,N11,MANA,193x255_BZ21,Female,Cold,9.26,65,Brazil - Cold
+10/29/18,12/16/18,48,6.86,na,Brazil,N11,MANA,193x255_BZ21,Female,Cold,11.85,70.5,Brazil - Cold
+10/29/18,12/29/18,61,8.71,na,Brazil,N11,MANA,193x255_BZ21,Female,Cold,11.32,72.5,Brazil - Cold
+10/29/18,1/10/19,73,10.43,na,Brazil,N11,MANA,193x255_BZ21,Female,Cold,11.91,NA,Brazil - Cold
+10/29/18,12/2/18,34,4.86,na,Brazil,N11,MANA,193x255_BZ23,Female,Warm,9.22,66.5,Brazil - Warm
+10/29/18,12/16/18,48,6.86,na,Brazil,N11,MANA,193x255_BZ23,Female,Warm,11.13,73.5,Brazil - Warm
+10/29/18,12/29/18,61,8.71,na,Brazil,N11,MANA,193x255_BZ23,Female,Warm,11.63,77,Brazil - Warm
+10/29/18,1/10/19,73,10.43,na,Brazil,N11,MANA,193x255_BZ23,Female,Warm,11.44,NA,Brazil - Warm
+11/23/18,1/1/19,39,5.57,na,Brazil,N11,MANA,193x255_BZ18,Male,Warm,9.76,70,Brazil - Warm
+11/23/18,1/9/19,47,6.71,na,Brazil,N11,MANA,193x255_BZ18,Male,Warm,10.31,75.5,Brazil - Warm
+11/23/18,1/16/19,54,7.71,na,Brazil,N11,MANA,193x255_BZ18,Male,Warm,10.38,75.5,Brazil - Warm
+11/23/18,1/31/19,69,9.86,na,Brazil,N11,MANA,193x255_BZ18,Male,Warm,10.91,NA,Brazil - Warm
+11/23/18,1/1/19,39,5.57,na,Brazil,N11,MANA,193x255_BZ20,Male,Cold,11.28,68,Brazil - Cold
+11/23/18,1/9/19,47,6.71,na,Brazil,N11,MANA,193x255_BZ20,Male,Cold,11.2,69,Brazil - Cold
+11/23/18,1/16/19,54,7.71,na,Brazil,N11,MANA,193x255_BZ20,Male,Cold,11.35,72.5,Brazil - Cold
+11/23/18,1/31/19,69,9.86,na,Brazil,N11,MANA,193x255_BZ20,Male,Cold,12.18,NA,Brazil - Cold
+11/23/18,1/1/19,39,5.57,na,Brazil,N11,MANA,193x255_BZ25,Female,Cold,10.54,67.5,Brazil - Cold
+11/23/18,1/9/19,47,6.71,na,Brazil,N11,MANA,193x255_BZ25,Female,Cold,11.13,72,Brazil - Cold
+11/23/18,1/16/19,54,7.71,na,Brazil,N11,MANA,193x255_BZ25,Female,Cold,10.92,73.5,Brazil - Cold
+11/23/18,1/31/19,69,9.86,na,Brazil,N11,MANA,193x255_BZ25,Female,Cold,11.72,NA,Brazil - Cold
+11/23/18,1/1/19,39,5.57,na,Brazil,N11,MANA,193x255_BZ27,Female,Warm,10.01,74,Brazil - Warm
+11/23/18,1/9/19,47,6.71,na,Brazil,N11,MANA,193x255_BZ27,Female,Warm,11.16,77.5,Brazil - Warm
+11/23/18,1/16/19,54,7.71,na,Brazil,N11,MANA,193x255_BZ27,Female,Warm,11.63,78,Brazil - Warm
+11/23/18,1/31/19,69,9.86,na,Brazil,N11,MANA,193x255_BZ27,Female,Warm,11.66,NA,Brazil - Warm
+11/23/18,1/1/19,39,5.57,na,Brazil,N11,MANA,193x255_BZ29,Female,Cold,9.89,NA,Brazil - Cold
+11/23/18,1/9/19,47,6.71,na,Brazil,N11,MANA,193x255_BZ29,Female,Cold,10.83,NA,Brazil - Cold
+11/23/18,1/16/19,54,7.71,na,Brazil,N11,MANA,193x255_BZ29,Female,Cold,10.67,NA,Brazil - Cold
+11/23/18,1/31/19,69,9.86,na,Brazil,N11,MANA,193x255_BZ29,Female,Cold,11.53,NA,Brazil - Cold
+12/18/18,1/21/19,34,4.86,na,Brazil,N11,MANA,193x255_BZ31,Female,Warm,8.66,70.5,Brazil - Warm
+12/18/18,1/26/19,39,5.57,na,Brazil,N11,MANA,193x255_BZ31,Female,Warm,9.4,73.5,Brazil - Warm
+12/18/18,2/2/19,46,6.57,na,Brazil,N11,MANA,193x255_BZ31,Female,Warm,9.43,74.5,Brazil - Warm
+12/18/18,2/16/19,60,8.57,na,Brazil,N11,MANA,193x255_BZ31,Female,Warm,10.12,75.5,Brazil - Warm
+12/18/18,2/25/19,69,9.86,na,Brazil,N11,MANA,193x255_BZ31,Female,Warm,11.71,76,Brazil - Warm
+12/18/18,1/21/19,34,4.86,na,Brazil,N11,MANA,193x255_BZ33,Female,Cold,9.75,65,Brazil - Cold
+12/18/18,1/26/19,39,5.57,na,Brazil,N11,MANA,193x255_BZ33,Female,Cold,10.33,66.5,Brazil - Cold
+12/18/18,2/2/19,46,6.57,na,Brazil,N11,MANA,193x255_BZ33,Female,Cold,10.29,70,Brazil - Cold
+12/18/18,2/16/19,60,8.57,na,Brazil,N11,MANA,193x255_BZ33,Female,Cold,11.68,NA,Brazil - Cold
+12/18/18,2/25/19,69,9.86,na,Brazil,N11,MANA,193x255_BZ33,Female,Cold,11.11,NA,Brazil - Cold
+2/1/19,3/5/19,32,4.57,na,Brazil,N11,MANA,193x255_BZ26,Male,Cold,8.68,65.5,Brazil - Cold
+2/1/19,3/14/19,41,5.86,na,Brazil,N11,MANA,193x255_BZ26,Male,Cold,10.3,67,Brazil - Cold
+2/1/19,3/26/19,53,7.57,na,Brazil,N11,MANA,193x255_BZ26,Male,Cold,11.47,72,Brazil - Cold
+2/1/19,4/2/19,60,8.57,na,Brazil,N11,MANA,193x255_BZ26,Male,Cold,12.18,72,Brazil - Cold
+2/1/19,4/18/19,76,10.86,na,Brazil,N11,MANA,193x255_BZ26,Male,Cold,12.12,NA,Brazil - Cold
+2/1/19,3/5/19,32,4.57,na,Brazil,N11,MANA,193x255_BZ28,Male,Cold,9.5,65,Brazil - Cold
+2/1/19,3/14/19,41,5.86,na,Brazil,N11,MANA,193x255_BZ28,Male,Cold,11.11,68.5,Brazil - Cold
+2/1/19,3/26/19,53,7.57,na,Brazil,N11,MANA,193x255_BZ28,Male,Cold,11.86,71,Brazil - Cold
+2/1/19,4/2/19,60,8.57,na,Brazil,N11,MANA,193x255_BZ28,Male,Cold,12.82,74.5,Brazil - Cold
+2/1/19,4/18/19,76,10.86,na,Brazil,N11,MANA,193x255_BZ28,Male,Cold,13.88,NA,Brazil - Cold
+2/1/19,3/5/19,32,4.57,na,Brazil,N11,MANA,193x255_BZ30,Male,Warm,9.79,71.5,Brazil - Warm
+2/1/19,3/14/19,41,5.86,na,Brazil,N11,MANA,193x255_BZ30,Male,Warm,11.06,76.5,Brazil - Warm
+2/1/19,3/26/19,53,7.57,na,Brazil,N11,MANA,193x255_BZ30,Male,Warm,11.63,81,Brazil - Warm
+2/1/19,4/2/19,60,8.57,na,Brazil,N11,MANA,193x255_BZ30,Male,Warm,12.58,82,Brazil - Warm
+2/1/19,4/18/19,76,10.86,na,Brazil,N11,MANA,193x255_BZ30,Male,Warm,13.93,NA,Brazil - Warm
+7/17/18,8/11/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ1,Female,Cold,7.16,63,Brazil - Cold
+7/17/18,8/11/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ2,Male,Warm,5.57,55.5,Brazil - Warm
+7/17/18,8/11/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ4,Male,Warm,6.79,63.5,Brazil - Warm
+7/17/18,8/11/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ6,Male,Cold,7.58,64.5,Brazil - Cold
+8/13/18,9/6/18,24,3.43,startexp,Brazil,N11,MANA,193x255_BZ3,Female,Cold,6.51,63,Brazil - Cold
+8/13/18,9/6/18,24,3.43,startexp,Brazil,N11,MANA,193x255_BZ5,Female,Warm,5.82,59.5,Brazil - Warm
+8/13/18,9/6/18,24,3.43,startexp,Brazil,N11,MANA,193x255_BZ7,Female,Warm,7.18,65,Brazil - Warm
+8/13/18,9/6/18,24,3.43,startexp,Brazil,N11,MANA,193x255_BZ8,Male,Cold,7.02,65.5,Brazil - Cold
+8/13/18,9/6/18,24,3.43,startexp,Brazil,N11,MANA,193x255_BZ9,Female,Warm,6.67,64,Brazil - Warm
+9/8/18,10/3/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ11,Female,Warm,6.93,61,Brazil - Warm
+9/8/18,10/3/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ10,Male,Warm,6.91,57,Brazil - Warm
+9/8/18,10/3/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ12,Male,Cold,6.91,60,Brazil - Cold
+9/8/18,10/3/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ14,Male,Warm,6.21,58.5,Brazil - Warm
+9/8/18,10/3/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ13,Male,Cold,5.85,56.5,Brazil - Cold
+10/29/18,11/24/18,26,3.71,startexp,Brazil,N11,MANA,193x255_BZ19,Female,Cold,7.26,62,Brazil - Cold
+10/29/18,11/24/18,26,3.71,startexp,Brazil,N11,MANA,193x255_BZ21,Female,Cold,7.6,63.5,Brazil - Cold
+10/29/18,11/24/18,26,3.71,startexp,Brazil,N11,MANA,193x255_BZ23,Female,Warm,8.14,61.5,Brazil - Warm
+11/23/18,12/18/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ18,Male,Warm,6.29,61.5,Brazil - Warm
+11/23/18,12/18/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ20,Male,Cold,6.81,64,Brazil - Cold
+11/23/18,12/18/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ25,Female,Cold,7.24,65.5,Brazil - Cold
+11/23/18,12/18/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ27,Female,Warm,7.71,67,Brazil - Warm
+11/23/18,12/18/18,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ29,Female,Cold,6.73,NA,Brazil - Cold
+12/18/18,1/12/19,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ31,Female,Warm,7,64,Brazil - Warm
+12/18/18,1/12/19,25,3.57,startexp,Brazil,N11,MANA,193x255_BZ33,Female,Cold,7.13,58.5,Brazil - Cold
+2/1/19,2/27/19,26,3.71,startexp,Brazil,N11,MANA,193x255_BZ26,Male,Cold,7.19,65,Brazil - Cold
+2/1/19,2/27/19,26,3.71,startexp,Brazil,N11,MANA,193x255_BZ28,Male,Cold,7.91,63.5,Brazil - Cold
+2/1/19,2/27/19,26,3.71,startexp,Brazil,N11,MANA,193x255_BZ30,Male,Warm,8.12,69,Brazil - Warm
+7/17/18,8/7/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ1,Female,Cold,5.81,60,Brazil - Cold
+7/17/18,8/7/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ2,Male,Warm,4.62,54,Brazil - Warm
+7/17/18,8/7/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ4,Male,Warm,5.88,60,Brazil - Warm
+7/17/18,8/7/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ6,Male,Cold,6.06,62,Brazil - Cold
+8/13/18,9/3/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ3,Female,Cold,6,60,Brazil - Cold
+8/13/18,9/3/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ5,Female,Warm,5.26,56.5,Brazil - Warm
+8/13/18,9/3/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ7,Female,Warm,6.54,62,Brazil - Warm
+8/13/18,9/3/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ8,Male,Cold,6.42,61.5,Brazil - Cold
+8/13/18,9/3/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ9,Female,Warm,6.44,61.5,Brazil - Warm
+9/8/18,9/29/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ11,Female,Warm,5.92,58,Brazil - Warm
+9/8/18,9/29/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ10,Male,Warm,5.49,53,Brazil - Warm
+9/8/18,9/29/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ12,Male,Cold,5.61,56,Brazil - Cold
+9/8/18,9/29/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ14,Male,Warm,5.5,55,Brazil - Warm
+9/8/18,9/29/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ13,Male,Cold,5.04,55,Brazil - Cold
+10/29/18,11/19/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ19,Female,Cold,6.36,NA,Brazil - Cold
+10/29/18,11/19/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ21,Female,Cold,6.6,NA,Brazil - Cold
+10/29/18,11/19/18,21,3,weaning,Brazil,N11,MANA,193x255_BZ23,Female,Warm,7.27,NA,Brazil - Warm
+11/23/18,12/16/18,23,3.29,weaning,Brazil,N11,MANA,193x255_BZ18,Male,Warm,6.23,NA,Brazil - Warm
+11/23/18,12/16/18,23,3.29,weaning,Brazil,N11,MANA,193x255_BZ20,Male,Cold,6.72,NA,Brazil - Cold
+11/23/18,12/16/18,23,3.29,weaning,Brazil,N11,MANA,193x255_BZ25,Female,Cold,6.9,NA,Brazil - Cold
+11/23/18,12/16/18,23,3.29,weaning,Brazil,N11,MANA,193x255_BZ27,Female,Warm,7.56,NA,Brazil - Warm
+11/23/18,12/16/18,23,3.29,weaning,Brazil,N11,MANA,193x255_BZ29,Female,Cold,6.78,NA,Brazil - Cold
+11/13/18,12/8/18,25,3.57,startexp,New York,N11,SARA,19x13_NY11,Female,Cold,9.04,50.5,New York - Cold
+11/13/18,12/5/18,22,3.14,weaning,New York,N11,SARA,19x13_NY11,Female,Cold,7.24,48,New York - Cold
+6/29/18,9/10/18,73,10.43,endexp,New York,N11,SARA,19x13_NY1,Female,Warm,12.96,72,New York - Warm
+6/29/18,9/10/18,73,10.43,endexp,New York,N11,SARA,19x13_NY2,Male,Warm,14.52,75.5,New York - Warm
+6/29/18,9/10/18,73,10.43,endexp,New York,N11,SARA,19x13_NY3,Female,Warm,13.13,71,New York - Warm
+6/29/18,9/10/18,73,10.43,endexp,New York,N11,SARA,19x13_NY4,Male,Cold,15.3,70.5,New York - Cold
+6/29/18,9/10/18,73,10.43,endexp,New York,N11,SARA,19x13_NY5,Female,Cold,12.52,69.5,New York - Cold
+7/20/18,10/1/18,73,10.43,endexp,New York,N11,SARA,19x13_NY7,Female,Cold,16.76,73,New York - Cold
+7/20/18,10/1/18,73,10.43,endexp,New York,N11,SARA,19x13_NY6,Male,Cold,18.52,71.5,New York - Cold
+7/20/18,10/1/18,73,10.43,endexp,New York,N11,SARA,19x13_NY8,Male,Warm,13,70.5,New York - Warm
+8/10/18,10/22/18,73,10.43,endexp,New York,N11,SARA,19x13_NY9,Female,Warm,14.48,74,New York - Warm
+8/10/18,10/22/18,73,10.43,endexp,New York,N11,SARA,19x13_NY10,Male,Cold,17.06,73,New York - Cold
+8/10/18,10/22/18,73,10.43,endexp,New York,N11,SARA,19x13_NY12,Male,Warm,19.11,76.5,New York - Warm
+11/13/18,1/26/19,74,10.57,endexp,New York,N11,SARA,19x13_NY11,Female,Cold,14.6,69,New York - Cold
+11/13/18,1/26/19,74,10.57,endexp,New York,N11,SARA,19x13_NY13,Female,Cold,13.62,66,New York - Cold
+11/13/18,1/26/19,74,10.57,endexp,New York,N11,SARA,19x13_NY14,Male,Cold,15.52,69.5,New York - Cold
+11/13/18,1/26/19,74,10.57,endexp,New York,N11,SARA,19x13_NY15,Female,Warm,11.32,67.5,New York - Warm
+12/30/18,3/17/19,77,11,endexp,New York,N11,SARA,19x13_NY16,Male,Cold,16.2,68,New York - Cold
+12/30/18,3/17/19,77,11,endexp,New York,N11,SARA,19x13_NY17,Female,Cold,12.78,66.5,New York - Cold
+12/30/18,3/17/19,77,11,endexp,New York,N11,SARA,19x13_NY18,Male,Warm,16,69,New York - Warm
+4/6/19,6/20/19,75,10.71,endexp,New York,N12,SARA,19x13_NY23,Female,Cold,16.69,74.5,New York - Cold
+4/6/19,6/18/19,73,10.43,endexp,New York,N12,SARA,19x13_NY24,Male,Warm,17.95,73,New York - Warm
+4/6/19,6/20/19,75,10.71,endexp,New York,N12,SARA,19x13_NY25,Female,Warm,14.08,70.5,New York - Warm
+4/6/19,6/18/19,73,10.43,endexp,New York,N12,SARA,19x13_NY26,Male,Cold,17.3,73,New York - Cold
+4/28/19,7/19/19,82,11.71,endexp,New York,N12,SARA,19x13_NY32,Male,Cold,17.44,73,New York - Cold
+4/28/19,7/19/19,82,11.71,endexp,New York,N12,SARA,19x13_NY33,Female,Warm,17.23,72,New York - Warm
+4/28/19,7/19/19,82,11.71,endexp,New York,N12,SARA,19x13_NY34,Male,Warm,16.31,72,New York - Warm
+6/29/18,7/31/18,32,4.57,na,New York,N11,SARA,19x13_NY1,Female,Warm,13.71,66.5,New York - Warm
+6/29/18,7/31/18,32,4.57,na,New York,N11,SARA,19x13_NY2,Male,Warm,13.11,70,New York - Warm
+6/29/18,7/31/18,32,4.57,na,New York,N11,SARA,19x13_NY3,Female,Warm,13.06,65.5,New York - Warm
+6/29/18,7/31/18,32,4.57,na,New York,N11,SARA,19x13_NY4,Male,Cold,12.35,61.5,New York - Cold
+6/29/18,7/31/18,32,4.57,na,New York,N11,SARA,19x13_NY5,Female,Cold,12.34,64,New York - Cold
+6/29/18,8/7/18,39,5.57,na,New York,N11,SARA,19x13_NY1,Female,Warm,14.69,70,New York - Warm
+6/29/18,8/7/18,39,5.57,na,New York,N11,SARA,19x13_NY2,Male,Warm,15.18,73,New York - Warm
+6/29/18,8/7/18,39,5.57,na,New York,N11,SARA,19x13_NY3,Female,Warm,14.52,70,New York - Warm
+6/29/18,8/7/18,39,5.57,na,New York,N11,SARA,19x13_NY4,Male,Cold,14.72,64.5,New York - Cold
+6/29/18,8/7/18,39,5.57,na,New York,N11,SARA,19x13_NY5,Female,Cold,13.06,66,New York - Cold
+6/29/18,8/14/18,46,6.57,na,New York,N11,SARA,19x13_NY1,Female,Warm,13.65,71,New York - Warm
+6/29/18,8/14/18,46,6.57,na,New York,N11,SARA,19x13_NY2,Male,Warm,15.32,74,New York - Warm
+6/29/18,8/14/18,46,6.57,na,New York,N11,SARA,19x13_NY3,Female,Warm,14.83,70,New York - Warm
+6/29/18,8/14/18,46,6.57,na,New York,N11,SARA,19x13_NY4,Male,Cold,15.16,67,New York - Cold
+6/29/18,8/14/18,46,6.57,na,New York,N11,SARA,19x13_NY5,Female,Cold,13.47,66,New York - Cold
+6/29/18,8/21/18,53,7.57,na,New York,N11,SARA,19x13_NY1,Female,Warm,14.18,71.5,New York - Warm
+6/29/18,8/21/18,53,7.57,na,New York,N11,SARA,19x13_NY2,Male,Warm,15.52,75,New York - Warm
+6/29/18,8/21/18,53,7.57,na,New York,N11,SARA,19x13_NY3,Female,Warm,15.27,71,New York - Warm
+6/29/18,8/21/18,53,7.57,na,New York,N11,SARA,19x13_NY4,Male,Cold,15.51,68,New York - Cold
+6/29/18,8/21/18,53,7.57,na,New York,N11,SARA,19x13_NY5,Female,Cold,14.08,67.5,New York - Cold
+6/29/18,8/28/18,60,8.57,na,New York,N11,SARA,19x13_NY1,Female,Warm,14.2,71.5,New York - Warm
+6/29/18,8/28/18,60,8.57,na,New York,N11,SARA,19x13_NY2,Male,Warm,15.26,75.5,New York - Warm
+6/29/18,8/28/18,60,8.57,na,New York,N11,SARA,19x13_NY3,Female,Warm,14.24,71,New York - Warm
+6/29/18,8/28/18,60,8.57,na,New York,N11,SARA,19x13_NY4,Male,Cold,15.28,69.5,New York - Cold
+6/29/18,8/28/18,60,8.57,na,New York,N11,SARA,19x13_NY5,Female,Cold,13.31,69.5,New York - Cold
+6/29/18,9/4/18,67,9.57,na,New York,N11,SARA,19x13_NY1,Female,Warm,14.5,72,New York - Warm
+6/29/18,9/4/18,67,9.57,na,New York,N11,SARA,19x13_NY2,Male,Warm,15.6,75.5,New York - Warm
+6/29/18,9/4/18,67,9.57,na,New York,N11,SARA,19x13_NY3,Female,Warm,14.9,71,New York - Warm
+6/29/18,9/4/18,67,9.57,na,New York,N11,SARA,19x13_NY4,Male,Cold,16.31,70.5,New York - Cold
+6/29/18,9/4/18,67,9.57,na,New York,N11,SARA,19x13_NY5,Female,Cold,13.65,69.5,New York - Cold
+7/20/18,8/21/18,32,4.57,na,New York,N11,SARA,19x13_NY7,Female,Cold,12.06,57,New York - Cold
+7/20/18,8/21/18,32,4.57,na,New York,N11,SARA,19x13_NY6,Male,Cold,12.95,57.5,New York - Cold
+7/20/18,8/21/18,32,4.57,na,New York,N11,SARA,19x13_NY8,Male,Warm,11.15,57.5,New York - Warm
+7/20/18,8/28/18,39,5.57,na,New York,N11,SARA,19x13_NY7,Female,Cold,13.57,61.5,New York - Cold
+7/20/18,8/28/18,39,5.57,na,New York,N11,SARA,19x13_NY6,Male,Cold,14.97,62.5,New York - Cold
+7/20/18,8/28/18,39,5.57,na,New York,N11,SARA,19x13_NY8,Male,Warm,11.47,63.5,New York - Warm
+7/20/18,9/4/18,46,6.57,na,New York,N11,SARA,19x13_NY7,Female,Cold,15.5,61.5,New York - Cold
+7/20/18,9/4/18,46,6.57,na,New York,N11,SARA,19x13_NY6,Male,Cold,16.7,65.5,New York - Cold
+7/20/18,9/4/18,46,6.57,na,New York,N11,SARA,19x13_NY8,Male,Warm,12.24,65.5,New York - Warm
+7/20/18,9/11/18,53,7.57,na,New York,N11,SARA,19x13_NY7,Female,Cold,16.43,69.5,New York - Cold
+7/20/18,9/11/18,53,7.57,na,New York,N11,SARA,19x13_NY6,Male,Cold,16.84,69,New York - Cold
+7/20/18,9/11/18,53,7.57,na,New York,N11,SARA,19x13_NY8,Male,Warm,12.14,67,New York - Warm
+7/20/18,9/18/18,60,8.57,na,New York,N11,SARA,19x13_NY7,Female,Cold,16.47,71,New York - Cold
+7/20/18,9/18/18,60,8.57,na,New York,N11,SARA,19x13_NY6,Male,Cold,17.86,71.5,New York - Cold
+7/20/18,9/18/18,60,8.57,na,New York,N11,SARA,19x13_NY8,Male,Warm,13.06,69,New York - Warm
+7/20/18,9/25/18,67,9.57,na,New York,N11,SARA,19x13_NY7,Female,Cold,16.7,73,New York - Cold
+7/20/18,9/25/18,67,9.57,na,New York,N11,SARA,19x13_NY6,Male,Cold,18.02,71.5,New York - Cold
+7/20/18,9/25/18,67,9.57,na,New York,N11,SARA,19x13_NY8,Male,Warm,12.85,70.5,New York - Warm
+8/10/18,9/11/18,32,4.57,na,New York,N11,SARA,19x13_NY9,Female,Warm,12.33,62.5,New York - Warm
+8/10/18,9/11/18,32,4.57,na,New York,N11,SARA,19x13_NY10,Male,Cold,12.9,64,New York - Cold
+8/10/18,9/11/18,32,4.57,na,New York,N11,SARA,19x13_NY12,Male,Warm,13.46,66,New York - Warm
+8/10/18,9/18/18,39,5.57,na,New York,N11,SARA,19x13_NY9,Female,Warm,13.76,66.5,New York - Warm
+8/10/18,9/18/18,39,5.57,na,New York,N11,SARA,19x13_NY10,Male,Cold,15.53,67,New York - Cold
+8/10/18,9/18/18,39,5.57,na,New York,N11,SARA,19x13_NY12,Male,Warm,16.53,69,New York - Warm
+8/10/18,9/25/18,46,6.57,na,New York,N11,SARA,19x13_NY9,Female,Warm,14.55,69,New York - Warm
+8/10/18,9/25/18,46,6.57,na,New York,N11,SARA,19x13_NY10,Male,Cold,16.07,70,New York - Cold
+8/10/18,9/25/18,46,6.57,na,New York,N11,SARA,19x13_NY12,Male,Warm,17.27,73,New York - Warm
+8/10/18,10/2/18,53,7.57,na,New York,N11,SARA,19x13_NY9,Female,Warm,15.11,71,New York - Warm
+8/10/18,10/2/18,53,7.57,na,New York,N11,SARA,19x13_NY10,Male,Cold,16.07,71.5,New York - Cold
+8/10/18,10/2/18,53,7.57,na,New York,N11,SARA,19x13_NY12,Male,Warm,18.76,74.5,New York - Warm
+8/10/18,10/9/18,60,8.57,na,New York,N11,SARA,19x13_NY9,Female,Warm,15.13,73.5,New York - Warm
+8/10/18,10/9/18,60,8.57,na,New York,N11,SARA,19x13_NY10,Male,Cold,16.36,72.5,New York - Cold
+8/10/18,10/9/18,60,8.57,na,New York,N11,SARA,19x13_NY12,Male,Warm,18.67,75.5,New York - Warm
+8/10/18,10/16/18,67,9.57,na,New York,N11,SARA,19x13_NY9,Female,Warm,14.97,74,New York - Warm
+8/10/18,10/16/18,67,9.57,na,New York,N11,SARA,19x13_NY10,Male,Cold,16.33,73,New York - Cold
+8/10/18,10/16/18,67,9.57,na,New York,N11,SARA,19x13_NY12,Male,Warm,19.39,76.5,New York - Warm
+11/13/18,12/16/18,33,4.71,na,New York,N11,SARA,19x13_NY11,Female,Cold,12.04,56.5,New York - Cold
+11/13/18,12/29/18,46,6.57,na,New York,N11,SARA,19x13_NY11,Female,Cold,14.49,63.5,New York - Cold
+11/13/18,1/12/19,60,8.57,na,New York,N11,SARA,19x13_NY11,Female,Cold,14.92,67.5,New York - Cold
+11/13/18,1/21/19,69,9.86,na,New York,N11,SARA,19x13_NY11,Female,Cold,15.39,69,New York - Cold
+11/13/18,12/16/18,33,4.71,na,New York,N11,SARA,19x13_NY13,Female,Cold,11.26,55,New York - Cold
+11/13/18,12/29/18,46,6.57,na,New York,N11,SARA,19x13_NY13,Female,Cold,13.34,62.5,New York - Cold
+11/13/18,1/12/19,60,8.57,na,New York,N11,SARA,19x13_NY13,Female,Cold,13.57,64.5,New York - Cold
+11/13/18,1/21/19,69,9.86,na,New York,N11,SARA,19x13_NY13,Female,Cold,14.36,66,New York - Cold
+11/13/18,12/16/18,33,4.71,na,New York,N11,SARA,19x13_NY14,Male,Cold,12.35,56,New York - Cold
+11/13/18,12/29/18,46,6.57,na,New York,N11,SARA,19x13_NY14,Male,Cold,15.13,65,New York - Cold
+11/13/18,1/12/19,60,8.57,na,New York,N11,SARA,19x13_NY14,Male,Cold,15.58,68.5,New York - Cold
+11/13/18,1/21/19,69,9.86,na,New York,N11,SARA,19x13_NY14,Male,Cold,15.75,69.5,New York - Cold
+11/13/18,12/16/18,33,4.71,na,New York,N11,SARA,19x13_NY15,Female,Warm,9.87,57,New York - Warm
+11/13/18,12/29/18,46,6.57,na,New York,N11,SARA,19x13_NY15,Female,Warm,10.81,65,New York - Warm
+11/13/18,1/12/19,60,8.57,na,New York,N11,SARA,19x13_NY15,Female,Warm,12.52,66.5,New York - Warm
+11/13/18,1/21/19,69,9.86,na,New York,N11,SARA,19x13_NY15,Female,Warm,12.55,67.5,New York - Warm
+12/30/18,1/31/19,32,4.57,na,New York,N11,SARA,19x13_NY16,Male,Cold,12.85,58.5,New York - Cold
+12/30/18,2/8/19,40,5.71,na,New York,N11,SARA,19x13_NY16,Male,Cold,15.08,63,New York - Cold
+12/30/18,2/16/19,48,6.86,na,New York,N11,SARA,19x13_NY16,Male,Cold,15.25,60,New York - Cold
+12/30/18,2/28/19,60,8.57,na,New York,N11,SARA,19x13_NY16,Male,Cold,15.85,67.5,New York - Cold
+12/30/18,3/8/19,68,9.71,na,New York,N11,SARA,19x13_NY16,Male,Cold,16.61,68,New York - Cold
+12/30/18,1/31/19,32,4.57,na,New York,N11,SARA,19x13_NY17,Female,Cold,10.04,55,New York - Cold
+12/30/18,2/8/19,40,5.71,na,New York,N11,SARA,19x13_NY17,Female,Cold,11.25,58,New York - Cold
+12/30/18,2/16/19,48,6.86,na,New York,N11,SARA,19x13_NY17,Female,Cold,12.35,59,New York - Cold
+12/30/18,2/28/19,60,8.57,na,New York,N11,SARA,19x13_NY17,Female,Cold,12.46,64,New York - Cold
+12/30/18,3/8/19,68,9.71,na,New York,N11,SARA,19x13_NY17,Female,Cold,13.03,65,New York - Cold
+12/30/18,1/31/19,32,4.57,na,New York,N11,SARA,19x13_NY18,Male,Warm,11.16,58,New York - Warm
+12/30/18,2/8/19,40,5.71,na,New York,N11,SARA,19x13_NY18,Male,Warm,13.46,62.5,New York - Warm
+12/30/18,2/16/19,48,6.86,na,New York,N11,SARA,19x13_NY18,Male,Warm,15.14,65.5,New York - Warm
+12/30/18,2/28/19,60,8.57,na,New York,N11,SARA,19x13_NY18,Male,Warm,16.37,69,New York - Warm
+12/30/18,3/8/19,68,9.71,na,New York,N11,SARA,19x13_NY18,Male,Warm,16.98,69,New York - Warm
+4/6/19,5/10/19,34,4.86,na,New York,N12,SARA,19x13_NY23,Female,Cold,14.61,69,New York - Cold
+4/6/19,5/16/19,40,5.71,na,New York,N12,SARA,19x13_NY23,Female,Cold,16,71,New York - Cold
+4/6/19,5/22/19,46,6.57,na,New York,N12,SARA,19x13_NY23,Female,Cold,15.98,72,New York - Cold
+4/6/19,5/30/19,54,7.71,na,New York,N12,SARA,19x13_NY23,Female,Cold,15.71,73.5,New York - Cold
+4/6/19,5/10/19,34,4.86,na,New York,N12,SARA,19x13_NY24,Male,Warm,15.6,70.5,New York - Warm
+4/6/19,5/16/19,40,5.71,na,New York,N12,SARA,19x13_NY24,Male,Warm,17.12,71.5,New York - Warm
+4/6/19,5/22/19,46,6.57,na,New York,N12,SARA,19x13_NY24,Male,Warm,15.81,70.5,New York - Warm
+4/6/19,5/30/19,54,7.71,na,New York,N12,SARA,19x13_NY24,Male,Warm,16.44,73,New York - Warm
+4/6/19,5/10/19,34,4.86,na,New York,N12,SARA,19x13_NY25,Female,Warm,12.28,66.5,New York - Warm
+4/6/19,5/16/19,40,5.71,na,New York,N12,SARA,19x13_NY25,Female,Warm,13.09,67.5,New York - Warm
+4/6/19,5/22/19,46,6.57,na,New York,N12,SARA,19x13_NY25,Female,Warm,12.86,68.5,New York - Warm
+4/6/19,5/30/19,54,7.71,na,New York,N12,SARA,19x13_NY25,Female,Warm,13.12,68.5,New York - Warm
+4/6/19,5/10/19,34,4.86,na,New York,N12,SARA,19x13_NY26,Male,Cold,12.99,68,New York - Cold
+4/6/19,5/16/19,40,5.71,na,New York,N12,SARA,19x13_NY26,Male,Cold,13.82,69,New York - Cold
+4/6/19,5/22/19,46,6.57,na,New York,N12,SARA,19x13_NY26,Male,Cold,14.65,70.5,New York - Cold
+4/6/19,5/30/19,54,7.71,na,New York,N12,SARA,19x13_NY26,Male,Cold,14.98,72,New York - Cold
+4/28/19,5/30/19,32,4.57,na,New York,N12,SARA,19x13_NY32,Male,Cold,13.56,67,New York - Cold
+4/28/19,6/12/19,45,6.43,na,New York,N12,SARA,19x13_NY32,Male,Cold,17.52,NA,New York - Cold
+4/28/19,5/30/19,32,4.57,na,New York,N12,SARA,19x13_NY33,Female,Warm,12.61,65,New York - Warm
+4/28/19,6/12/19,45,6.43,na,New York,N12,SARA,19x13_NY33,Female,Warm,14.24,NA,New York - Warm
+4/28/19,5/30/19,32,4.57,na,New York,N12,SARA,19x13_NY34,Male,Warm,11.1,64,New York - Warm
+4/28/19,6/12/19,45,6.43,na,New York,N12,SARA,19x13_NY34,Male,Warm,12.63,NA,New York - Warm
+6/29/18,7/24/18,25,3.57,startexp,New York,N11,SARA,19x13_NY1,Female,Warm,11.66,60,New York - Warm
+6/29/18,7/24/18,25,3.57,startexp,New York,N11,SARA,19x13_NY2,Male,Warm,10.38,61.5,New York - Warm
+6/29/18,7/24/18,25,3.57,startexp,New York,N11,SARA,19x13_NY3,Female,Warm,11.05,60.5,New York - Warm
+6/29/18,7/24/18,25,3.57,startexp,New York,N11,SARA,19x13_NY4,Male,Cold,10.58,57,New York - Cold
+6/29/18,7/24/18,25,3.57,startexp,New York,N11,SARA,19x13_NY5,Female,Cold,11.29,58,New York - Cold
+7/20/18,8/14/18,25,3.57,startexp,New York,N11,SARA,19x13_NY7,Female,Cold,9.52,53,New York - Cold
+7/20/18,8/14/18,25,3.57,startexp,New York,N11,SARA,19x13_NY6,Male,Cold,10.7,55,New York - Cold
+7/20/18,8/14/18,25,3.57,startexp,New York,N11,SARA,19x13_NY8,Male,Warm,8.89,53,New York - Warm
+8/10/18,9/4/18,25,3.57,startexp,New York,N11,SARA,19x13_NY9,Female,Warm,9.87,60.5,New York - Warm
+8/10/18,9/4/18,25,3.57,startexp,New York,N11,SARA,19x13_NY10,Male,Cold,9.77,59,New York - Cold
+8/10/18,9/4/18,25,3.57,startexp,New York,N11,SARA,19x13_NY12,Male,Warm,10.76,58,New York - Warm
+11/13/18,12/8/18,25,3.57,startexp,New York,N11,SARA,19x13_NY13,Female,Cold,8.77,49,New York - Cold
+11/13/18,12/8/18,25,3.57,startexp,New York,N11,SARA,19x13_NY14,Male,Cold,9.38,51.5,New York - Cold
+11/13/18,12/8/18,25,3.57,startexp,New York,N11,SARA,19x13_NY15,Female,Warm,7.9,49.5,New York - Warm
+12/30/18,1/25/19,26,3.71,startexp,New York,N11,SARA,19x13_NY16,Male,Cold,9.91,53.5,New York - Cold
+12/30/18,1/25/19,26,3.71,startexp,New York,N11,SARA,19x13_NY17,Female,Cold,8.61,53.5,New York - Cold
+12/30/18,1/25/19,26,3.71,startexp,New York,N11,SARA,19x13_NY18,Male,Warm,9.32,53.5,New York - Warm
+4/6/19,5/1/19,25,3.57,startexp,New York,N12,SARA,19x13_NY23,Female,Cold,10.29,63.5,New York - Cold
+4/6/19,5/1/19,25,3.57,startexp,New York,N12,SARA,19x13_NY24,Male,Warm,10.69,57.5,New York - Warm
+4/6/19,5/1/19,25,3.57,startexp,New York,N12,SARA,19x13_NY25,Female,Warm,8.93,59,New York - Warm
+4/6/19,5/1/19,25,3.57,startexp,New York,N12,SARA,19x13_NY26,Male,Cold,10.61,65,New York - Cold
+4/28/19,5/23/19,25,3.57,startexp,New York,N12,SARA,19x13_NY32,Male,Cold,9.63,60.5,New York - Cold
+4/28/19,5/23/19,25,3.57,startexp,New York,N12,SARA,19x13_NY33,Female,Warm,10.62,61,New York - Warm
+4/28/19,5/23/19,25,3.57,startexp,New York,N12,SARA,19x13_NY34,Male,Warm,9.22,58,New York - Warm
+6/29/18,7/19/18,20,2.86,weaning,New York,N11,SARA,19x13_NY1,Female,Warm,8.7,55.5,New York - Warm
+6/29/18,7/19/18,20,2.86,weaning,New York,N11,SARA,19x13_NY2,Male,Warm,8.18,55,New York - Warm
+6/29/18,7/19/18,20,2.86,weaning,New York,N11,SARA,19x13_NY3,Female,Warm,8.89,56,New York - Warm
+6/29/18,7/19/18,20,2.86,weaning,New York,N11,SARA,19x13_NY4,Male,Cold,8.46,53,New York - Cold
+6/29/18,7/19/18,20,2.86,weaning,New York,N11,SARA,19x13_NY5,Female,Cold,8.5,55.5,New York - Cold
+7/20/18,8/9/18,20,2.86,weaning,New York,N11,SARA,19x13_NY7,Female,Cold,6.55,48,New York - Cold
+7/20/18,8/9/18,20,2.86,weaning,New York,N11,SARA,19x13_NY6,Male,Cold,6.89,47.5,New York - Cold
+7/20/18,8/9/18,20,2.86,weaning,New York,N11,SARA,19x13_NY8,Male,Warm,5.99,47,New York - Warm
+8/10/18,9/1/18,22,3.14,weaning,New York,N11,SARA,19x13_NY9,Female,Warm,9.21,57,New York - Warm
+8/10/18,9/1/18,22,3.14,weaning,New York,N11,SARA,19x13_NY10,Male,Cold,8.48,56.5,New York - Cold
+8/10/18,9/1/18,22,3.14,weaning,New York,N11,SARA,19x13_NY12,Male,Warm,9.52,57,New York - Warm
+11/13/18,12/5/18,22,3.14,weaning,New York,N11,SARA,19x13_NY13,Female,Cold,6.93,48,New York - Cold
+11/13/18,12/5/18,22,3.14,weaning,New York,N11,SARA,19x13_NY14,Male,Cold,7.04,48,New York - Cold
+11/13/18,12/5/18,22,3.14,weaning,New York,N11,SARA,19x13_NY15,Female,Warm,6.77,46.5,New York - Warm
+6/9/18,8/25/18,77,11,endexp,Brazil,N12,MANB,222x254_BZ1,Female,Cold,13.49,70,Brazil - Cold
+6/9/18,8/25/18,77,11,endexp,Brazil,N12,MANB,222x254_BZ2,Male,Cold,15.81,76,Brazil - Cold
+6/9/18,8/25/18,77,11,endexp,Brazil,N12,MANB,222x254_BZ3,Female,Warm,13.48,78,Brazil - Warm
+7/20/18,10/9/18,81,11.57,endexp,Brazil,N12,MANB,222x254_BZ4,Male,Warm,14.9,79.5,Brazil - Warm
+7/20/18,10/9/18,81,11.57,endexp,Brazil,N12,MANB,222x254_BZ5,Female,Warm,13.34,82,Brazil - Warm
+7/20/18,10/9/18,81,11.57,endexp,Brazil,N12,MANB,222x254_BZ7,Female,Cold,12.36,74,Brazil - Cold
+7/20/18,10/9/18,81,11.57,endexp,Brazil,N12,MANB,222x254_BZ9,Female,Cold,13.96,78,Brazil - Cold
+8/12/18,10/27/18,76,10.86,endexp,Brazil,N12,MANB,222x254_BZ6,Male,Warm,15.71,81.5,Brazil - Warm
+8/12/18,10/27/18,76,10.86,endexp,Brazil,N12,MANB,222x254_BZ8,Male,Warm,14.01,77.5,Brazil - Warm
+8/12/18,10/27/18,76,10.86,endexp,Brazil,N12,MANB,222x254_BZ10,Male,Cold,14.85,78.5,Brazil - Cold
+8/12/18,10/27/18,76,10.86,endexp,Brazil,N12,MANB,222x254_BZ11,Female,Warm,11.96,75,Brazil - Warm
+8/12/18,10/27/18,76,10.86,endexp,Brazil,N12,MANB,222x254_BZ13,Female,Cold,13.04,73,Brazil - Cold
+8/12/18,10/27/18,76,10.86,endexp,Brazil,N12,MANB,222x254_BZ15,Female,Cold,12.76,74,Brazil - Cold
+6/9/18,7/11/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ1,Female,Cold,9.96,65,Brazil - Cold
+6/9/18,7/11/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ2,Male,Cold,11.35,66,Brazil - Cold
+6/9/18,7/11/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ3,Female,Warm,9.8,65.5,Brazil - Warm
+6/9/18,7/18/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ1,Female,Cold,11.23,65,Brazil - Cold
+6/9/18,7/18/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ2,Male,Cold,13.48,68.5,Brazil - Cold
+6/9/18,7/18/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ3,Female,Warm,12.27,71.5,Brazil - Warm
+6/9/18,7/25/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ1,Female,Cold,12.66,66.5,Brazil - Cold
+6/9/18,7/25/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ2,Male,Cold,13.88,71,Brazil - Cold
+6/9/18,7/25/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ3,Female,Warm,12.88,74.5,Brazil - Warm
+6/9/18,8/1/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ1,Female,Cold,12.66,69.5,Brazil - Cold
+6/9/18,8/1/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ2,Male,Cold,14.4,73,Brazil - Cold
+6/9/18,8/1/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ3,Female,Warm,13.26,77.5,Brazil - Warm
+6/9/18,8/8/18,60,8.57,na,Brazil,N12,MANB,222x254_BZ1,Female,Cold,13.34,69.5,Brazil - Cold
+6/9/18,8/8/18,60,8.57,na,Brazil,N12,MANB,222x254_BZ2,Male,Cold,15.14,73,Brazil - Cold
+6/9/18,8/8/18,60,8.57,na,Brazil,N12,MANB,222x254_BZ3,Female,Warm,13.16,77.5,Brazil - Warm
+6/9/18,8/15/18,67,9.57,na,Brazil,N12,MANB,222x254_BZ1,Female,Cold,13.12,69.5,Brazil - Cold
+6/9/18,8/15/18,67,9.57,na,Brazil,N12,MANB,222x254_BZ2,Male,Cold,15.55,73,Brazil - Cold
+6/9/18,8/15/18,67,9.57,na,Brazil,N12,MANB,222x254_BZ3,Female,Warm,13.21,77.5,Brazil - Warm
+6/9/18,8/22/18,74,10.57,na,Brazil,N12,MANB,222x254_BZ1,Female,Cold,13.12,70,Brazil - Cold
+6/9/18,8/22/18,74,10.57,na,Brazil,N12,MANB,222x254_BZ2,Male,Cold,15.85,75,Brazil - Cold
+6/9/18,8/22/18,74,10.57,na,Brazil,N12,MANB,222x254_BZ3,Female,Warm,13.23,78,Brazil - Warm
+7/20/18,8/21/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ4,Male,Warm,11.87,70.5,Brazil - Warm
+7/20/18,8/21/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ5,Female,Warm,9.76,71,Brazil - Warm
+7/20/18,8/21/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ7,Female,Cold,8.76,66.5,Brazil - Cold
+7/20/18,8/21/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ9,Female,Cold,9.85,68.5,Brazil - Cold
+7/20/18,8/28/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ4,Male,Warm,13.05,75,Brazil - Warm
+7/20/18,8/28/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ5,Female,Warm,11.33,75.5,Brazil - Warm
+7/20/18,8/28/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ7,Female,Cold,10.17,66.5,Brazil - Cold
+7/20/18,8/28/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ9,Female,Cold,11.6,72,Brazil - Cold
+7/20/18,9/4/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ4,Male,Warm,13.83,77.5,Brazil - Warm
+7/20/18,9/4/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ5,Female,Warm,12.36,78,Brazil - Warm
+7/20/18,9/4/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ7,Female,Cold,11.7,69.5,Brazil - Cold
+7/20/18,9/4/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ9,Female,Cold,12.51,73.5,Brazil - Cold
+7/20/18,9/11/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ4,Male,Warm,14.01,77.5,Brazil - Warm
+7/20/18,9/11/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ5,Female,Warm,12.37,79.5,Brazil - Warm
+7/20/18,9/11/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ7,Female,Cold,12.39,70,Brazil - Cold
+7/20/18,9/11/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ9,Female,Cold,12.69,76,Brazil - Cold
+7/20/18,9/18/18,60,8.57,na,Brazil,N12,MANB,222x254_BZ4,Male,Warm,14.23,78.5,Brazil - Warm
+7/20/18,9/18/18,60,8.57,na,Brazil,N12,MANB,222x254_BZ5,Female,Warm,12.66,81.5,Brazil - Warm
+7/20/18,9/18/18,60,8.57,na,Brazil,N12,MANB,222x254_BZ7,Female,Cold,12.93,70,Brazil - Cold
+7/20/18,9/18/18,60,8.57,na,Brazil,N12,MANB,222x254_BZ9,Female,Cold,13.25,77,Brazil - Cold
+7/20/18,9/25/18,67,9.57,na,Brazil,N12,MANB,222x254_BZ4,Male,Warm,14.27,79,Brazil - Warm
+7/20/18,9/25/18,67,9.57,na,Brazil,N12,MANB,222x254_BZ5,Female,Warm,12.6,81.5,Brazil - Warm
+7/20/18,9/25/18,67,9.57,na,Brazil,N12,MANB,222x254_BZ7,Female,Cold,12.4,72.5,Brazil - Cold
+7/20/18,9/25/18,67,9.57,na,Brazil,N12,MANB,222x254_BZ9,Female,Cold,13.19,78,Brazil - Cold
+7/20/18,10/4/18,76,10.86,na,Brazil,N12,MANB,222x254_BZ4,Male,Warm,14.87,79.5,Brazil - Warm
+7/20/18,10/4/18,76,10.86,na,Brazil,N12,MANB,222x254_BZ5,Female,Warm,12.76,82,Brazil - Warm
+7/20/18,10/4/18,76,10.86,na,Brazil,N12,MANB,222x254_BZ7,Female,Cold,12.03,74,Brazil - Cold
+7/20/18,10/4/18,76,10.86,na,Brazil,N12,MANB,222x254_BZ9,Female,Cold,13.2,78,Brazil - Cold
+8/12/18,9/13/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ6,Male,Warm,11.58,71.5,Brazil - Warm
+8/12/18,9/13/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ8,Male,Warm,11.28,69,Brazil - Warm
+8/12/18,9/13/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ10,Male,Cold,12.27,70,Brazil - Cold
+8/12/18,9/13/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ11,Female,Warm,9.22,66,Brazil - Warm
+8/12/18,9/13/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ13,Female,Cold,9.92,66,Brazil - Cold
+8/12/18,9/13/18,32,4.57,na,Brazil,N12,MANB,222x254_BZ15,Female,Cold,10.3,65.5,Brazil - Cold
+8/12/18,9/20/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ6,Male,Warm,14.01,76.5,Brazil - Warm
+8/12/18,9/20/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ8,Male,Warm,13,73,Brazil - Warm
+8/12/18,9/22/18,41,5.86,na,Brazil,N12,MANB,222x254_BZ10,Male,Cold,13.73,74,Brazil - Cold
+8/12/18,9/20/18,39,5.57,na,Brazil,N12,MANB,222x254_BZ11,Female,Warm,10.65,69.5,Brazil - Warm
+8/12/18,9/22/18,41,5.86,na,Brazil,N12,MANB,222x254_BZ13,Female,Cold,11.27,68.5,Brazil - Cold
+8/12/18,9/22/18,41,5.86,na,Brazil,N12,MANB,222x254_BZ15,Female,Cold,12.69,68,Brazil - Cold
+8/12/18,9/27/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ6,Male,Warm,15.08,78,Brazil - Warm
+8/12/18,9/27/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ8,Male,Warm,13.3,75,Brazil - Warm
+8/12/18,9/27/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ10,Male,Cold,13.81,74,Brazil - Cold
+8/12/18,9/27/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ11,Female,Warm,11.79,69.5,Brazil - Warm
+8/12/18,9/27/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ13,Female,Cold,12.39,68.5,Brazil - Cold
+8/12/18,9/27/18,46,6.57,na,Brazil,N12,MANB,222x254_BZ15,Female,Cold,12.7,69.5,Brazil - Cold
+8/12/18,10/4/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ6,Male,Warm,15.33,79.5,Brazil - Warm
+8/12/18,10/4/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ8,Male,Warm,13.36,76,Brazil - Warm
+8/12/18,10/4/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ10,Male,Cold,13.99,74.5,Brazil - Cold
+8/12/18,10/4/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ11,Female,Warm,12.33,73.5,Brazil - Warm
+8/12/18,10/4/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ13,Female,Cold,12.26,70.5,Brazil - Cold
+8/12/18,10/4/18,53,7.57,na,Brazil,N12,MANB,222x254_BZ15,Female,Cold,12.58,71.5,Brazil - Cold
+8/12/18,10/12/18,61,8.71,na,Brazil,N12,MANB,222x254_BZ6,Male,Warm,15.5,81,Brazil - Warm
+8/12/18,10/12/18,61,8.71,na,Brazil,N12,MANB,222x254_BZ8,Male,Warm,13.98,76.5,Brazil - Warm
+8/12/18,10/12/18,61,8.71,na,Brazil,N12,MANB,222x254_BZ10,Male,Cold,14.66,74.5,Brazil - Cold
+8/12/18,10/12/18,61,8.71,na,Brazil,N12,MANB,222x254_BZ11,Female,Warm,12.27,74,Brazil - Warm
+8/12/18,10/12/18,61,8.71,na,Brazil,N12,MANB,222x254_BZ13,Female,Cold,12.63,72.5,Brazil - Cold
+8/12/18,10/12/18,61,8.71,na,Brazil,N12,MANB,222x254_BZ15,Female,Cold,13.15,71.5,Brazil - Cold
+8/12/18,10/19/18,68,9.71,na,Brazil,N12,MANB,222x254_BZ6,Male,Warm,15.73,81,Brazil - Warm
+8/12/18,10/19/18,68,9.71,na,Brazil,N12,MANB,222x254_BZ8,Male,Warm,14.03,77,Brazil - Warm
+8/12/18,10/19/18,68,9.71,na,Brazil,N12,MANB,222x254_BZ10,Male,Cold,14.72,76.5,Brazil - Cold
+8/12/18,10/19/18,68,9.71,na,Brazil,N12,MANB,222x254_BZ11,Female,Warm,12.13,75,Brazil - Warm
+8/12/18,10/19/18,68,9.71,na,Brazil,N12,MANB,222x254_BZ13,Female,Cold,12.98,73,Brazil - Cold
+8/12/18,10/19/18,68,9.71,na,Brazil,N12,MANB,222x254_BZ15,Female,Cold,12.86,71.5,Brazil - Cold
+6/9/18,7/5/18,26,3.71,startexp,Brazil,N12,MANB,222x254_BZ1,Female,Cold,8.28,63,Brazil - Cold
+6/9/18,7/5/18,26,3.71,startexp,Brazil,N12,MANB,222x254_BZ2,Male,Cold,8.72,65,Brazil - Cold
+6/9/18,7/5/18,26,3.71,startexp,Brazil,N12,MANB,222x254_BZ3,Female,Warm,7.73,60,Brazil - Warm
+7/20/18,8/14/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ4,Male,Warm,9.14,66,Brazil - Warm
+7/20/18,8/14/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ5,Female,Warm,8.25,67,Brazil - Warm
+7/20/18,8/14/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ7,Female,Cold,7.3,66.5,Brazil - Cold
+7/20/18,8/14/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ9,Female,Cold,8.16,66.5,Brazil - Cold
+8/12/18,9/6/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ6,Male,Warm,9.25,66,Brazil - Warm
+8/12/18,9/6/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ8,Male,Warm,8.89,63.5,Brazil - Warm
+8/12/18,9/6/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ10,Male,Cold,9.5,66.5,Brazil - Cold
+8/12/18,9/6/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ11,Female,Warm,7.93,61,Brazil - Warm
+8/12/18,9/6/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ13,Female,Cold,8.08,63.5,Brazil - Cold
+8/12/18,9/6/18,25,3.57,startexp,Brazil,N12,MANB,222x254_BZ15,Female,Cold,7.52,61.5,Brazil - Cold
+6/9/18,6/30/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ1,Female,Cold,6.01,56,Brazil - Cold
+6/9/18,6/30/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ2,Male,Cold,5.96,56,Brazil - Cold
+6/9/18,6/30/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ3,Female,Warm,4.82,54.5,Brazil - Warm
+8/12/18,9/2/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ6,Male,Warm,7.66,62.5,Brazil - Warm
+8/12/18,9/2/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ8,Male,Warm,7.02,59.5,Brazil - Warm
+8/12/18,9/2/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ10,Male,Cold,8.17,63,Brazil - Cold
+8/12/18,9/2/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ11,Female,Warm,6.6,57,Brazil - Warm
+8/12/18,9/2/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ13,Female,Cold,7.05,62,Brazil - Cold
+8/12/18,9/2/18,21,3,weaning,Brazil,N12,MANB,222x254_BZ15,Female,Cold,6.5,58.5,Brazil - Cold
+6/10/18,8/26/18,77,11,endexp,New York,N12,SARB,82x81_NY1,Female,Cold,18.1,64.5,New York - Cold
+6/10/18,8/26/18,77,11,endexp,New York,N12,SARB,82x81_NY2,Male,Warm,21.84,72,New York - Warm
+6/10/18,8/26/18,77,11,endexp,New York,N12,SARB,82x81_NY4,Male,Cold,18.38,65.5,New York - Cold
+6/10/18,8/26/18,77,11,endexp,New York,N12,SARB,82x81_NY6,Male,Cold,18.38,66.5,New York - Cold
+6/10/18,8/26/18,77,11,endexp,New York,N12,SARB,82x81_NY8,Male,Warm,21.35,71.5,New York - Warm
+6/10/18,8/26/18,77,11,endexp,New York,N12,SARB,82x81_NY10,Male,Warm,19.23,70.5,New York - Warm
+7/7/18,9/17/18,72,10.29,endexp,New York,N12,SARB,82x81_NY3,Female,Warm,17.72,71,New York - Warm
+7/7/18,9/17/18,72,10.29,endexp,New York,N12,SARB,82x81_NY5,Female,Cold,17.8,67,New York - Cold
+7/7/18,9/17/18,72,10.29,endexp,New York,N12,SARB,82x81_NY7,Female,Warm,16.61,67.5,New York - Warm
+8/19/18,11/3/18,76,10.86,endexp,New York,N12,SARB,82x81_NY9,Female,Cold,15.72,63.5,New York - Cold
+8/19/18,11/3/18,76,10.86,endexp,New York,N12,SARB,82x81_NY11,Female,Cold,19.59,71.5,New York - Cold
+8/19/18,11/3/18,76,10.86,endexp,New York,N12,SARB,82x81_NY12,Male,Cold,23.48,74.5,New York - Cold
+8/19/18,11/3/18,76,10.86,endexp,New York,N12,SARB,82x81_NY13,Female,Warm,16.36,69,New York - Warm
+8/19/18,11/3/18,76,10.86,endexp,New York,N12,SARB,82x81_NY15,Female,Cold,18.88,70,New York - Cold
+8/19/18,11/3/18,76,10.86,endexp,New York,N12,SARB,82x81_NY17,Female,Warm,16.82,70,New York - Warm
+6/10/18,7/12/18,32,4.57,na,New York,N12,SARB,82x81_NY1,Female,Cold,15.61,62,New York - Cold
+6/10/18,7/12/18,32,4.57,na,New York,N12,SARB,82x81_NY2,Male,Warm,17.65,65,New York - Warm
+6/10/18,7/12/18,32,4.57,na,New York,N12,SARB,82x81_NY4,Male,Cold,14.23,62,New York - Cold
+6/10/18,7/12/18,32,4.57,na,New York,N12,SARB,82x81_NY6,Male,Cold,14.47,63,New York - Cold
+6/10/18,7/12/18,32,4.57,na,New York,N12,SARB,82x81_NY8,Male,Warm,17.78,65.5,New York - Warm
+6/10/18,7/12/18,32,4.57,na,New York,N12,SARB,82x81_NY10,Male,Warm,18.54,68,New York - Warm
+6/10/18,7/19/18,39,5.57,na,New York,N12,SARB,82x81_NY1,Female,Cold,17.39,62.5,New York - Cold
+6/10/18,7/19/18,39,5.57,na,New York,N12,SARB,82x81_NY2,Male,Warm,19.36,66,New York - Warm
+6/10/18,7/19/18,39,5.57,na,New York,N12,SARB,82x81_NY4,Male,Cold,16.16,62,New York - Cold
+6/10/18,7/19/18,39,5.57,na,New York,N12,SARB,82x81_NY6,Male,Cold,15.88,64,New York - Cold
+6/10/18,7/19/18,39,5.57,na,New York,N12,SARB,82x81_NY8,Male,Warm,19.86,67,New York - Warm
+6/10/18,7/19/18,39,5.57,na,New York,N12,SARB,82x81_NY10,Male,Warm,19.13,68,New York - Warm
+6/10/18,7/26/18,46,6.57,na,New York,N12,SARB,82x81_NY1,Female,Cold,17.7,63,New York - Cold
+6/10/18,7/26/18,46,6.57,na,New York,N12,SARB,82x81_NY2,Male,Warm,19.33,66,New York - Warm
+6/10/18,7/26/18,46,6.57,na,New York,N12,SARB,82x81_NY4,Male,Cold,16.84,62.5,New York - Cold
+6/10/18,7/26/18,46,6.57,na,New York,N12,SARB,82x81_NY6,Male,Cold,16.66,64.5,New York - Cold
+6/10/18,7/26/18,46,6.57,na,New York,N12,SARB,82x81_NY8,Male,Warm,19.6,69.5,New York - Warm
+6/10/18,7/26/18,46,6.57,na,New York,N12,SARB,82x81_NY10,Male,Warm,18.71,68,New York - Warm
+6/10/18,8/2/18,53,7.57,na,New York,N12,SARB,82x81_NY1,Female,Cold,16.99,64,New York - Cold
+6/10/18,8/2/18,53,7.57,na,New York,N12,SARB,82x81_NY2,Male,Warm,20.35,70,New York - Warm
+6/10/18,8/2/18,53,7.57,na,New York,N12,SARB,82x81_NY4,Male,Cold,17.31,63.5,New York - Cold
+6/10/18,8/2/18,53,7.57,na,New York,N12,SARB,82x81_NY6,Male,Cold,16.58,65,New York - Cold
+6/10/18,8/2/18,53,7.57,na,New York,N12,SARB,82x81_NY8,Male,Warm,19.99,71.5,New York - Warm
+6/10/18,8/2/18,53,7.57,na,New York,N12,SARB,82x81_NY10,Male,Warm,18.83,69,New York - Warm
+6/10/18,8/9/18,60,8.57,na,New York,N12,SARB,82x81_NY1,Female,Cold,17.14,64,New York - Cold
+6/10/18,8/9/18,60,8.57,na,New York,N12,SARB,82x81_NY2,Male,Warm,20.66,70.5,New York - Warm
+6/10/18,8/9/18,60,8.57,na,New York,N12,SARB,82x81_NY4,Male,Cold,17.77,64,New York - Cold
+6/10/18,8/9/18,60,8.57,na,New York,N12,SARB,82x81_NY6,Male,Cold,16.44,65,New York - Cold
+6/10/18,8/9/18,60,8.57,na,New York,N12,SARB,82x81_NY8,Male,Warm,19.55,71.5,New York - Warm
+6/10/18,8/9/18,60,8.57,na,New York,N12,SARB,82x81_NY10,Male,Warm,19.01,70,New York - Warm
+6/10/18,8/16/18,67,9.57,na,New York,N12,SARB,82x81_NY1,Female,Cold,18.02,64.5,New York - Cold
+6/10/18,8/16/18,67,9.57,na,New York,N12,SARB,82x81_NY2,Male,Warm,21.68,71,New York - Warm
+6/10/18,8/16/18,67,9.57,na,New York,N12,SARB,82x81_NY4,Male,Cold,18.23,65.5,New York - Cold
+6/10/18,8/16/18,67,9.57,na,New York,N12,SARB,82x81_NY6,Male,Cold,17.67,66.5,New York - Cold
+6/10/18,8/16/18,67,9.57,na,New York,N12,SARB,82x81_NY8,Male,Warm,20.95,71.5,New York - Warm
+6/10/18,8/16/18,67,9.57,na,New York,N12,SARB,82x81_NY10,Male,Warm,19.7,70.5,New York - Warm
+6/10/18,8/23/18,74,10.57,na,New York,N12,SARB,82x81_NY1,Female,Cold,17.87,64.5,New York - Cold
+6/10/18,8/23/18,74,10.57,na,New York,N12,SARB,82x81_NY2,Male,Warm,21.87,72,New York - Warm
+6/10/18,8/23/18,74,10.57,na,New York,N12,SARB,82x81_NY4,Male,Cold,18.74,65.5,New York - Cold
+6/10/18,8/23/18,74,10.57,na,New York,N12,SARB,82x81_NY6,Male,Cold,17.87,66.5,New York - Cold
+6/10/18,8/23/18,74,10.57,na,New York,N12,SARB,82x81_NY8,Male,Warm,20.86,71.5,New York - Warm
+6/10/18,8/23/18,74,10.57,na,New York,N12,SARB,82x81_NY10,Male,Warm,19.31,70.5,New York - Warm
+7/7/18,8/8/18,32,4.57,na,New York,N12,SARB,82x81_NY3,Female,Warm,15.04,65,New York - Warm
+7/7/18,8/8/18,32,4.57,na,New York,N12,SARB,82x81_NY5,Female,Cold,15.13,62,New York - Cold
+7/7/18,8/8/18,32,4.57,na,New York,N12,SARB,82x81_NY7,Female,Warm,14.52,63,New York - Warm
+7/7/18,8/15/18,39,5.57,na,New York,N12,SARB,82x81_NY3,Female,Warm,16.1,66.5,New York - Warm
+7/7/18,8/15/18,39,5.57,na,New York,N12,SARB,82x81_NY5,Female,Cold,16.06,63.5,New York - Cold
+7/7/18,8/15/18,39,5.57,na,New York,N12,SARB,82x81_NY7,Female,Warm,15.16,65,New York - Warm
+7/7/18,8/22/18,46,6.57,na,New York,N12,SARB,82x81_NY3,Female,Warm,16.57,68,New York - Warm
+7/7/18,8/22/18,46,6.57,na,New York,N12,SARB,82x81_NY5,Female,Cold,16.28,65,New York - Cold
+7/7/18,8/22/18,46,6.57,na,New York,N12,SARB,82x81_NY7,Female,Warm,15.31,65,New York - Warm
+7/7/18,8/29/18,53,7.57,na,New York,N12,SARB,82x81_NY3,Female,Warm,16.57,70,New York - Warm
+7/7/18,8/29/18,53,7.57,na,New York,N12,SARB,82x81_NY5,Female,Cold,16.6,66.5,New York - Cold
+7/7/18,8/29/18,53,7.57,na,New York,N12,SARB,82x81_NY7,Female,Warm,15.56,67.5,New York - Warm
+7/7/18,9/5/18,60,8.57,na,New York,N12,SARB,82x81_NY3,Female,Warm,17.09,70.5,New York - Warm
+7/7/18,9/5/18,60,8.57,na,New York,N12,SARB,82x81_NY5,Female,Cold,16.42,67,New York - Cold
+7/7/18,9/5/18,60,8.57,na,New York,N12,SARB,82x81_NY7,Female,Warm,16.96,67.5,New York - Warm
+7/7/18,9/13/18,68,9.71,na,New York,N12,SARB,82x81_NY3,Female,Warm,16.82,71,New York - Warm
+7/7/18,9/13/18,68,9.71,na,New York,N12,SARB,82x81_NY5,Female,Cold,17.1,67,New York - Cold
+7/7/18,9/13/18,68,9.71,na,New York,N12,SARB,82x81_NY7,Female,Warm,15.9,67.5,New York - Warm
+8/19/18,9/22/18,34,4.86,na,New York,N12,SARB,82x81_NY9,Female,Cold,13.17,60,New York - Cold
+8/19/18,9/22/18,34,4.86,na,New York,N12,SARB,82x81_NY11,Female,Cold,15.76,66.5,New York - Cold
+8/19/18,9/22/18,34,4.86,na,New York,N12,SARB,82x81_NY12,Male,Cold,18.18,67.5,New York - Cold
+8/19/18,9/20/18,32,4.57,na,New York,N12,SARB,82x81_NY13,Female,Warm,13.9,63.5,New York - Warm
+8/19/18,9/22/18,34,4.86,na,New York,N12,SARB,82x81_NY15,Female,Cold,14.7,65,New York - Cold
+8/19/18,9/20/18,32,4.57,na,New York,N12,SARB,82x81_NY17,Female,Warm,13.53,64,New York - Warm
+8/19/18,9/27/18,39,5.57,na,New York,N12,SARB,82x81_NY9,Female,Cold,14.66,60,New York - Cold
+8/19/18,9/27/18,39,5.57,na,New York,N12,SARB,82x81_NY11,Female,Cold,18.05,67,New York - Cold
+8/19/18,9/27/18,39,5.57,na,New York,N12,SARB,82x81_NY12,Male,Cold,20.15,69,New York - Cold
+8/19/18,9/27/18,39,5.57,na,New York,N12,SARB,82x81_NY13,Female,Warm,16.24,65,New York - Warm
+8/19/18,9/27/18,39,5.57,na,New York,N12,SARB,82x81_NY15,Female,Cold,15.75,67,New York - Cold
+8/19/18,9/27/18,39,5.57,na,New York,N12,SARB,82x81_NY17,Female,Warm,15.29,66.5,New York - Warm
+8/19/18,10/4/18,46,6.57,na,New York,N12,SARB,82x81_NY9,Female,Cold,14.21,62.5,New York - Cold
+8/19/18,10/4/18,46,6.57,na,New York,N12,SARB,82x81_NY11,Female,Cold,18.45,69,New York - Cold
+8/19/18,10/4/18,46,6.57,na,New York,N12,SARB,82x81_NY12,Male,Cold,20.18,72,New York - Cold
+8/19/18,10/4/18,46,6.57,na,New York,N12,SARB,82x81_NY13,Female,Warm,15.95,67,New York - Warm
+8/19/18,10/4/18,46,6.57,na,New York,N12,SARB,82x81_NY15,Female,Cold,16.42,67.5,New York - Cold
+8/19/18,10/4/18,46,6.57,na,New York,N12,SARB,82x81_NY17,Female,Warm,15.23,68.5,New York - Warm
+8/19/18,10/12/18,54,7.71,na,New York,N12,SARB,82x81_NY9,Female,Cold,14.69,62,New York - Cold
+8/19/18,10/12/18,54,7.71,na,New York,N12,SARB,82x81_NY11,Female,Cold,18.09,69,New York - Cold
+8/19/18,10/12/18,54,7.71,na,New York,N12,SARB,82x81_NY12,Male,Cold,20.5,72.5,New York - Cold
+8/19/18,10/12/18,54,7.71,na,New York,N12,SARB,82x81_NY13,Female,Warm,16.26,68,New York - Warm
+8/19/18,10/12/18,54,7.71,na,New York,N12,SARB,82x81_NY15,Female,Cold,16.68,69,New York - Cold
+8/19/18,10/12/18,54,7.71,na,New York,N12,SARB,82x81_NY17,Female,Warm,15.99,68.5,New York - Warm
+8/19/18,10/19/18,61,8.71,na,New York,N12,SARB,82x81_NY9,Female,Cold,15.85,63.5,New York - Cold
+8/19/18,10/19/18,61,8.71,na,New York,N12,SARB,82x81_NY11,Female,Cold,18.89,71.5,New York - Cold
+8/19/18,10/19/18,61,8.71,na,New York,N12,SARB,82x81_NY12,Male,Cold,21.68,74.5,New York - Cold
+8/19/18,10/19/18,61,8.71,na,New York,N12,SARB,82x81_NY13,Female,Warm,16.52,69,New York - Warm
+8/19/18,10/19/18,61,8.71,na,New York,N12,SARB,82x81_NY15,Female,Cold,17.71,70,New York - Cold
+8/19/18,10/19/18,61,8.71,na,New York,N12,SARB,82x81_NY17,Female,Warm,16.62,69,New York - Warm
+6/10/18,7/5/18,25,3.57,startexp,New York,N12,SARB,82x81_NY1,Female,Cold,13.63,61,New York - Cold
+6/10/18,7/5/18,25,3.57,startexp,New York,N12,SARB,82x81_NY2,Male,Warm,12.1,62.5,New York - Warm
+6/10/18,7/5/18,25,3.57,startexp,New York,N12,SARB,82x81_NY4,Male,Cold,12.36,61.5,New York - Cold
+6/10/18,7/5/18,25,3.57,startexp,New York,N12,SARB,82x81_NY6,Male,Cold,12.56,63,New York - Cold
+6/10/18,7/5/18,25,3.57,startexp,New York,N12,SARB,82x81_NY8,Male,Warm,12.64,62.5,New York - Warm
+6/10/18,7/5/18,25,3.57,startexp,New York,N12,SARB,82x81_NY10,Male,Warm,13.15,62.5,New York - Warm
+7/7/18,8/1/18,25,3.57,startexp,New York,N12,SARB,82x81_NY3,Female,Warm,13.7,61,New York - Warm
+7/7/18,8/1/18,25,3.57,startexp,New York,N12,SARB,82x81_NY5,Female,Cold,12.65,58.5,New York - Cold
+7/7/18,8/1/18,25,3.57,startexp,New York,N12,SARB,82x81_NY7,Female,Warm,13.17,60,New York - Warm
+8/19/18,9/13/18,25,3.57,startexp,New York,N12,SARB,82x81_NY9,Female,Cold,10.37,57,New York - Cold
+8/19/18,9/13/18,25,3.57,startexp,New York,N12,SARB,82x81_NY11,Female,Cold,13.06,62,New York - Cold
+8/19/18,9/13/18,25,3.57,startexp,New York,N12,SARB,82x81_NY12,Male,Cold,13.68,63.5,New York - Cold
+8/19/18,9/13/18,25,3.57,startexp,New York,N12,SARB,82x81_NY13,Female,Warm,11.56,61,New York - Warm
+8/19/18,9/13/18,25,3.57,startexp,New York,N12,SARB,82x81_NY15,Female,Cold,11.78,62,New York - Cold
+8/19/18,9/13/18,25,3.57,startexp,New York,N12,SARB,82x81_NY17,Female,Warm,11.44,60.5,New York - Warm
+6/10/18,7/1/18,21,3,weaning,New York,N12,SARB,82x81_NY1,Female,Cold,11.34,58,New York - Cold
+6/10/18,7/1/18,21,3,weaning,New York,N12,SARB,82x81_NY2,Male,Warm,10.02,53,New York - Warm
+6/10/18,7/1/18,21,3,weaning,New York,N12,SARB,82x81_NY4,Male,Cold,9.89,56,New York - Cold
+6/10/18,7/1/18,21,3,weaning,New York,N12,SARB,82x81_NY6,Male,Cold,10.38,56,New York - Cold
+6/10/18,7/1/18,21,3,weaning,New York,N12,SARB,82x81_NY8,Male,Warm,10.61,56,New York - Warm
+6/10/18,7/1/18,21,3,weaning,New York,N12,SARB,82x81_NY10,Male,Warm,10.18,56,New York - Warm
+7/7/18,7/27/18,20,2.86,weaning,New York,N12,SARB,82x81_NY3,Female,Warm,10.88,57,New York - Warm
+7/7/18,7/27/18,20,2.86,weaning,New York,N12,SARB,82x81_NY5,Female,Cold,10.87,55,New York - Cold
+7/7/18,7/27/18,20,2.86,weaning,New York,N12,SARB,82x81_NY7,Female,Warm,10.63,55.5,New York - Warm
+8/19/18,9/10/18,22,3.14,weaning,New York,N12,SARB,82x81_NY9,Female,Cold,10.13,56.5,New York - Cold
+8/19/18,9/10/18,22,3.14,weaning,New York,N12,SARB,82x81_NY11,Female,Cold,12.06,60.5,New York - Cold
+8/19/18,9/10/18,22,3.14,weaning,New York,N12,SARB,82x81_NY12,Male,Cold,12.83,62,New York - Cold
+8/19/18,9/10/18,22,3.14,weaning,New York,N12,SARB,82x81_NY13,Female,Warm,11.04,59,New York - Warm
+8/19/18,9/10/18,22,3.14,weaning,New York,N12,SARB,82x81_NY15,Female,Cold,11.56,60.5,New York - Cold
+8/19/18,9/10/18,22,3.14,weaning,New York,N12,SARB,82x81_NY17,Female,Warm,11.59,59,New York - Warm

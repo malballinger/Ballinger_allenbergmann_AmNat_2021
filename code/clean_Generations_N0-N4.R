@@ -1,0 +1,43 @@
+#!/usr/bin/env Rscript --vanilla
+
+##############################################################
+
+# Author: Mallory A. Ballinger
+
+# This script cleans the metadata file: data/raw/colony_metadata_RAW_v2.xlsx
+# The generated, cleaned data set is used for downstream analyses in Ballinger_AmNat_2021.
+
+
+##############################################################
+# Required packages
+##############################################################
+
+rm(list = ls()) # clear R's environment
+library(tidyverse)
+library(here)
+library(readxl)
+
+
+##############################################################
+# Import & clean data
+##############################################################
+
+GenerationMetaData <- read_xlsx(here("data/raw/colony_metadata_RAW_v2.xlsx"),
+                             col_types = NULL) %>%
+  rename("Total_Length_mm" = "TotalLength_mm",
+         "Tail_Length_mm" = "TailLength_mm",
+         "Hindfoot_Length_mm" = "HindfootLength_mm",
+         "Ear_Length_mm" = "EarLength_mm",
+         "Body_Weight_g" = "BodyMass_g",
+         "Body_Length_mm" = "BodyLength_mm") %>%
+  mutate(Sex = fct_recode(Sex, "Female" = "F", "Male" = "M")) %>%
+  mutate(Population = fct_recode(Population, "Brazil" = "BRAZIL", "New York" = "NEW_YORK"))
+
+
+# Sample size of dataset
+FullSampleSize <- nrow(GenerationMetaData)
+# n = 600
+
+
+write.csv(GenerationMetaData, file = "results/tables/GenerationColonyData_N0-N4.csv", row.names = TRUE)
+write.csv(GenerationMetaData, file = "data/processed/GenerationColonyData_N0-N4.csv", row.names = TRUE)

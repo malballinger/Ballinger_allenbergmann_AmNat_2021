@@ -91,7 +91,7 @@ Fmassridge <-
   theme_half_open(20) +
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.y = element_text(margin = margin(r = 5), size = 9, face = "bold", family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 5), size = 9, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.position = c(0.025, 0.94),
@@ -186,8 +186,8 @@ Ftailridge <-
   theme_half_open(20) +
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino", hjust = 1.15),
-        axis.title.y = element_text(margin = margin(r = 3), size = 8, face = "bold", family = "Palatino"),
+        axis.title.x = element_text(margin = margin(t = 10), size = 10, family = "Palatino", hjust = 1.15),
+        axis.title.y = element_text(margin = margin(r = 3), size = 8, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.position = "none",
@@ -230,8 +230,8 @@ Mtailridge <-
   theme_half_open(20) +
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino", hjust = 0.6),
-        axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino"),
+        axis.title.x = element_text(margin = margin(t = 10), size = 10, family = "Palatino", hjust = 0.6),
+        axis.title.y = element_text(margin = margin(r = 10), size = 10, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
@@ -292,8 +292,8 @@ Fearridge <-
   theme_half_open(20) +
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 12), size = 10, face = "bold", family = "Palatino", hjust = 1.2),
-        axis.title.y = element_text(margin = margin(r = 3), size = 8, face = "bold", family = "Palatino"),
+        axis.title.x = element_text(margin = margin(t = 12), size = 10, family = "Palatino", hjust = 1.2),
+        axis.title.y = element_text(margin = margin(r = 3), size = 8, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.position = "none",
@@ -336,8 +336,8 @@ Mearridge <-
   theme_half_open(20) +
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino", hjust = 0.6),
-        axis.title.y = element_text(margin = margin(r = 10), size = 9, face = "bold", family = "Palatino"),
+        axis.title.x = element_text(margin = margin(t = 10), size = 10, family = "Palatino", hjust = 0.6),
+        axis.title.y = element_text(margin = margin(r = 10), size = 9, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),

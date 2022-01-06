@@ -1,1 +1,1 @@
-Files associated with manuscript submission to *The American Naturalist*.
+Files associated with our manuscript submission to *The American Naturalist*.

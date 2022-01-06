@@ -6,10 +6,11 @@ Mallory A. Ballinger and Michael W. Nachman<br>(last updated: January 5, 2022)
 See our bioRxiv preprint here:
 [![DOI:10.1101/2021.06.14.448454](http://img.shields.io/badge/DOI-10.1101/2021.06.14.448454-B31B1B.svg)](https://doi.org/10.1101/2021.06.14.448454)
 
+Data and code have been deposited on Zenodo:
+[![DOI](https://zenodo.org/badge/322908625.svg)](https://zenodo.org/badge/latestdoi/322908625)
 
-Abstract:
 
-Distinguishing between genetic, environmental, and
+**Abstract**:<br>Distinguishing between genetic, environmental, and
 genotype-by-environment effects is central to understanding geographic
 variation in phenotypic clines. Two of the best-documented phenotypic
 clines are Bergmann’s rule and Allen’s rule, which describe larger body

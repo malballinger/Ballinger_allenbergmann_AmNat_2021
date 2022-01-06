@@ -1,14 +1,14 @@
 ---
 title: "The contribution of genetic and environmental effects to Bergmann's rule and Allen's rule in house mice"
 author: "Mallory A. Ballinger and Michael W. Nachman"
-date: "(last updated: October 26, 2021)"
+date: "(last updated: January 5, 2022)"
 output:
   github_document:
     html_preview: false
 ---
 Abstract:
 
-Distinguishing between genetic, environmental, and genotype-by-environment effects is central to understanding geographic variation in phenotypic clines. Two of the best-documented phenotypic clines are Bergmann’s rule and Allen’s rule, which describe larger body sizes and shortened extremities in colder climates, respectively. Although numerous studies have found inter- and intraspecific evidence for both ecogeographic patterns, we still have little understanding about whether these patterns are driven by genetics, environment, or both. Here, we measured the genetic and environmental contributions to Bergmann’s rule and Allen’s rule across introduced populations of house mice (*Mus musculus domesticus*) in the Americas. First, we documented clines for body mass, tail length, and ear length in natural populations, and found that these conform to both Bergmann's rule and Allen's rule. We then raised descendants of wild-caught mice in the lab and showed that these differences persisted in a common environment, indicating that they have a genetic basis. Finally, using a full-sib design, we reared mice under warm and cold conditions. We found very little plasticity associated with body size, suggesting that Bergmann’s rule has been shaped by strong directional selection in house mice. However, extremities showed considerable plasticity, as both tails and ears grew shorter in cold environments. These results indicate that adaptive phenotypic plasticity as well as genetic changes underlie major patterns of clinal variation in house mice and likely facilitated their rapid expansion into new environments across the Americas.
+Distinguishing between genetic, environmental, and genotype-by-environment effects is central to understanding geographic variation in phenotypic clines. Two of the best-documented phenotypic clines are Bergmann’s rule and Allen’s rule, which describe larger body sizes and shortened extremities in colder climates, respectively. Although numerous studies have found inter- and intraspecific evidence for both ecogeographic patterns, we still have a poor understanding of the extent to which these patterns are driven by genetics, environment, or both. Here, we measured the genetic and environmental contributions to Bergmann’s rule and Allen’s rule across introduced populations of house mice (*Mus musculus domesticus*) in the Americas. First, we documented clines for body mass, tail length, and ear length in natural populations, and found that these conform to both Bergmann’s rule and Allen’s rule. We then raised descendants of wild-caught mice in the lab and showed that these differences persisted in a common environment and are heritable, indicating that they have a genetic basis. Finally, using a full-sib design, we reared mice under warm and cold conditions. We found very little plasticity associated with body size, suggesting that Bergmann’s rule has been shaped by strong directional selection in house mice. However, extremities showed considerable plasticity, as both tails and ears grew shorter in cold environments. These results indicate that adaptive phenotypic plasticity as well as genetic changes underlie major patterns of clinal variation in house mice and likely facilitated their rapid expansion into new environments across the Americas.
 
 
 Overview:
@@ -19,17 +19,17 @@ Overview:
     |
     |- data            # raw and processed data, are not changed once created
     |  |- raw/         # raw data, will not be altered
-    |  +- processed/   # cleaned data, will not be altered once created
+    |  |- processed/   # cleaned data, will not be altered once created
     |
     |- code/           # programmatic code for cleaning, modeling, and plotting
     |
     |- results/        # all output from workflows and analyses
-    |  |- tables/      # tables, likely designated for manuscript tables
-    |  |- figures/     # graphs, likely designated for manuscript figures
+    |  |- tables/      # tables, designated for supplementary material
+    |  |- figures/     # graphs, designated for manuscript figures
     |
     |- submission      # files for manuscript
     |
-    +- Makefile        # executable Makefile for this study
+    |- Makefile        # executable Makefile for this study
 
 ```{r libraries, message=FALSE, echo=FALSE}
 library(tidyverse)

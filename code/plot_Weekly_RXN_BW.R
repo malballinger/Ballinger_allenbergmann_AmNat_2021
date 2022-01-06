@@ -83,7 +83,7 @@ FemaleBW <-
         axis.title.y = element_text(margin = margin(r = 10), size = 10, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
-        legend.position = c(0.03, 0.89),
+        legend.position = c(0.03, 0.87),
         legend.background = element_blank(),
         legend.box.background = element_blank(),
         legend.key.height = unit(0.2, "cm"),

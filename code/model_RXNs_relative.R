@@ -4,9 +4,9 @@
 
 # Author: Mallory A. Ballinger
 
-# This script models *relative* extremity lengths from house mice of common garden
-# experiment #2. Data were cleaned using the script ./clean_RXNs.R.
-# This script generates statistical analyses for Ballinger_AmNat_2021, and generates Figure S2.
+# This script models body mass and relative extremity lengths from house mice of common garden
+# experiment #2. Data were cleaned using ./clean_RXNs.R.
+# This script generates statistical analyses for Ballinger_AmNat_2021, reported in Table 1.
 
 
 ################################################################################
@@ -25,11 +25,14 @@ library(car)
 library(nlme)
 library(dotwhisker)
 library(report)
+library(patchwork)
+library(effectsize)
 
 set.seed(19910118)
 
 #set global contrasts
 options(contrasts = c("contr.sum", "contr.poly")) # for Type III SSS
+
 
 ################################################################################
 # Import data               
@@ -56,16 +59,10 @@ FemaleData <- PostDissectionMetaData %>%
   filter(Sex == "Female")
 
 
-
-
-
 ################################################################################
 # Data and Model testing
 # *Bergmann's rule*
 ################################################################################
-
-# Refer to exploratory/Modeling_RXN_2021-02-19.Rmd' for initial model testing and exploration.
-
 
 #PostDissectionMetaData %>% ggplot(aes(x=Body_Weight_g)) + geom_histogram(binwidth = 1)
 
@@ -80,52 +77,13 @@ FemaleData <- PostDissectionMetaData %>%
 # Full model - all sexes
 mod.full.BW <- lmer(Body_Weight_g ~ Sex * Population * Environment + (1|Line),
                     data = PostDissectionMetaData)
-#check_model(mod.full.BW)
-#shapiro.test(resid(mod.full.BW)) # normally distributed
+#check_model(mod.full.BW) looks great
 
-
-# Stats - all sexes
-summary(mod.full.BW)
-report(mod.full.BW)
 # Anova P test
 #anova(mod.full.BW) # Satterthwaite's method
-car::Anova(mod.full.BW, type = "III")
-# car::Anova(lmer(Body_Weight_g ~ Sex * Population * Environment + (1|Line),
-# data = PostDissectionMetaData), type = "III")
-# Posthoc Tukey's test
-# post_BW <- emmeans::emmeans(mod.full.BW, specs = c("Population"), adjust = "tukey")
-# pwpp(post_BW)
+Anova_mod.full.BW <- car::Anova(mod.full.BW, type = "III")
 
-
-# # Full model - males
-# mod.full.BW_M <- lmer(Body_Weight_g ~ Population * Environment + (1|Line),
-#                    data = MaleData)
-# #check_model(mod.full.BW_M)
-# #shapiro.test(resid(mod.full.BW_M)) # normally distributed
-# 
-# 
-# # Stats - males
-# summary(mod.full.BW_M)
-# # Anova P test
-# car::Anova(mod.full.BW_M, type = "III")
-# # Posthoc Tukey's test
-# #emmeans::emmeans(mod.full.BW_M, ~ Population | Environment)
-# 
-# 
-# # Full model - females
-# mod.full.BW_F <- lmer(Body_Weight_g ~ Population * Environment + (1|Line),
-#                       data = FemaleData)
-# #check_model(mod.full.BW_F)
-# #shapiro.test(resid(mod.full.BW_F)) # normally distributed
-# 
-# 
-# # Stats - Females
-# summary(mod.full.BW_F)
-# # Anova P test
-# car::Anova(mod.full.BW_F, type = "III")
-
-
-
+effect_size_RXN_BW <- omega_squared(mod.full.BW)
 
 
 #PostDissectionMetaData %>% ggplot(aes(x=BMI_kg_m2)) + geom_histogram(binwidth = 1)
@@ -150,11 +108,6 @@ summary(mod.full.BMI)
 report(mod.full.BMI)
 # Anova P test
 car::Anova(mod.full.BMI, type = "III")
-# car::Anova(lmer(BMI_kg_m2 ~ Sex * Population * Environment + (1|Line),
-#                 data = PostDissectionMetaData), type = "III")
-
-
-
 
 
 ################################################################################
@@ -163,15 +116,6 @@ car::Anova(mod.full.BMI, type = "III")
 ################################################################################
 
 # Refer to exploratory/Modeling_RXN_2021-02-19.Rmd' for initial model testing and exploration.
-
-
-#PostDissectionMetaData %>% ggplot(aes(x=Final_Tail_Length_mm)) + geom_histogram(binwidth = 1)
-
-# TLOutliers <- PostDissectionMetaData %>%
-#    summarise(PostDissectionMetaData, meanTL = mean(Final_Tail_Length_mm, na.rm = TRUE),
-#              sdTL = sd(Final_Tail_Length_mm, na.rm = TRUE)) %>%
-#    filter(Final_Tail_Length_mm < (meanTL - 3*sdTL) |
-#           Final_Tail_Length_mm > (meanTL + 3*sdTL))
  
 # no outliers below 3 stdev from mean
 
@@ -179,20 +123,13 @@ car::Anova(mod.full.BMI, type = "III")
 # Full model - all sexes
 mod.full.TL <- lmer(RelativeTail ~ Sex * Population * Environment + (1|Line),
                     data = PostDissectionMetaData, REML = T)
-#check_model(mod.full.TL)
-#shapiro.test(resid(mod.full.TL)) # normally distributed
+#check_model(mod.full.TL) # looks great
 
 
-# Stats - all sexes
-summary(mod.full.TL)
-report(mod.full.TL)
 # Anova P test
-car::Anova(mod.full.TL, type = "III")
-car::Anova(lmer(RelativeTail ~ Sex * Population * Environment + (1|Line),
-                data = PostDissectionMetaData), type = "III")
+Anova_mod.full.TL <- car::Anova(mod.full.TL, type = "III")
 
-
-
+effect_size_RXN_TL <- omega_squared(mod.full.TL)
 
 
 ################################################################################
@@ -220,59 +157,10 @@ PostDissection_filtered <- PostDissectionMetaData %>%
 # Full model - all sexes
 mod.full.EL <- lmer(RelativeEar ~ Sex * Population * Environment + (1|Line),
                     data = PostDissection_filtered)
+#check_model(mod.full.EL) # looks good
 
-#check_model(mod.full.EL)
-#shapiro.test(resid(mod.full.EL)) # normally distributed
-
-
-# Stats - all sexes
-summary(mod.full.EL)
-report(mod.full.EL)
 # Anova NP test
-car::Anova(lmer(RelativeEar ~ Sex * Population * Environment + (1|Line), data = PostDissection_filtered), type = "III")
-car::Anova(mod.full.EL, type = "III")
+Anova_mod.full.EL <- car::Anova(mod.full.EL, type = "III")
 
+effect_size_RXN_EL <- omega_squared(mod.full.EL)
 
-
-
-
-################################################################################
-# Plot model results
-################################################################################
-
-Model_RXNs <-
-  dwplot(list(mod.full.BW, mod.full.TL, mod.full.EL, mod.full.BMI), show_intercept = FALSE,
-         vline = geom_vline(xintercept = 0, colour = "grey60", linetype = 2)) %>%
-  relabel_predictors(Sex1 = "Sex",
-                     Population1 = "Population",
-                     Environment1 = "Environment",
-                     'Sex1:Population1' = "Sex : Population",
-                     'Sex1:Environment1' = "Sex : Environment",
-                     'Population1:Environment1' = "Population : Environment",
-                     'Sex1:Population1:Environment1' = "Sex : Population : Environment",
-                    '(Intercept)' = "Intercept") +
-  scale_color_manual(values = c("purple", "black", "springgreen3", "darkgray"),
-                     breaks = c("Model 1", "Model 2", "Model 3", "Model 4"),
-                     labels = c("Body Mass", "Relative Tail Length", "Relative Ear Length", "BMI")) +
-  theme_bw() + xlab("Coefficient Estimate") + ylab("") +
-  ggtitle("(Trait) ~ Sex * Population * Environment") +
-  theme(axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino", hjust = 0.6),
-        axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino"),
-        axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
-        axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
-        plot.title = element_text(size = 9, face = "bold.italic", hjust = 0.5, vjust = 0, family = "Palatino"),
-        legend.key.size = unit(0.35, "cm"),
-        legend.position = c(0.725, 0.05),
-        legend.text = element_text(size=8, family = "Palatino"),
-        legend.justification = c(0, 0), 
-        legend.background = element_rect(colour="grey80"),
-        legend.title = element_blank(),
-        legend.margin = margin(0.1, 3, 0.3, 0),
-        legend.spacing.x = unit(0.5, "mm"),
-        legend.spacing.y = unit(0.5, "mm"))
-
-
-cowplot::plot_grid(Model_RXNs, ncol=1, nrow=1, label_fontfamily = "Palatino", align = 'hv')
-
-ggsave("results/figures/RXNsModel_relative.tiff", height = 5, width = 7, compression = "lzw")
-ggsave("results/figures/RXNsModel_relative.pdf", height = 5, width = 7)

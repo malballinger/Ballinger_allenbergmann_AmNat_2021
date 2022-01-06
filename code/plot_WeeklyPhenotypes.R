@@ -165,8 +165,8 @@ FemaleTL <-
   theme_half_open(20) +
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino"),
-        axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino", hjust = -2),
+        axis.title.x = element_text(margin = margin(t = 10), size = 10, family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 10), size = 10, family = "Palatino", hjust = -2),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.position = c(0.6, 0.15),
@@ -203,8 +203,8 @@ MaleTL <-
   theme_half_open(20) +
   panel_border() + # puts border around facets
   theme(panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.title.x = element_text(margin = margin(t = 10), size = 10, face = "bold", family = "Palatino"),
-        axis.title.y = element_text(margin = margin(r = 10), size = 10, face = "bold", family = "Palatino"),
+        axis.title.x = element_text(margin = margin(t = 10), size = 10, family = "Palatino"),
+        axis.title.y = element_text(margin = margin(r = 10), size = 10, family = "Palatino"),
         axis.text.x = element_text(size = 8, color = "black", family = "Palatino"),
         axis.text.y = element_text(size = 8, color = "black", family = "Palatino"),
         legend.position = "none",

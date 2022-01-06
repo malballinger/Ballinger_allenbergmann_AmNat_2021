@@ -7,7 +7,7 @@ See our bioRxiv preprint here:
 [![DOI:10.1101/2021.06.14.448454](http://img.shields.io/badge/DOI-10.1101/2021.06.14.448454-B31B1B.svg)](https://doi.org/10.1101/2021.06.14.448454)
 
 Data and code have been deposited on Zenodo:
-[![DOI](https://zenodo.org/badge/322908625.svg)](https://zenodo.org/badge/latestdoi/322908625)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5823597.svg)](https://doi.org/10.5281/zenodo.5823597)
 
 
 **Abstract**:<br>Distinguishing between genetic, environmental, and

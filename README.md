@@ -4,6 +4,9 @@ and Allen’s rule in house mice
 Mallory A. Ballinger and Michael W. Nachman
 (last updated: January 5, 2022)
 
+See our bioRxiv preprint here:
+[\[DOI:10.1101/2021.06.14.448454\]((http://img.shields.io/badge/DOI-DOI:10.1101/2021.06.14.448454-B31B1B.svg)](https://doi.org/10.1101/2021.06.14.448454)
+
 Abstract:
 
 Distinguishing between genetic, environmental, and

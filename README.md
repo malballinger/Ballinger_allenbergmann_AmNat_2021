@@ -12,7 +12,8 @@ Data and code have been deposited on Zenodo:
 <br>
 
 
-**Abstract**:<br>Distinguishing between genetic, environmental, and
+## Abstract:
+Distinguishing between genetic, environmental, and
 genotype-by-environment effects is central to understanding geographic
 variation in phenotypic clines. Two of the best-documented phenotypic
 clines are Bergmann’s rule and Allen’s rule, which describe larger body

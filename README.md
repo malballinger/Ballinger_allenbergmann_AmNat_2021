@@ -1,8 +1,6 @@
 The contribution of genetic and environmental effects to Bergmann’s rule
 and Allen’s rule in house mice
 ================
-Mallory A. Ballinger and Michael W. Nachman<br>(last updated: May 28, 2022)
-
 Link to our paper published in *The American Naturalist*:
 [![DOI: 10.1086/719028](http://img.shields.io/badge/DOI-10.1086/719028-success.svg)](https://doi.org/10.1086/719028)
 
@@ -10,7 +8,8 @@ See our bioRxiv preprint here:
 [![DOI:10.1101/2021.06.14.448454](http://img.shields.io/badge/DOI-10.1101/2021.06.14.448454-B31B1B.svg)](https://doi.org/10.1101/2021.06.14.448454)
 
 Data and code have been deposited on Zenodo:
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5823597.svg)](https://doi.org/10.5281/zenodo.5823597)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5823597.svg)](https://doi.org/10.5281/zenodo.5823597)<br>
+<br>
 
 
 **Abstract**:<br>Distinguishing between genetic, environmental, and
